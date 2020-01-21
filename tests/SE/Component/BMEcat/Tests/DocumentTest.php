@@ -15,10 +15,10 @@ namespace SE\Component\BMEcat\Tests;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class DocumentTest extends \PHPUnit_Framework_TestCase
+class DocumentTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function setUp()
+    public function setUp() : void
     {
         $data = [
             'document' => [
@@ -90,7 +90,7 @@ class DocumentTest extends \PHPUnit_Framework_TestCase
 
                 list($type, $source, $purpose) = $value;
 
-                $mime = new \SE\Component\BMEcat\Node\MimeNode();
+                $mime = new \SE\Component\BMEcat\Node\ArticleMimeNode();
 
                 $mime->setType($type);
                 $mime->setSource($source);

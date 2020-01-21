@@ -7,9 +7,9 @@ namespace SE\Component\BMEcat\Tests\Node;
  * @package SE\Component\BMEcat\Tests
  * @author Jochen Pfaeffle <jochen.pfaeffle.dev@gmail.com>
  */
-class ArticleOrderDetailsNodeTest extends \PHPUnit_Framework_TestCase
+class ArticleOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
 {
-    public function setUp()
+    public function setUp() : void
     {
         $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
     }

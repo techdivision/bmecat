@@ -15,7 +15,7 @@ namespace SE\Component\BMEcat\Tests;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class NodeLoaderTest extends \PHPUnit_Framework_TestCase
+class NodeLoaderTest extends \PHPUnit\Framework\TestCase
 {
     /**
      *
@@ -27,7 +27,7 @@ class NodeLoaderTest extends \PHPUnit_Framework_TestCase
      *
      * Sets up a default loader instance
      */
-    public function setUp()
+    public function setUp() : void
     {
         $this->loader = new \SE\Component\BMEcat\NodeLoader;
     }
@@ -100,31 +100,30 @@ class NodeLoaderTest extends \PHPUnit_Framework_TestCase
     /**
      *
      * @test
-     * @expectedException \SE\Component\BMEcat\Exception\UnknownNodeTypeException
      */
     public function Get_Unknown_Node_Class()
     {
+        $this->expectException(\SE\Component\BMEcat\Exception\UnknownNodeTypeException::class);
         $this->loader->get('unknown.node');
-
     }
 
     /**
      *
      * @test
-     * @expectedException \SE\Component\BMEcat\Exception\UnknownNodeTypeException
      */
     public function Set_Unknown_Node_Class()
     {
+        $this->expectException(\SE\Component\BMEcat\Exception\UnknownNodeTypeException::class);
         $this->loader->set('unknown.node', '\SE\Component\BMEcat\Node\ArticleNode');
     }
 
     /**
      *
      * @test
-     * @expectedException \SE\Component\BMEcat\Exception\UnknownNodeException
      */
     public function Get_Unknown_Node_Instance()
     {
+        $this->expectException(\SE\Component\BMEcat\Exception\UnknownNodeException::class);
         $this->loader->getInstance('unknown.node');
     }
 

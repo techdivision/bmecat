@@ -57,7 +57,7 @@ class DataLoader
                 break;
 
                 case 'loader':
-                    continue;
+                    continue 2;
 
                 default:
                     throw new UnknownKeyException(sprintf('Unknown key %s to load', $key));

@@ -64,20 +64,23 @@
         <QUANTITY_MIN>1</QUANTITY_MIN>
         <QUANTITY_INTERVAL>1</QUANTITY_INTERVAL>
       </ARTICLE_ORDER_DETAILS>
-      <MIME_INFO xsi:nil="true"/>
-      <ITEMTAGS xsi:nil="true"/>
       <MIME_INFO>
         <MIME>
           <MIME_TYPE><![CDATA[image/jpeg]]></MIME_TYPE>
           <MIME_SOURCE><![CDATA[http://a.b/c/d.jpg]]></MIME_SOURCE>
+          <MIME_DESCR xsi:nil="true"/>
+          <MIME_ALT xsi:nil="true"/>
           <MIME_PURPOSE><![CDATA[normal]]></MIME_PURPOSE>
         </MIME>
         <MIME>
           <MIME_TYPE><![CDATA[image/bmp]]></MIME_TYPE>
           <MIME_SOURCE><![CDATA[http://w.x/y/z.bmp]]></MIME_SOURCE>
+          <MIME_DESCR xsi:nil="true"/>
+          <MIME_ALT xsi:nil="true"/>
           <MIME_PURPOSE><![CDATA[thumbnail]]></MIME_PURPOSE>
         </MIME>
       </MIME_INFO>
+      <ITEMTAGS xsi:nil="true"/>
     </ARTICLE>
     <ARTICLE>
       <SUPPLIER_AID><![CDATA[2]]></SUPPLIER_AID>
@@ -114,7 +117,31 @@
         <CustomsCountryOfOrigin><![CDATA[I]]></CustomsCountryOfOrigin>
         <CustomsTariffText><![CDATA[J]]></CustomsTariffText>
       </ARTICLE_FEATURES>
-
+      <ARTICLE_ORDER_DETAILS>
+        <ORDER_UNIT xsi:nil="true"/>
+        <CONTENT_UNIT xsi:nil="true"/>
+        <NO_CU_PER_OU>1</NO_CU_PER_OU>
+        <PRICE_QUANTITY>1</PRICE_QUANTITY>
+        <QUANTITY_MIN>1</QUANTITY_MIN>
+        <QUANTITY_INTERVAL>1</QUANTITY_INTERVAL>
+      </ARTICLE_ORDER_DETAILS>
+      <MIME_INFO>
+        <MIME>
+          <MIME_TYPE><![CDATA[image/jpeg]]></MIME_TYPE>
+          <MIME_SOURCE><![CDATA[http://a.b/c/d.jpg]]></MIME_SOURCE>
+          <MIME_DESCR xsi:nil="true"/>
+          <MIME_ALT xsi:nil="true"/>
+          <MIME_PURPOSE><![CDATA[normal]]></MIME_PURPOSE>
+        </MIME>
+        <MIME>
+          <MIME_TYPE><![CDATA[image/bmp]]></MIME_TYPE>
+          <MIME_SOURCE><![CDATA[http://w.x/y/z.bmp]]></MIME_SOURCE>
+          <MIME_DESCR xsi:nil="true"/>
+          <MIME_ALT xsi:nil="true"/>
+          <MIME_PURPOSE><![CDATA[thumbnail]]></MIME_PURPOSE>
+        </MIME>
+      </MIME_INFO>
+      <ITEMTAGS xsi:nil="true"/>
     </ARTICLE>
     <ARTICLE>
       <SUPPLIER_AID><![CDATA[3]]></SUPPLIER_AID>
@@ -151,7 +178,31 @@
         <CustomsCountryOfOrigin><![CDATA[I]]></CustomsCountryOfOrigin>
         <CustomsTariffText><![CDATA[J]]></CustomsTariffText>
       </ARTICLE_FEATURES>
-
+      <ARTICLE_ORDER_DETAILS>
+        <ORDER_UNIT xsi:nil="true"/>
+        <CONTENT_UNIT xsi:nil="true"/>
+        <NO_CU_PER_OU>1</NO_CU_PER_OU>
+        <PRICE_QUANTITY>1</PRICE_QUANTITY>
+        <QUANTITY_MIN>1</QUANTITY_MIN>
+        <QUANTITY_INTERVAL>1</QUANTITY_INTERVAL>
+      </ARTICLE_ORDER_DETAILS>
+      <MIME_INFO>
+        <MIME>
+          <MIME_TYPE><![CDATA[image/jpeg]]></MIME_TYPE>
+          <MIME_SOURCE><![CDATA[http://a.b/c/d.jpg]]></MIME_SOURCE>
+          <MIME_DESCR xsi:nil="true"/>
+          <MIME_ALT xsi:nil="true"/>
+          <MIME_PURPOSE><![CDATA[normal]]></MIME_PURPOSE>
+        </MIME>
+        <MIME>
+          <MIME_TYPE><![CDATA[image/bmp]]></MIME_TYPE>
+          <MIME_SOURCE><![CDATA[http://w.x/y/z.bmp]]></MIME_SOURCE>
+          <MIME_DESCR xsi:nil="true"/>
+          <MIME_ALT xsi:nil="true"/>
+          <MIME_PURPOSE><![CDATA[thumbnail]]></MIME_PURPOSE>
+        </MIME>
+      </MIME_INFO>
+      <ITEMTAGS xsi:nil="true"/>
     </ARTICLE>
   </T_NEW_CATALOG>
 </BMECAT>

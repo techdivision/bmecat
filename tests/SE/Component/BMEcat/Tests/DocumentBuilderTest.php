@@ -15,12 +15,12 @@ namespace SE\Component\BMEcat\Tests;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class DocumentBuilderTest extends \PHPUnit_Framework_TestCase
+class DocumentBuilderTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function setUp()
+    public function setUp() : void
     {
-        $this->serializer = $this->getMock('\JMS\Serializer\Serializer', [], [], '', false);
+        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
         $this->loader = new \SE\Component\BMEcat\NodeLoader;
     }
 
@@ -31,6 +31,7 @@ class DocumentBuilderTest extends \PHPUnit_Framework_TestCase
     public function Can_Be_Instantiated()
     {
         $builder = new \SE\Component\BMEcat\DocumentBuilder($this->serializer, $this->loader);
+        $this->assertInstanceOf(\SE\Component\BMEcat\DocumentBuilder::class, $builder);
     }
 
     /**
@@ -87,10 +88,10 @@ class DocumentBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      *
      * @test
-     * @expectedException \SE\Component\BMEcat\Exception\MissingDocumentException
      */
     public function To_String_Throws_Exception()
     {
+        $this->expectException(\SE\Component\BMEcat\Exception\MissingDocumentException::class);
         $builder = new \SE\Component\BMEcat\DocumentBuilder;
         $builder->toString();
     }

@@ -15,12 +15,12 @@ namespace SE\Component\BMEcat\Tests;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class DataLoaderTest extends \PHPUnit_Framework_TestCase
+class DataLoaderTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function setUp()
+    public function setUp() : void
     {
-        $this->serializer = $this->getMock('\JMS\Serializer\Serializer', [], [], '', false);
+        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
         $this->loader     = new \SE\Component\BMEcat\NodeLoader;
         $this->builder    = new \SE\Component\BMEcat\DocumentBuilder($this->serializer, $this->loader);
     }
@@ -53,6 +53,7 @@ class DataLoaderTest extends \PHPUnit_Framework_TestCase
     public function Can_Create_Default_Document()
     {
         \SE\Component\BMEcat\DataLoader::load([], $this->builder);
+        $this->assertInstanceOf(\SE\Component\BMEcat\Node\DocumentNode::class, $this->builder->getDocument());
     }
 
     /**
@@ -95,7 +96,7 @@ class DataLoaderTest extends \PHPUnit_Framework_TestCase
         $name  = 'id';
         $value = sprintf('Test_Id_%s', sha1(uniqid(microtime(false), true)));
 
-        $stub = $this->getMock('\SE\Component\BMEcat\Node\ArticleNode');
+        $stub = $this->createMock('\SE\Component\BMEcat\Node\ArticleNode');
 
         $stub->expects($this->once())
             ->method('setId')
@@ -121,7 +122,7 @@ class DataLoaderTest extends \PHPUnit_Framework_TestCase
             'version'  => sha1(uniqid(microtime(false), true)),
         ];
 
-        $stub = $this->getMock('\SE\Component\BMEcat\Node\CatalogNode');
+        $stub = $this->createMock('\SE\Component\BMEcat\Node\CatalogNode');
 
         $stub->expects($this->once())
             ->method('setId')
@@ -164,7 +165,7 @@ class DataLoaderTest extends \PHPUnit_Framework_TestCase
             'generator_info' => sha1(uniqid(microtime(false), true)),
         ];
 
-        $stub = $this->getMock('\SE\Component\BMEcat\Node\HeaderNode');
+        $stub = $this->createMock('\SE\Component\BMEcat\Node\HeaderNode');
 
         $stub->expects($this->once())
             ->method('setGeneratorInfo')
@@ -191,7 +192,7 @@ class DataLoaderTest extends \PHPUnit_Framework_TestCase
             ],
         ];
 
-        $datetime = $this->getMock('\SE\Component\BMEcat\Node\DateTimeNode');
+        $datetime = $this->createMock('\SE\Component\BMEcat\Node\DateTimeNode');
         $datetime->expects($this->once())
             ->method('setDate')
             ->with($data['datetime']['date']);
@@ -222,7 +223,7 @@ class DataLoaderTest extends \PHPUnit_Framework_TestCase
             ]
         ];
 
-        $catalog = $this->getMock('\SE\Component\BMEcat\Node\CatalogNode');
+        $catalog = $this->createMock('\SE\Component\BMEcat\Node\CatalogNode');
         $catalog->expects($this->once())
             ->method('setId')
             ->with($data['catalog']['id']);
@@ -231,7 +232,7 @@ class DataLoaderTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($data['catalog']['id']));
 
 
-        $supplier = $this->getMock('\SE\Component\BMEcat\Node\SupplierNode');
+        $supplier = $this->createMock('\SE\Component\BMEcat\Node\SupplierNode');
         $supplier->expects($this->once())
             ->method('setName')
             ->with($data['supplier']['name']);
@@ -259,7 +260,9 @@ class DataLoaderTest extends \PHPUnit_Framework_TestCase
             'document' => []
         ];
 
-        $builder = $this->getMock('\SE\Component\BMEcat\DocumentBuilder', ['getDocument']);
+        $builder = $this->getMockBuilder('\SE\Component\BMEcat\DocumentBuilder')
+            ->onlyMethods(['getDocument'])
+            ->getMock();
         $builder->expects($this->exactly(2))
             ->method('getDocument');
 
@@ -278,8 +281,8 @@ class DataLoaderTest extends \PHPUnit_Framework_TestCase
             ]
         ];
 
-        $header   = $this->getMock('\SE\Component\BMEcat\Node\HeaderNode');
-        $document = $this->getMock('\SE\Component\BMEcat\Node\DocumentNode');
+        $header   = $this->createMock('\SE\Component\BMEcat\Node\HeaderNode');
+        $document = $this->createMock('\SE\Component\BMEcat\Node\DocumentNode');
         $document->setHeader($header);
 
         $header->expects($this->exactly(1))
@@ -306,7 +309,7 @@ class DataLoaderTest extends \PHPUnit_Framework_TestCase
 
         ];
 
-        $document = $this->getMock('\SE\Component\BMEcat\Node\DocumentNode');
+        $document = $this->createMock('\SE\Component\BMEcat\Node\DocumentNode');
         $document->expects($this->exactly(1))
             ->method('setVersion')
             ->with($data['attributes']['version']);
@@ -329,7 +332,7 @@ class DataLoaderTest extends \PHPUnit_Framework_TestCase
             'nullable' => true
         ];
 
-        $context = $this->getMock('\JMS\Serializer\SerializationContext', [], [], '', false);
+        $context = $this->createMock('\JMS\Serializer\SerializationContext', [], [], '', false);
         $context->expects($this->exactly(2))
             ->method('setSerializeNull')
             ->with($data['nullable']);
@@ -344,77 +347,60 @@ class DataLoaderTest extends \PHPUnit_Framework_TestCase
      *
      * @test
      */
-    public function Nullable_Has_Wrong_Value_And_Is_Ignored()
-    {
-        $data = [
-            'nullable' => sha1(uniqid(microtime(false), true)),
-        ];
-
-        $serializer = $this->getMock('\JMS\Serializer\Serializer', [], [], '', false);
-        $serializer->expects($this->exactly(0))
-            ->method('setSerializeNull');
-
-        $builder = new \SE\Component\BMEcat\DocumentBuilder($serializer);
-        \SE\Component\BMEcat\DataLoader::load($data, $builder);
-    }
-
-    /**
-     *
-     * @test
-     * @expectedException \SE\Component\BMEcat\Exception\UnknownKeyException
-     */
     public function Unknown_Option_Key_Exceptions_Get_Thrown()
     {
+        $this->expectException(\SE\Component\BMEcat\Exception\UnknownKeyException::class);
         $data = [
             sha1(uniqid(microtime(false), true)) => []
         ];
 
-        $builder = $this->getMock('\SE\Component\BMEcat\DocumentBuilder', ['getDocument']);
+        $builder = $this->createMock('\SE\Component\BMEcat\DocumentBuilder', ['getDocument']);
         \SE\Component\BMEcat\DataLoader::load($data, $builder);
     }
 
     /**
      *
      * @test
-     * @expectedException \SE\Component\BMEcat\Exception\UnknownKeyException
      */
     public function Unknown_Document_Key_Exceptions_Get_Thrown()
     {
+        $this->expectException(\SE\Component\BMEcat\Exception\UnknownKeyException::class);
+
         $data = [
             sha1(uniqid(microtime(false), true)) => []
         ];
 
-        $document = $this->getMock('\SE\Component\BMEcat\Node\DocumentNode');
+        $document = $this->createMock('\SE\Component\BMEcat\Node\DocumentNode');
         \SE\Component\BMEcat\DataLoader::loadDocument($data, $document);
     }
 
     /**
      *
      * @test
-     * @expectedException \SE\Component\BMEcat\Exception\UnknownKeyException
      */
     public function Unknown_Header_Key_Exceptions_Get_Thrown()
     {
+        $this->expectException(\SE\Component\BMEcat\Exception\UnknownKeyException::class);
         $data = [
             sha1(uniqid(microtime(false), true)) => []
         ];
 
-        $header = $this->getMock('\SE\Component\BMEcat\Node\HeaderNode');
+        $header = $this->createMock('\SE\Component\BMEcat\Node\HeaderNode');
         \SE\Component\BMEcat\DataLoader::loadHeader($data, $header);
     }
 
     /**
      *
      * @test
-     * @expectedException \SE\Component\BMEcat\Exception\UnknownKeyException
      */
     public function Unknown_Catalog_Key_Exceptions_Get_Thrown()
     {
+        $this->expectException(\SE\Component\BMEcat\Exception\UnknownKeyException::class);
         $data = [
             sha1(uniqid(microtime(false), true)) => []
         ];
 
-        $catalog = $this->getMock('\SE\Component\BMEcat\Node\CatalogNode');
+        $catalog = $this->createMock('\SE\Component\BMEcat\Node\CatalogNode');
         \SE\Component\BMEcat\DataLoader::loadCatalog($data, $catalog);
     }
 }

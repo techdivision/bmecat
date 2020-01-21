@@ -15,9 +15,9 @@ namespace SE\Component\BMEcat\Tests\Node;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class DocumentNodeTest extends \PHPUnit_Framework_TestCase
+class DocumentNodeTest extends \PHPUnit\Framework\TestCase
 {
-    public function setUp()
+    public function setUp() : void
     {
         $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
     }

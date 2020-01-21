@@ -27,7 +27,7 @@ class ArticleStatusNode extends AbstractNode
      *
      * @var string
      */
-    static public $value = '';
+    protected $value = '';
 
     /**
      * @param string $type
@@ -43,5 +43,21 @@ class ArticleStatusNode extends AbstractNode
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setValue(string $value): void
+    {
+        $this->value = $value;
     }
 }

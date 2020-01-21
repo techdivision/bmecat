@@ -27,7 +27,7 @@ class BuyerAidNode extends AbstractNode
      *
      * @var string
      */
-    static public $value = '';
+    protected $value = '';
 
     /**
      * @return string
@@ -43,5 +43,21 @@ class BuyerAidNode extends AbstractNode
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setValue(string $value): void
+    {
+        $this->value = $value;
     }
 }

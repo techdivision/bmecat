@@ -15,9 +15,9 @@ namespace SE\Component\BMEcat\Tests\Node;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class ArticleNodeTest  extends \PHPUnit_Framework_TestCase
+class ArticleNodeTest  extends \PHPUnit\Framework\TestCase
 {
-    public function setUp()
+    public function setUp() : void
     {
         $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
     }
@@ -128,7 +128,7 @@ class ArticleNodeTest  extends \PHPUnit_Framework_TestCase
         $node = new \SE\Component\BMEcat\Node\ArticleNode();
         $this->assertEmpty($node->getMimes());
         $node->nullMime();
-        $this->assertEquals([], $node->getMimes());
+        $this->assertEquals(null, $node->getMimes());
 
         foreach($mimes as $mime) {
             $node->addMime($mime);
@@ -152,7 +152,7 @@ class ArticleNodeTest  extends \PHPUnit_Framework_TestCase
         $node = new \SE\Component\BMEcat\Node\ArticleNode();
         $this->assertEmpty($node->getItemTags());
         $node->nullItemTags();
-        $this->assertEquals([], $node->getItemTags());
+        $this->assertEquals(null, $node->getItemTags());
 
         foreach($itemTags as $itemTag) {
             $node->addItemTag($itemTag);
@@ -172,7 +172,6 @@ class ArticleNodeTest  extends \PHPUnit_Framework_TestCase
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
-
         $this->assertEquals($expected, $actual);
     }
 

@@ -15,9 +15,9 @@ namespace SE\Component\BMEcat\Tests\Node;
  * @package SE\Component\BMEcat\Tests
  * @author Jan Kahnt <j.kahnt@impericon.com>
  */
-class MimeNodeTest extends \PHPUnit_Framework_TestCase
+class MimeNodeTest extends \PHPUnit\Framework\TestCase
 {
-    public function setUp()
+    public function setUp() : void
     {
         $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
     }

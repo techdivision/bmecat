@@ -68,16 +68,6 @@ class ArticleNode extends AbstractNode
 
     /**
      * @Serializer\Expose
-     * @Serializer\SerializedName("MIME_INFO")
-     * @Serializer\Type("array<SE\Component\BMEcat\Node\MimeNode>")
-     * @Serializer\XmlList( entry="MIME")
-     *
-     * @var \SE\Component\BMEcat\Node\MimeNode[]
-     */
-    protected $mimeInfo = [];
-
-    /**
-     * @Serializer\Expose
      * @Serializer\SerializedName("ARTICLE_ORDER_DETAILS")
      * @Serializer\Type("SE\Component\BMEcat\Node\ArticleOrderDetailsNode")
      *
@@ -94,7 +84,7 @@ class ArticleNode extends AbstractNode
      *
      * @var \SE\Component\BMEcat\Node\ArticleMimeNode[]
      */
-    protected $mimes;
+    protected $mimes = [];
 
     /**
      * Only for PIXI Import
@@ -201,17 +191,6 @@ class ArticleNode extends AbstractNode
     }
 
     /**
-     * @Serializer\PreSerialize
-     * @Serializer\PostSerialize
-     */
-    public function nullMimeInfo()
-    {
-        if(empty($this->mimeInfo) === true) {
-            $this->mimeInfo = null;
-        }
-    }
-
-    /**
      *
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
@@ -238,6 +217,14 @@ class ArticleNode extends AbstractNode
     public function setDetail($detail)
     {
         $this->detail = $detail;
+    }
+
+    /**
+     * @return ArticleOrderDetailsNode|null
+     */
+    public function getOrderDetails()
+    {
+        return $this->orderDetails;
     }
 
     /**
@@ -289,6 +276,38 @@ class ArticleNode extends AbstractNode
         }
 
         return $this->prices;
+    }
+
+    /**
+     * @return ArticleMimeNode[]|null
+     */
+    public function getMimes()
+    {
+        return $this->mimes;
+    }
+
+    /**
+     * @param ArticleMimeNode[] $mimes
+     */
+    public function setMimes(array $mimes): void
+    {
+        $this->mimes = $mimes;
+    }
+
+    /**
+     * @return ArticleItemTagNode[]|null
+     */
+    public function getItemTags()
+    {
+        return $this->itemTags;
+    }
+
+    /**
+     * @param ArticleItemTagNode[] $itemTags
+     */
+    public function setItemTags(array $itemTags): void
+    {
+        $this->itemTags = $itemTags;
     }
 
 }
