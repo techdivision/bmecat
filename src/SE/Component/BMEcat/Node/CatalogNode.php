@@ -24,6 +24,14 @@ use SE\Component\BMEcat\Node\DateTimeNode;
  */
 class CatalogNode extends AbstractNode
 {
+    /**
+     * @Serializer\Expose
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("LANGUAGE")
+     *
+     * @var string
+     */
+    protected $language;
 
     /**
       * @Serializer\Expose
@@ -42,15 +50,6 @@ class CatalogNode extends AbstractNode
       * @var string
       */
     protected $version;
-
-    /**
-     * @Serializer\Expose
-     * @Serializer\Type("string")
-     * @Serializer\SerializedName("LANGUAGE")
-     *
-     * @var string
-     */
-    protected $language;
 
     /**
      * @Serializer\Expose

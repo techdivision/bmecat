@@ -29,14 +29,14 @@ class DocumentNode extends AbstractNode
      * @Serializer\Expose
      * @Serializer\XmlAttribute
      */
-    protected $version = '1.2';
+    protected $version = '2005.1';
 
     /**
      * @Serializer\Expose
      * @Serializer\SerializedName("xmlns")
      * @Serializer\XmlAttribute
      */
-    protected $namespace = 'http://www.bmecat.org/bmecat/1.2/bmecat_new_catalog';
+    protected $namespace = 'http://www.bmecat.org/bmecat/2005.1';
 
     /**
      * @Serializer\Expose
