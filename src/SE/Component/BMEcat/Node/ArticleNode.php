@@ -164,19 +164,6 @@ class ArticleNode extends AbstractNode
         $this->itemTags[] = $itemTag;
     }
 
-
-    /**
-     *
-     * @param \SE\Component\BMEcat\Node\MimeNode $mime
-     */
-    public function addMime(MimeNode $mime)
-    {
-        if($this->mimeInfo === null) {
-            $this->mimeInfo = [];
-        }
-        $this->mimeInfo []= $mime;
-    }
-
     /**
      *
      * @Serializer\PreSerialize
