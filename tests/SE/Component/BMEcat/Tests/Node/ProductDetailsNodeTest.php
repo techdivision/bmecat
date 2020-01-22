@@ -15,7 +15,7 @@ use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
 use SE\Component\BMEcat\Node\ProductKeywordNode;
 use SE\Component\BMEcat\Node\ProductStatusNode;
-use SE\Component\BMEcat\Node\BuyerAidNode;
+use SE\Component\BMEcat\Node\BuyerPidNode;
 use SE\Component\BMEcat\Node\ProductDetailsNode;
 use SE\Component\BMEcat\Node\SpecialTreatmentClassNode;
 
@@ -34,24 +34,24 @@ class ProductDetailsNodeTest extends TestCase
     /**
      * @test
      */
-    public function Add_Get_Buyer_Aides()
+    public function Add_Get_Buyer_Pides()
     {
-        $buyerAids = [
-            new BuyerAidNode('test'),
-            new BuyerAidNode('test'),
-            new BuyerAidNode('test'),
+        $buyerPids = [
+            new BuyerPidNode('test'),
+            new BuyerPidNode('test'),
+            new BuyerPidNode('test'),
         ];
 
         $node = new ProductDetailsNode();
-        $this->assertEmpty($node->getBuyerAids());
-        $node->nullBuyerAids();
-        $this->assertEquals([], $node->getBuyerAids());
+        $this->assertEmpty($node->getBuyerPids());
+        $node->nullBuyerPids();
+        $this->assertEquals([], $node->getBuyerPids());
 
-        foreach($buyerAids as $buyerAid) {
-            $node->addBuyerAid($buyerAid);
+        foreach($buyerPids as $buyerPid) {
+            $node->addBuyerPid($buyerPid);
         }
 
-        $this->assertEquals($buyerAids, $node->getBuyerAids());
+        $this->assertEquals($buyerPids, $node->getBuyerPids());
     }
 
     /**
@@ -144,7 +144,7 @@ class ProductDetailsNodeTest extends TestCase
         $node = new ProductDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
-        $this->assertNull($node->getDescriptionShort());
+        $this->assertEquals('', $node->getDescriptionShort());
         $node->setDescriptionShort($value);
         $this->assertEquals($value, $node->getDescriptionShort());
     }
@@ -165,14 +165,14 @@ class ProductDetailsNodeTest extends TestCase
     /**
      * @test
      */
-    public function Set_Get_Supplier_Alt_Aid()
+    public function Set_Get_Supplier_Alt_Pid()
     {
         $node = new ProductDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
-        $this->assertNull($node->getSupplierAltAid());
-        $node->setSupplierAltAid($value);
-        $this->assertEquals($value, $node->getSupplierAltAid());
+        $this->assertNull($node->getSupplierAltPid());
+        $node->setSupplierAltPid($value);
+        $this->assertEquals($value, $node->getSupplierAltPid());
     }
 
     /**

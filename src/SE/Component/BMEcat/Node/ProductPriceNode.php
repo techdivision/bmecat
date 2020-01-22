@@ -45,16 +45,6 @@ class ProductPriceNode extends AbstractNode
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("float")
-     * @Serializer\SerializedName("SUPPLPRICE_AMOUNT")
-     * @Serializer\XmlElement(cdata=false)
-     *
-     * @var float
-     */
-
-    protected $supplierPrice;
-    /**
-     * @Serializer\Expose
      * @Serializer\Type("string")
      * @Serializer\SerializedName("PRICE_CURRENCY")
      *
@@ -96,23 +86,5 @@ class ProductPriceNode extends AbstractNode
     public function getPrice()
     {
         return $this->price;
-    }
-
-    /**
-     *
-     * @param float $supplierPrice
-     */
-    public function setSupplierPrice($supplierPrice)
-    {
-        $this->supplierPrice = $supplierPrice;
-    }
-
-    /**
-     *
-     * @return float
-     */
-    public function getSupplierPrice()
-    {
-        return $this->supplierPrice;
     }
 }

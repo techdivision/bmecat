@@ -10,6 +10,8 @@
 
 namespace SE\Component\BMEcat\Tests;
 
+use SE\Component\BMEcat\Node\ProductDetailsNode;
+use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
 use SE\Component\BMEcat\SchemaValidator;
 
 /**
@@ -54,6 +56,9 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
         foreach([1,2,3] as $index) {
             $product = new \SE\Component\BMEcat\Node\ProductNode;
             $product->setId($index);
+            $productDetails = new ProductDetailsNode();
+            $productDetails->setDescriptionShort('description');
+            $product->setDetails($productDetails);
 
             foreach([['EUR', 10.50], ['GBP', 7.30]] as $value) {
                 list($currency, $amount) = $value;
@@ -62,7 +67,6 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
 
                 $price->setPrice($amount);
                 $price->setCurrency($currency);
-                $price->setSupplierPrice(round($amount/2,2));
 
                 $product->addPrice($price);
             }
@@ -102,6 +106,7 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
             }
 
             $orderDetails = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode;
+            $orderDetails->setOrderUnit('C62');
             $orderDetails->setNoCuPerOu(1);
             $orderDetails->setPriceQuantity(1);
             $orderDetails->setQuantityMin(1);

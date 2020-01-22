@@ -42,6 +42,15 @@ class ProductNode extends AbstractNode
     protected $detail;
 
     /**
+     * @Serializer\Expose
+     * @Serializer\SerializedName("PRODUCT_ORDER_DETAILS")
+     * @Serializer\Type("SE\Component\BMEcat\Node\ProductOrderDetailsNode")
+     *
+     * @var ProductOrderDetailsNode
+     */
+    protected $orderDetails;
+
+    /**
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_PRICE_DETAILS")
@@ -61,15 +70,6 @@ class ProductNode extends AbstractNode
      * @var ProductFeaturesNode[]
      */
     protected $features = [];
-
-    /**
-     * @Serializer\Expose
-     * @Serializer\SerializedName("PRODUCT_ORDER_DETAILS")
-     * @Serializer\Type("SE\Component\BMEcat\Node\ProductOrderDetailsNode")
-     *
-     * @var ProductOrderDetailsNode
-     */
-    protected $orderDetails;
 
     /**
      *

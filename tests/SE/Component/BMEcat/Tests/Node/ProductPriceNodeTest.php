@@ -40,20 +40,6 @@ class ProductPriceNodeTest  extends \PHPUnit\Framework\TestCase
      *
      * @test
      */
-    public function Set_Get_Supplier_Price()
-    {
-        $node = new \SE\Component\BMEcat\Node\ProductPriceNode();
-        $value = rand(10,1000);
-
-        $this->assertNull($node->getSupplierPrice());
-        $node->setSupplierPrice($value);
-        $this->assertEquals($value, $node->getSupplierPrice());
-    }
-
-    /**
-     *
-     * @test
-     */
     public function Set_Get_Currency()
     {
         $node = new \SE\Component\BMEcat\Node\ProductPriceNode();

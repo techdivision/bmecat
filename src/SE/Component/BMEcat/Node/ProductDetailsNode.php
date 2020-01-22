@@ -29,7 +29,7 @@ class ProductDetailsNode extends AbstractNode
      *
      * @var string
      */
-    protected $descriptionShort;
+    protected $descriptionShort = '';
 
     /**
      *
@@ -55,30 +55,30 @@ class ProductDetailsNode extends AbstractNode
      *
      * @Serializer\Expose
      * @Serializer\Type("string")
-     * @Serializer\SerializedName("SUPPLIER_ALT_AID")
+     * @Serializer\SerializedName("SUPPLIER_ALT_PID")
      *
      * @var string
      */
-    protected $supplierAltAid;
+    protected $supplierAltPid;
 
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<SE\Component\BMEcat\Node\BuyerAidNode>")
-     * @Serializer\XmlList(inline=true, entry="BUYER_AID")
+     * @Serializer\Type("array<SE\Component\BMEcat\Node\BuyerPidNode>")
+     * @Serializer\XmlList(inline=true, entry="BUYER_PID")
      *
-     * @var BuyerAidNode[]
+     * @var BuyerPidNode[]
      */
-    protected $buyerAids;
+    protected $buyerPids;
 
     /**
      * @Serializer\Expose
      * @Serializer\Type("string")
-     * @Serializer\SerializedName("MANUFACTURER_AID")
+     * @Serializer\SerializedName("MANUFACTURER_PID")
      *
      * @var string
      */
-    protected $manufacturerAid;
+    protected $manufacturerPid;
 
     /**
      *
@@ -193,27 +193,14 @@ class ProductDetailsNode extends AbstractNode
     protected $productStatus;
 
     /**
-     * Only For PIXI Imports
-     *
-     * @Serializer\Expose
-     * @Serializer\Type("float")
-     * @Serializer\SerializedName("WEIGHT")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SkipWhenEmpty
-     *
-     * @var float
+     * @param BuyerPidNode $buyerAid
      */
-    protected $weight;
-
-    /**
-     * @param BuyerAidNode $buyerAid
-     */
-    public function addBuyerAid(BuyerAidNode $buyerAid)
+    public function addBuyerPid(BuyerPidNode $buyerAid)
     {
-        if ($this->buyerAids === null) {
-            $this->buyerAids = [];
+        if ($this->buyerPids === null) {
+            $this->buyerPids = [];
         }
-        $this->buyerAids[] = $buyerAid;
+        $this->buyerPids[] = $buyerAid;
     }
 
     /**
@@ -254,10 +241,10 @@ class ProductDetailsNode extends AbstractNode
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
      */
-    public function nullBuyerAids()
+    public function nullBuyerPids()
     {
-        if (empty($this->buyerAids) === true) {
-            $this->buyerAids = null;
+        if (empty($this->buyerPids) === true) {
+            $this->buyerPids = null;
         }
     }
 
@@ -322,19 +309,19 @@ class ProductDetailsNode extends AbstractNode
     }
 
     /**
-     * @param string $supplierAltAid
+     * @param string $supplierAltPid
      */
-    public function setSupplierAltAid($supplierAltAid)
+    public function setSupplierAltPid($supplierAltPid)
     {
-        $this->supplierAltAid = $supplierAltAid;
+        $this->supplierAltPid = $supplierAltPid;
     }
 
     /**
-     * @param string $manufacturerAid
+     * @param string $manufacturerPid
      */
-    public function setManufacturerAid($manufacturerAid)
+    public function setManufacturerPid($manufacturerPid)
     {
-        $this->manufacturerAid = $manufacturerAid;
+        $this->manufacturerPid = $manufacturerPid;
     }
 
     /**
@@ -444,29 +431,29 @@ class ProductDetailsNode extends AbstractNode
     /**
      * @return string
      */
-    public function getSupplierAltAid()
+    public function getSupplierAltPid()
     {
-        return $this->supplierAltAid;
+        return $this->supplierAltPid;
     }
 
     /**
-     * @return BuyerAidNode[]
+     * @return BuyerPidNode[]
      */
-    public function getBuyerAids()
+    public function getBuyerPids()
     {
-        if ($this->buyerAids === null) {
+        if ($this->buyerPids === null) {
             return [];
         }
 
-        return $this->buyerAids;
+        return $this->buyerPids;
     }
 
     /**
      * @return string
      */
-    public function getManufacturerAid()
+    public function getManufacturerPid()
     {
-        return $this->manufacturerAid;
+        return $this->manufacturerPid;
     }
 
     /**
@@ -551,21 +538,5 @@ class ProductDetailsNode extends AbstractNode
         }
 
         return $this->productStatus;
-    }
-
-    /**
-     * @return float
-     */
-    public function getWeight()
-    {
-        return $this->weight;
-    }
-
-    /**
-     * @param float $weight
-     */
-    public function setWeight($weight)
-    {
-        $this->weight = $weight;
     }
 }
