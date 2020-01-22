@@ -2,9 +2,10 @@
 
 namespace SE\Component\BMEcat\Exception;
 
+use Exception;
 use LibXMLError;
 
-class SchemaValidationException extends \Exception
+class SchemaValidationException extends Exception
 {
     protected $context = 3;
 

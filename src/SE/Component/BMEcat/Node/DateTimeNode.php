@@ -10,8 +10,8 @@
 
 namespace SE\Component\BMEcat\Node;
 
+use DateTimeImmutable;
 use JMS\Serializer\Annotation as Serializer;
-
 use SE\Component\BMEcat\Node\AbstractNode;
 
 /**
@@ -38,7 +38,7 @@ class DateTimeNode extends AbstractNode
      * @Serializer\Type("string")
      * @Serializer\SerializedName("DATE")
      *
-     * @var \DateTime
+     * @var string
      */
     protected $date;
 
@@ -47,7 +47,7 @@ class DateTimeNode extends AbstractNode
      * @Serializer\Type("string")
      * @Serializer\SerializedName("TIME")
      *
-     * @var \DateTime
+     * @var string
      */
     protected $time;
 
@@ -56,15 +56,15 @@ class DateTimeNode extends AbstractNode
      * @Serializer\Type("string")
      * @Serializer\SerializedName("TIMEZONE")
      *
-     * @var \DateTimeZone
+     * @var string
      */
     protected $timezone;
 
     /**
-     * @param \DateTimeImmutable $dateTime
+     * @param DateTimeImmutable $dateTime
      * @return DateTimeNode
      */
-    public function setDateTime(\DateTimeImmutable $dateTime) : DateTimeNode
+    public function setDateTime(DateTimeImmutable $dateTime) : DateTimeNode
     {
         $this->setDate($dateTime->format('Y-m-d'));
         $this->setTime($dateTime->format('H:i:s'));

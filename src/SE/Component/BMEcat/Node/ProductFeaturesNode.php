@@ -12,6 +12,8 @@ namespace SE\Component\BMEcat\Node;
 
 use \JMS\Serializer\Annotation as Serializer;
 
+use SE\Component\BMEcat\Exception\InvalidSetterException;
+use SE\Component\BMEcat\Exception\UnknownKeyException;
 use \SE\Component\BMEcat\Node\AbstractNode;
 
 /**
@@ -67,8 +69,8 @@ class ProductFeaturesNode extends AbstractNode
     /**
      * @param ProductFeatureNode[] $features
      * @return ProductFeaturesNode
-     * @throws \SE\Component\BMEcat\Exception\InvalidSetterException
-     * @throws \SE\Component\BMEcat\Exception\UnknownKeyException
+     * @throws InvalidSetterException
+     * @throws UnknownKeyException
      */
     public function setFeatures(array $features): ProductFeaturesNode
     {

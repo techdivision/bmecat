@@ -10,12 +10,14 @@
 
 namespace SE\Component\BMEcat\Exception;
 
+use Exception;
+
 /**
  *
  * @package SE\Component\BMEcat
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class MissingDocumentException extends \Exception
+class MissingDocumentException extends Exception
 {
 
 }

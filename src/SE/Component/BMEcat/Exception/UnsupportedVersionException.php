@@ -2,7 +2,9 @@
 
 namespace SE\Component\BMEcat\Exception;
 
-class UnsupportedVersionException extends \Exception
+use Exception;
+
+class UnsupportedVersionException extends Exception
 {
 
 }

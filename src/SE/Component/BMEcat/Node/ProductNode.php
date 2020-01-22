@@ -11,6 +11,8 @@
 namespace SE\Component\BMEcat\Node;
 
 use JMS\Serializer\Annotation as Serializer;
+use SE\Component\BMEcat\Exception\InvalidSetterException;
+use SE\Component\BMEcat\Exception\UnknownKeyException;
 
 /**
  *
@@ -117,8 +119,8 @@ class ProductNode extends AbstractNode
      *
      * @param ProductPriceNode[] $priceDetails
      * @return ProductNode
-     * @throws \SE\Component\BMEcat\Exception\InvalidSetterException
-     * @throws \SE\Component\BMEcat\Exception\UnknownKeyException
+     * @throws InvalidSetterException
+     * @throws UnknownKeyException
      */
     public function setPriceDetails(array $priceDetails) : ProductNode
     {
@@ -149,8 +151,8 @@ class ProductNode extends AbstractNode
     /**
      * @param MimeNode[] $mimes
      * @return ProductNode
-     * @throws \SE\Component\BMEcat\Exception\InvalidSetterException
-     * @throws \SE\Component\BMEcat\Exception\UnknownKeyException
+     * @throws InvalidSetterException
+     * @throws UnknownKeyException
      */
     public function setMimes(array $mimes): ProductNode
     {
@@ -261,8 +263,8 @@ class ProductNode extends AbstractNode
     /**
      * @param ProductFeaturesNode[] $features
      * @return ProductNode
-     * @throws \SE\Component\BMEcat\Exception\InvalidSetterException
-     * @throws \SE\Component\BMEcat\Exception\UnknownKeyException
+     * @throws InvalidSetterException
+     * @throws UnknownKeyException
      */
     public function setFeatures(array $features): ProductNode
     {
