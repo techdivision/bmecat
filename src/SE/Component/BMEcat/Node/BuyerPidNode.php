@@ -39,10 +39,12 @@ class BuyerPidNode extends AbstractNode
 
     /**
      * @param string $type
+     * @return BuyerPidNode
      */
-    public function setType($type)
+    public function setType($type) : BuyerPidNode
     {
         $this->type = $type;
+        return $this;
     }
 
     /**
@@ -55,9 +57,11 @@ class BuyerPidNode extends AbstractNode
 
     /**
      * @param string $value
+     * @return BuyerPidNode
      */
-    public function setValue(string $value): void
+    public function setValue(string $value): BuyerPidNode
     {
         $this->value = $value;
+        return $this;
     }
 }

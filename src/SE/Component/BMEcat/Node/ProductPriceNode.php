@@ -55,10 +55,12 @@ class ProductPriceNode extends AbstractNode
     /**
      *
      * @param string $currency
+     * @return ProductPriceNode
      */
-    public function setCurrency($currency)
+    public function setCurrency($currency) : ProductPriceNode
     {
         $this->currency = $currency;
+        return $this;
     }
 
     /**
@@ -73,10 +75,12 @@ class ProductPriceNode extends AbstractNode
     /**
      *
      * @param float $price
+     * @return ProductPriceNode
      */
-    public function setPrice($price)
+    public function setPrice($price) : ProductPriceNode
     {
         $this->price = $price;
+        return $this;
     }
 
     /**

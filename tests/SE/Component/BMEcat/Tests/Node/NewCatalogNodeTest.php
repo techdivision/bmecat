@@ -40,7 +40,7 @@ class NewCatalogNodeTest  extends \PHPUnit\Framework\TestCase
         $this->assertEquals([], $node->getProducts());
 
         foreach($products as $product) {
-            $node->addProducts($product);
+            $node->addProduct($product);
         }
 
         $this->assertSame($products, $node->getProducts());

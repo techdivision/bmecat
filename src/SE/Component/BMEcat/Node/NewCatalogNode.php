@@ -33,13 +33,15 @@ class NewCatalogNode extends AbstractNode
     /**
      *
      * @param \SE\Component\BMEcat\Node\ProductNode $product
+     * @return NewCatalogNode
      */
-    public function addProducts(ProductNode $product)
+    public function addProduct(ProductNode $product) : NewCatalogNode
     {
         if($this->products === null) {
             $this->products = [];
         }
         $this->products []= $product;
+        return $this;
     }
 
     /**

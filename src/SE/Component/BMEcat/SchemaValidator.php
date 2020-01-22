@@ -2,6 +2,7 @@
 
 namespace SE\Component\BMEcat;
 
+use SE\Component\BMEcat\Exception\SchemaValidationException;
 use SE\Component\BMEcat\Exception\UnsupportedVersionException;
 
 class SchemaValidator
@@ -21,14 +22,26 @@ class SchemaValidator
      * @param string $xml
      *
      * @param string $version
+     * @param string|null $type
      * @return bool
+     * @throws SchemaValidationException
      * @throws UnsupportedVersionException
      */
     public static function isValid($xml, string $version = '2005.1', string $type = null)
     {
+        libxml_use_internal_errors(true);
+
         $xmlValidate = new \DOMDocument();
         $xmlValidate->loadXML($xml);
-        return $xmlValidate->schemaValidate(self::getSchemaForVersion($version, $type));
+        $schemaFile = self::getSchemaForVersion($version, $type);
+        $validated = $xmlValidate->schemaValidate($schemaFile);
+        if (!$validated) {
+            throw SchemaValidationException::withErrors($xml, $schemaFile, libxml_get_errors());
+        }
+
+        libxml_use_internal_errors(false);
+        libxml_clear_errors();
+        return $validated;
     }
 
     /**

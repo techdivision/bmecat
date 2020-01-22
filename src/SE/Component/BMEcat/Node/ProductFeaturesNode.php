@@ -66,81 +66,61 @@ class ProductFeaturesNode extends AbstractNode
 
     /**
      * @param ProductFeatureNode $feature
+     * @return ProductFeaturesNode
      */
-    public function addFeature(ProductFeatureNode $feature)
+    public function addFeature(ProductFeatureNode $feature) : ProductFeaturesNode
     {
         if ($this->features === null) {
             $this->features = [];
         }
         $this->features[] = $feature;
+        return $this;
     }
 
     /**
      *
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
+     * @return ProductFeaturesNode
      */
-    public function nullFeatures()
+    public function nullFeatures() : ProductFeaturesNode
     {
         if (empty($this->features) === true) {
             $this->features = null;
         }
+        return $this;
     }
 
     /**
      * @param string $referenceFeatureSystemName
+     * @return ProductFeaturesNode
      */
-    public function setReferenceFeatureSystemName($referenceFeatureSystemName)
+    public function setReferenceFeatureSystemName($referenceFeatureSystemName) : ProductFeaturesNode
     {
         $this->referenceFeatureSystemName = $referenceFeatureSystemName;
+        return $this;
     }
 
     /**
      * @param string $referenceFeatureGroupName
+     * @return ProductFeaturesNode
      */
-    public function setReferenceFeatureGroupName($referenceFeatureGroupName)
+    public function setReferenceFeatureGroupName($referenceFeatureGroupName) : ProductFeaturesNode
     {
+        $this->referenceFeatureGroupId = null;
         $this->referenceFeatureGroupName = $referenceFeatureGroupName;
+        return $this;
     }
 
     /**
      * @param string $referenceFeatureGroupId
+     * @return ProductFeaturesNode
      */
-    public function setReferenceFeatureGroupId($referenceFeatureGroupId)
+    public function setReferenceFeatureGroupId($referenceFeatureGroupId) : ProductFeaturesNode
     {
+        $this->referenceFeatureGroupName = null;
         $this->referenceFeatureGroupId = $referenceFeatureGroupId;
-    }
-
-    /**
-     * @param int $serialNumberRequired
-     */
-    public function setSerialNumberRequired($serialNumberRequired)
-    {
-        $this->serialNumberRequired = $serialNumberRequired;
-    }
-
-    /**
-     * @param int $customsTariffNumber
-     */
-    public function setCustomsTariffNumber($customsTariffNumber)
-    {
-        $this->customsTariffNumber = $customsTariffNumber;
-    }
-
-    /**
-     * @param string $customsCountryOfOrigin
-     */
-    public function setCustomsCountryOfOrigin($customsCountryOfOrigin)
-    {
-        $this->customsCountryOfOrigin = $customsCountryOfOrigin;
-    }
-
-    /**
-     * @param string $customsTariffText
-     */
-    public function setCustomsTariffText($customsTariffText)
-    {
-        $this->customsTariffText = $customsTariffText;
+        return $this;
     }
 
     /**

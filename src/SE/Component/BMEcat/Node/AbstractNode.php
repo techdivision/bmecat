@@ -22,5 +22,8 @@ use SE\Component\BMEcat\Node\NodeInterface;
  */
 abstract class AbstractNode implements NodeInterface
 {
+    public static function fromArray(array $data)
+    {
 
+    }
 }

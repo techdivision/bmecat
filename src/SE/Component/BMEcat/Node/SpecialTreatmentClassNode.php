@@ -31,10 +31,12 @@ class SpecialTreatmentClassNode extends AbstractNode
 
     /**
      * @param string $type
+     * @return SpecialTreatmentClassNode
      */
-    public function setType($type)
+    public function setType($type) : SpecialTreatmentClassNode
     {
         $this->type = $type;
+        return $this;
     }
 
     /**
@@ -55,9 +57,11 @@ class SpecialTreatmentClassNode extends AbstractNode
 
     /**
      * @param string $value
+     * @return SpecialTreatmentClassNode
      */
-    public function setValue(string $value): void
+    public function setValue(string $value): SpecialTreatmentClassNode
     {
         $this->value = $value;
+        return $this;
     }
 }

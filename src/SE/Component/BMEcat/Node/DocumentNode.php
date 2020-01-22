@@ -59,10 +59,12 @@ class DocumentNode extends AbstractNode
     /**
      *
      * @param string $version
+     * @return DocumentNode
      */
-    public function setVersion($version)
+    public function setVersion($version) : DocumentNode
     {
         $this->version = $version;
+        return $this;
     }
 
     /**
@@ -76,11 +78,12 @@ class DocumentNode extends AbstractNode
 
     /**
      * @param \SE\Component\BMEcat\Node\HeaderNode $header
-     * @return void
+     * @return DocumentNode
      */
-    public function setHeader(HeaderNode $header)
+    public function setHeader(HeaderNode $header) : DocumentNode
     {
         $this->header = $header;
+        return $this;
     }
 
     /**
@@ -94,11 +97,12 @@ class DocumentNode extends AbstractNode
 
     /**
      * @param \SE\Component\BMEcat\Node\NewCatalogNode $catalog
-     * @return void
+     * @return DocumentNode
      */
-    public function setNewCatalog(NewCatalogNode $catalog)
+    public function setNewCatalog(NewCatalogNode $catalog) : DocumentNode
     {
         $this->catalog = $catalog;
+        return $this;
     }
 
     /**

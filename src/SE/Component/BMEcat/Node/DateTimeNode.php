@@ -62,10 +62,12 @@ class DateTimeNode extends AbstractNode
 
     /**
      * @param string $date
+     * @return DateTimeNode
      */
-    public function setDate($date)
+    public function setDate($date) : DateTimeNode
     {
         $this->date = $date;
+        return $this;
     }
 
     /**
@@ -78,10 +80,12 @@ class DateTimeNode extends AbstractNode
 
     /**
      * @param string $time
+     * @return DateTimeNode
      */
-    public function setTime( $time)
+    public function setTime( $time) : DateTimeNode
     {
         $this->time = $time;
+        return $this;
     }
 
     /**
@@ -94,10 +98,12 @@ class DateTimeNode extends AbstractNode
 
     /**
      * @param string $timezone
+     * @return DateTimeNode
      */
-    public function setTimezone($timezone)
+    public function setTimezone($timezone) : DateTimeNode
     {
         $this->timezone = $timezone;
+        return $this;
     }
 
     /**

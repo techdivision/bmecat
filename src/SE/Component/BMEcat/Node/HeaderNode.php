@@ -11,7 +11,6 @@
 namespace SE\Component\BMEcat\Node;
 
 use JMS\Serializer\Annotation as Serializer;
-
 use SE\Component\BMEcat\Node\AbstractNode;
 use SE\Component\BMEcat\Node\CatalogNode;
 use SE\Component\BMEcat\Node\SupplierNode;
@@ -54,11 +53,12 @@ class HeaderNode extends AbstractNode
 
     /**
      * @param string $generatorInfo
-     * @return void
+     * @return HeaderNode
      */
-    public function setGeneratorInfo($generatorInfo)
+    public function setGeneratorInfo($generatorInfo) : HeaderNode
     {
         $this->generatorInfo = $generatorInfo;
+        return $this;
     }
 
     /**
@@ -72,11 +72,12 @@ class HeaderNode extends AbstractNode
 
     /**
      * @param \SE\Component\BMEcat\Node\CatalogNode $catalog
-     * @return void
+     * @return HeaderNode
      */
-    public function setCatalog(CatalogNode $catalog)
+    public function setCatalog(CatalogNode $catalog) : HeaderNode
     {
         $this->catalog = $catalog;
+        return $this;
     }
 
     /**
@@ -89,11 +90,12 @@ class HeaderNode extends AbstractNode
 
     /**
      * @param \SE\Component\BMEcat\Node\SupplierNode $supplier
-     * @return void
+     * @return HeaderNode
      */
-    public function setSupplier(SupplierNode $supplier)
+    public function setSupplier(SupplierNode $supplier) : HeaderNode
     {
         $this->supplier = $supplier;
+        return $this;
     }
 
     /**

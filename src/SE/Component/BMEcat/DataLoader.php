@@ -28,7 +28,8 @@ class DataLoader
     /**
      * @param array $data
      * @param \SE\Component\BMEcat\DocumentBuilder $builder
-     * @throws Exception\UnknownKeyException
+     * @throws Exception\UnknownNodeTypeException
+     * @throws UnknownKeyException
      */
     public static function load(array $data, DocumentBuilder $builder)
     {

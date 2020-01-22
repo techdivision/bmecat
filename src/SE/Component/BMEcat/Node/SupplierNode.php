@@ -44,11 +44,12 @@ class SupplierNode extends AbstractNode
     /**
      *
      * @param string $id
-     * @return void
+     * @return SupplierNode
      */
-    public function setId($id)
+    public function setId($id) : SupplierNode
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
@@ -62,11 +63,12 @@ class SupplierNode extends AbstractNode
 
     /**
      * @param string $name
-     * @return void
+     * @return SupplierNode
      */
-    public function setName($name)
+    public function setName($name) : SupplierNode
     {
         $this->name = $name;
+        return $this;
     }
 
     /**

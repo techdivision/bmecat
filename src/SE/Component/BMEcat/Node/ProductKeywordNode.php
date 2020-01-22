@@ -19,21 +19,23 @@ class ProductKeywordNode extends AbstractNode
      *
      * @var string
      */
-    static protected $value = '';
+    protected $value = '';
 
     /**
      * @return string
      */
-    public static function getValue()
+    public function getValue()
     {
-        return self::$value;
+        return $this->value;
     }
 
     /**
      * @param string $value
+     * @return ProductKeywordNode
      */
-    public static function setValue($value)
+    public function setValue($value) : ProductKeywordNode
     {
-        self::$value = $value;
+        $this->value = $value;
+        return $this;
     }
 }

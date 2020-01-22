@@ -107,7 +107,7 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
 
             $product->setOrderDetails($orderDetails);
 
-            $catalog->addProducts($product);
+            $catalog->addProduct($product);
         }
 
         $this->builder = $builder;

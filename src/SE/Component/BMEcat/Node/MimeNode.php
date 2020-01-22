@@ -68,10 +68,12 @@ class MimeNode extends AbstractNode
 
     /**
      * @param string $type
+     * @return MimeNode
      */
-    public function setType($type)
+    public function setType($type) : MimeNode
     {
         $this->type = $type;
+        return $this;
     }
 
     /**
@@ -84,10 +86,12 @@ class MimeNode extends AbstractNode
 
     /**
      * @param string $source
+     * @return MimeNode
      */
-    public function setSource($source)
+    public function setSource($source) : MimeNode
     {
         $this->source = $source;
+        return $this;
     }
 
     /**
@@ -100,10 +104,12 @@ class MimeNode extends AbstractNode
 
     /**
      * @param string $description
+     * @return MimeNode
      */
-    public function setDescription($description)
+    public function setDescription($description) : MimeNode
     {
         $this->description = $description;
+        return $this;
     }
 
     /**
@@ -116,10 +122,12 @@ class MimeNode extends AbstractNode
 
     /**
      * @param string $alt
+     * @return MimeNode
      */
-    public function setAlt($alt)
+    public function setAlt($alt) : MimeNode
     {
         $this->alt = $alt;
+        return $this;
     }
 
     /**
@@ -132,9 +140,11 @@ class MimeNode extends AbstractNode
 
     /**
      * @param string $purpose
+     * @return MimeNode
      */
-    public function setPurpose($purpose)
+    public function setPurpose($purpose) : MimeNode
     {
         $this->purpose = $purpose;
+        return $this;
     }
 }

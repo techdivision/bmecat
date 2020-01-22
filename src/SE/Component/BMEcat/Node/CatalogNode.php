@@ -53,35 +53,38 @@ class CatalogNode extends AbstractNode
      * @Serializer\Type("SE\Component\BMEcat\Node\DateTimeNode")
      * @Serializer\SerializedName("DATETIME")
      *
-     * @var string
+     * @var DateTimeNode
      */
     protected $dateTime;
 
     /**
      * @param string $language
-     * @return void
+     * @return CatalogNode
      */
-    public function setLanguage($language)
+    public function setLanguage($language) : CatalogNode
     {
         $this->language = $language;
+        return $this;
     }
 
     /**
      * @param string $id
-     * @return void
+     * @return CatalogNode
      */
-    public function setId($id)
+    public function setId($id) : CatalogNode
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
      * @param string $version
-     * @return void
+     * @return CatalogNode
      */
-    public function setVersion($version)
+    public function setVersion($version) : CatalogNode
     {
         $this->version = $version;
+        return $this;
     }
 
     /**
@@ -114,10 +117,12 @@ class CatalogNode extends AbstractNode
     /**
      *
      * @param DateTimeNode $dateTime
+     * @return CatalogNode
      */
-    public function setDateTime(DateTimeNode $dateTime)
+    public function setDateTime(DateTimeNode $dateTime) : CatalogNode
     {
         $this->dateTime = $dateTime;
+        return $this;
     }
 
     /**
@@ -127,53 +132,5 @@ class CatalogNode extends AbstractNode
     public function getDateTime()
     {
         return $this->dateTime;
-    }
-
-    /**
-     * @return string
-     */
-    public function getExportDate()
-    {
-        return $this->exportDate;
-    }
-
-    /**
-     * @param string $exportDate
-     */
-    public function setExportDate($exportDate)
-    {
-        $this->exportDate = $exportDate;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDatabase()
-    {
-        return $this->database;
-    }
-
-    /**
-     * @param string $database
-     */
-    public function setDatabase($database)
-    {
-        $this->database = $database;
-    }
-
-    /**
-     * @return string
-     */
-    public function getShopId()
-    {
-        return $this->shopId;
-    }
-
-    /**
-     * @param string $shopId
-     */
-    public function setShopId($shopId)
-    {
-        $this->shopId = $shopId;
     }
 }

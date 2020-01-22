@@ -31,10 +31,12 @@ class ProductStatusNode extends AbstractNode
 
     /**
      * @param string $type
+     * @return ProductStatusNode
      */
-    public function setType($type)
+    public function setType($type) : ProductStatusNode
     {
         $this->type = $type;
+        return $this;
     }
 
     /**
@@ -55,9 +57,11 @@ class ProductStatusNode extends AbstractNode
 
     /**
      * @param string $value
+     * @return ProductStatusNode
      */
-    public function setValue(string $value): void
+    public function setValue(string $value): ProductStatusNode
     {
         $this->value = $value;
+        return $this;
     }
 }

@@ -89,58 +89,72 @@ class ProductFeatureNode extends AbstractNode
 
     /**
      * @param mixed $name
+     * @return ProductFeatureNode
      */
-    public function setName($name)
+    public function setName($name) : ProductFeatureNode
     {
         $this->name = $name;
+        return $this;
     }
 
     /**
      * @param string $variants
+     * @return ProductFeatureNode
      */
-    public function setVariants($variants)
+    public function setVariants($variants) : ProductFeatureNode
     {
         $this->variants = $variants;
+        return $this;
     }
 
     /**
      * @param string $value
+     * @return ProductFeatureNode
      */
-    public function setValue($value)
+    public function setValue($value) : ProductFeatureNode
     {
         $this->value = $value;
+        return $this;
     }
 
     /**
      * @param string $unit
+     * @return ProductFeatureNode
      */
-    public function setUnit($unit)
+    public function setUnit($unit) : ProductFeatureNode
     {
         $this->unit = $unit;
+        return $this;
     }
 
     /**
      * @param string $order
+     * @return ProductFeatureNode
      */
-    public function setOrder($order)
+    public function setOrder($order) : ProductFeatureNode
     {
         $this->order = $order;
+        return $this;
     }
 
     /**
      * @param string $description
+     * @return ProductFeatureNode
      */
-    public function setDescription($description)
+    public function setDescription($description) : ProductFeatureNode
     {
         $this->description = $description;
+        return $this;
     }
 
     /**
      * @param string $valueDetails
+     * @return ProductFeatureNode
      */
-    public function setValueDetails($valueDetails)
+    public function setValueDetails($valueDetails) : ProductFeatureNode
     {
         $this->valueDetails = $valueDetails;
+        return $this;
     }
 
     /**

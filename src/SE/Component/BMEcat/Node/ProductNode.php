@@ -86,10 +86,12 @@ class ProductNode extends AbstractNode
     /**
      *
      * @param ProductDetailsNode $detail
+     * @return ProductNode
      */
-    public function setDetails(ProductDetailsNode $detail)
+    public function setDetails(ProductDetailsNode $detail) : ProductNode
     {
         $this->detail = $detail;
+        return $this;
     }
 
     /**
@@ -104,85 +106,105 @@ class ProductNode extends AbstractNode
     /**
      *
      * @param ProductFeaturesNode $features
+     * @return ProductNode
      */
-    public function addFeatures(ProductFeaturesNode $features)
+    public function addFeatures(ProductFeaturesNode $features) : ProductNode
     {
         if ($this->features === null) {
             $this->features = [];
         }
         $this->features [] = $features;
+        return $this;
     }
     /**
      *
      * @param ProductPriceNode $price
+     * @return ProductNode
      */
-    public function addPrice(ProductPriceNode $price)
+    public function addPrice(ProductPriceNode $price) : ProductNode
     {
         if ($this->prices === null) {
             $this->prices = [];
         }
         $this->prices[] = $price;
+        return $this;
     }
 
-    public function addMime(MimeNode $mime)
+    /**
+     * @param MimeNode $mime
+     * @return ProductNode
+     */
+    public function addMime(MimeNode $mime) : ProductNode
     {
         if ($this->mimes === null) {
             $this->mimes = [];
         }
         $this->mimes[] = $mime;
+        return $this;
     }
 
     /**
      *
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
+     * @return ProductNode
      */
-    public function nullFeatures()
+    public function nullFeatures() : ProductNode
     {
         if (empty($this->features) === true) {
             $this->features = null;
         }
+
+        return $this;
     }
 
     /**
      *
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
+     * @return ProductNode
      */
-    public function nullPrices()
+    public function nullPrices() : ProductNode
     {
         if (empty($this->prices) === true) {
             $this->prices = null;
         }
+        return $this;
     }
 
     /**
      *
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
+     * @return ProductNode
      */
-    public function nullMime()
+    public function nullMime() : ProductNode
     {
         if (empty($this->mimes) === true) {
             $this->mimes = null;
         }
+        return $this;
     }
 
     /**
      *
      * @param string $id
+     * @return ProductNode
      */
-    public function setId($id)
+    public function setId($id) : ProductNode
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
      * @param ProductDetailsNode $detail
+     * @return ProductNode
      */
-    public function setDetail($detail)
+    public function setDetail(ProductDetailsNode $detail) : ProductNode
     {
         $this->detail = $detail;
+        return $this;
     }
 
     /**
@@ -195,10 +217,12 @@ class ProductNode extends AbstractNode
 
     /**
      * @param ProductOrderDetailsNode $orderDetails
+     * @return ProductNode
      */
-    public function setOrderDetails(ProductOrderDetailsNode $orderDetails)
+    public function setOrderDetails(ProductOrderDetailsNode $orderDetails) : ProductNode
     {
         $this->orderDetails = $orderDetails;
+        return $this;
     }
 
     /**
@@ -254,9 +278,11 @@ class ProductNode extends AbstractNode
 
     /**
      * @param MimeNode[] $mimes
+     * @return ProductNode
      */
-    public function setMimes(array $mimes): void
+    public function setMimes(array $mimes): ProductNode
     {
         $this->mimes = $mimes;
+        return $this;
     }
 }

@@ -81,10 +81,12 @@ class ProductOrderDetailsNode extends AbstractNode
 
     /**
      * @param string $orderUnit
+     * @return ProductOrderDetailsNode
      */
-    public function setOrderUnit($orderUnit)
+    public function setOrderUnit($orderUnit) : ProductOrderDetailsNode
     {
         $this->orderUnit = $orderUnit;
+        return $this;
     }
 
     /**
@@ -97,10 +99,12 @@ class ProductOrderDetailsNode extends AbstractNode
 
     /**
      * @param string $contentUnit
+     * @return ProductOrderDetailsNode
      */
-    public function setContentUnit($contentUnit)
+    public function setContentUnit($contentUnit) : ProductOrderDetailsNode
     {
         $this->contentUnit = $contentUnit;
+        return $this;
     }
 
     /**
@@ -116,10 +120,12 @@ class ProductOrderDetailsNode extends AbstractNode
 
     /**
      * @param float $noCuPerOu
+     * @return ProductOrderDetailsNode
      */
-    public function setNoCuPerOu($noCuPerOu)
+    public function setNoCuPerOu($noCuPerOu) : ProductOrderDetailsNode
     {
         $this->noCuPerOu = $noCuPerOu;
+        return $this;
     }
 
     /**
@@ -135,10 +141,12 @@ class ProductOrderDetailsNode extends AbstractNode
 
     /**
      * @param float $priceQuantity
+     * @return ProductOrderDetailsNode
      */
-    public function setPriceQuantity($priceQuantity)
+    public function setPriceQuantity($priceQuantity) : ProductOrderDetailsNode
     {
         $this->priceQuantity = $priceQuantity;
+        return $this;
     }
 
     /**
@@ -154,10 +162,12 @@ class ProductOrderDetailsNode extends AbstractNode
 
     /**
      * @param int $quantityMin
+     * @return ProductOrderDetailsNode
      */
-    public function setQuantityMin($quantityMin)
+    public function setQuantityMin($quantityMin) : ProductOrderDetailsNode
     {
         $this->quantityMin = $quantityMin;
+        return $this;
     }
 
     /**
@@ -173,9 +183,11 @@ class ProductOrderDetailsNode extends AbstractNode
 
     /**
      * @param int $quantityInterval
+     * @return ProductOrderDetailsNode
      */
-    public function setQuantityInterval($quantityInterval)
+    public function setQuantityInterval($quantityInterval) : ProductOrderDetailsNode
     {
         $this->quantityInterval = $quantityInterval;
+        return $this;
     }
 }
