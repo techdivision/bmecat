@@ -62,7 +62,7 @@ class ProductFeaturesNode extends AbstractNode
      * @Serializer\Type("array<SE\Component\BMEcat\Node\ProductFeatureNode>")
      * @Serializer\XmlList( entry="FEATURE")
      *
-     * @var \SE\Component\BMEcat\Node\ProductFeatureNode[]
+     * @var ProductFeatureNode[]
      */
     protected $features;
 

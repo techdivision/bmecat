@@ -139,7 +139,7 @@ class ProductPriceNode extends AbstractNode
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getPriceFactor(): float
     {

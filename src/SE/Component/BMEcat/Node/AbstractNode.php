@@ -25,6 +25,13 @@ use SE\Component\BMEcat\Node\NodeInterface;
  */
 abstract class AbstractNode implements NodeInterface
 {
+    /**
+     * @param array $data
+     * @return static
+     * @throws InvalidSetterException
+     * @throws UnknownKeyException
+     * @throws \ReflectionException
+     */
     public static function fromArray(array $data) : self
     {
         $instance = new static;
