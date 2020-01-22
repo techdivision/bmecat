@@ -21,16 +21,16 @@
     <ARTICLE>
       <SUPPLIER_AID><![CDATA[1]]></SUPPLIER_AID>
       <ARTICLE_PRICE_DETAILS>
-        <ARTICLE_PRICE price_type="gros_list">
+        <PRODUCT_PRICE price_type="gros_list">
           <PRICE_AMOUNT>10.5</PRICE_AMOUNT>
           <SUPPLPRICE_AMOUNT>5.25</SUPPLPRICE_AMOUNT>
           <PRICE_CURRENCY><![CDATA[EUR]]></PRICE_CURRENCY>
-        </ARTICLE_PRICE>
-        <ARTICLE_PRICE price_type="gros_list">
+        </PRODUCT_PRICE>
+        <PRODUCT_PRICE price_type="gros_list">
           <PRICE_AMOUNT>7.3</PRICE_AMOUNT>
           <SUPPLPRICE_AMOUNT>3.65</SUPPLPRICE_AMOUNT>
           <PRICE_CURRENCY><![CDATA[GBP]]></PRICE_CURRENCY>
-        </ARTICLE_PRICE>
+        </PRODUCT_PRICE>
       </ARTICLE_PRICE_DETAILS>
       <PRODUCT_FEATURES>
         <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[A]]></REFERENCE_FEATURE_SYSTEM_NAME>
@@ -72,16 +72,16 @@
     <ARTICLE>
       <SUPPLIER_AID><![CDATA[2]]></SUPPLIER_AID>
       <ARTICLE_PRICE_DETAILS>
-        <ARTICLE_PRICE price_type="gros_list">
+        <PRODUCT_PRICE price_type="gros_list">
           <PRICE_AMOUNT>10.5</PRICE_AMOUNT>
           <SUPPLPRICE_AMOUNT>5.25</SUPPLPRICE_AMOUNT>
           <PRICE_CURRENCY><![CDATA[EUR]]></PRICE_CURRENCY>
-        </ARTICLE_PRICE>
-        <ARTICLE_PRICE price_type="gros_list">
+        </PRODUCT_PRICE>
+        <PRODUCT_PRICE price_type="gros_list">
           <PRICE_AMOUNT>7.3</PRICE_AMOUNT>
           <SUPPLPRICE_AMOUNT>3.65</SUPPLPRICE_AMOUNT>
           <PRICE_CURRENCY><![CDATA[GBP]]></PRICE_CURRENCY>
-        </ARTICLE_PRICE>
+        </PRODUCT_PRICE>
       </ARTICLE_PRICE_DETAILS>
       <PRODUCT_FEATURES>
         <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[A]]></REFERENCE_FEATURE_SYSTEM_NAME>
@@ -123,16 +123,16 @@
     <ARTICLE>
       <SUPPLIER_AID><![CDATA[3]]></SUPPLIER_AID>
       <ARTICLE_PRICE_DETAILS>
-        <ARTICLE_PRICE price_type="gros_list">
+        <PRODUCT_PRICE price_type="gros_list">
           <PRICE_AMOUNT>10.5</PRICE_AMOUNT>
           <SUPPLPRICE_AMOUNT>5.25</SUPPLPRICE_AMOUNT>
           <PRICE_CURRENCY><![CDATA[EUR]]></PRICE_CURRENCY>
-        </ARTICLE_PRICE>
-        <ARTICLE_PRICE price_type="gros_list">
+        </PRODUCT_PRICE>
+        <PRODUCT_PRICE price_type="gros_list">
           <PRICE_AMOUNT>7.3</PRICE_AMOUNT>
           <SUPPLPRICE_AMOUNT>3.65</SUPPLPRICE_AMOUNT>
           <PRICE_CURRENCY><![CDATA[GBP]]></PRICE_CURRENCY>
-        </ARTICLE_PRICE>
+        </PRODUCT_PRICE>
       </ARTICLE_PRICE_DETAILS>
       <PRODUCT_FEATURES>
         <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[A]]></REFERENCE_FEATURE_SYSTEM_NAME>

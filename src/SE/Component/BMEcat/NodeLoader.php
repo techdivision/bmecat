@@ -29,7 +29,7 @@ class NodeLoader
     const ARTICLE_NODE          = 'article.node';
     const PRODUCT_FEATURE_NODE  = 'product.feature.node';
     const PRODUCT_DETAILS_NODE = 'product.details.node';
-    const ARTICLE_PRICE_NODE    = 'article.price.node';
+    const PRODUCT_PRICE_NODE    = 'product.price.node';
     const DATE_TIME_NODE        = 'datetime.node';
 
     /**
@@ -45,7 +45,7 @@ class NodeLoader
         self::ARTICLE_NODE              => '\SE\Component\BMEcat\Node\ArticleNode',
         self::PRODUCT_FEATURE_NODE      => '\SE\Component\BMEcat\Node\ProductFeatureNode',
         self::PRODUCT_DETAILS_NODE => '\SE\Component\BMEcat\Node\ProductDetailsNode',
-        self::ARTICLE_PRICE_NODE        => '\SE\Component\BMEcat\Node\ArticlePriceNode',
+        self::PRODUCT_PRICE_NODE        => '\SE\Component\BMEcat\Node\ProductPriceNode',
         self::DATE_TIME_NODE            => '\SE\Component\BMEcat\Node\DateTimeNode',
     ];
 

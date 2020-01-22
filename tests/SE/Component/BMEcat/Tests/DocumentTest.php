@@ -56,7 +56,7 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
             foreach([['EUR', 10.50], ['GBP', 7.30]] as $value) {
                 list($currency, $amount) = $value;
 
-                $price = new \SE\Component\BMEcat\Node\ArticlePriceNode;
+                $price = new \SE\Component\BMEcat\Node\ProductPriceNode;
 
                 $price->setPrice($amount);
                 $price->setCurrency($currency);

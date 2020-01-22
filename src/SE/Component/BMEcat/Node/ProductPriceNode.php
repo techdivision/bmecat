@@ -19,9 +19,9 @@ use SE\Component\BMEcat\Node\AbstractNode;
  * @package SE\Component\BMEcat
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  *
- * @Serializer\XmlRoot("ARTICLE_PRICE")
+ * @Serializer\XmlRoot("PRODUCT_PRICE")
  */
-class ArticlePriceNode extends AbstractNode
+class ProductPriceNode extends AbstractNode
 {
     /**
      * @Serializer\Expose

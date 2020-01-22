@@ -17,7 +17,7 @@ use SE\Component\BMEcat\Node\ProductFeaturesNode;
 use SE\Component\BMEcat\Node\MimeNode;
 use SE\Component\BMEcat\Node\ArticleNode;
 use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
-use SE\Component\BMEcat\Node\ArticlePriceNode;
+use SE\Component\BMEcat\Node\ProductPriceNode;
 use SE\Component\BMEcat\Node\ProductDetailsNode;
 
 /**
@@ -92,9 +92,9 @@ class ArticleNodeTest extends TestCase
     public function Add_Get_Prices()
     {
         $prices = [
-            new ArticlePriceNode(),
-            new ArticlePriceNode(),
-            new ArticlePriceNode(),
+            new ProductPriceNode(),
+            new ProductPriceNode(),
+            new ProductPriceNode(),
         ];
 
         $node = new ArticleNode();

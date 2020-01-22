@@ -15,7 +15,7 @@ namespace SE\Component\BMEcat\Tests\Node;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class ArticlePriceNodeTest  extends \PHPUnit\Framework\TestCase
+class ProductPriceNodeTest  extends \PHPUnit\Framework\TestCase
 {
     public function setUp() : void
     {
@@ -28,7 +28,7 @@ class ArticlePriceNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Price()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticlePriceNode();
+        $node = new \SE\Component\BMEcat\Node\ProductPriceNode();
         $value = rand(10,1000);
 
         $this->assertNull($node->getPrice());
@@ -42,7 +42,7 @@ class ArticlePriceNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Supplier_Price()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticlePriceNode();
+        $node = new \SE\Component\BMEcat\Node\ProductPriceNode();
         $value = rand(10,1000);
 
         $this->assertNull($node->getSupplierPrice());
@@ -56,7 +56,7 @@ class ArticlePriceNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Currency()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticlePriceNode();
+        $node = new \SE\Component\BMEcat\Node\ProductPriceNode();
         $value = substr(sha1(uniqid(microtime(false), true)),0,3);
 
         $this->assertNull($node->getCurrency());
@@ -70,10 +70,10 @@ class ArticlePriceNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticlePriceNode();
+        $node = new \SE\Component\BMEcat\Node\ProductPriceNode();
         $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_price_with_null_values.xml');
+        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_price_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);
@@ -85,10 +85,10 @@ class ArticlePriceNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticlePriceNode();
+        $node = new \SE\Component\BMEcat\Node\ProductPriceNode();
         $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_price_without_null_values.xml');
+        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_price_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);
