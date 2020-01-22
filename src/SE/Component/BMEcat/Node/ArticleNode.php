@@ -44,7 +44,7 @@ class ArticleNode extends AbstractNode
     /**
      *
      * @Serializer\Expose
-     * @Serializer\SerializedName("ARTICLE_PRICE_DETAILS")
+     * @Serializer\SerializedName("PRODUCT_PRICE_DETAILS")
      * @Serializer\Type("array<SE\Component\BMEcat\Node\ProductPriceNode>")
      * @Serializer\XmlList( entry="PRODUCT_PRICE")
      *
