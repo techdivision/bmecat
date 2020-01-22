@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SE\Component\BMEcat\Tests\Node;
+namespace Naugrim\BMEcat\Tests\Node;
 
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
@@ -10,7 +10,7 @@ use SE\Component\BMEcat\Node\MimeNode;
 
 /**
  *
- * @package SE\Component\BMEcat\Tests
+ * @package Naugrim\BMEcat\Tests
  * @author Jan Kahnt <j.kahnt@impericon.com>
  */
 class MimeNodeTest extends TestCase
@@ -73,7 +73,7 @@ class MimeNodeTest extends TestCase
         $node = new MimeNode();
         $context = SerializationContext::create()->setSerializeNull(true);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_mime_info_with_null_values.xml');
+        $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_mime_info_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);
@@ -88,7 +88,7 @@ class MimeNodeTest extends TestCase
         $node = new MimeNode();
         $context = SerializationContext::create()->setSerializeNull(false);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_mime_info_without_null_values.xml');
+        $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_mime_info_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);

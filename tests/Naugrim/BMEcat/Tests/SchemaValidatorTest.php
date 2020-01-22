@@ -1,17 +1,13 @@
 <?php
 
-namespace SE\Component\BMEcat\Tests;
+namespace Naugrim\BMEcat\Tests;
 
 use PHPUnit\Framework\TestCase;
 use SE\Component\BMEcat\Exception\SchemaValidationException;
 use SE\Component\BMEcat\Exception\UnsupportedVersionException;
 use SE\Component\BMEcat\SchemaValidator;
 
-/**
- *
- * @package SE\Component\BMEcat\Tests
- * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
- */
+
 class SchemaValidatorTest extends TestCase
 {
 
@@ -24,7 +20,7 @@ class SchemaValidatorTest extends TestCase
     {
         parent::setUp();
 
-        $this->minimalValidDocument = file_get_contents(__DIR__.'/Fixtures/2005.1/minimal_valid_document.xml');
+        $this->minimalValidDocument = file_get_contents(__DIR__ . '/Fixtures/2005.1/minimal_valid_document.xml');
 
     }
 

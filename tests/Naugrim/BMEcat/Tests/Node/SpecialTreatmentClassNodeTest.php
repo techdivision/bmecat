@@ -1,17 +1,17 @@
 <?php
 
-namespace SE\Component\BMEcat\Tests\Node;
+namespace Naugrim\BMEcat\Tests\Node;
 
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use SE\Component\BMEcat\Node\ProductKeywordNode;
+use SE\Component\BMEcat\Node\SpecialTreatmentClassNode;
 
 /**
- * @package SE\Component\BMEcat\Tests
+ * @package Naugrim\BMEcat\Tests
  * @author Jochen Pfaeffle <jochen.pfaeffle.dev@gmail.com>
  */
-class ProductKeywordNodeTest extends TestCase
+class SpecialTreatmentClassNodeTest extends TestCase
 {
     /**
      * @var \JMS\Serializer\SerializerInterface
@@ -26,25 +26,12 @@ class ProductKeywordNodeTest extends TestCase
     /**
      * @test
      */
-    public function Set_Get_Description_Value()
-    {
-        $node = new ProductKeywordNode();
-        $value = '';
-
-        $this->assertEquals('', $node->getValue());
-        $node->setValue($value);
-        $this->assertEquals($value, $node->getValue());
-    }
-
-    /**
-     * @test
-     */
     public function Serialize_With_Null_Values()
     {
-        $node = new ProductKeywordNode();
+        $node = new SpecialTreatmentClassNode();
         $context = SerializationContext::create()->setSerializeNull(true);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_keyword_with_null_values.xml');
+        $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_special_treatment_class_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);
@@ -55,10 +42,10 @@ class ProductKeywordNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new ProductKeywordNode();
+        $node = new SpecialTreatmentClassNode();
         $context = SerializationContext::create()->setSerializeNull(false);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_keyword_without_null_values.xml');
+        $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_special_treatment_class_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SE\Component\BMEcat\Tests\Node;
+namespace Naugrim\BMEcat\Tests\Node;
 
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
@@ -12,11 +12,7 @@ use SE\Component\BMEcat\Node\BuyerPidNode;
 use SE\Component\BMEcat\Node\ProductDetailsNode;
 use SE\Component\BMEcat\Node\SpecialTreatmentClassNode;
 
-/**
- *
- * @package SE\Component\BMEcat\Tests
- * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
- */
+
 class ProductDetailsNodeTest extends TestCase
 {
     /**

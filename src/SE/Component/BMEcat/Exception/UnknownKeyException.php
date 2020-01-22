@@ -8,7 +8,6 @@ use Exception;
 /**
  *
  * @package SE\Component\BMEcat
- * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
 class UnknownKeyException extends Exception
 {

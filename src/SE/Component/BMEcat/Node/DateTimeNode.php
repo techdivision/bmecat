@@ -10,7 +10,6 @@ use /** @noinspection PhpUnusedAliasInspection */
 /**
  *
  * @package SE\Component\BMEcat
- * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  *
  * @Serializer\XmlRoot("DATETIME")
  */

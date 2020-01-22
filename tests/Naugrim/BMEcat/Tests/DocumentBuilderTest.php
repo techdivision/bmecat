@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SE\Component\BMEcat\Tests;
+namespace Naugrim\BMEcat\Tests;
 
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
@@ -9,11 +9,7 @@ use SE\Component\BMEcat\DocumentBuilder;
 use SE\Component\BMEcat\Exception\MissingDocumentException;
 use SE\Component\BMEcat\Node\DocumentNode;
 
-/**
- *
- * @package SE\Component\BMEcat\Tests
- * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
- */
+
 class DocumentBuilderTest extends TestCase
 {
     /**
@@ -58,7 +54,7 @@ class DocumentBuilderTest extends TestCase
         $document = DocumentNode::fromArray([]);
         $builder->setDocument($document);
 
-        $expected = file_get_contents(__DIR__.'/Fixtures/empty_document_without_null_values.xml');
+        $expected = file_get_contents(__DIR__ . '/Fixtures/empty_document_without_null_values.xml');
         $this->assertEquals($expected, $builder->toString());
     }
 

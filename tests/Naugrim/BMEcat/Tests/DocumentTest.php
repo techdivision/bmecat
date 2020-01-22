@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SE\Component\BMEcat\Tests;
+namespace Naugrim\BMEcat\Tests;
 
 use PHPUnit\Framework\TestCase;
 use SE\Component\BMEcat\DocumentBuilder;
@@ -16,11 +16,7 @@ use SE\Component\BMEcat\Node\ProductPriceDetailsNode;
 use SE\Component\BMEcat\Node\ProductPriceNode;
 use SE\Component\BMEcat\SchemaValidator;
 
-/**
- *
- * @package SE\Component\BMEcat\Tests
- * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
- */
+
 class DocumentTest extends TestCase
 {
     /**
@@ -124,7 +120,7 @@ class DocumentTest extends TestCase
      */
     public function Compare_Document_Without_Null_Values()
     {
-        $expected = file_get_contents(__DIR__.'/Fixtures/document_without_null_values.xml');
+        $expected = file_get_contents(__DIR__ . '/Fixtures/document_without_null_values.xml');
         $actual = $this->builder->toString();
 
         $this->assertEquals($expected, $actual);

@@ -11,7 +11,6 @@ use SE\Component\BMEcat\Exception\UnknownKeyException;
 /**
  *
  * @package SE\Component\BMEcat
- * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  *
  * @Serializer\XmlRoot("PRODUCT")
  */

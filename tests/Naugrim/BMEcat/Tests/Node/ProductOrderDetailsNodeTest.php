@@ -1,6 +1,6 @@
 <?php
 
-namespace SE\Component\BMEcat\Tests\Node;
+namespace Naugrim\BMEcat\Tests\Node;
 
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
 
 /**
- * @package SE\Component\BMEcat\Tests
+ * @package Naugrim\BMEcat\Tests
  * @author Jochen Pfaeffle <jochen.pfaeffle.dev@gmail.com>
  */
 class ProductOrderDetailsNodeTest extends TestCase
@@ -97,7 +97,7 @@ class ProductOrderDetailsNodeTest extends TestCase
         $node = new ProductOrderDetailsNode();
         $context = SerializationContext::create()->setSerializeNull(true);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_order_details_with_null_values.xml');
+        $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_order_details_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);
@@ -111,7 +111,7 @@ class ProductOrderDetailsNodeTest extends TestCase
         $node = new ProductOrderDetailsNode();
         $context = SerializationContext::create()->setSerializeNull(false);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_order_details_without_null_values.xml');
+        $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_order_details_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);

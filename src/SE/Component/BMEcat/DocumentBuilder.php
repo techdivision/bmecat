@@ -12,7 +12,6 @@ use SE\Component\BMEcat\Exception\MissingDocumentException;
 /**
  *
  * @package SE\Component\BMEcat
- * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
 class DocumentBuilder
 {
