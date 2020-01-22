@@ -27,7 +27,7 @@ class SchemaValidator
      * @throws SchemaValidationException
      * @throws UnsupportedVersionException
      */
-    public static function isValid($xml, string $version = '2005.1', string $type = null)
+    public static function isValid(string $xml, string $version = '2005.1', string $type = null)
     {
         libxml_use_internal_errors(true);
 
