@@ -22,11 +22,6 @@ use SE\Component\BMEcat\Node\ProductFeatureNode;
  */
 class ProductFeatureNodeTest extends TestCase
 {
-    private $serializer;
-    /**
-     * @var \JMS\Serializer\SerializerInterface
-     */
-    private $serializer;
     /**
      * @var \JMS\Serializer\SerializerInterface
      */

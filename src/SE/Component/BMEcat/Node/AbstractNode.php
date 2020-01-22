@@ -10,13 +10,10 @@
 
 namespace SE\Component\BMEcat\Node;
 
-use JMS\Serializer\Annotation as Serializer;
-use JMS\Serializer\XmlSerializationVisitor;
-
+use ReflectionException;
 use ReflectionMethod;
 use SE\Component\BMEcat\Exception\InvalidSetterException;
 use SE\Component\BMEcat\Exception\UnknownKeyException;
-use SE\Component\BMEcat\Node\NodeInterface;
 
 /**
  *
@@ -30,7 +27,6 @@ abstract class AbstractNode implements NodeInterface
      * @return static
      * @throws InvalidSetterException
      * @throws UnknownKeyException
-     * @throws \ReflectionException
      */
     public static function fromArray(array $data) : self
     {
@@ -49,8 +45,12 @@ abstract class AbstractNode implements NodeInterface
 
             // if the value is an array, try to recursively contruct the object
 
-            $reflectionMethod = new ReflectionMethod($instance, $setterName);
-            $setterParams = $reflectionMethod->getParameters();
+            try {
+                $reflectionMethod = new ReflectionMethod($instance, $setterName);
+                $setterParams = $reflectionMethod->getParameters();
+            } catch (ReflectionException $e) {
+                throw new InvalidSetterException('Reflecting the setter method '.$instance.'::'.$setterName.' failed.');
+            }
             $firstSetterParam = array_shift($setterParams);
             if (!$firstSetterParam) {
                 throw new InvalidSetterException('The setter for the property '.$name.' in the class '.get_class($instance).' must have exactly one argument.');
@@ -73,7 +73,6 @@ abstract class AbstractNode implements NodeInterface
             }
 
             $instance->$setterName($value);
-
         }
 
         return $instance;

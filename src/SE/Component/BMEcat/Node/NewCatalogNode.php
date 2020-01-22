@@ -10,12 +10,11 @@
 
 namespace SE\Component\BMEcat\Node;
 
-use JMS\Serializer\Annotation as Serializer;
+use /** @noinspection PhpUnusedAliasInspection */
+    JMS\Serializer\Annotation as Serializer;
 
 use SE\Component\BMEcat\Exception\InvalidSetterException;
 use SE\Component\BMEcat\Exception\UnknownKeyException;
-use SE\Component\BMEcat\Node\AbstractNode;
-use SE\Component\BMEcat\Node\ProductNode;
 
 /**
  *
@@ -59,7 +58,7 @@ class NewCatalogNode extends AbstractNode
      */
     public function addProduct(ProductNode $product) : NewCatalogNode
     {
-        if($this->products === null) {
+        if ($this->products === null) {
             $this->products = [];
         }
         $this->products []= $product;
@@ -73,7 +72,7 @@ class NewCatalogNode extends AbstractNode
      */
     public function nullProducts()
     {
-        if(empty($this->products ) === true) {
+        if (empty($this->products) === true) {
             $this->products = null;
         }
     }
@@ -84,12 +83,10 @@ class NewCatalogNode extends AbstractNode
      */
     public function getProducts()
     {
-        if($this->products === null)  {
+        if ($this->products === null) {
             return [];
         }
 
         return $this->products;
     }
-
-
 }

@@ -43,7 +43,6 @@ class SchemaValidationException extends Exception
                 'Error #'.($idx+1).': '.$error->message,
                 implode("\n", $context)."\n",
             ]);
-
         }
 
         $msg .= implode("\n", $xmlErrors);

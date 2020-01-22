@@ -48,11 +48,11 @@ class DocumentBuilder
      */
     public function __construct(Serializer $serializer = null, $context = null)
     {
-        if($serializer === null) {
+        if ($serializer === null) {
             $serializer = SerializerBuilder::create()->build();
         }
 
-        if($context === null) {
+        if ($context === null) {
             $context = SerializationContext::create();
         }
 
@@ -114,7 +114,7 @@ class DocumentBuilder
      */
     public function toString()
     {
-        if(($document = $this->getDocument()) === null) {
+        if (($document = $this->getDocument()) === null) {
             throw new MissingDocumentException('Please call ::setDocument() first.');
         }
 

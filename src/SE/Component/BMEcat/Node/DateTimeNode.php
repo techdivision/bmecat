@@ -11,8 +11,8 @@
 namespace SE\Component\BMEcat\Node;
 
 use DateTimeImmutable;
-use JMS\Serializer\Annotation as Serializer;
-use SE\Component\BMEcat\Node\AbstractNode;
+use /** @noinspection PhpUnusedAliasInspection */
+    JMS\Serializer\Annotation as Serializer;
 
 /**
  *

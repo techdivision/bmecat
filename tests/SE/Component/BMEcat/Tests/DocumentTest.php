@@ -30,7 +30,6 @@ use SE\Component\BMEcat\SchemaValidator;
  */
 class DocumentTest extends TestCase
 {
-    private $builder;
     /**
      * @var DocumentBuilder
      */

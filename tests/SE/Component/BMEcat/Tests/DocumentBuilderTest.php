@@ -23,11 +23,6 @@ use SE\Component\BMEcat\Node\DocumentNode;
  */
 class DocumentBuilderTest extends TestCase
 {
-    private $serializer;
-    /**
-     * @var \JMS\Serializer\SerializerInterface
-     */
-    private $serializer;
     /**
      * @var \JMS\Serializer\SerializerInterface
      */
