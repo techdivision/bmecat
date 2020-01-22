@@ -75,10 +75,10 @@ class ArticleNode extends AbstractNode
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("MIME_INFO")
-     * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticleMimeNode>")
+     * @Serializer\Type("array<SE\Component\BMEcat\Node\MimeNode>")
      * @Serializer\XmlList( entry="MIME")
      *
-     * @var ArticleMimeNode[]
+     * @var MimeNode[]
      */
     protected $mimes = [];
 
@@ -123,7 +123,7 @@ class ArticleNode extends AbstractNode
         $this->prices[] = $price;
     }
 
-    public function addMime(ArticleMimeNode $mime)
+    public function addMime(MimeNode $mime)
     {
         if ($this->mimes === null) {
             $this->mimes = [];
@@ -244,7 +244,7 @@ class ArticleNode extends AbstractNode
     }
 
     /**
-     * @return ArticleMimeNode[]|null
+     * @return MimeNode[]|null
      */
     public function getMimes()
     {
@@ -252,7 +252,7 @@ class ArticleNode extends AbstractNode
     }
 
     /**
-     * @param ArticleMimeNode[] $mimes
+     * @param MimeNode[] $mimes
      */
     public function setMimes(array $mimes): void
     {

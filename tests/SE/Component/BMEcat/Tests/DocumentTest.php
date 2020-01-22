@@ -90,7 +90,7 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
 
                 list($type, $source, $purpose) = $value;
 
-                $mime = new \SE\Component\BMEcat\Node\ArticleMimeNode();
+                $mime = new \SE\Component\BMEcat\Node\MimeNode();
 
                 $mime->setType($type);
                 $mime->setSource($source);

@@ -14,7 +14,7 @@ use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
 use SE\Component\BMEcat\Node\ProductFeaturesNode;
-use SE\Component\BMEcat\Node\ArticleMimeNode;
+use SE\Component\BMEcat\Node\MimeNode;
 use SE\Component\BMEcat\Node\ArticleNode;
 use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
 use SE\Component\BMEcat\Node\ArticlePriceNode;
@@ -130,9 +130,9 @@ class ArticleNodeTest extends TestCase
     public function Add_Get_Mime_Info()
     {
         $mimes = [
-            new ArticleMimeNode(),
-            new ArticleMimeNode(),
-            new ArticleMimeNode(),
+            new MimeNode(),
+            new MimeNode(),
+            new MimeNode(),
         ];
 
         $node = new ArticleNode();

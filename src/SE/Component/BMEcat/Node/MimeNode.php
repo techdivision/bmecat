@@ -1,27 +1,18 @@
 <?php
-/**
- * This file is part of the BMEcat php library
- *
- * (c) Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
 
 namespace SE\Component\BMEcat\Node;
 
-use JMS\Serializer\Annotation as Serializer;
-use SE\Component\BMEcat\Node\AbstractNode;
+use \JMS\Serializer\Annotation as Serializer;
 
 /**
- * Class MimeInfoNode
- * @package SE\Component\BMEcat\Node
- * @author Jan Kahnt <j.kahnt@impericon.com>
+ *
+ * @package SE\Component\BMEcat
+ * @author Jochen Pfaeffle <jochen.pfaeffle.dev@gmail.com>
  *
  * @Serializer\XmlRoot("MIME")
  */
-class MimeNode extends AbstractNode {
-
+class MimeNode extends AbstractNode
+{
     /**
      * @Serializer\Expose
      * @Serializer\Type("string")
@@ -39,6 +30,24 @@ class MimeNode extends AbstractNode {
      * @var string
      */
     protected $source;
+
+    /**
+     * @Serializer\Expose
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("MIME_DESCR")
+     *
+     * @var string
+     */
+    protected $description;
+
+    /**
+     * @Serializer\Expose
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("MIME_ALT")
+     *
+     * @var string
+     */
+    protected $alt;
 
     /**
      * @Serializer\Expose
@@ -79,6 +88,38 @@ class MimeNode extends AbstractNode {
     public function setSource($source)
     {
         $this->source = $source;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAlt()
+    {
+        return $this->alt;
+    }
+
+    /**
+     * @param string $alt
+     */
+    public function setAlt($alt)
+    {
+        $this->alt = $alt;
     }
 
     /**
