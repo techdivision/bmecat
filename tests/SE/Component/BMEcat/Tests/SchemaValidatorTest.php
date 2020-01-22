@@ -2,6 +2,7 @@
 
 namespace SE\Component\BMEcat\Tests;
 
+use PHPUnit\Framework\TestCase;
 use SE\Component\BMEcat\Exception\SchemaValidationException;
 use SE\Component\BMEcat\Exception\UnsupportedVersionException;
 use SE\Component\BMEcat\SchemaValidator;
@@ -11,7 +12,7 @@ use SE\Component\BMEcat\SchemaValidator;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class SchemaValidatorTest extends \PHPUnit\Framework\TestCase
+class SchemaValidatorTest extends TestCase
 {
 
     /**

@@ -3,15 +3,20 @@
 namespace SE\Component\BMEcat\Tests\Node;
 
 
+use JMS\Serializer\SerializationContext;
+use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
+use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
+
 /**
  * @package SE\Component\BMEcat\Tests
  * @author Jochen Pfaeffle <jochen.pfaeffle.dev@gmail.com>
  */
-class ProductOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
+class ProductOrderDetailsNodeTest extends TestCase
 {
     public function setUp() : void
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::create()->build();
     }
 
     /**
@@ -19,7 +24,7 @@ class ProductOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Order_Unit()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
+        $node = new ProductOrderDetailsNode();
         $value = 'C62';
 
         $this->assertNull($node->getOrderUnit());
@@ -33,7 +38,7 @@ class ProductOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_No_Cu_Per_Ou()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
+        $node = new ProductOrderDetailsNode();
         $value = rand(10,1000);
 
         $this->assertEquals(1, $node->getNoCuPerOu());
@@ -46,7 +51,7 @@ class ProductOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Price_Quantity()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
+        $node = new ProductOrderDetailsNode();
         $value = rand(10,1000);
 
         $this->assertEquals(1, $node->getPriceQuantity());
@@ -59,7 +64,7 @@ class ProductOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Quantity_Min()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
+        $node = new ProductOrderDetailsNode();
         $value = rand(10,1000);
 
         $this->assertEquals(1, $node->getQuantityMin());
@@ -72,7 +77,7 @@ class ProductOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Quantity_Interval()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
+        $node = new ProductOrderDetailsNode();
         $value = rand(10,1000);
 
         $this->assertEquals(1, $node->getQuantityInterval());
@@ -85,8 +90,8 @@ class ProductOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
+        $node = new ProductOrderDetailsNode();
+        $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_order_details_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
@@ -99,8 +104,8 @@ class ProductOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
+        $node = new ProductOrderDetailsNode();
+        $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_order_details_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);

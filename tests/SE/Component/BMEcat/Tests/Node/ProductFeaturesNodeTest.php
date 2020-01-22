@@ -10,16 +10,22 @@
 
 namespace SE\Component\BMEcat\Tests\Node;
 
+use JMS\Serializer\SerializationContext;
+use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
+use SE\Component\BMEcat\Node\ProductFeatureNode;
+use SE\Component\BMEcat\Node\ProductFeaturesNode;
+
 /**
  *
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class ProductFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
+class ProductFeaturesNodeTest  extends TestCase
 {
     public function setUp() : void
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::create()->build();
     }
 
     /**
@@ -29,12 +35,12 @@ class ProductFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
     public function Add_Get_Feature()
     {
         $features = [
-            new \SE\Component\BMEcat\Node\ProductFeatureNode(),
-            new \SE\Component\BMEcat\Node\ProductFeatureNode(),
-            new \SE\Component\BMEcat\Node\ProductFeatureNode(),
+            new ProductFeatureNode(),
+            new ProductFeatureNode(),
+            new ProductFeatureNode(),
         ];
 
-        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
+        $node = new ProductFeaturesNode();
         $this->assertEmpty($node->getFeatures());
         $node->nullFeatures();
         $this->assertEquals([], $node->getFeatures());
@@ -52,7 +58,7 @@ class ProductFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Reference_Feature_System_Name()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
+        $node = new ProductFeaturesNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getReferenceFeatureSystemName());
@@ -66,7 +72,7 @@ class ProductFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Reference_Feature_Group_Name()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
+        $node = new ProductFeaturesNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getReferenceFeatureGroupName());
@@ -80,7 +86,7 @@ class ProductFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Reference_Feature_Group_Id()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
+        $node = new ProductFeaturesNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getReferenceFeatureGroupId());
@@ -94,8 +100,8 @@ class ProductFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
+        $node = new ProductFeaturesNode();
+        $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_features_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
@@ -109,8 +115,8 @@ class ProductFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
+        $node = new ProductFeaturesNode();
+        $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_features_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);

@@ -10,16 +10,21 @@
 
 namespace SE\Component\BMEcat\Tests\Node;
 
+use JMS\Serializer\SerializationContext;
+use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
+use SE\Component\BMEcat\Node\MimeNode;
+
 /**
  *
  * @package SE\Component\BMEcat\Tests
  * @author Jan Kahnt <j.kahnt@impericon.com>
  */
-class MimeNodeTest extends \PHPUnit\Framework\TestCase
+class MimeNodeTest extends TestCase
 {
     public function setUp() : void
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::create()->build();
     }
 
     /**
@@ -27,7 +32,7 @@ class MimeNodeTest extends \PHPUnit\Framework\TestCase
  */
     public function Set_Get_Type()
     {
-        $node = new \SE\Component\BMEcat\Node\MimeNode();
+        $node = new MimeNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getType());
@@ -40,7 +45,7 @@ class MimeNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Source()
     {
-        $node = new \SE\Component\BMEcat\Node\MimeNode();
+        $node = new MimeNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getSource());
@@ -53,7 +58,7 @@ class MimeNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Purpose()
     {
-        $node = new \SE\Component\BMEcat\Node\MimeNode();
+        $node = new MimeNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getPurpose());
@@ -67,8 +72,8 @@ class MimeNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\MimeNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
+        $node = new MimeNode();
+        $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_mime_info_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
@@ -82,8 +87,8 @@ class MimeNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\MimeNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
+        $node = new MimeNode();
+        $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_mime_info_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);

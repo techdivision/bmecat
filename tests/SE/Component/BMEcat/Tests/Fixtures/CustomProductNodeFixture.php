@@ -10,12 +10,14 @@
 
 namespace SE\Component\BMEcat\Tests\Fixtures;
 
+use SE\Component\BMEcat\Node\ProductNode;
+
 /**
  *
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class CustomProductNodeFixture extends \SE\Component\BMEcat\Node\ProductNode
+class CustomProductNodeFixture extends ProductNode
 {
 
 

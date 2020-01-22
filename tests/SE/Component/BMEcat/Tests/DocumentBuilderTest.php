@@ -10,6 +10,10 @@
 
 namespace SE\Component\BMEcat\Tests;
 
+use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
+use SE\Component\BMEcat\DocumentBuilder;
+use SE\Component\BMEcat\Exception\MissingDocumentException;
 use SE\Component\BMEcat\Node\DocumentNode;
 
 /**
@@ -17,31 +21,22 @@ use SE\Component\BMEcat\Node\DocumentNode;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class DocumentBuilderTest extends \PHPUnit\Framework\TestCase
+class DocumentBuilderTest extends TestCase
 {
-
     public function setUp() : void
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::create()->build();
     }
 
-    /**
-     *
-     * @test
-     */
-    public function Can_Be_Instantiated()
+    public function testCanBeInstantiated()
     {
-        $builder = new \SE\Component\BMEcat\DocumentBuilder($this->serializer);
-        $this->assertInstanceOf(\SE\Component\BMEcat\DocumentBuilder::class, $builder);
+        $builder = new DocumentBuilder($this->serializer);
+        $this->assertInstanceOf(DocumentBuilder::class, $builder);
     }
 
-    /**
-     *
-     * @test
-     */
-    public function Sets_Up_Default_Dependencies()
+    public function testSetsUpDefaultDependencies()
     {
-        $builder = new \SE\Component\BMEcat\DocumentBuilder();
+        $builder = new DocumentBuilder();
         $this->assertInstanceOf('\JMS\Serializer\Serializer', $builder->getSerializer());
     }
 
@@ -51,7 +46,7 @@ class DocumentBuilderTest extends \PHPUnit\Framework\TestCase
      */
     public function Instantiate_Via_Static_Method()
     {
-        $builder = \SE\Component\BMEcat\DocumentBuilder::create($this->serializer);
+        $builder = DocumentBuilder::create($this->serializer);
         $this->assertInstanceOf('\JMS\Serializer\Serializer', $builder->getSerializer());
     }
 
@@ -61,13 +56,12 @@ class DocumentBuilderTest extends \PHPUnit\Framework\TestCase
      */
     public function To_String_Returns_Default_Document_Without_Null_Values()
     {
-        $builder = new \SE\Component\BMEcat\DocumentBuilder;
+        $builder = new DocumentBuilder;
         $document = DocumentNode::fromArray([]);
         $builder->setDocument($document);
 
         $expected = file_get_contents(__DIR__.'/Fixtures/empty_document_without_null_values.xml');
         $this->assertEquals($expected, $builder->toString());
-
     }
 
     /**
@@ -76,8 +70,8 @@ class DocumentBuilderTest extends \PHPUnit\Framework\TestCase
      */
     public function To_String_Throws_Exception()
     {
-        $this->expectException(\SE\Component\BMEcat\Exception\MissingDocumentException::class);
-        $builder = new \SE\Component\BMEcat\DocumentBuilder;
+        $this->expectException(MissingDocumentException::class);
+        $builder = new DocumentBuilder;
         $builder->toString();
     }
 }

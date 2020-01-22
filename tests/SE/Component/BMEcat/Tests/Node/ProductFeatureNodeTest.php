@@ -10,16 +10,21 @@
 
 namespace SE\Component\BMEcat\Tests\Node;
 
+use JMS\Serializer\SerializationContext;
+use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
+use SE\Component\BMEcat\Node\ProductFeatureNode;
+
 /**
  *
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class ProductFeatureNodeTest  extends \PHPUnit\Framework\TestCase
+class ProductFeatureNodeTest  extends TestCase
 {
     public function setUp() : void
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::create()->build();
     }
 
     /**
@@ -28,7 +33,7 @@ class ProductFeatureNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Name()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductFeatureNode();
+        $node = new ProductFeatureNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getName());
@@ -42,7 +47,7 @@ class ProductFeatureNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Value()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductFeatureNode();
+        $node = new ProductFeatureNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getValue());
@@ -56,8 +61,8 @@ class ProductFeatureNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductFeatureNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
+        $node = new ProductFeatureNode();
+        $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_feature_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
@@ -71,8 +76,8 @@ class ProductFeatureNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ProductFeatureNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
+        $node = new ProductFeatureNode();
+        $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_feature_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);

@@ -10,12 +10,14 @@
 
 namespace SE\Component\BMEcat\Tests\Fixtures;
 
+use SE\Component\BMEcat\Node\DocumentNode;
+
 /**
  *
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class CustomDocumentNodeFixture extends \SE\Component\BMEcat\Node\DocumentNode
+class CustomDocumentNodeFixture extends DocumentNode
 {
 
 

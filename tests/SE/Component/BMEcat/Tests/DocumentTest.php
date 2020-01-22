@@ -10,9 +10,17 @@
 
 namespace SE\Component\BMEcat\Tests;
 
+use PHPUnit\Framework\TestCase;
+use SE\Component\BMEcat\DocumentBuilder;
 use SE\Component\BMEcat\Node\DocumentNode;
+use SE\Component\BMEcat\Node\MimeNode;
+use SE\Component\BMEcat\Node\NewCatalogNode;
 use SE\Component\BMEcat\Node\ProductDetailsNode;
+use SE\Component\BMEcat\Node\ProductFeaturesNode;
+use SE\Component\BMEcat\Node\ProductNode;
+use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
 use SE\Component\BMEcat\Node\ProductPriceDetailsNode;
+use SE\Component\BMEcat\Node\ProductPriceNode;
 use SE\Component\BMEcat\SchemaValidator;
 
 /**
@@ -20,9 +28,8 @@ use SE\Component\BMEcat\SchemaValidator;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class DocumentTest extends \PHPUnit\Framework\TestCase
+class DocumentTest extends TestCase
 {
-
     public function setUp() : void
     {
         $document = DocumentNode::fromArray([
@@ -45,23 +52,23 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
             ]
         ]);
 
-        $builder = new \SE\Component\BMEcat\DocumentBuilder();
+        $builder = new DocumentBuilder();
         $builder->setDocument($document);
 
-        $catalog = new \SE\Component\BMEcat\Node\NewCatalogNode;
+        $catalog = new NewCatalogNode;
         $document->setNewCatalog($catalog);
 
-        foreach([1,2,3] as $index) {
-            $product = new \SE\Component\BMEcat\Node\ProductNode;
+        foreach ([1,2,3] as $index) {
+            $product = new ProductNode;
             $product->setId($index);
             $productDetails = new ProductDetailsNode();
             $productDetails->setDescriptionShort('description');
             $product->setDetails($productDetails);
 
-            foreach([['EUR', 10.50], ['GBP', 7.30]] as $value) {
+            foreach ([['EUR', 10.50], ['GBP', 7.30]] as $value) {
                 list($currency, $amount) = $value;
 
-                $price = new \SE\Component\BMEcat\Node\ProductPriceNode;
+                $price = new ProductPriceNode;
 
                 $price->setPrice($amount);
                 $price->setCurrency($currency);
@@ -72,24 +79,23 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
                 $product->addPriceDetail($priceDetail);
             }
 
-            foreach([['A', 'B', 'C', 1, 2, 'D', 'E'],['F', 'G', 'H', 3, 4, 'I', 'J']] as $value) {
+            foreach ([['A', 'B', 'C', 1, 2, 'D', 'E'],['F', 'G', 'H', 3, 4, 'I', 'J']] as $value) {
                 list($systemName, $groupName, $groupId, $serialNumber, $tarifNumber, $countryOfOrigin, $tariftext) = $value;
 
-                $features = new \SE\Component\BMEcat\Node\ProductFeaturesNode;
+                $features = new ProductFeaturesNode;
 
                 $features->setReferenceFeatureSystemName($systemName);
                 $features->setReferenceFeatureGroupName($groupName);
                 $product->addFeatures($features);
             }
 
-            foreach([
+            foreach ([
                 ['image/jpeg', 'http://a.b/c/d.jpg', 'normal'],
                 ['image/gif', 'http://w.x/y/z.bmp', 'thumbnail']
                     ] as $value) {
-
                 list($type, $source, $purpose) = $value;
 
-                $mime = new \SE\Component\BMEcat\Node\MimeNode();
+                $mime = new MimeNode();
 
                 $mime->setType($type);
                 $mime->setSource($source);
@@ -98,7 +104,7 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
                 $product->addMime($mime);
             }
 
-            $orderDetails = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode;
+            $orderDetails = new ProductOrderDetailsNode;
             $orderDetails->setOrderUnit('C62');
             $orderDetails->setContentUnit('C62');
             $orderDetails->setNoCuPerOu(1);

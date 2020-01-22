@@ -10,16 +10,21 @@
 
 namespace SE\Component\BMEcat\Tests\Node;
 
+use JMS\Serializer\SerializationContext;
+use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
+use SE\Component\BMEcat\Node\DateTimeNode;
+
 /**
  *
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class DateTimeNodeTest extends \PHPUnit\Framework\TestCase
+class DateTimeNodeTest extends TestCase
 {
     public function setUp() : void
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::create()->build();
     }
 
     /**
@@ -28,7 +33,7 @@ class DateTimeNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Date()
     {
-        $node = new \SE\Component\BMEcat\Node\DateTimeNode();
+        $node = new DateTimeNode();
         $value = '1979-01-10';
 
         $this->assertNull($node->getDate());
@@ -42,7 +47,7 @@ class DateTimeNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Time()
     {
-        $node = new \SE\Component\BMEcat\Node\DateTimeNode();
+        $node = new DateTimeNode();
         $value = '10:59:54';
 
         $this->assertNull($node->getTime());
@@ -56,7 +61,7 @@ class DateTimeNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_TimeZone()
     {
-        $node = new \SE\Component\BMEcat\Node\DateTimeNode();
+        $node = new DateTimeNode();
         $value = '-01:00';
 
         $this->assertNull($node->getTimeZone());
@@ -70,8 +75,8 @@ class DateTimeNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\DateTimeNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
+        $node = new DateTimeNode();
+        $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_datetime_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
@@ -85,8 +90,8 @@ class DateTimeNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\DateTimeNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
+        $node = new DateTimeNode();
+        $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_datetime_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);

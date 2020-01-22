@@ -10,16 +10,23 @@
 
 namespace SE\Component\BMEcat\Tests\Node;
 
+use JMS\Serializer\SerializationContext;
+use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
+use SE\Component\BMEcat\Node\CatalogNode;
+use SE\Component\BMEcat\Node\HeaderNode;
+use SE\Component\BMEcat\Node\SupplierNode;
+
 /**
  *
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class HeaderNodeTest extends \PHPUnit\Framework\TestCase
+class HeaderNodeTest extends TestCase
 {
     public function setUp() : void
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::create()->build();
     }
 
     /**
@@ -28,7 +35,7 @@ class HeaderNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Generator_Info()
     {
-        $node = new \SE\Component\BMEcat\Node\HeaderNode();
+        $node = new HeaderNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getGeneratorInfo());
@@ -42,8 +49,8 @@ class HeaderNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Supplier()
     {
-        $header = new \SE\Component\BMEcat\Node\HeaderNode();
-        $supplier = new \SE\Component\BMEcat\Node\SupplierNode();
+        $header = new HeaderNode();
+        $supplier = new SupplierNode();
 
         $this->assertNull($header->getSupplier());
         $header->setSupplier($supplier);
@@ -56,8 +63,8 @@ class HeaderNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Catalog()
     {
-        $header = new \SE\Component\BMEcat\Node\HeaderNode();
-        $catalog = new \SE\Component\BMEcat\Node\CatalogNode();
+        $header = new HeaderNode();
+        $catalog = new CatalogNode();
 
         $this->assertNull($header->getCatalog());
         $header->setCatalog($catalog);
@@ -70,8 +77,8 @@ class HeaderNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\HeaderNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
+        $node = new HeaderNode();
+        $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_header_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
@@ -85,8 +92,8 @@ class HeaderNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\HeaderNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
+        $node = new HeaderNode();
+        $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_header_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);

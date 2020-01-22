@@ -10,16 +10,22 @@
 
 namespace SE\Component\BMEcat\Tests\Node;
 
+use JMS\Serializer\SerializationContext;
+use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
+use SE\Component\BMEcat\Node\NewCatalogNode;
+use SE\Component\BMEcat\Node\ProductNode;
+
 /**
  *
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class NewCatalogNodeTest  extends \PHPUnit\Framework\TestCase
+class NewCatalogNodeTest  extends TestCase
 {
     public function setUp() : void
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::create()->build();
     }
 
     /**
@@ -29,12 +35,12 @@ class NewCatalogNodeTest  extends \PHPUnit\Framework\TestCase
     public function Add_Get_Product_Node()
     {
         $products = [
-            new \SE\Component\BMEcat\Node\ProductNode(),
-            new \SE\Component\BMEcat\Node\ProductNode(),
-            new \SE\Component\BMEcat\Node\ProductNode(),
+            new ProductNode(),
+            new ProductNode(),
+            new ProductNode(),
         ];
 
-        $node = new \SE\Component\BMEcat\Node\NewCatalogNode();
+        $node = new NewCatalogNode();
         $this->assertEmpty($node->getProducts());
         $node->nullProducts();
         $this->assertEquals([], $node->getProducts());
@@ -52,8 +58,8 @@ class NewCatalogNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\NewCatalogNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
+        $node = new NewCatalogNode();
+        $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_new_catalog_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
@@ -67,8 +73,8 @@ class NewCatalogNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\NewCatalogNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
+        $node = new NewCatalogNode();
+        $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_new_catalog_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);

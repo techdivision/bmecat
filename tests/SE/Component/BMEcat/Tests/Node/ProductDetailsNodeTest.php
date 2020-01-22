@@ -37,9 +37,9 @@ class ProductDetailsNodeTest extends TestCase
     public function Add_Get_Buyer_Pides()
     {
         $buyerPids = [
-            new BuyerPidNode('test'),
-            new BuyerPidNode('test'),
-            new BuyerPidNode('test'),
+            new BuyerPidNode(),
+            new BuyerPidNode(),
+            new BuyerPidNode(),
         ];
 
         $node = new ProductDetailsNode();
@@ -47,7 +47,7 @@ class ProductDetailsNodeTest extends TestCase
         $node->nullBuyerPids();
         $this->assertEquals([], $node->getBuyerPids());
 
-        foreach($buyerPids as $buyerPid) {
+        foreach ($buyerPids as $buyerPid) {
             $node->addBuyerPid($buyerPid);
         }
 
@@ -70,7 +70,7 @@ class ProductDetailsNodeTest extends TestCase
         $node->nullSpecialTreatmentClasses();
         $this->assertEquals([], $node->getSpecialTreatmentClasses());
 
-        foreach($specialTreatmentClasses as $specialTreatmentClass) {
+        foreach ($specialTreatmentClasses as $specialTreatmentClass) {
             $node->addSpecialTreatmentClass($specialTreatmentClass);
         }
 
@@ -93,7 +93,7 @@ class ProductDetailsNodeTest extends TestCase
         $node->nullKeywords();
         $this->assertEquals([], $node->getKeywords());
 
-        foreach($keywords as $keyword) {
+        foreach ($keywords as $keyword) {
             $node->addKeyword($keyword);
         }
 
@@ -116,7 +116,7 @@ class ProductDetailsNodeTest extends TestCase
         $node->nullProductStatus();
         $this->assertEquals([], $node->getProductStatus());
 
-        foreach($productStatus as $singleProductStatus) {
+        foreach ($productStatus as $singleProductStatus) {
             $node->addProductStatus($singleProductStatus);
         }
 
@@ -233,7 +233,7 @@ class ProductDetailsNodeTest extends TestCase
     public function Set_Get_Delivery_Time()
     {
         $node = new ProductDetailsNode();
-        $value = rand(10,1000);
+        $value = rand(10, 1000);
 
         $this->assertNull($node->getDeliveryTime());
         $node->setDeliveryTime($value);
@@ -259,7 +259,7 @@ class ProductDetailsNodeTest extends TestCase
     public function Set_Get_Product_Order()
     {
         $node = new ProductDetailsNode();
-        $value = rand(10,1000);
+        $value = rand(10, 1000);
 
         $this->assertNull($node->getProductOrder());
         $node->setProductOrder($value);
@@ -306,4 +306,4 @@ class ProductDetailsNodeTest extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
-} 
+}
