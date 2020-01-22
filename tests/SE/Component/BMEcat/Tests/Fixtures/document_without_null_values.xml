@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<BMECAT xmlns="http://www.bmecat.org/bmecat/2005.1" version="2005.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.w3.org/1999/xhtml.xsd">
+<BMECAT xmlns="http://www.bmecat.org/bmecat/2005.1" version="2005.1">
   <HEADER>
     <GENERATOR_INFO><![CDATA[DocumentTest Document]]></GENERATOR_INFO>
     <CATALOG>
-      <LANGUAGE><![CDATA[EN]]></LANGUAGE>
+      <LANGUAGE><![CDATA[eng]]></LANGUAGE>
       <CATALOG_ID><![CDATA[MY_CATALOG]]></CATALOG_ID>
       <CATALOG_VERSION><![CDATA[0.99]]></CATALOG_VERSION>
       <DATETIME type="generation_date">
@@ -19,7 +19,7 @@
   </HEADER>
   <T_NEW_CATALOG>
     <PRODUCT>
-      <SUPPLIER_AID><![CDATA[1]]></SUPPLIER_AID>
+      <SUPPLIER_PID><![CDATA[1]]></SUPPLIER_PID>
       <PRODUCT_PRICE_DETAILS>
         <PRODUCT_PRICE price_type="gros_list">
           <PRICE_AMOUNT>10.5</PRICE_AMOUNT>
@@ -70,7 +70,7 @@
       </MIME_INFO>
     </PRODUCT>
     <PRODUCT>
-      <SUPPLIER_AID><![CDATA[2]]></SUPPLIER_AID>
+      <SUPPLIER_PID><![CDATA[2]]></SUPPLIER_PID>
       <PRODUCT_PRICE_DETAILS>
         <PRODUCT_PRICE price_type="gros_list">
           <PRICE_AMOUNT>10.5</PRICE_AMOUNT>
@@ -121,7 +121,7 @@
       </MIME_INFO>
     </PRODUCT>
     <PRODUCT>
-      <SUPPLIER_AID><![CDATA[3]]></SUPPLIER_AID>
+      <SUPPLIER_PID><![CDATA[3]]></SUPPLIER_PID>
       <PRODUCT_PRICE_DETAILS>
         <PRODUCT_PRICE price_type="gros_list">
           <PRICE_AMOUNT>10.5</PRICE_AMOUNT>

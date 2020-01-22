@@ -40,20 +40,6 @@ class DocumentNode extends AbstractNode
 
     /**
      * @Serializer\Expose
-     * @Serializer\SerializedName("xmlns:xsi")
-     * @Serializer\XmlAttribute
-     */
-    protected $nullableNamespace = 'http://www.w3.org/2001/XMLSchema-instance';
-
-    /**
-     * @Serializer\Expose
-     * @Serializer\SerializedName("xsi:noNamespaceSchemaLocation")
-     * @Serializer\XmlAttribute
-     */
-    protected $nullableLocation = 'http://www.w3.org/1999/xhtml.xsd';
-
-    /**
-     * @Serializer\Expose
      * @Serializer\Type("SE\Component\BMEcat\Node\HeaderNode")
      * @Serializer\SerializedName("HEADER")
      *

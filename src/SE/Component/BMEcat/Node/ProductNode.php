@@ -25,7 +25,7 @@ class ProductNode extends AbstractNode
      *
      * @Serializer\Expose
      * @Serializer\Type("string")
-     * @Serializer\SerializedName("SUPPLIER_AID")
+     * @Serializer\SerializedName("SUPPLIER_PID")
      *
      * @var string
      */

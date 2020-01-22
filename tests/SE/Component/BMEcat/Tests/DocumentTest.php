@@ -10,6 +10,8 @@
 
 namespace SE\Component\BMEcat\Tests;
 
+use SE\Component\BMEcat\SchemaValidator;
+
 /**
  *
  * @package SE\Component\BMEcat\Tests
@@ -25,9 +27,9 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
                 'header' =>[
                     'generator_info' => 'DocumentTest Document',
                     'catalog' => [
+                        'language'  => 'eng',
                         'id'        => 'MY_CATALOG',
                         'version'   => '0.99',
-                        'language'  => 'EN',
                         'datetime'  => [
                             'date' => '1979-01-01',
                             'time' => '10:59:54',
@@ -125,6 +127,10 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
         $actual = $this->builder->toString();
 
         $this->assertEquals($expected, $actual);
+
+        $this->assertTrue(
+            SchemaValidator::isValid($actual, '2005.1')
+        );
     }
 
     /**
@@ -139,5 +145,9 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
         $actual = $this->builder->toString();
 
         $this->assertEquals($expected, $actual);
+
+        $this->assertTrue(
+            SchemaValidator::isValid($actual, '2005.1')
+        );
     }
 }
