@@ -17,7 +17,7 @@ use SE\Component\BMEcat\Node\ArticleFeaturesNode;
 use SE\Component\BMEcat\Node\ArticleItemTagNode;
 use SE\Component\BMEcat\Node\ArticleMimeNode;
 use SE\Component\BMEcat\Node\ArticleNode;
-use SE\Component\BMEcat\Node\ArticleOrderDetailsNode;
+use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
 use SE\Component\BMEcat\Node\ArticlePriceNode;
 use SE\Component\BMEcat\Node\ProductDetailsNode;
 
@@ -114,10 +114,10 @@ class ArticleNodeTest extends TestCase
      *
      * @test
      */
-    public function Add_Get_Article_Order_Details()
+    public function Add_Get_Product_Order_Details()
     {
         $node = new ArticleNode();
-        $value = new ArticleOrderDetailsNode();
+        $value = new ProductOrderDetailsNode();
 
         $this->assertEmpty($node->getOrderDetails());
         $node->setOrderDetails($value);

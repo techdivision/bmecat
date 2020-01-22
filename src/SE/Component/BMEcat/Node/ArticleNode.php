@@ -64,10 +64,10 @@ class ArticleNode extends AbstractNode
 
     /**
      * @Serializer\Expose
-     * @Serializer\SerializedName("ARTICLE_ORDER_DETAILS")
-     * @Serializer\Type("SE\Component\BMEcat\Node\ArticleOrderDetailsNode")
+     * @Serializer\SerializedName("PRODUCT_ORDER_DETAILS")
+     * @Serializer\Type("SE\Component\BMEcat\Node\ProductOrderDetailsNode")
      *
-     * @var ArticleOrderDetailsNode
+     * @var ProductOrderDetailsNode
      */
     protected $orderDetails;
 
@@ -216,7 +216,7 @@ class ArticleNode extends AbstractNode
     }
 
     /**
-     * @return ArticleOrderDetailsNode|null
+     * @return ProductOrderDetailsNode|null
      */
     public function getOrderDetails()
     {
@@ -224,9 +224,9 @@ class ArticleNode extends AbstractNode
     }
 
     /**
-     * @param ArticleOrderDetailsNode $orderDetails
+     * @param ProductOrderDetailsNode $orderDetails
      */
-    public function setOrderDetails(ArticleOrderDetailsNode $orderDetails)
+    public function setOrderDetails(ProductOrderDetailsNode $orderDetails)
     {
         $this->orderDetails = $orderDetails;
     }

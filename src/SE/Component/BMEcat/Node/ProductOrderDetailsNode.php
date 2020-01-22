@@ -9,9 +9,9 @@ use \JMS\Serializer\Annotation as Serializer;
  * @package SE\Component\BMEcat
  * @author Jochen Pfaeffle <jochen.pfaeffle.dev@gmail.com>
  *
- * @Serializer\XmlRoot("ARTICLE_ORDER_DETAILS")
+ * @Serializer\XmlRoot("PRODUCT_ORDER_DETAILS")
  */
-class ArticleOrderDetailsNode extends AbstractNode
+class ProductOrderDetailsNode extends AbstractNode
 {
     /**
      * @Serializer\Expose

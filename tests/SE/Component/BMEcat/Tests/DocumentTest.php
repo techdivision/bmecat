@@ -99,7 +99,7 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
                 $article->addMime($mime);
             }
 
-            $orderDetails = new \SE\Component\BMEcat\Node\ArticleOrderDetailsNode;
+            $orderDetails = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode;
             $orderDetails->setNoCuPerOu(1);
             $orderDetails->setPriceQuantity(1);
             $orderDetails->setQuantityMin(1);

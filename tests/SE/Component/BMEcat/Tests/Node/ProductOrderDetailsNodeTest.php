@@ -7,7 +7,7 @@ namespace SE\Component\BMEcat\Tests\Node;
  * @package SE\Component\BMEcat\Tests
  * @author Jochen Pfaeffle <jochen.pfaeffle.dev@gmail.com>
  */
-class ArticleOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
+class ProductOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
 {
     public function setUp() : void
     {
@@ -19,7 +19,7 @@ class ArticleOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Order_Unit()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleOrderDetailsNode();
+        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getOrderUnit());
@@ -32,7 +32,7 @@ class ArticleOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Content_Unit()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleOrderDetailsNode();
+        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getContentUnit());
@@ -45,7 +45,7 @@ class ArticleOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_No_Cu_Per_Ou()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleOrderDetailsNode();
+        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
         $value = rand(10,1000);
 
         $this->assertEquals(1, $node->getNoCuPerOu());
@@ -58,7 +58,7 @@ class ArticleOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Price_Quantity()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleOrderDetailsNode();
+        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
         $value = rand(10,1000);
 
         $this->assertEquals(1, $node->getPriceQuantity());
@@ -71,7 +71,7 @@ class ArticleOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Quantity_Min()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleOrderDetailsNode();
+        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
         $value = rand(10,1000);
 
         $this->assertEquals(1, $node->getQuantityMin());
@@ -84,7 +84,7 @@ class ArticleOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Quantity_Interval()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleOrderDetailsNode();
+        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
         $value = rand(10,1000);
 
         $this->assertEquals(1, $node->getQuantityInterval());
@@ -97,10 +97,10 @@ class ArticleOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleOrderDetailsNode();
+        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
         $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_order_details_with_null_values.xml');
+        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_order_details_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);
@@ -111,10 +111,10 @@ class ArticleOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleOrderDetailsNode();
+        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
         $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_order_details_without_null_values.xml');
+        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_order_details_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);
