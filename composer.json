@@ -1,14 +1,14 @@
 {
-    "name": "se/bmecat",
+    "name": "naugrim/bmecat",
     "type": "library",
     "description": "Allows to build BMEcat documents from PHP and converts them to xml",
     "keywords": ["bmecat", "document", "serialization", "xml"],
-    "homepage": "https://github.com/sveneisenschmidt/bmecat",
+    "homepage": "https://github.com/naugrimm/bmecat",
     "license": "MIT",
     "authors": [
         {
-            "name": "Sven Eisenschmidt",
-            "email": "sven.eisenschmidt@gmail.com"
+            "name": "Erik Anders",
+            "email": "erik.gto@googlemail.com"
         }
     ],
     "require": {
