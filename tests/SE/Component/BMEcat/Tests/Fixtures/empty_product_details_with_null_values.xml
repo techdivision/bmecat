@@ -12,6 +12,6 @@
   <DELIVERY_TIME xsi:nil="true"/>
   <REMARKS xsi:nil="true"/>
   <SEGMENT xsi:nil="true"/>
-  <ARTICLE_ORDER xsi:nil="true"/>
+  <PRODUCT_ORDER xsi:nil="true"/>
   <WEIGHT xsi:nil="true"/>
 </PRODUCT_DETAILS>

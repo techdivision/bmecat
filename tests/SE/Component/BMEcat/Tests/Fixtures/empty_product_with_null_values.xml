@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ARTICLE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true">
+<PRODUCT xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true">
   <SUPPLIER_AID xsi:nil="true"/>
   <PRODUCT_DETAILS xsi:nil="true"/>
   <PRODUCT_PRICE_DETAILS xsi:nil="true"/>
   <PRODUCT_ORDER_DETAILS xsi:nil="true"/>
   <MIME_INFO xsi:nil="true"/>
-</ARTICLE>
+</PRODUCT>

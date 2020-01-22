@@ -50,8 +50,8 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
         $builder->getDocument()->setNewCatalog($catalog);
 
         foreach([1,2,3] as $index) {
-            $article = new \SE\Component\BMEcat\Node\ArticleNode;
-            $article->setId($index);
+            $product = new \SE\Component\BMEcat\Node\ProductNode;
+            $product->setId($index);
 
             foreach([['EUR', 10.50], ['GBP', 7.30]] as $value) {
                 list($currency, $amount) = $value;
@@ -62,7 +62,7 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
                 $price->setCurrency($currency);
                 $price->setSupplierPrice(round($amount/2,2));
 
-                $article->addPrice($price);
+                $product->addPrice($price);
             }
 
             foreach([['A', 'B', 'C', 1, 2, 'D', 'E'],['F', 'G', 'H', 3, 4, 'I', 'J']] as $value) {
@@ -80,7 +80,7 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
                 $features->setCustomsCountryOfOrigin($countryOfOrigin);
                 $features->setCustomsTariffText($tariftext);
 
-                $article->addFeatures($features);
+                $product->addFeatures($features);
             }
 
             foreach([
@@ -96,7 +96,7 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
                 $mime->setSource($source);
                 $mime->setPurpose($purpose);
 
-                $article->addMime($mime);
+                $product->addMime($mime);
             }
 
             $orderDetails = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode;
@@ -105,9 +105,9 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
             $orderDetails->setQuantityMin(1);
             $orderDetails->setQuantityInterval(1);
 
-            $article->setOrderDetails($orderDetails);
+            $product->setOrderDetails($orderDetails);
 
-            $catalog->addArticle($article);
+            $catalog->addProducts($product);
         }
 
         $this->builder = $builder;

@@ -144,7 +144,7 @@ class ProductDetailsNode extends AbstractNode
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticleKeywordNode>")
+     * @Serializer\Type("array<SE\Component\BMEcat\Node\ProductKeywordNode>")
      * @Serializer\XmlList(inline=true, entry="KEYWORD")
      *
      * @var ProductKeywordNode[]
@@ -175,12 +175,12 @@ class ProductDetailsNode extends AbstractNode
      *
      * @Serializer\Expose
      * @Serializer\Type("int")
-     * @Serializer\SerializedName("ARTICLE_ORDER")
+     * @Serializer\SerializedName("PRODUCT_ORDER")
      * @Serializer\XmlElement(cdata=false)
      *
      * @var int
      */
-    protected $articleOrder;
+    protected $productOrder;
 
     /**
      *
@@ -386,11 +386,11 @@ class ProductDetailsNode extends AbstractNode
     }
 
     /**
-     * @param int $articleOrder
+     * @param int $productOrder
      */
-    public function setArticleOrder($articleOrder)
+    public function setProductOrder($productOrder)
     {
-        $this->articleOrder = $articleOrder;
+        $this->productOrder = $productOrder;
     }
 
     /**
@@ -536,9 +536,9 @@ class ProductDetailsNode extends AbstractNode
     /**
      * @return int
      */
-    public function getArticleOrder()
+    public function getProductOrder()
     {
-        return $this->articleOrder;
+        return $this->productOrder;
     }
 
     /**

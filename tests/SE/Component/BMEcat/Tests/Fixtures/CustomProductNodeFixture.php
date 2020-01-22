@@ -15,7 +15,7 @@ namespace SE\Component\BMEcat\Tests\Fixtures;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class CustomArticleNodeFixture extends \SE\Component\BMEcat\Node\ArticleNode
+class CustomProductNodeFixture extends \SE\Component\BMEcat\Node\ProductNode
 {
 
 

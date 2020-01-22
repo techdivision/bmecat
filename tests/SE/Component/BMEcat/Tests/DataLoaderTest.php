@@ -96,7 +96,7 @@ class DataLoaderTest extends \PHPUnit\Framework\TestCase
         $name  = 'id';
         $value = sprintf('Test_Id_%s', sha1(uniqid(microtime(false), true)));
 
-        $stub = $this->createMock('\SE\Component\BMEcat\Node\ArticleNode');
+        $stub = $this->createMock('\SE\Component\BMEcat\Node\ProductNode');
 
         $stub->expects($this->once())
             ->method('setId')

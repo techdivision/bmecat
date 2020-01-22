@@ -13,7 +13,7 @@ namespace SE\Component\BMEcat\Node;
 use JMS\Serializer\Annotation as Serializer;
 
 use SE\Component\BMEcat\Node\AbstractNode;
-use SE\Component\BMEcat\Node\ArticleNode;
+use SE\Component\BMEcat\Node\ProductNode;
 
 /**
  *
@@ -23,23 +23,23 @@ class NewCatalogNode extends AbstractNode
 {
     /**
      * @Serializer\Expose
-     * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticleNode>")
-     * @Serializer\XmlList(inline = true, entry = "ARTICLE")
+     * @Serializer\Type("array<SE\Component\BMEcat\Node\ProductNode>")
+     * @Serializer\XmlList(inline = true, entry = "PRODUCT")
      *
-     * @var \SE\Component\BMEcat\Node\ArticleNode[]
+     * @var \SE\Component\BMEcat\Node\ProductNode[]
      */
-    protected $articles = [];
+    protected $products = [];
 
     /**
      *
-     * @param \SE\Component\BMEcat\Node\ArticleNode $article
+     * @param \SE\Component\BMEcat\Node\ProductNode $product
      */
-    public function addArticle(ArticleNode $article)
+    public function addProducts(ProductNode $product)
     {
-        if($this->articles === null) {
-            $this->articles = [];
+        if($this->products === null) {
+            $this->products = [];
         }
-        $this->articles []= $article;
+        $this->products []= $product;
     }
 
     /**
@@ -47,24 +47,24 @@ class NewCatalogNode extends AbstractNode
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
      */
-    public function nullArticles()
+    public function nullProducts()
     {
-        if(empty($this->articles ) === true) {
-            $this->articles = null;
+        if(empty($this->products ) === true) {
+            $this->products = null;
         }
     }
 
     /**
      *
-     * @return \SE\Component\BMEcat\Node\ArticleNode[]
+     * @return \SE\Component\BMEcat\Node\ProductNode[]
      */
-    public function getArticles()
+    public function getProducts()
     {
-        if($this->articles === null)  {
+        if($this->products === null)  {
             return [];
         }
 
-        return $this->articles;
+        return $this->products;
     }
 
 

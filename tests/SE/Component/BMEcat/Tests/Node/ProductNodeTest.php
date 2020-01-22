@@ -15,7 +15,7 @@ use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
 use SE\Component\BMEcat\Node\ProductFeaturesNode;
 use SE\Component\BMEcat\Node\MimeNode;
-use SE\Component\BMEcat\Node\ArticleNode;
+use SE\Component\BMEcat\Node\ProductNode;
 use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
 use SE\Component\BMEcat\Node\ProductPriceNode;
 use SE\Component\BMEcat\Node\ProductDetailsNode;
@@ -25,7 +25,7 @@ use SE\Component\BMEcat\Node\ProductDetailsNode;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class ArticleNodeTest extends TestCase
+class ProductNodeTest extends TestCase
 {
     public function setUp() : void
     {
@@ -38,7 +38,7 @@ class ArticleNodeTest extends TestCase
      */
     public function Set_Get_Id()
     {
-        $node = new ArticleNode();
+        $node = new ProductNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getId());
@@ -52,7 +52,7 @@ class ArticleNodeTest extends TestCase
      */
     public function Set_Get_Details()
     {
-        $node = new ArticleNode();
+        $node = new ProductNode();
         $details = new ProductDetailsNode();
 
         $this->assertNull($node->getDetails());
@@ -73,7 +73,7 @@ class ArticleNodeTest extends TestCase
             new ProductFeaturesNode(),
         ];
 
-        $node = new ArticleNode();
+        $node = new ProductNode();
         $this->assertEmpty($node->getFeatures());
         $node->nullFeatures();
         $this->assertEquals([], $node->getFeatures());
@@ -97,7 +97,7 @@ class ArticleNodeTest extends TestCase
             new ProductPriceNode(),
         ];
 
-        $node = new ArticleNode();
+        $node = new ProductNode();
         $this->assertEmpty($node->getPrices());
         $node->nullPrices();
         $this->assertEquals([], $node->getPrices());
@@ -115,7 +115,7 @@ class ArticleNodeTest extends TestCase
      */
     public function Add_Get_Product_Order_Details()
     {
-        $node = new ArticleNode();
+        $node = new ProductNode();
         $value = new ProductOrderDetailsNode();
 
         $this->assertEmpty($node->getOrderDetails());
@@ -135,7 +135,7 @@ class ArticleNodeTest extends TestCase
             new MimeNode(),
         ];
 
-        $node = new ArticleNode();
+        $node = new ProductNode();
         $this->assertEmpty($node->getMimes());
         $node->nullMime();
         $this->assertEquals(null, $node->getMimes());
@@ -153,10 +153,10 @@ class ArticleNodeTest extends TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new ArticleNode();
+        $node = new ProductNode();
         $context = SerializationContext::create()->setSerializeNull(true);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_with_null_values.xml');
+        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
         $this->assertEquals($expected, $actual);
     }
@@ -167,10 +167,10 @@ class ArticleNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new ArticleNode();
+        $node = new ProductNode();
         $context = SerializationContext::create()->setSerializeNull(false);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_without_null_values.xml');
+        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);

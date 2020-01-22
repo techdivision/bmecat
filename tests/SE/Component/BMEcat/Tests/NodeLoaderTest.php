@@ -56,7 +56,7 @@ class NodeLoaderTest extends TestCase
             $this->loader->get(NodeLoader::PRODUCT_DETAILS_NODE),
             $this->loader->get(NodeLoader::PRODUCT_FEATURE_NODE),
             $this->loader->get(NodeLoader::PRODUCT_PRICE_NODE),
-            $this->loader->get(NodeLoader::ARTICLE_NODE),
+            $this->loader->get(NodeLoader::PRODUCT_NODE),
             $this->loader->get(NodeLoader::CATALOG_NODE),
             $this->loader->get(NodeLoader::DOCUMENT_NODE),
             $this->loader->get(NodeLoader::NEW_CATALOG_NODE),
@@ -68,7 +68,7 @@ class NodeLoaderTest extends TestCase
             '\SE\Component\BMEcat\Node\ProductDetailsNode',
             '\SE\Component\BMEcat\Node\ProductFeatureNode',
             '\SE\Component\BMEcat\Node\ProductPriceNode',
-            '\SE\Component\BMEcat\Node\ArticleNode',
+            '\SE\Component\BMEcat\Node\ProductNode',
             '\SE\Component\BMEcat\Node\CatalogNode',
             '\SE\Component\BMEcat\Node\DocumentNode',
             '\SE\Component\BMEcat\Node\NewCatalogNode',
@@ -83,8 +83,8 @@ class NodeLoaderTest extends TestCase
      */
     public function Default_Mapping_Returns_Default_Class()
     {
-        $instance = $this->loader->getInstance(NodeLoader::ARTICLE_NODE);
-        $this->assertInstanceOf('\SE\Component\BMEcat\Node\ArticleNode', $instance);
+        $instance = $this->loader->getInstance(NodeLoader::PRODUCT_NODE);
+        $this->assertInstanceOf('\SE\Component\BMEcat\Node\ProductNode', $instance);
     }
 
     /**
@@ -93,13 +93,13 @@ class NodeLoaderTest extends TestCase
      */
     public function Custom_Mapping_Returns_Custom_Class()
     {
-        $class = '\SE\Component\BMEcat\Tests\Fixtures\CustomArticleNodeFixture';
-        $this->loader->set(NodeLoader::ARTICLE_NODE, $class);
-        $this->assertSame($class, $this->loader->get(NodeLoader::ARTICLE_NODE));
+        $class = '\SE\Component\BMEcat\Tests\Fixtures\CustomProductNodeFixture';
+        $this->loader->set(NodeLoader::PRODUCT_NODE, $class);
+        $this->assertSame($class, $this->loader->get(NodeLoader::PRODUCT_NODE));
 
-        $instance = $this->loader->getInstance(NodeLoader::ARTICLE_NODE);
+        $instance = $this->loader->getInstance(NodeLoader::PRODUCT_NODE);
         $this->assertInstanceOf($class, $instance);
-        $this->assertInstanceOf('\SE\Component\BMEcat\Node\ArticleNode', $instance);
+        $this->assertInstanceOf('\SE\Component\BMEcat\Node\ProductNode', $instance);
     }
 
     /**
@@ -119,7 +119,7 @@ class NodeLoaderTest extends TestCase
     public function Set_Unknown_Node_Class()
     {
         $this->expectException(UnknownNodeTypeException::class);
-        $this->loader->set('unknown.node', '\SE\Component\BMEcat\Node\ArticleNode');
+        $this->loader->set('unknown.node', '\SE\Component\BMEcat\Node\ProductNode');
     }
 
     /**

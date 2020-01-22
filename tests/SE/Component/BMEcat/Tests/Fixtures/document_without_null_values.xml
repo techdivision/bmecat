@@ -18,7 +18,7 @@
     </SUPPLIER>
   </HEADER>
   <T_NEW_CATALOG>
-    <ARTICLE>
+    <PRODUCT>
       <SUPPLIER_AID><![CDATA[1]]></SUPPLIER_AID>
       <PRODUCT_PRICE_DETAILS>
         <PRODUCT_PRICE price_type="gros_list">
@@ -68,8 +68,8 @@
           <MIME_PURPOSE><![CDATA[thumbnail]]></MIME_PURPOSE>
         </MIME>
       </MIME_INFO>
-    </ARTICLE>
-    <ARTICLE>
+    </PRODUCT>
+    <PRODUCT>
       <SUPPLIER_AID><![CDATA[2]]></SUPPLIER_AID>
       <PRODUCT_PRICE_DETAILS>
         <PRODUCT_PRICE price_type="gros_list">
@@ -119,8 +119,8 @@
           <MIME_PURPOSE><![CDATA[thumbnail]]></MIME_PURPOSE>
         </MIME>
       </MIME_INFO>
-    </ARTICLE>
-    <ARTICLE>
+    </PRODUCT>
+    <PRODUCT>
       <SUPPLIER_AID><![CDATA[3]]></SUPPLIER_AID>
       <PRODUCT_PRICE_DETAILS>
         <PRODUCT_PRICE price_type="gros_list">
@@ -170,6 +170,6 @@
           <MIME_PURPOSE><![CDATA[thumbnail]]></MIME_PURPOSE>
         </MIME>
       </MIME_INFO>
-    </ARTICLE>
+    </PRODUCT>
   </T_NEW_CATALOG>
 </BMECAT>

@@ -17,9 +17,9 @@ use JMS\Serializer\Annotation as Serializer;
  * @package SE\Component\BMEcat
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  *
- * @Serializer\XmlRoot("ARTICLE")
+ * @Serializer\XmlRoot("PRODUCT")
  */
-class ArticleNode extends AbstractNode
+class ProductNode extends AbstractNode
 {
     /**
      *

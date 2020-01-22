@@ -256,14 +256,14 @@ class ProductDetailsNodeTest extends TestCase
     /**
      * @test
      */
-    public function Set_Get_Article_Order()
+    public function Set_Get_Product_Order()
     {
         $node = new ProductDetailsNode();
         $value = rand(10,1000);
 
-        $this->assertNull($node->getArticleOrder());
-        $node->setArticleOrder($value);
-        $this->assertEquals($value, $node->getArticleOrder());
+        $this->assertNull($node->getProductOrder());
+        $node->setProductOrder($value);
+        $this->assertEquals($value, $node->getProductOrder());
     }
 
     /**

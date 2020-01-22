@@ -26,24 +26,24 @@ class NewCatalogNodeTest  extends \PHPUnit\Framework\TestCase
      *
      * @test
      */
-    public function Add_Get_Article_Node()
+    public function Add_Get_Product_Node()
     {
-        $articles = [
-            new \SE\Component\BMEcat\Node\ArticleNode(),
-            new \SE\Component\BMEcat\Node\ArticleNode(),
-            new \SE\Component\BMEcat\Node\ArticleNode(),
+        $products = [
+            new \SE\Component\BMEcat\Node\ProductNode(),
+            new \SE\Component\BMEcat\Node\ProductNode(),
+            new \SE\Component\BMEcat\Node\ProductNode(),
         ];
 
         $node = new \SE\Component\BMEcat\Node\NewCatalogNode();
-        $this->assertEmpty($node->getArticles());
-        $node->nullArticles();
-        $this->assertEquals([], $node->getArticles());
+        $this->assertEmpty($node->getProducts());
+        $node->nullProducts();
+        $this->assertEquals([], $node->getProducts());
 
-        foreach($articles as $article) {
-            $node->addArticle($article);
+        foreach($products as $product) {
+            $node->addProducts($product);
         }
 
-        $this->assertSame($articles, $node->getArticles());
+        $this->assertSame($products, $node->getProducts());
     }
 
     /**
