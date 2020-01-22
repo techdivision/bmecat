@@ -10,6 +10,8 @@
 
 namespace SE\Component\BMEcat\Node;
 
+use JMS\Serializer\Annotation as Serializer;
+
 /**
  *
  * @package SE\Component\BMEcat
