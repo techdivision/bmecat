@@ -41,6 +41,17 @@ class ProductNode extends AbstractNode
      */
     protected $detail;
 
+
+    /**
+     *
+     * @Serializer\Expose
+     * @Serializer\Type("array<SE\Component\BMEcat\Node\ProductFeaturesNode>")
+     * @Serializer\XmlList( inline=true, entry="PRODUCT_FEATURES")
+     *
+     * @var ProductFeaturesNode[]
+     */
+    protected $features = [];
+
     /**
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_ORDER_DETAILS")
@@ -60,16 +71,6 @@ class ProductNode extends AbstractNode
      * @var ProductPriceNode[]
      */
     protected $prices = [];
-
-    /**
-     *
-     * @Serializer\Expose
-     * @Serializer\Type("array<SE\Component\BMEcat\Node\ProductFeaturesNode>")
-     * @Serializer\XmlList( inline=true, entry="PRODUCT_FEATURES")
-     *
-     * @var ProductFeaturesNode[]
-     */
-    protected $features = [];
 
     /**
      *

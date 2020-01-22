@@ -20,26 +20,14 @@ class ProductOrderDetailsNodeTest extends \PHPUnit\Framework\TestCase
     public function Set_Get_Order_Unit()
     {
         $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
-        $value = sha1(uniqid(microtime(false), true));
+        $value = 'C62';
 
         $this->assertNull($node->getOrderUnit());
         $node->setOrderUnit($value);
-        $this->assertEquals($value, $node->getOrderUnit());
-    }
-
-    /**
-     * @test
-     */
-    public function Set_Get_Content_Unit()
-    {
-        $node = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode();
-        $value = sha1(uniqid(microtime(false), true));
-
-        $this->assertNull($node->getContentUnit());
         $node->setContentUnit($value);
+        $this->assertEquals($value, $node->getOrderUnit());
         $this->assertEquals($value, $node->getContentUnit());
     }
-
     /**
      * @test
      */

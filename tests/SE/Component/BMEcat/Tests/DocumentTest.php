@@ -78,20 +78,12 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
 
                 $features->setReferenceFeatureSystemName($systemName);
                 $features->setReferenceFeatureGroupName($groupName);
-                $features->setReferenceFeatureGroupId($groupId);
-
-                // Only for PIXI Import
-                $features->setSerialNumberRequired($serialNumber);
-                $features->setCustomsTariffNumber($tarifNumber);
-                $features->setCustomsCountryOfOrigin($countryOfOrigin);
-                $features->setCustomsTariffText($tariftext);
-
                 $product->addFeatures($features);
             }
 
             foreach([
                 ['image/jpeg', 'http://a.b/c/d.jpg', 'normal'],
-                ['image/bmp', 'http://w.x/y/z.bmp', 'thumbnail']
+                ['image/gif', 'http://w.x/y/z.bmp', 'thumbnail']
                     ] as $value) {
 
                 list($type, $source, $purpose) = $value;
@@ -107,6 +99,7 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
 
             $orderDetails = new \SE\Component\BMEcat\Node\ProductOrderDetailsNode;
             $orderDetails->setOrderUnit('C62');
+            $orderDetails->setContentUnit('C62');
             $orderDetails->setNoCuPerOu(1);
             $orderDetails->setPriceQuantity(1);
             $orderDetails->setQuantityMin(1);
@@ -118,24 +111,6 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
         }
 
         $this->builder = $builder;
-    }
-
-    /**
-     *
-     * @test
-     */
-    public function Compare_Document_With_Null_Values()
-    {
-        $this->builder->setSerializeNull(true);
-
-        $expected = file_get_contents(__DIR__.'/Fixtures/document_with_null_values.xml');
-        $actual = $this->builder->toString();
-
-        $this->assertEquals($expected, $actual);
-
-        $this->assertTrue(
-            SchemaValidator::isValid($actual, '2005.1')
-        );
     }
 
     /**

@@ -92,62 +92,6 @@ class ProductFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      *
      * @test
      */
-    public function Set_Get_Serial_Number_Required()
-    {
-        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
-        $value = rand(10,1000);
-
-        $this->assertNull($node->getSerialNumberRequired());
-        $node->setSerialNumberRequired($value);
-        $this->assertEquals($value, $node->getSerialNumberRequired());
-    }
-
-    /**
-     *
-     * @test
-     */
-    public function Set_Get_Customs_Tariff_Number()
-    {
-        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
-        $value = rand(10,1000);
-
-        $this->assertNull($node->getCustomsTariffNumber());
-        $node->setCustomsTariffNumber($value);
-        $this->assertEquals($value, $node->getCustomsTariffNumber());
-    }
-
-    /**
-     *
-     * @test
-     */
-    public function Set_Get_Customs_Country_Of_Origin()
-    {
-        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
-        $value = sha1(uniqid(microtime(false), true));
-
-        $this->assertNull($node->getCustomsCountryOfOrigin());
-        $node->setCustomsCountryOfOrigin($value);
-        $this->assertEquals($value, $node->getCustomsCountryOfOrigin());
-    }
-
-    /**
-     *
-     * @test
-     */
-    public function Set_Get_Customs_Tariff_Text()
-    {
-        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
-        $value = sha1(uniqid(microtime(false), true));
-
-        $this->assertNull($node->getCustomsTariffText());
-        $node->setCustomsTariffText($value);
-        $this->assertEquals($value, $node->getCustomsTariffText());
-    }
-
-    /**
-     *
-     * @test
-     */
     public function Serialize_With_Null_Values()
     {
         $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();

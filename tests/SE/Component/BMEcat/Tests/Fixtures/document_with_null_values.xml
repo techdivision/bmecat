@@ -35,9 +35,17 @@
         <SEGMENT xsi:nil="true"/>
         <PRODUCT_ORDER xsi:nil="true"/>
       </PRODUCT_DETAILS>
+      <PRODUCT_FEATURES>
+        <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[A]]></REFERENCE_FEATURE_SYSTEM_NAME>
+        <REFERENCE_FEATURE_GROUP_NAME><![CDATA[B]]></REFERENCE_FEATURE_GROUP_NAME>
+      </PRODUCT_FEATURES>
+      <PRODUCT_FEATURES>
+        <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[F]]></REFERENCE_FEATURE_SYSTEM_NAME>
+        <REFERENCE_FEATURE_GROUP_NAME><![CDATA[G]]></REFERENCE_FEATURE_GROUP_NAME>
+      </PRODUCT_FEATURES>
       <PRODUCT_ORDER_DETAILS>
         <ORDER_UNIT><![CDATA[C62]]></ORDER_UNIT>
-        <CONTENT_UNIT xsi:nil="true"/>
+        <CONTENT_UNIT><![CDATA[C62]]></CONTENT_UNIT>
         <NO_CU_PER_OU>1</NO_CU_PER_OU>
         <PRICE_QUANTITY>1</PRICE_QUANTITY>
         <QUANTITY_MIN>1</QUANTITY_MIN>
@@ -53,26 +61,6 @@
           <PRICE_CURRENCY><![CDATA[GBP]]></PRICE_CURRENCY>
         </PRODUCT_PRICE>
       </PRODUCT_PRICE_DETAILS>
-      <PRODUCT_FEATURES>
-        <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[A]]></REFERENCE_FEATURE_SYSTEM_NAME>
-        <REFERENCE_FEATURE_GROUP_NAME><![CDATA[B]]></REFERENCE_FEATURE_GROUP_NAME>
-        <REFERENCE_FEATURE_GROUP_ID><![CDATA[C]]></REFERENCE_FEATURE_GROUP_ID>
-        <FEATURE xsi:nil="true"/>
-        <SerialNumberRequired>1</SerialNumberRequired>
-        <CustomsTariffNumber>2</CustomsTariffNumber>
-        <CustomsCountryOfOrigin><![CDATA[D]]></CustomsCountryOfOrigin>
-        <CustomsTariffText><![CDATA[E]]></CustomsTariffText>
-      </PRODUCT_FEATURES>
-      <PRODUCT_FEATURES>
-        <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[F]]></REFERENCE_FEATURE_SYSTEM_NAME>
-        <REFERENCE_FEATURE_GROUP_NAME><![CDATA[G]]></REFERENCE_FEATURE_GROUP_NAME>
-        <REFERENCE_FEATURE_GROUP_ID><![CDATA[H]]></REFERENCE_FEATURE_GROUP_ID>
-        <FEATURE xsi:nil="true"/>
-        <SerialNumberRequired>3</SerialNumberRequired>
-        <CustomsTariffNumber>4</CustomsTariffNumber>
-        <CustomsCountryOfOrigin><![CDATA[I]]></CustomsCountryOfOrigin>
-        <CustomsTariffText><![CDATA[J]]></CustomsTariffText>
-      </PRODUCT_FEATURES>
       <MIME_INFO>
         <MIME>
           <MIME_TYPE><![CDATA[image/jpeg]]></MIME_TYPE>
@@ -82,7 +70,7 @@
           <MIME_PURPOSE><![CDATA[normal]]></MIME_PURPOSE>
         </MIME>
         <MIME>
-          <MIME_TYPE><![CDATA[image/bmp]]></MIME_TYPE>
+          <MIME_TYPE><![CDATA[image/gif]]></MIME_TYPE>
           <MIME_SOURCE><![CDATA[http://w.x/y/z.bmp]]></MIME_SOURCE>
           <MIME_DESCR xsi:nil="true"/>
           <MIME_ALT xsi:nil="true"/>
@@ -107,9 +95,17 @@
         <SEGMENT xsi:nil="true"/>
         <PRODUCT_ORDER xsi:nil="true"/>
       </PRODUCT_DETAILS>
+      <PRODUCT_FEATURES>
+        <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[A]]></REFERENCE_FEATURE_SYSTEM_NAME>
+        <REFERENCE_FEATURE_GROUP_NAME><![CDATA[B]]></REFERENCE_FEATURE_GROUP_NAME>
+      </PRODUCT_FEATURES>
+      <PRODUCT_FEATURES>
+        <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[F]]></REFERENCE_FEATURE_SYSTEM_NAME>
+        <REFERENCE_FEATURE_GROUP_NAME><![CDATA[G]]></REFERENCE_FEATURE_GROUP_NAME>
+      </PRODUCT_FEATURES>
       <PRODUCT_ORDER_DETAILS>
         <ORDER_UNIT><![CDATA[C62]]></ORDER_UNIT>
-        <CONTENT_UNIT xsi:nil="true"/>
+        <CONTENT_UNIT><![CDATA[C62]]></CONTENT_UNIT>
         <NO_CU_PER_OU>1</NO_CU_PER_OU>
         <PRICE_QUANTITY>1</PRICE_QUANTITY>
         <QUANTITY_MIN>1</QUANTITY_MIN>
@@ -125,26 +121,6 @@
           <PRICE_CURRENCY><![CDATA[GBP]]></PRICE_CURRENCY>
         </PRODUCT_PRICE>
       </PRODUCT_PRICE_DETAILS>
-      <PRODUCT_FEATURES>
-        <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[A]]></REFERENCE_FEATURE_SYSTEM_NAME>
-        <REFERENCE_FEATURE_GROUP_NAME><![CDATA[B]]></REFERENCE_FEATURE_GROUP_NAME>
-        <REFERENCE_FEATURE_GROUP_ID><![CDATA[C]]></REFERENCE_FEATURE_GROUP_ID>
-        <FEATURE xsi:nil="true"/>
-        <SerialNumberRequired>1</SerialNumberRequired>
-        <CustomsTariffNumber>2</CustomsTariffNumber>
-        <CustomsCountryOfOrigin><![CDATA[D]]></CustomsCountryOfOrigin>
-        <CustomsTariffText><![CDATA[E]]></CustomsTariffText>
-      </PRODUCT_FEATURES>
-      <PRODUCT_FEATURES>
-        <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[F]]></REFERENCE_FEATURE_SYSTEM_NAME>
-        <REFERENCE_FEATURE_GROUP_NAME><![CDATA[G]]></REFERENCE_FEATURE_GROUP_NAME>
-        <REFERENCE_FEATURE_GROUP_ID><![CDATA[H]]></REFERENCE_FEATURE_GROUP_ID>
-        <FEATURE xsi:nil="true"/>
-        <SerialNumberRequired>3</SerialNumberRequired>
-        <CustomsTariffNumber>4</CustomsTariffNumber>
-        <CustomsCountryOfOrigin><![CDATA[I]]></CustomsCountryOfOrigin>
-        <CustomsTariffText><![CDATA[J]]></CustomsTariffText>
-      </PRODUCT_FEATURES>
       <MIME_INFO>
         <MIME>
           <MIME_TYPE><![CDATA[image/jpeg]]></MIME_TYPE>
@@ -154,7 +130,7 @@
           <MIME_PURPOSE><![CDATA[normal]]></MIME_PURPOSE>
         </MIME>
         <MIME>
-          <MIME_TYPE><![CDATA[image/bmp]]></MIME_TYPE>
+          <MIME_TYPE><![CDATA[image/gif]]></MIME_TYPE>
           <MIME_SOURCE><![CDATA[http://w.x/y/z.bmp]]></MIME_SOURCE>
           <MIME_DESCR xsi:nil="true"/>
           <MIME_ALT xsi:nil="true"/>
@@ -179,9 +155,17 @@
         <SEGMENT xsi:nil="true"/>
         <PRODUCT_ORDER xsi:nil="true"/>
       </PRODUCT_DETAILS>
+      <PRODUCT_FEATURES>
+        <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[A]]></REFERENCE_FEATURE_SYSTEM_NAME>
+        <REFERENCE_FEATURE_GROUP_NAME><![CDATA[B]]></REFERENCE_FEATURE_GROUP_NAME>
+      </PRODUCT_FEATURES>
+      <PRODUCT_FEATURES>
+        <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[F]]></REFERENCE_FEATURE_SYSTEM_NAME>
+        <REFERENCE_FEATURE_GROUP_NAME><![CDATA[G]]></REFERENCE_FEATURE_GROUP_NAME>
+      </PRODUCT_FEATURES>
       <PRODUCT_ORDER_DETAILS>
         <ORDER_UNIT><![CDATA[C62]]></ORDER_UNIT>
-        <CONTENT_UNIT xsi:nil="true"/>
+        <CONTENT_UNIT><![CDATA[C62]]></CONTENT_UNIT>
         <NO_CU_PER_OU>1</NO_CU_PER_OU>
         <PRICE_QUANTITY>1</PRICE_QUANTITY>
         <QUANTITY_MIN>1</QUANTITY_MIN>
@@ -197,26 +181,6 @@
           <PRICE_CURRENCY><![CDATA[GBP]]></PRICE_CURRENCY>
         </PRODUCT_PRICE>
       </PRODUCT_PRICE_DETAILS>
-      <PRODUCT_FEATURES>
-        <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[A]]></REFERENCE_FEATURE_SYSTEM_NAME>
-        <REFERENCE_FEATURE_GROUP_NAME><![CDATA[B]]></REFERENCE_FEATURE_GROUP_NAME>
-        <REFERENCE_FEATURE_GROUP_ID><![CDATA[C]]></REFERENCE_FEATURE_GROUP_ID>
-        <FEATURE xsi:nil="true"/>
-        <SerialNumberRequired>1</SerialNumberRequired>
-        <CustomsTariffNumber>2</CustomsTariffNumber>
-        <CustomsCountryOfOrigin><![CDATA[D]]></CustomsCountryOfOrigin>
-        <CustomsTariffText><![CDATA[E]]></CustomsTariffText>
-      </PRODUCT_FEATURES>
-      <PRODUCT_FEATURES>
-        <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[F]]></REFERENCE_FEATURE_SYSTEM_NAME>
-        <REFERENCE_FEATURE_GROUP_NAME><![CDATA[G]]></REFERENCE_FEATURE_GROUP_NAME>
-        <REFERENCE_FEATURE_GROUP_ID><![CDATA[H]]></REFERENCE_FEATURE_GROUP_ID>
-        <FEATURE xsi:nil="true"/>
-        <SerialNumberRequired>3</SerialNumberRequired>
-        <CustomsTariffNumber>4</CustomsTariffNumber>
-        <CustomsCountryOfOrigin><![CDATA[I]]></CustomsCountryOfOrigin>
-        <CustomsTariffText><![CDATA[J]]></CustomsTariffText>
-      </PRODUCT_FEATURES>
       <MIME_INFO>
         <MIME>
           <MIME_TYPE><![CDATA[image/jpeg]]></MIME_TYPE>
@@ -226,7 +190,7 @@
           <MIME_PURPOSE><![CDATA[normal]]></MIME_PURPOSE>
         </MIME>
         <MIME>
-          <MIME_TYPE><![CDATA[image/bmp]]></MIME_TYPE>
+          <MIME_TYPE><![CDATA[image/gif]]></MIME_TYPE>
           <MIME_SOURCE><![CDATA[http://w.x/y/z.bmp]]></MIME_SOURCE>
           <MIME_DESCR xsi:nil="true"/>
           <MIME_ALT xsi:nil="true"/>
