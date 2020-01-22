@@ -11,7 +11,7 @@ use \JMS\Serializer\Annotation as Serializer;
  *
  * @Serializer\XmlRoot("KEYWORD")
  */
-class ArticleKeywordNode extends AbstractNode
+class ProductKeywordNode extends AbstractNode
 {
     /**
      * @Serializer\Type("string")

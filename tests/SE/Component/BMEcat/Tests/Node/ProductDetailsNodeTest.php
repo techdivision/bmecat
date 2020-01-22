@@ -13,7 +13,7 @@ namespace SE\Component\BMEcat\Tests\Node;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use SE\Component\BMEcat\Node\ArticleKeywordNode;
+use SE\Component\BMEcat\Node\ProductKeywordNode;
 use SE\Component\BMEcat\Node\ArticleStatusNode;
 use SE\Component\BMEcat\Node\BuyerAidNode;
 use SE\Component\BMEcat\Node\ProductDetailsNode;
@@ -83,9 +83,9 @@ class ProductDetailsNodeTest extends TestCase
     public function Add_Get_Keywords()
     {
         $keywords = [
-            new ArticleKeywordNode(),
-            new ArticleKeywordNode(),
-            new ArticleKeywordNode(),
+            new ProductKeywordNode(),
+            new ProductKeywordNode(),
+            new ProductKeywordNode(),
         ];
 
         $node = new ProductDetailsNode();

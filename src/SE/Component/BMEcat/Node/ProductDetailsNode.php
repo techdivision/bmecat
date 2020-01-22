@@ -147,7 +147,7 @@ class ProductDetailsNode extends AbstractNode
      * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticleKeywordNode>")
      * @Serializer\XmlList(inline=true, entry="KEYWORD")
      *
-     * @var ArticleKeywordNode[]
+     * @var ProductKeywordNode[]
      */
     protected $keywords;
 
@@ -228,9 +228,9 @@ class ProductDetailsNode extends AbstractNode
     }
 
     /**
-     * @param ArticleKeywordNode $keyword
+     * @param ProductKeywordNode $keyword
      */
-    public function addKeyword(ArticleKeywordNode $keyword)
+    public function addKeyword(ProductKeywordNode $keyword)
     {
         if ($this->keywords === null) {
             $this->keywords = [];
@@ -514,7 +514,7 @@ class ProductDetailsNode extends AbstractNode
     }
 
     /**
-     * @return ArticleKeywordNode[]
+     * @return ProductKeywordNode[]
      */
     public function getKeywords()
     {

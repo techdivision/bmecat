@@ -7,7 +7,7 @@ namespace SE\Component\BMEcat\Tests\Node;
  * @package SE\Component\BMEcat\Tests
  * @author Jochen Pfaeffle <jochen.pfaeffle.dev@gmail.com>
  */
-class ArticleKeywordNodeTest extends \PHPUnit\Framework\TestCase
+class ProductKeywordNodeTest extends \PHPUnit\Framework\TestCase
 {
     public function setUp() : void
     {
@@ -19,7 +19,7 @@ class ArticleKeywordNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Description_Value()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleKeywordNode();
+        $node = new \SE\Component\BMEcat\Node\ProductKeywordNode();
         $value = '';
 
         $this->assertEquals('', $node->getValue());
@@ -32,7 +32,7 @@ class ArticleKeywordNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleKeywordNode();
+        $node = new \SE\Component\BMEcat\Node\ProductKeywordNode();
         $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_keyword_with_null_values.xml');
@@ -46,7 +46,7 @@ class ArticleKeywordNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleKeywordNode();
+        $node = new \SE\Component\BMEcat\Node\ProductKeywordNode();
         $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_keyword_without_null_values.xml');
