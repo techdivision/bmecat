@@ -77,7 +77,6 @@
           <MIME_PURPOSE><![CDATA[thumbnail]]></MIME_PURPOSE>
         </MIME>
       </MIME_INFO>
-      <ITEMTAGS xsi:nil="true"/>
     </ARTICLE>
     <ARTICLE>
       <SUPPLIER_AID><![CDATA[2]]></SUPPLIER_AID>
@@ -138,7 +137,6 @@
           <MIME_PURPOSE><![CDATA[thumbnail]]></MIME_PURPOSE>
         </MIME>
       </MIME_INFO>
-      <ITEMTAGS xsi:nil="true"/>
     </ARTICLE>
     <ARTICLE>
       <SUPPLIER_AID><![CDATA[3]]></SUPPLIER_AID>
@@ -199,7 +197,6 @@
           <MIME_PURPOSE><![CDATA[thumbnail]]></MIME_PURPOSE>
         </MIME>
       </MIME_INFO>
-      <ITEMTAGS xsi:nil="true"/>
     </ARTICLE>
   </T_NEW_CATALOG>
 </BMECAT>

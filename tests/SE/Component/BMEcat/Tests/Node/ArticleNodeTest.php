@@ -14,7 +14,6 @@ use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
 use SE\Component\BMEcat\Node\ProductFeaturesNode;
-use SE\Component\BMEcat\Node\ArticleItemTagNode;
 use SE\Component\BMEcat\Node\ArticleMimeNode;
 use SE\Component\BMEcat\Node\ArticleNode;
 use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
@@ -146,30 +145,6 @@ class ArticleNodeTest extends TestCase
         }
 
         $this->assertSame($mimes, $node->getMimes());
-    }
-
-    /**
-     *
-     * @test
-     */
-    public function Add_Get_Item_Tags()
-    {
-        $itemTags = [
-            new ArticleItemTagNode(),
-            new ArticleItemTagNode(),
-            new ArticleItemTagNode(),
-        ];
-
-        $node = new ArticleNode();
-        $this->assertEmpty($node->getItemTags());
-        $node->nullItemTags();
-        $this->assertEquals(null, $node->getItemTags());
-
-        foreach($itemTags as $itemTag) {
-            $node->addItemTag($itemTag);
-        }
-
-        $this->assertSame($itemTags, $node->getItemTags());
     }
 
     /**

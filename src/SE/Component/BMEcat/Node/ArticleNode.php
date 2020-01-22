@@ -83,18 +83,6 @@ class ArticleNode extends AbstractNode
     protected $mimes = [];
 
     /**
-     * Only for PIXI Import
-     *
-     * @Serializer\Expose
-     * @Serializer\SerializedName("ITEMTAGS")
-     * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticleItemTagNode>")
-     * @Serializer\XmlList( entry="ITEMTAG")
-     *
-     * @var ArticleItemTagNode[]
-     */
-    protected $itemTags;
-
-    /**
      *
      * @param ProductDetailsNode $detail
      */
@@ -143,13 +131,6 @@ class ArticleNode extends AbstractNode
         $this->mimes[] = $mime;
     }
 
-    public function addItemTag(ArticleItemTagNode $itemTag) {
-        if ($this->itemTags === null) {
-            $this->itemTags = [];
-        }
-        $this->itemTags[] = $itemTag;
-    }
-
     /**
      *
      * @Serializer\PreSerialize
@@ -159,18 +140,6 @@ class ArticleNode extends AbstractNode
     {
         if (empty($this->features) === true) {
             $this->features = null;
-        }
-    }
-
-    /**
-     *
-     * @Serializer\PreSerialize
-     * @Serializer\PostSerialize
-     */
-    public function nullItemTags()
-    {
-        if (empty($this->itemTags) === true) {
-            $this->itemTags = null;
         }
     }
 
@@ -289,21 +258,4 @@ class ArticleNode extends AbstractNode
     {
         $this->mimes = $mimes;
     }
-
-    /**
-     * @return ArticleItemTagNode[]|null
-     */
-    public function getItemTags()
-    {
-        return $this->itemTags;
-    }
-
-    /**
-     * @param ArticleItemTagNode[] $itemTags
-     */
-    public function setItemTags(array $itemTags): void
-    {
-        $this->itemTags = $itemTags;
-    }
-
 }
