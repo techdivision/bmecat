@@ -61,6 +61,18 @@ class DateTimeNode extends AbstractNode
     protected $timezone;
 
     /**
+     * @param \DateTimeImmutable $dateTime
+     * @return DateTimeNode
+     */
+    public function setDateTime(\DateTimeImmutable $dateTime) : DateTimeNode
+    {
+        $this->setDate($dateTime->format('Y-m-d'));
+        $this->setTime($dateTime->format('H:i:s'));
+        $this->setTimezone($dateTime->format('P'));
+        return $this;
+    }
+
+    /**
      * @param string $date
      * @return DateTimeNode
      */
@@ -82,7 +94,7 @@ class DateTimeNode extends AbstractNode
      * @param string $time
      * @return DateTimeNode
      */
-    public function setTime( $time) : DateTimeNode
+    public function setTime($time) : DateTimeNode
     {
         $this->time = $time;
         return $this;

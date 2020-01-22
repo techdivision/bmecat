@@ -52,7 +52,7 @@ class DocumentNode extends AbstractNode
      * @Serializer\Type("SE\Component\BMEcat\Node\NewCatalogNode")
      * @Serializer\SerializedName("T_NEW_CATALOG")
      *
-     * @var \SE\Component\BMEcat\Node\NewCatalogNode
+     * @var NewCatalogNode
      */
     protected $catalog;
 
@@ -96,7 +96,7 @@ class DocumentNode extends AbstractNode
     }
 
     /**
-     * @param \SE\Component\BMEcat\Node\NewCatalogNode $catalog
+     * @param NewCatalogNode $catalog
      * @return DocumentNode
      */
     public function setNewCatalog(NewCatalogNode $catalog) : DocumentNode
@@ -106,7 +106,7 @@ class DocumentNode extends AbstractNode
     }
 
     /**
-     * @return \SE\Component\BMEcat\Node\NewCatalogNode
+     * @return NewCatalogNode
      */
     public function getNewCatalog()
     {

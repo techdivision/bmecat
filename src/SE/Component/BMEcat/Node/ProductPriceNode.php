@@ -50,7 +50,25 @@ class ProductPriceNode extends AbstractNode
      *
      * @var string
      */
-    protected $currency;
+    protected $currency = 'EUR';
+
+    /**
+     * @Serializer\Expose
+     * @Serializer\Type("float")
+     * @Serializer\SerializedName("PRICE_FACTOR")
+     *
+     * @var float
+     */
+    protected $priceFactor;
+
+    /**
+     * @Serializer\Expose
+     * @Serializer\Type("float")
+     * @Serializer\SerializedName("LOWER_BOUND")
+     *
+     * @var float
+     */
+    protected $lowerBound;
 
     /**
      *
@@ -90,5 +108,59 @@ class ProductPriceNode extends AbstractNode
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * @param string $type
+     * @return ProductPriceNode
+     */
+    public function setType(string $type): ProductPriceNode
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param float $priceFactor
+     * @return ProductPriceNode
+     */
+    public function setPriceFactor(float $priceFactor): ProductPriceNode
+    {
+        $this->priceFactor = $priceFactor;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPriceFactor(): float
+    {
+        return $this->priceFactor;
+    }
+
+    /**
+     * @param float $lowerBound
+     * @return ProductPriceNode
+     */
+    public function setLowerBound(float $lowerBound): ProductPriceNode
+    {
+        $this->lowerBound = $lowerBound;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLowerBound(): float
+    {
+        return $this->lowerBound;
     }
 }

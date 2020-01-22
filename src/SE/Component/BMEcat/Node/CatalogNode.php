@@ -61,7 +61,7 @@ class CatalogNode extends AbstractNode
      * @param string $language
      * @return CatalogNode
      */
-    public function setLanguage($language) : CatalogNode
+    public function setLanguage(string $language) : CatalogNode
     {
         $this->language = $language;
         return $this;
@@ -71,7 +71,7 @@ class CatalogNode extends AbstractNode
      * @param string $id
      * @return CatalogNode
      */
-    public function setId($id) : CatalogNode
+    public function setId(string $id) : CatalogNode
     {
         $this->id = $id;
         return $this;
@@ -81,7 +81,7 @@ class CatalogNode extends AbstractNode
      * @param string $version
      * @return CatalogNode
      */
-    public function setVersion($version) : CatalogNode
+    public function setVersion(string $version) : CatalogNode
     {
         $this->version = $version;
         return $this;

@@ -12,6 +12,7 @@ namespace SE\Component\BMEcat\Tests;
 
 use SE\Component\BMEcat\Node\ProductDetailsNode;
 use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
+use SE\Component\BMEcat\Node\ProductPriceDetailsNode;
 use SE\Component\BMEcat\SchemaValidator;
 
 /**
@@ -68,7 +69,10 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
                 $price->setPrice($amount);
                 $price->setCurrency($currency);
 
-                $product->addPrice($price);
+                $priceDetail = new ProductPriceDetailsNode;
+                $priceDetail->addPrice($price);
+
+                $product->addPriceDetail($priceDetail);
             }
 
             foreach([['A', 'B', 'C', 1, 2, 'D', 'E'],['F', 'G', 'H', 3, 4, 'I', 'J']] as $value) {

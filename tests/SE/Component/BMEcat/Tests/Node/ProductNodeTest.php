@@ -17,6 +17,7 @@ use SE\Component\BMEcat\Node\ProductFeaturesNode;
 use SE\Component\BMEcat\Node\MimeNode;
 use SE\Component\BMEcat\Node\ProductNode;
 use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
+use SE\Component\BMEcat\Node\ProductPriceDetailsNode;
 use SE\Component\BMEcat\Node\ProductPriceNode;
 use SE\Component\BMEcat\Node\ProductDetailsNode;
 
@@ -91,22 +92,22 @@ class ProductNodeTest extends TestCase
      */
     public function Add_Get_Prices()
     {
-        $prices = [
-            new ProductPriceNode(),
-            new ProductPriceNode(),
-            new ProductPriceNode(),
+        $priceDetails = [
+            (new ProductPriceDetailsNode)->addPrice(new ProductPriceNode()),
+            (new ProductPriceDetailsNode)->addPrice(new ProductPriceNode()),
+            (new ProductPriceDetailsNode)->addPrice(new ProductPriceNode()),
         ];
 
         $node = new ProductNode();
-        $this->assertEmpty($node->getPrices());
-        $node->nullPrices();
-        $this->assertEquals([], $node->getPrices());
+        $this->assertEmpty($node->getPriceDetails());
+        $node->nullPriceDetails();
+        $this->assertEquals([], $node->getPriceDetails());
 
-        foreach($prices as $price) {
-            $node->addPrice($price);
+        foreach($priceDetails as $priceDetail) {
+            $node->addPriceDetail($priceDetail);
         }
 
-        $this->assertSame($prices, $node->getPrices());
+        $this->assertSame($priceDetails, $node->getPriceDetails());
     }
 
     /**

@@ -65,6 +65,24 @@ class ProductFeaturesNode extends AbstractNode
     protected $features;
 
     /**
+     * @param ProductFeatureNode[] $features
+     * @return ProductFeaturesNode
+     * @throws \SE\Component\BMEcat\Exception\InvalidSetterException
+     * @throws \SE\Component\BMEcat\Exception\UnknownKeyException
+     */
+    public function setFeatures(array $features): ProductFeaturesNode
+    {
+        $this->features = [];
+        foreach ($features as $feature) {
+            if (is_array($feature)) {
+                $feature = ProductFeatureNode::fromArray($feature);
+            }
+            $this->addFeature($feature);
+        }
+        return $this;
+    }
+
+    /**
      * @param ProductFeatureNode $feature
      * @return ProductFeaturesNode
      */
@@ -157,37 +175,5 @@ class ProductFeaturesNode extends AbstractNode
         }
 
         return $this->features;
-    }
-
-    /**
-     * @return int
-     */
-    public function getSerialNumberRequired()
-    {
-        return $this->serialNumberRequired;
-    }
-
-    /**
-     * @return int
-     */
-    public function getCustomsTariffNumber()
-    {
-        return $this->customsTariffNumber;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCustomsCountryOfOrigin()
-    {
-        return $this->customsCountryOfOrigin;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCustomsTariffText()
-    {
-        return $this->customsTariffText;
     }
 }

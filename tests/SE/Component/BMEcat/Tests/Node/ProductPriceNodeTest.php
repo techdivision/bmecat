@@ -45,7 +45,7 @@ class ProductPriceNodeTest  extends \PHPUnit\Framework\TestCase
         $node = new \SE\Component\BMEcat\Node\ProductPriceNode();
         $value = substr(sha1(uniqid(microtime(false), true)),0,3);
 
-        $this->assertNull($node->getCurrency());
+        $this->assertEquals('EUR', $node->getCurrency());
         $node->setCurrency($value);
         $this->assertEquals($value, $node->getCurrency());
     }

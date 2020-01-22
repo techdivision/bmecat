@@ -22,6 +22,16 @@ use JMS\Serializer\Annotation as Serializer;
 class ProductNode extends AbstractNode
 {
     /**
+     * @Serializer\Expose
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("mode")
+     * @Serializer\XmlAttribute
+     *
+     * @var string
+     */
+    protected $mode = 'new';
+
+    /**
      *
      * @Serializer\Expose
      * @Serializer\Type("string")
@@ -65,12 +75,12 @@ class ProductNode extends AbstractNode
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_PRICE_DETAILS")
-     * @Serializer\Type("array<SE\Component\BMEcat\Node\ProductPriceNode>")
-     * @Serializer\XmlList( entry="PRODUCT_PRICE")
+     * @Serializer\Type("array<SE\Component\BMEcat\Node\ProductPriceDetailsNode>")
+     * @Serializer\XmlList(inline = true, entry = "PRODUCT_PRICE_DETAILS")
      *
      * @var ProductPriceNode[]
      */
-    protected $prices = [];
+    protected $priceDetails = [];
 
     /**
      *
@@ -85,12 +95,12 @@ class ProductNode extends AbstractNode
 
     /**
      *
-     * @param ProductDetailsNode $detail
+     * @param ProductDetailsNode $details
      * @return ProductNode
      */
-    public function setDetails(ProductDetailsNode $detail) : ProductNode
+    public function setDetails(ProductDetailsNode $details) : ProductNode
     {
-        $this->detail = $detail;
+        $this->detail = $details;
         return $this;
     }
 
@@ -105,28 +115,52 @@ class ProductNode extends AbstractNode
 
     /**
      *
-     * @param ProductFeaturesNode $features
+     * @param ProductPriceNode[] $priceDetails
      * @return ProductNode
+     * @throws \SE\Component\BMEcat\Exception\InvalidSetterException
+     * @throws \SE\Component\BMEcat\Exception\UnknownKeyException
      */
-    public function addFeatures(ProductFeaturesNode $features) : ProductNode
+    public function setPriceDetails(array $priceDetails) : ProductNode
     {
-        if ($this->features === null) {
-            $this->features = [];
+        $this->priceDetails = [];
+        foreach ($priceDetails as $priceDetail) {
+            if (is_array($priceDetail)) {
+                $priceDetail = ProductPriceDetailsNode::fromArray($priceDetail);
+            }
+            $this->addPriceDetail($priceDetail);
         }
-        $this->features [] = $features;
         return $this;
     }
+
     /**
      *
-     * @param ProductPriceNode $price
+     * @param ProductPriceDetailsNode $price
      * @return ProductNode
      */
-    public function addPrice(ProductPriceNode $price) : ProductNode
+    public function addPriceDetail(ProductPriceDetailsNode $price) : ProductNode
     {
-        if ($this->prices === null) {
-            $this->prices = [];
+        if ($this->priceDetails === null) {
+            $this->priceDetails = [];
         }
-        $this->prices[] = $price;
+        $this->priceDetails[] = $price;
+        return $this;
+    }
+
+    /**
+     * @param MimeNode[] $mimes
+     * @return ProductNode
+     * @throws \SE\Component\BMEcat\Exception\InvalidSetterException
+     * @throws \SE\Component\BMEcat\Exception\UnknownKeyException
+     */
+    public function setMimes(array $mimes): ProductNode
+    {
+        $this->mimes = [];
+        foreach ($mimes as $mime) {
+            if (is_array($mime)) {
+                $mime = MimeNode::fromArray($mime);
+            }
+            $this->addMime($mime);
+        }
         return $this;
     }
 
@@ -149,25 +183,10 @@ class ProductNode extends AbstractNode
      * @Serializer\PostSerialize
      * @return ProductNode
      */
-    public function nullFeatures() : ProductNode
+    public function nullPriceDetails() : ProductNode
     {
-        if (empty($this->features) === true) {
-            $this->features = null;
-        }
-
-        return $this;
-    }
-
-    /**
-     *
-     * @Serializer\PreSerialize
-     * @Serializer\PostSerialize
-     * @return ProductNode
-     */
-    public function nullPrices() : ProductNode
-    {
-        if (empty($this->prices) === true) {
-            $this->prices = null;
+        if (empty($this->priceDetails) === true) {
+            $this->priceDetails = null;
         }
         return $this;
     }
@@ -194,16 +213,6 @@ class ProductNode extends AbstractNode
     public function setId($id) : ProductNode
     {
         $this->id = $id;
-        return $this;
-    }
-
-    /**
-     * @param ProductDetailsNode $detail
-     * @return ProductNode
-     */
-    public function setDetail(ProductDetailsNode $detail) : ProductNode
-    {
-        $this->detail = $detail;
         return $this;
     }
 
@@ -235,11 +244,50 @@ class ProductNode extends AbstractNode
     }
 
     /**
-     * @return ProductDetailsNode
+     *
+     * @Serializer\PreSerialize
+     * @Serializer\PostSerialize
+     * @return ProductNode
      */
-    public function getDetail()
+    public function nullFeatures() : ProductNode
     {
-        return $this->detail;
+        if (empty($this->features) === true) {
+            $this->features = null;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ProductFeaturesNode[] $features
+     * @return ProductNode
+     * @throws \SE\Component\BMEcat\Exception\InvalidSetterException
+     * @throws \SE\Component\BMEcat\Exception\UnknownKeyException
+     */
+    public function setFeatures(array $features): ProductNode
+    {
+        $this->features = [];
+        foreach ($features as $feature) {
+            if (is_array($feature)) {
+                $feature = ProductFeaturesNode::fromArray($feature);
+            }
+            $this->addFeatures($feature);
+        }
+        return $this;
+    }
+
+    /**
+     *
+     * @param ProductFeaturesNode $features
+     * @return ProductNode
+     */
+    public function addFeatures(ProductFeaturesNode $features) : ProductNode
+    {
+        if ($this->features === null) {
+            $this->features = [];
+        }
+        $this->features [] = $features;
+        return $this;
     }
 
     /**
@@ -259,13 +307,13 @@ class ProductNode extends AbstractNode
      *
      * @return ProductPriceNode[]
      */
-    public function getPrices()
+    public function getPriceDetails()
     {
-        if ($this->prices === null) {
+        if ($this->priceDetails === null) {
             return [];
         }
 
-        return $this->prices;
+        return $this->priceDetails;
     }
 
     /**
@@ -276,13 +324,5 @@ class ProductNode extends AbstractNode
         return $this->mimes;
     }
 
-    /**
-     * @param MimeNode[] $mimes
-     * @return ProductNode
-     */
-    public function setMimes(array $mimes): ProductNode
-    {
-        $this->mimes = $mimes;
-        return $this;
-    }
+
 }

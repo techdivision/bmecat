@@ -32,6 +32,26 @@ class NewCatalogNode extends AbstractNode
 
     /**
      *
+     * @param ProductNode[] $products
+     * @return NewCatalogNode
+     * @throws \SE\Component\BMEcat\Exception\InvalidSetterException
+     * @throws \SE\Component\BMEcat\Exception\UnknownKeyException
+     */
+    public function setProducts(array $products) : NewCatalogNode
+    {
+        $this->products = [];
+
+        foreach ($products as $product) {
+            if (is_array($product)) {
+                $product = ProductNode::fromArray($product);
+            }
+            $this->addProduct($product);
+        }
+        return $this;
+    }
+
+    /**
+     *
      * @param \SE\Component\BMEcat\Node\ProductNode $product
      * @return NewCatalogNode
      */

@@ -18,7 +18,7 @@
     </SUPPLIER>
   </HEADER>
   <T_NEW_CATALOG>
-    <PRODUCT>
+    <PRODUCT mode="new">
       <SUPPLIER_PID><![CDATA[1]]></SUPPLIER_PID>
       <PRODUCT_DETAILS>
         <DESCRIPTION_SHORT><![CDATA[description]]></DESCRIPTION_SHORT>
@@ -44,6 +44,8 @@
           <PRICE_AMOUNT>10.5</PRICE_AMOUNT>
           <PRICE_CURRENCY><![CDATA[EUR]]></PRICE_CURRENCY>
         </PRODUCT_PRICE>
+      </PRODUCT_PRICE_DETAILS>
+      <PRODUCT_PRICE_DETAILS>
         <PRODUCT_PRICE price_type="gros_list">
           <PRICE_AMOUNT>7.3</PRICE_AMOUNT>
           <PRICE_CURRENCY><![CDATA[GBP]]></PRICE_CURRENCY>
@@ -62,7 +64,7 @@
         </MIME>
       </MIME_INFO>
     </PRODUCT>
-    <PRODUCT>
+    <PRODUCT mode="new">
       <SUPPLIER_PID><![CDATA[2]]></SUPPLIER_PID>
       <PRODUCT_DETAILS>
         <DESCRIPTION_SHORT><![CDATA[description]]></DESCRIPTION_SHORT>
@@ -88,6 +90,8 @@
           <PRICE_AMOUNT>10.5</PRICE_AMOUNT>
           <PRICE_CURRENCY><![CDATA[EUR]]></PRICE_CURRENCY>
         </PRODUCT_PRICE>
+      </PRODUCT_PRICE_DETAILS>
+      <PRODUCT_PRICE_DETAILS>
         <PRODUCT_PRICE price_type="gros_list">
           <PRICE_AMOUNT>7.3</PRICE_AMOUNT>
           <PRICE_CURRENCY><![CDATA[GBP]]></PRICE_CURRENCY>
@@ -106,7 +110,7 @@
         </MIME>
       </MIME_INFO>
     </PRODUCT>
-    <PRODUCT>
+    <PRODUCT mode="new">
       <SUPPLIER_PID><![CDATA[3]]></SUPPLIER_PID>
       <PRODUCT_DETAILS>
         <DESCRIPTION_SHORT><![CDATA[description]]></DESCRIPTION_SHORT>
@@ -132,6 +136,8 @@
           <PRICE_AMOUNT>10.5</PRICE_AMOUNT>
           <PRICE_CURRENCY><![CDATA[EUR]]></PRICE_CURRENCY>
         </PRODUCT_PRICE>
+      </PRODUCT_PRICE_DETAILS>
+      <PRODUCT_PRICE_DETAILS>
         <PRODUCT_PRICE price_type="gros_list">
           <PRICE_AMOUNT>7.3</PRICE_AMOUNT>
           <PRICE_CURRENCY><![CDATA[GBP]]></PRICE_CURRENCY>
