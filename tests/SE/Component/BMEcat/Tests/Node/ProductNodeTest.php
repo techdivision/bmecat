@@ -67,7 +67,6 @@ class ProductNodeTest extends TestCase
      */
     public function Add_Get_Features()
     {
-
         $features = [
             new ProductFeaturesNode(),
             new ProductFeaturesNode(),
@@ -79,7 +78,7 @@ class ProductNodeTest extends TestCase
         $node->nullFeatures();
         $this->assertEquals([], $node->getFeatures());
 
-        foreach($features as $featureBlock) {
+        foreach ($features as $featureBlock) {
             $node->addFeatures($featureBlock);
         }
 
@@ -103,7 +102,7 @@ class ProductNodeTest extends TestCase
         $node->nullPriceDetails();
         $this->assertEquals([], $node->getPriceDetails());
 
-        foreach($priceDetails as $priceDetail) {
+        foreach ($priceDetails as $priceDetail) {
             $node->addPriceDetail($priceDetail);
         }
 
@@ -141,7 +140,7 @@ class ProductNodeTest extends TestCase
         $node->nullMime();
         $this->assertEquals(null, $node->getMimes());
 
-        foreach($mimes as $mime) {
+        foreach ($mimes as $mime) {
             $node->addMime($mime);
         }
 
@@ -176,4 +175,4 @@ class ProductNodeTest extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
-} 
+}

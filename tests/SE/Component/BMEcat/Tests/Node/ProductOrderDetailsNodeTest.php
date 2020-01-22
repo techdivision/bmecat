@@ -2,7 +2,6 @@
 
 namespace SE\Component\BMEcat\Tests\Node;
 
-
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
@@ -39,7 +38,7 @@ class ProductOrderDetailsNodeTest extends TestCase
     public function Set_Get_No_Cu_Per_Ou()
     {
         $node = new ProductOrderDetailsNode();
-        $value = rand(10,1000);
+        $value = rand(10, 1000);
 
         $this->assertEquals(1, $node->getNoCuPerOu());
         $node->setNoCuPerOu($value);
@@ -52,7 +51,7 @@ class ProductOrderDetailsNodeTest extends TestCase
     public function Set_Get_Price_Quantity()
     {
         $node = new ProductOrderDetailsNode();
-        $value = rand(10,1000);
+        $value = rand(10, 1000);
 
         $this->assertEquals(1, $node->getPriceQuantity());
         $node->setPriceQuantity($value);
@@ -65,7 +64,7 @@ class ProductOrderDetailsNodeTest extends TestCase
     public function Set_Get_Quantity_Min()
     {
         $node = new ProductOrderDetailsNode();
-        $value = rand(10,1000);
+        $value = rand(10, 1000);
 
         $this->assertEquals(1, $node->getQuantityMin());
         $node->setQuantityMin($value);
@@ -78,7 +77,7 @@ class ProductOrderDetailsNodeTest extends TestCase
     public function Set_Get_Quantity_Interval()
     {
         $node = new ProductOrderDetailsNode();
-        $value = rand(10,1000);
+        $value = rand(10, 1000);
 
         $this->assertEquals(1, $node->getQuantityInterval());
         $node->setQuantityInterval($value);

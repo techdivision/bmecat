@@ -2,7 +2,6 @@
 
 namespace SE\Component\BMEcat\Tests\Node;
 
-
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;

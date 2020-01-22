@@ -19,6 +19,4 @@ use SE\Component\BMEcat\Node\DocumentNode;
  */
 class CustomDocumentNodeFixture extends DocumentNode
 {
-
-
 }

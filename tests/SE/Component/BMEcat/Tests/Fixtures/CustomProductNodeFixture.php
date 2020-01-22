@@ -19,6 +19,4 @@ use SE\Component\BMEcat\Node\ProductNode;
  */
 class CustomProductNodeFixture extends ProductNode
 {
-
-
 }

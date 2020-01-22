@@ -20,7 +20,7 @@ use SE\Component\BMEcat\Node\ProductPriceNode;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class ProductPriceNodeTest  extends TestCase
+class ProductPriceNodeTest extends TestCase
 {
     public function setUp() : void
     {
@@ -34,7 +34,7 @@ class ProductPriceNodeTest  extends TestCase
     public function Set_Get_Price()
     {
         $node = new ProductPriceNode();
-        $value = rand(10,1000);
+        $value = rand(10, 1000);
 
         $this->assertNull($node->getPrice());
         $node->setPrice($value);
@@ -48,7 +48,7 @@ class ProductPriceNodeTest  extends TestCase
     public function Set_Get_Currency()
     {
         $node = new ProductPriceNode();
-        $value = substr(sha1(uniqid(microtime(false), true)),0,3);
+        $value = substr(sha1(uniqid(microtime(false), true)), 0, 3);
 
         $this->assertEquals('EUR', $node->getCurrency());
         $node->setCurrency($value);
@@ -84,4 +84,4 @@ class ProductPriceNodeTest  extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
-} 
+}

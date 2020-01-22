@@ -21,7 +21,7 @@ use SE\Component\BMEcat\Node\ProductFeaturesNode;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class ProductFeaturesNodeTest  extends TestCase
+class ProductFeaturesNodeTest extends TestCase
 {
     public function setUp() : void
     {
@@ -45,7 +45,7 @@ class ProductFeaturesNodeTest  extends TestCase
         $node->nullFeatures();
         $this->assertEquals([], $node->getFeatures());
 
-        foreach($features as $feature) {
+        foreach ($features as $feature) {
             $node->addFeature($feature);
         }
 
@@ -123,4 +123,4 @@ class ProductFeaturesNodeTest  extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
-} 
+}

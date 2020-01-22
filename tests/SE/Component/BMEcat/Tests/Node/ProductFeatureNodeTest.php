@@ -20,7 +20,7 @@ use SE\Component\BMEcat\Node\ProductFeatureNode;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class ProductFeatureNodeTest  extends TestCase
+class ProductFeatureNodeTest extends TestCase
 {
     public function setUp() : void
     {
@@ -84,4 +84,4 @@ class ProductFeatureNodeTest  extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
-} 
+}

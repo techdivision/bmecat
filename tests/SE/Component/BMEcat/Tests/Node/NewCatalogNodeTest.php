@@ -21,7 +21,7 @@ use SE\Component\BMEcat\Node\ProductNode;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class NewCatalogNodeTest  extends TestCase
+class NewCatalogNodeTest extends TestCase
 {
     public function setUp() : void
     {
@@ -45,7 +45,7 @@ class NewCatalogNodeTest  extends TestCase
         $node->nullProducts();
         $this->assertEquals([], $node->getProducts());
 
-        foreach($products as $product) {
+        foreach ($products as $product) {
             $node->addProduct($product);
         }
 
@@ -81,4 +81,4 @@ class NewCatalogNodeTest  extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
-} 
+}
