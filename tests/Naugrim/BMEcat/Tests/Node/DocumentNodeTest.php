@@ -6,9 +6,9 @@ namespace Naugrim\BMEcat\Tests\Node;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use SE\Component\BMEcat\Node\DocumentNode;
-use SE\Component\BMEcat\Node\HeaderNode;
-use SE\Component\BMEcat\Node\NewCatalogNode;
+use Naugrim\BMEcat\Node\DocumentNode;
+use Naugrim\BMEcat\Node\HeaderNode;
+use Naugrim\BMEcat\Node\NewCatalogNode;
 
 
 class DocumentNodeTest extends TestCase

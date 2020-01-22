@@ -6,13 +6,8 @@ namespace Naugrim\BMEcat\Tests\Node;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use SE\Component\BMEcat\Node\MimeNode;
+use Naugrim\BMEcat\Node\MimeNode;
 
-/**
- *
- * @package Naugrim\BMEcat\Tests
- * @author Jan Kahnt <j.kahnt@impericon.com>
- */
 class MimeNodeTest extends TestCase
 {
     /**

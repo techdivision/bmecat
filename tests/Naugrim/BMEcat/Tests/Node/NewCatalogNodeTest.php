@@ -6,8 +6,8 @@ namespace Naugrim\BMEcat\Tests\Node;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use SE\Component\BMEcat\Node\NewCatalogNode;
-use SE\Component\BMEcat\Node\ProductNode;
+use Naugrim\BMEcat\Node\NewCatalogNode;
+use Naugrim\BMEcat\Node\ProductNode;
 
 
 class NewCatalogNodeTest extends TestCase

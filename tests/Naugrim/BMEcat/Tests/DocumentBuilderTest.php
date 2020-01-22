@@ -5,9 +5,9 @@ namespace Naugrim\BMEcat\Tests;
 
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use SE\Component\BMEcat\DocumentBuilder;
-use SE\Component\BMEcat\Exception\MissingDocumentException;
-use SE\Component\BMEcat\Node\DocumentNode;
+use Naugrim\BMEcat\DocumentBuilder;
+use Naugrim\BMEcat\Exception\MissingDocumentException;
+use Naugrim\BMEcat\Node\DocumentNode;
 
 
 class DocumentBuilderTest extends TestCase

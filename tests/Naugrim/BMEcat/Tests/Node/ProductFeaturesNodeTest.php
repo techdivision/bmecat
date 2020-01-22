@@ -6,8 +6,8 @@ namespace Naugrim\BMEcat\Tests\Node;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use SE\Component\BMEcat\Node\ProductFeatureNode;
-use SE\Component\BMEcat\Node\ProductFeaturesNode;
+use Naugrim\BMEcat\Node\ProductFeatureNode;
+use Naugrim\BMEcat\Node\ProductFeaturesNode;
 
 
 class ProductFeaturesNodeTest extends TestCase

@@ -5,12 +5,8 @@ namespace Naugrim\BMEcat\Tests\Node;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use SE\Component\BMEcat\Node\ProductStatusNode;
+use Naugrim\BMEcat\Node\ProductStatusNode;
 
-/**
- * @package Naugrim\BMEcat\Tests
- * @author Jochen Pfaeffle <jochen.pfaeffle.dev@gmail.com>
- */
 class ProductStatusNodeTest extends TestCase
 {
     /**

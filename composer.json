@@ -23,7 +23,7 @@
     "autoload": {
         "psr-0": {
             "Naugrim\\BMEcat\\Tests": "tests/",
-            "SE\\Component\\BMEcat": "src/"
+            "Naugrim\\BMEcat": "src/"
         }
     }
 }

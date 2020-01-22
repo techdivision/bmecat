@@ -3,9 +3,9 @@
 namespace Naugrim\BMEcat\Tests;
 
 use PHPUnit\Framework\TestCase;
-use SE\Component\BMEcat\Exception\SchemaValidationException;
-use SE\Component\BMEcat\Exception\UnsupportedVersionException;
-use SE\Component\BMEcat\SchemaValidator;
+use Naugrim\BMEcat\Exception\SchemaValidationException;
+use Naugrim\BMEcat\Exception\UnsupportedVersionException;
+use Naugrim\BMEcat\SchemaValidator;
 
 
 class SchemaValidatorTest extends TestCase

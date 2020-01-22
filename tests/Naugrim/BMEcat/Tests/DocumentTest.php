@@ -4,17 +4,17 @@
 namespace Naugrim\BMEcat\Tests;
 
 use PHPUnit\Framework\TestCase;
-use SE\Component\BMEcat\DocumentBuilder;
-use SE\Component\BMEcat\Node\DocumentNode;
-use SE\Component\BMEcat\Node\MimeNode;
-use SE\Component\BMEcat\Node\NewCatalogNode;
-use SE\Component\BMEcat\Node\ProductDetailsNode;
-use SE\Component\BMEcat\Node\ProductFeaturesNode;
-use SE\Component\BMEcat\Node\ProductNode;
-use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
-use SE\Component\BMEcat\Node\ProductPriceDetailsNode;
-use SE\Component\BMEcat\Node\ProductPriceNode;
-use SE\Component\BMEcat\SchemaValidator;
+use Naugrim\BMEcat\DocumentBuilder;
+use Naugrim\BMEcat\Node\DocumentNode;
+use Naugrim\BMEcat\Node\MimeNode;
+use Naugrim\BMEcat\Node\NewCatalogNode;
+use Naugrim\BMEcat\Node\ProductDetailsNode;
+use Naugrim\BMEcat\Node\ProductFeaturesNode;
+use Naugrim\BMEcat\Node\ProductNode;
+use Naugrim\BMEcat\Node\ProductOrderDetailsNode;
+use Naugrim\BMEcat\Node\ProductPriceDetailsNode;
+use Naugrim\BMEcat\Node\ProductPriceNode;
+use Naugrim\BMEcat\SchemaValidator;
 
 
 class DocumentTest extends TestCase

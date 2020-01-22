@@ -2,20 +2,20 @@
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use http\Header;
-use SE\Component\BMEcat\DocumentBuilder;
-use SE\Component\BMEcat\Exception\SchemaValidationException;
-use SE\Component\BMEcat\Node\CatalogNode;
-use SE\Component\BMEcat\Node\DateTimeNode;
-use SE\Component\BMEcat\Node\DocumentNode;
-use SE\Component\BMEcat\Node\HeaderNode;
-use SE\Component\BMEcat\Node\NewCatalogNode;
-use SE\Component\BMEcat\Node\ProductDetailsNode;
-use SE\Component\BMEcat\Node\ProductNode;
-use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
-use SE\Component\BMEcat\Node\ProductPriceDetailsNode;
-use SE\Component\BMEcat\Node\ProductPriceNode;
-use SE\Component\BMEcat\Node\SupplierNode;
-use SE\Component\BMEcat\SchemaValidator;
+use Naugrim\BMEcat\DocumentBuilder;
+use Naugrim\BMEcat\Exception\SchemaValidationException;
+use Naugrim\BMEcat\Node\CatalogNode;
+use Naugrim\BMEcat\Node\DateTimeNode;
+use Naugrim\BMEcat\Node\DocumentNode;
+use Naugrim\BMEcat\Node\HeaderNode;
+use Naugrim\BMEcat\Node\NewCatalogNode;
+use Naugrim\BMEcat\Node\ProductDetailsNode;
+use Naugrim\BMEcat\Node\ProductNode;
+use Naugrim\BMEcat\Node\ProductOrderDetailsNode;
+use Naugrim\BMEcat\Node\ProductPriceDetailsNode;
+use Naugrim\BMEcat\Node\ProductPriceNode;
+use Naugrim\BMEcat\Node\SupplierNode;
+use Naugrim\BMEcat\SchemaValidator;
 
 require __DIR__.'/../vendor/autoload.php';
 

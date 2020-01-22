@@ -6,11 +6,11 @@ namespace Naugrim\BMEcat\Tests\Node;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use SE\Component\BMEcat\Node\ProductKeywordNode;
-use SE\Component\BMEcat\Node\ProductStatusNode;
-use SE\Component\BMEcat\Node\BuyerPidNode;
-use SE\Component\BMEcat\Node\ProductDetailsNode;
-use SE\Component\BMEcat\Node\SpecialTreatmentClassNode;
+use Naugrim\BMEcat\Node\ProductKeywordNode;
+use Naugrim\BMEcat\Node\ProductStatusNode;
+use Naugrim\BMEcat\Node\BuyerPidNode;
+use Naugrim\BMEcat\Node\ProductDetailsNode;
+use Naugrim\BMEcat\Node\SpecialTreatmentClassNode;
 
 
 class ProductDetailsNodeTest extends TestCase
