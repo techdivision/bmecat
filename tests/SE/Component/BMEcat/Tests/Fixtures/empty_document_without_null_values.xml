@@ -1,10 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<BMECAT xmlns="http://www.bmecat.org/bmecat/2005.1" version="2005.1">
-  <HEADER>
-    <CATALOG>
-      <DATETIME type="generation_date"/>
-    </CATALOG>
-    <SUPPLIER/>
-  </HEADER>
-  <T_NEW_CATALOG/>
-</BMECAT>
+<BMECAT xmlns="http://www.bmecat.org/bmecat/2005.1" version="2005.1"/>

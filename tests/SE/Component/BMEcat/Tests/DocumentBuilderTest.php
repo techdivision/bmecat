@@ -10,6 +10,8 @@
 
 namespace SE\Component\BMEcat\Tests;
 
+use SE\Component\BMEcat\Node\DocumentNode;
+
 /**
  *
  * @package SE\Component\BMEcat\Tests
@@ -21,7 +23,6 @@ class DocumentBuilderTest extends \PHPUnit\Framework\TestCase
     public function setUp() : void
     {
         $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
-        $this->loader = new \SE\Component\BMEcat\NodeLoader;
     }
 
     /**
@@ -30,7 +31,7 @@ class DocumentBuilderTest extends \PHPUnit\Framework\TestCase
      */
     public function Can_Be_Instantiated()
     {
-        $builder = new \SE\Component\BMEcat\DocumentBuilder($this->serializer, $this->loader);
+        $builder = new \SE\Component\BMEcat\DocumentBuilder($this->serializer);
         $this->assertInstanceOf(\SE\Component\BMEcat\DocumentBuilder::class, $builder);
     }
 
@@ -42,7 +43,6 @@ class DocumentBuilderTest extends \PHPUnit\Framework\TestCase
     {
         $builder = new \SE\Component\BMEcat\DocumentBuilder();
         $this->assertInstanceOf('\JMS\Serializer\Serializer', $builder->getSerializer());
-        $this->assertInstanceOf('\SE\Component\BMEcat\NodeLoader', $builder->getLoader());
     }
 
     /**
@@ -51,9 +51,8 @@ class DocumentBuilderTest extends \PHPUnit\Framework\TestCase
      */
     public function Instantiate_Via_Static_Method()
     {
-        $builder = \SE\Component\BMEcat\DocumentBuilder::create($this->serializer, $this->loader);
+        $builder = \SE\Component\BMEcat\DocumentBuilder::create($this->serializer);
         $this->assertInstanceOf('\JMS\Serializer\Serializer', $builder->getSerializer());
-        $this->assertInstanceOf('\SE\Component\BMEcat\NodeLoader', $builder->getLoader());
     }
 
     /**
@@ -63,26 +62,12 @@ class DocumentBuilderTest extends \PHPUnit\Framework\TestCase
     public function To_String_Returns_Default_Document_Without_Null_Values()
     {
         $builder = new \SE\Component\BMEcat\DocumentBuilder;
-        $builder->build();
-        $builder->setSerializeNull(false);
+        $document = DocumentNode::fromArray([]);
+        $builder->setDocument($document);
 
         $expected = file_get_contents(__DIR__.'/Fixtures/empty_document_without_null_values.xml');
         $this->assertEquals($expected, $builder->toString());
 
-    }
-
-    /**
-     *
-     * @test
-     */
-    public function To_String_Returns_Default_Document_With_Null_Values()
-    {
-        $builder = new \SE\Component\BMEcat\DocumentBuilder;
-        $builder->build();
-        $builder->setSerializeNull(true);
-
-        $expected = file_get_contents(__DIR__.'/Fixtures/empty_document_with_null_values.xml');
-        $this->assertEquals($expected, $builder->toString());
     }
 
     /**

@@ -13,9 +13,6 @@ namespace SE\Component\BMEcat;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializationContext;
-
-use SE\Component\BMEcat\DataLoader;
-use SE\Component\BMEcat\NodeLoader;
 use SE\Component\BMEcat\Node\DocumentNode;
 use SE\Component\BMEcat\Exception\MissingDocumentException;
 
@@ -28,34 +25,28 @@ class DocumentBuilder
 {
     /**
      *
-     * @var \JMS\Serializer\Serializer
+     * @var Serializer
      */
     protected $serializer;
 
     /**
      *
-     * @var \JMS\Serializer\SerializationContext
+     * @var SerializationContext
      */
     protected $context;
 
     /**
      *
-     * @var \SE\Component\BMEcat\NodeLoader
-     */
-    protected $loader;
-
-    /**
-     *
-     * @var \SE\Component\BMEcat\Node\DocumentNode
+     * @var DocumentNode
      */
     protected $document;
 
     /**
      *
-     * @param \JMS\Serializer\Serializer $serializer
-     * @param \SE\Component\BMEcat\NodeLoader $loader
+     * @param Serializer $serializer
+     * @param SerializationContext $context
      */
-    public function __construct(Serializer $serializer = null, NodeLoader $loader = null, $context = null)
+    public function __construct(Serializer $serializer = null, $context = null)
     {
         if($serializer === null) {
             $serializer = SerializerBuilder::create()->build();
@@ -65,39 +56,23 @@ class DocumentBuilder
             $context = SerializationContext::create();
         }
 
-
-        if($loader === null) {
-            $loader = new NodeLoader();
-        }
-
         $this->context    = $context;
         $this->serializer = $serializer;
-        $this->loader     = $loader;
     }
 
     /**
      *
-     * @param \JMS\Serializer\Serializer $serializer
-     * @param \SE\Component\BMEcat\NodeLoader $loader
-     * @return \SE\Component\BMEcat\DocumentBuilder
+     * @param Serializer $serializer
+     * @return DocumentBuilder
      */
-    public static function create(Serializer $serializer = null, NodeLoader $loader = null)
+    public static function create(Serializer $serializer = null)
     {
-        return new self($serializer, $loader);
+        return new self($serializer);
     }
 
     /**
      *
-     * @return \SE\Component\BMEcat\NodeLoader
-     */
-    public function getLoader()
-    {
-        return $this->loader;
-    }
-
-    /**
-     *
-     * @return \JMS\Serializer\Serializer
+     * @return Serializer
      */
     public function getSerializer()
     {
@@ -106,7 +81,7 @@ class DocumentBuilder
 
     /**
      *
-     * @return \JMS\Serializer\SerializationContext
+     * @return SerializationContext
      */
     public function getContext()
     {
@@ -114,18 +89,18 @@ class DocumentBuilder
     }
 
     /**
-     *
      * @param Node\DocumentNode $document
-     * @return \SE\Component\BMEcat\NodeLoader
+     * @return DocumentBuilder
      */
     public function setDocument(DocumentNode $document)
     {
         $this->document = $document;
+        return $this;
     }
 
     /**
      *
-     * @return \SE\Component\BMEcat\Node\DocumentNode
+     * @return DocumentNode
      */
     public function getDocument()
     {
@@ -134,31 +109,13 @@ class DocumentBuilder
 
     /**
      *
-     * @param array $data
-     */
-    public function load(array $data)
-    {
-        DataLoader::load($data, $this);
-    }
-
-    /**
-     *
-     * @param $bool
-     */
-    public function setSerializeNull($bool)
-    {
-        $this->context->setSerializeNull($bool);
-    }
-    
-    /**
-     *
-     * @throws \SE\Component\BMEcat\Exception\MissingDocumentException
+     * @throws MissingDocumentException
      * @return string
      */
     public function toString()
     {
         if(($document = $this->getDocument()) === null) {
-            throw new MissingDocumentException('No Document built. Please call ::build first.');
+            throw new MissingDocumentException('Please call ::setDocument() first.');
         }
 
         return $this->serializer->serialize($document, 'xml', $this->context);

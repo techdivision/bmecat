@@ -10,8 +10,8 @@
 
 namespace SE\Component\BMEcat\Tests;
 
+use SE\Component\BMEcat\Node\DocumentNode;
 use SE\Component\BMEcat\Node\ProductDetailsNode;
-use SE\Component\BMEcat\Node\ProductOrderDetailsNode;
 use SE\Component\BMEcat\Node\ProductPriceDetailsNode;
 use SE\Component\BMEcat\SchemaValidator;
 
@@ -25,34 +25,31 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
 
     public function setUp() : void
     {
-        $data = [
-            'document' => [
-                'header' =>[
-                    'generator_info' => 'DocumentTest Document',
-                    'catalog' => [
-                        'language'  => 'eng',
-                        'id'        => 'MY_CATALOG',
-                        'version'   => '0.99',
-                        'datetime'  => [
-                            'date' => '1979-01-01',
-                            'time' => '10:59:54',
-                            'timezone' => '-01:00',
-                        ]
-                    ],
-                    'supplier' => [
-                        'id'    => 'BMECAT_TEST',
-                        'name'  => 'TestSupplier',
+        $document = DocumentNode::fromArray([
+            'header' =>[
+                'generatorInfo' => 'DocumentTest Document',
+                'catalog' => [
+                    'language'  => 'eng',
+                    'id'        => 'MY_CATALOG',
+                    'version'   => '0.99',
+                    'datetime'  => [
+                        'date' => '1979-01-01',
+                        'time' => '10:59:54',
+                        'timezone' => '-01:00',
                     ]
+                ],
+                'supplier' => [
+                    'id'    => 'BMECAT_TEST',
+                    'name'  => 'TestSupplier',
                 ]
             ]
-        ];
+        ]);
 
         $builder = new \SE\Component\BMEcat\DocumentBuilder();
-        $builder->build();
-        $builder->load($data);
+        $builder->setDocument($document);
 
         $catalog = new \SE\Component\BMEcat\Node\NewCatalogNode;
-        $builder->getDocument()->setNewCatalog($catalog);
+        $document->setNewCatalog($catalog);
 
         foreach([1,2,3] as $index) {
             $product = new \SE\Component\BMEcat\Node\ProductNode;
@@ -123,8 +120,6 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
      */
     public function Compare_Document_Without_Null_Values()
     {
-        $this->builder->setSerializeNull(false);
-
         $expected = file_get_contents(__DIR__.'/Fixtures/document_without_null_values.xml');
         $actual = $this->builder->toString();
 
