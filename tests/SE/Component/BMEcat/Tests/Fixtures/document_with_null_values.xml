@@ -33,7 +33,7 @@
           <PRICE_CURRENCY><![CDATA[GBP]]></PRICE_CURRENCY>
         </ARTICLE_PRICE>
       </ARTICLE_PRICE_DETAILS>
-      <ARTICLE_FEATURES>
+      <PRODUCT_FEATURES>
         <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[A]]></REFERENCE_FEATURE_SYSTEM_NAME>
         <REFERENCE_FEATURE_GROUP_NAME><![CDATA[B]]></REFERENCE_FEATURE_GROUP_NAME>
         <REFERENCE_FEATURE_GROUP_ID><![CDATA[C]]></REFERENCE_FEATURE_GROUP_ID>
@@ -42,8 +42,8 @@
         <CustomsTariffNumber>2</CustomsTariffNumber>
         <CustomsCountryOfOrigin><![CDATA[D]]></CustomsCountryOfOrigin>
         <CustomsTariffText><![CDATA[E]]></CustomsTariffText>
-      </ARTICLE_FEATURES>
-      <ARTICLE_FEATURES>
+      </PRODUCT_FEATURES>
+      <PRODUCT_FEATURES>
         <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[F]]></REFERENCE_FEATURE_SYSTEM_NAME>
         <REFERENCE_FEATURE_GROUP_NAME><![CDATA[G]]></REFERENCE_FEATURE_GROUP_NAME>
         <REFERENCE_FEATURE_GROUP_ID><![CDATA[H]]></REFERENCE_FEATURE_GROUP_ID>
@@ -52,7 +52,7 @@
         <CustomsTariffNumber>4</CustomsTariffNumber>
         <CustomsCountryOfOrigin><![CDATA[I]]></CustomsCountryOfOrigin>
         <CustomsTariffText><![CDATA[J]]></CustomsTariffText>
-      </ARTICLE_FEATURES>
+      </PRODUCT_FEATURES>
       <PRODUCT_ORDER_DETAILS>
         <ORDER_UNIT xsi:nil="true"/>
         <CONTENT_UNIT xsi:nil="true"/>
@@ -94,7 +94,7 @@
           <PRICE_CURRENCY><![CDATA[GBP]]></PRICE_CURRENCY>
         </ARTICLE_PRICE>
       </ARTICLE_PRICE_DETAILS>
-      <ARTICLE_FEATURES>
+      <PRODUCT_FEATURES>
         <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[A]]></REFERENCE_FEATURE_SYSTEM_NAME>
         <REFERENCE_FEATURE_GROUP_NAME><![CDATA[B]]></REFERENCE_FEATURE_GROUP_NAME>
         <REFERENCE_FEATURE_GROUP_ID><![CDATA[C]]></REFERENCE_FEATURE_GROUP_ID>
@@ -103,8 +103,8 @@
         <CustomsTariffNumber>2</CustomsTariffNumber>
         <CustomsCountryOfOrigin><![CDATA[D]]></CustomsCountryOfOrigin>
         <CustomsTariffText><![CDATA[E]]></CustomsTariffText>
-      </ARTICLE_FEATURES>
-      <ARTICLE_FEATURES>
+      </PRODUCT_FEATURES>
+      <PRODUCT_FEATURES>
         <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[F]]></REFERENCE_FEATURE_SYSTEM_NAME>
         <REFERENCE_FEATURE_GROUP_NAME><![CDATA[G]]></REFERENCE_FEATURE_GROUP_NAME>
         <REFERENCE_FEATURE_GROUP_ID><![CDATA[H]]></REFERENCE_FEATURE_GROUP_ID>
@@ -113,7 +113,7 @@
         <CustomsTariffNumber>4</CustomsTariffNumber>
         <CustomsCountryOfOrigin><![CDATA[I]]></CustomsCountryOfOrigin>
         <CustomsTariffText><![CDATA[J]]></CustomsTariffText>
-      </ARTICLE_FEATURES>
+      </PRODUCT_FEATURES>
       <PRODUCT_ORDER_DETAILS>
         <ORDER_UNIT xsi:nil="true"/>
         <CONTENT_UNIT xsi:nil="true"/>
@@ -155,7 +155,7 @@
           <PRICE_CURRENCY><![CDATA[GBP]]></PRICE_CURRENCY>
         </ARTICLE_PRICE>
       </ARTICLE_PRICE_DETAILS>
-      <ARTICLE_FEATURES>
+      <PRODUCT_FEATURES>
         <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[A]]></REFERENCE_FEATURE_SYSTEM_NAME>
         <REFERENCE_FEATURE_GROUP_NAME><![CDATA[B]]></REFERENCE_FEATURE_GROUP_NAME>
         <REFERENCE_FEATURE_GROUP_ID><![CDATA[C]]></REFERENCE_FEATURE_GROUP_ID>
@@ -164,8 +164,8 @@
         <CustomsTariffNumber>2</CustomsTariffNumber>
         <CustomsCountryOfOrigin><![CDATA[D]]></CustomsCountryOfOrigin>
         <CustomsTariffText><![CDATA[E]]></CustomsTariffText>
-      </ARTICLE_FEATURES>
-      <ARTICLE_FEATURES>
+      </PRODUCT_FEATURES>
+      <PRODUCT_FEATURES>
         <REFERENCE_FEATURE_SYSTEM_NAME><![CDATA[F]]></REFERENCE_FEATURE_SYSTEM_NAME>
         <REFERENCE_FEATURE_GROUP_NAME><![CDATA[G]]></REFERENCE_FEATURE_GROUP_NAME>
         <REFERENCE_FEATURE_GROUP_ID><![CDATA[H]]></REFERENCE_FEATURE_GROUP_ID>
@@ -174,7 +174,7 @@
         <CustomsTariffNumber>4</CustomsTariffNumber>
         <CustomsCountryOfOrigin><![CDATA[I]]></CustomsCountryOfOrigin>
         <CustomsTariffText><![CDATA[J]]></CustomsTariffText>
-      </ARTICLE_FEATURES>
+      </PRODUCT_FEATURES>
       <PRODUCT_ORDER_DETAILS>
         <ORDER_UNIT xsi:nil="true"/>
         <CONTENT_UNIT xsi:nil="true"/>

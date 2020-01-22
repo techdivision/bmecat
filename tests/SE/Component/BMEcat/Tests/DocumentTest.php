@@ -68,7 +68,7 @@ class DocumentTest extends \PHPUnit\Framework\TestCase
             foreach([['A', 'B', 'C', 1, 2, 'D', 'E'],['F', 'G', 'H', 3, 4, 'I', 'J']] as $value) {
                 list($systemName, $groupName, $groupId, $serialNumber, $tarifNumber, $countryOfOrigin, $tariftext) = $value;
 
-                $features = new \SE\Component\BMEcat\Node\ArticleFeaturesNode;
+                $features = new \SE\Component\BMEcat\Node\ProductFeaturesNode;
 
                 $features->setReferenceFeatureSystemName($systemName);
                 $features->setReferenceFeatureGroupName($groupName);

@@ -54,7 +54,7 @@ class NodeLoaderTest extends TestCase
     {
         $map = [
             $this->loader->get(NodeLoader::PRODUCT_DETAILS_NODE),
-            $this->loader->get(NodeLoader::ARTICLE_FEATURE_NODE),
+            $this->loader->get(NodeLoader::PRODUCT_FEATURE_NODE),
             $this->loader->get(NodeLoader::ARTICLE_PRICE_NODE),
             $this->loader->get(NodeLoader::ARTICLE_NODE),
             $this->loader->get(NodeLoader::CATALOG_NODE),
@@ -66,7 +66,7 @@ class NodeLoaderTest extends TestCase
 
         $this->assertSame([
             '\SE\Component\BMEcat\Node\ProductDetailsNode',
-            '\SE\Component\BMEcat\Node\ArticleFeatureNode',
+            '\SE\Component\BMEcat\Node\ProductFeatureNode',
             '\SE\Component\BMEcat\Node\ArticlePriceNode',
             '\SE\Component\BMEcat\Node\ArticleNode',
             '\SE\Component\BMEcat\Node\CatalogNode',

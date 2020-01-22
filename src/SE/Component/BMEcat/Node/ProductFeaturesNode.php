@@ -19,9 +19,9 @@ use \SE\Component\BMEcat\Node\AbstractNode;
  * @package SE\Component\BMEcat
  * @author Jochen Pfaeffle <jochen.pfaeffle.dev@gmail.com>
  *
- * @Serializer\XmlRoot("ARTICLE_FEATURES")
+ * @Serializer\XmlRoot("PRODUCT_FEATURES")
  */
-class ArticleFeaturesNode extends AbstractNode
+class ProductFeaturesNode extends AbstractNode
 {
     /**
      * @Serializer\Expose
@@ -60,7 +60,7 @@ class ArticleFeaturesNode extends AbstractNode
      * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticleFeatureNode>")
      * @Serializer\XmlList( entry="FEATURE")
      *
-     * @var \SE\Component\BMEcat\Node\ArticleFeatureNode[]
+     * @var \SE\Component\BMEcat\Node\ProductFeatureNode[]
      */
     protected $features;
 
@@ -113,9 +113,9 @@ class ArticleFeaturesNode extends AbstractNode
     protected $customsTariffText;
 
     /**
-     * @param ArticleFeatureNode $feature
+     * @param ProductFeatureNode $feature
      */
-    public function addFeature(ArticleFeatureNode $feature)
+    public function addFeature(ProductFeatureNode $feature)
     {
         if ($this->features === null) {
             $this->features = [];
@@ -216,7 +216,7 @@ class ArticleFeaturesNode extends AbstractNode
     }
 
     /**
-     * @return ArticleFeatureNode[]
+     * @return ProductFeatureNode[]
      */
     public function getFeatures()
     {

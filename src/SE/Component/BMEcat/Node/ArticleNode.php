@@ -55,10 +55,10 @@ class ArticleNode extends AbstractNode
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticleFeaturesNode>")
-     * @Serializer\XmlList( inline=true, entry="ARTICLE_FEATURES")
+     * @Serializer\Type("array<SE\Component\BMEcat\Node\ProductFeaturesNode>")
+     * @Serializer\XmlList( inline=true, entry="PRODUCT_FEATURES")
      *
-     * @var ArticleFeaturesNode[]
+     * @var ProductFeaturesNode[]
      */
     protected $features = [];
 
@@ -114,9 +114,9 @@ class ArticleNode extends AbstractNode
 
     /**
      *
-     * @param ArticleFeaturesNode $features
+     * @param ProductFeaturesNode $features
      */
-    public function addFeatures(ArticleFeaturesNode $features)
+    public function addFeatures(ProductFeaturesNode $features)
     {
         if ($this->features === null) {
             $this->features = [];
@@ -250,7 +250,7 @@ class ArticleNode extends AbstractNode
 
     /**
      *
-     * @return ArticleFeaturesNode[]
+     * @return ProductFeaturesNode[]
      */
     public function getFeatures()
     {

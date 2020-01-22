@@ -13,7 +13,7 @@ namespace SE\Component\BMEcat\Tests\Node;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use SE\Component\BMEcat\Node\ArticleFeaturesNode;
+use SE\Component\BMEcat\Node\ProductFeaturesNode;
 use SE\Component\BMEcat\Node\ArticleItemTagNode;
 use SE\Component\BMEcat\Node\ArticleMimeNode;
 use SE\Component\BMEcat\Node\ArticleNode;
@@ -69,9 +69,9 @@ class ArticleNodeTest extends TestCase
     {
 
         $features = [
-            new ArticleFeaturesNode(),
-            new ArticleFeaturesNode(),
-            new ArticleFeaturesNode(),
+            new ProductFeaturesNode(),
+            new ProductFeaturesNode(),
+            new ProductFeaturesNode(),
         ];
 
         $node = new ArticleNode();

@@ -20,7 +20,7 @@ use SE\Component\BMEcat\Node\AbstractNode;
  *
  * @Serializer\XmlRoot("FEATURE")
  */
-class ArticleFeatureNode extends AbstractNode
+class ProductFeatureNode extends AbstractNode
 {
     /**
      * @Serializer\Expose

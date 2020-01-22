@@ -15,7 +15,7 @@ namespace SE\Component\BMEcat\Tests\Node;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class ArticleFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
+class ProductFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
 {
     public function setUp() : void
     {
@@ -29,12 +29,12 @@ class ArticleFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
     public function Add_Get_Feature()
     {
         $features = [
-            new \SE\Component\BMEcat\Node\ArticleFeatureNode(),
-            new \SE\Component\BMEcat\Node\ArticleFeatureNode(),
-            new \SE\Component\BMEcat\Node\ArticleFeatureNode(),
+            new \SE\Component\BMEcat\Node\ProductFeatureNode(),
+            new \SE\Component\BMEcat\Node\ProductFeatureNode(),
+            new \SE\Component\BMEcat\Node\ProductFeatureNode(),
         ];
 
-        $node = new \SE\Component\BMEcat\Node\ArticleFeaturesNode();
+        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
         $this->assertEmpty($node->getFeatures());
         $node->nullFeatures();
         $this->assertEquals([], $node->getFeatures());
@@ -52,7 +52,7 @@ class ArticleFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Reference_Feature_System_Name()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleFeaturesNode();
+        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getReferenceFeatureSystemName());
@@ -66,7 +66,7 @@ class ArticleFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Reference_Feature_Group_Name()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleFeaturesNode();
+        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getReferenceFeatureGroupName());
@@ -80,7 +80,7 @@ class ArticleFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Reference_Feature_Group_Id()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleFeaturesNode();
+        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getReferenceFeatureGroupId());
@@ -94,7 +94,7 @@ class ArticleFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Serial_Number_Required()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleFeaturesNode();
+        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
         $value = rand(10,1000);
 
         $this->assertNull($node->getSerialNumberRequired());
@@ -108,7 +108,7 @@ class ArticleFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Customs_Tariff_Number()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleFeaturesNode();
+        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
         $value = rand(10,1000);
 
         $this->assertNull($node->getCustomsTariffNumber());
@@ -122,7 +122,7 @@ class ArticleFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Customs_Country_Of_Origin()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleFeaturesNode();
+        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getCustomsCountryOfOrigin());
@@ -136,7 +136,7 @@ class ArticleFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Customs_Tariff_Text()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleFeaturesNode();
+        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getCustomsTariffText());
@@ -150,10 +150,10 @@ class ArticleFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleFeaturesNode();
+        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
         $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_features_with_null_values.xml');
+        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_features_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);
@@ -165,10 +165,10 @@ class ArticleFeaturesNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleFeaturesNode();
+        $node = new \SE\Component\BMEcat\Node\ProductFeaturesNode();
         $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_features_without_null_values.xml');
+        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_features_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);

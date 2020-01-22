@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ARTICLE_FEATURES xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<PRODUCT_FEATURES xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <REFERENCE_FEATURE_SYSTEM_NAME xsi:nil="true"/>
   <REFERENCE_FEATURE_GROUP_NAME xsi:nil="true"/>
   <REFERENCE_FEATURE_GROUP_ID xsi:nil="true"/>
@@ -8,4 +8,4 @@
   <CustomsTariffNumber xsi:nil="true"/>
   <CustomsCountryOfOrigin xsi:nil="true"/>
   <CustomsTariffText xsi:nil="true"/>
-</ARTICLE_FEATURES>
+</PRODUCT_FEATURES>

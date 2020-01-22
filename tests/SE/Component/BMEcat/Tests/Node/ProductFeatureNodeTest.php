@@ -15,7 +15,7 @@ namespace SE\Component\BMEcat\Tests\Node;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class ArticleItemTagNodeTest  extends \PHPUnit\Framework\TestCase
+class ProductFeatureNodeTest  extends \PHPUnit\Framework\TestCase
 {
     public function setUp() : void
     {
@@ -23,14 +23,29 @@ class ArticleItemTagNodeTest  extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     *
+     * @test
+     */
+    public function Set_Get_Name()
+    {
+        $node = new \SE\Component\BMEcat\Node\ProductFeatureNode();
+        $value = sha1(uniqid(microtime(false), true));
+
+        $this->assertNull($node->getName());
+        $node->setName($value);
+        $this->assertEquals($value, $node->getName());
+    }
+
+    /**
+     *
      * @test
      */
     public function Set_Get_Value()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleItemTagNode();
-        $value = '';
+        $node = new \SE\Component\BMEcat\Node\ProductFeatureNode();
+        $value = sha1(uniqid(microtime(false), true));
 
-        $this->assertEquals('', $node->getValue());
+        $this->assertNull($node->getValue());
         $node->setValue($value);
         $this->assertEquals($value, $node->getValue());
     }
@@ -41,10 +56,10 @@ class ArticleItemTagNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleItemTagNode();
+        $node = new \SE\Component\BMEcat\Node\ProductFeatureNode();
         $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_item_tag_with_null_values.xml');
+        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_feature_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);
@@ -56,10 +71,10 @@ class ArticleItemTagNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleItemTagNode();
+        $node = new \SE\Component\BMEcat\Node\ProductFeatureNode();
         $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_item_tag_without_null_values.xml');
+        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_product_feature_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);
