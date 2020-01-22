@@ -10,16 +10,23 @@
 
 namespace SE\Component\BMEcat\Tests\Node;
 
+use JMS\Serializer\SerializationContext;
+use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
+use SE\Component\BMEcat\Node\DocumentNode;
+use SE\Component\BMEcat\Node\HeaderNode;
+use SE\Component\BMEcat\Node\NewCatalogNode;
+
 /**
  *
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class DocumentNodeTest extends \PHPUnit\Framework\TestCase
+class DocumentNodeTest extends TestCase
 {
     public function setUp() : void
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::create()->build();
     }
 
     /**
@@ -28,9 +35,9 @@ class DocumentNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Version()
     {
-        $document = new \SE\Component\BMEcat\Node\DocumentNode();
+        $document = new DocumentNode();
 
-        $this->assertEquals('1.2', $document->getVersion());
+        $this->assertEquals('2005.1', $document->getVersion());
         $document->setVersion('1.9');
         $this->assertEquals('1.9', $document->getVersion());
     }
@@ -41,8 +48,8 @@ class DocumentNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_New_Catalog()
     {
-        $document = new \SE\Component\BMEcat\Node\DocumentNode();
-        $catalog  = new \SE\Component\BMEcat\Node\NewCatalogNode();
+        $document = new DocumentNode();
+        $catalog = new NewCatalogNode();
 
         $this->assertNull($document->getNewCatalog());
         $document->setNewCatalog($catalog);
@@ -55,8 +62,8 @@ class DocumentNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_New_Header()
     {
-        $document = new \SE\Component\BMEcat\Node\DocumentNode();
-        $header  = new \SE\Component\BMEcat\Node\HeaderNode();
+        $document = new DocumentNode();
+        $header = new HeaderNode();
 
         $this->assertNull($document->getHeader());
         $document->setHeader($header);
@@ -69,8 +76,8 @@ class DocumentNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\DocumentNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
+        $node = new DocumentNode();
+        $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_document_nochildren_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
@@ -84,8 +91,8 @@ class DocumentNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\DocumentNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
+        $node = new DocumentNode();
+        $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_document_nochildren_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);

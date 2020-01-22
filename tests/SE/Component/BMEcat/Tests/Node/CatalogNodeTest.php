@@ -10,16 +10,22 @@
 
 namespace SE\Component\BMEcat\Tests\Node;
 
+use JMS\Serializer\SerializationContext;
+use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
+use SE\Component\BMEcat\Node\CatalogNode;
+use SE\Component\BMEcat\Node\DateTimeNode;
+
 /**
  *
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class CatalogNodeTest extends \PHPUnit\Framework\TestCase
+class CatalogNodeTest extends TestCase
 {
     public function setUp() : void
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::create()->build();
     }
 
     /**
@@ -28,7 +34,7 @@ class CatalogNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Id()
     {
-        $node = new \SE\Component\BMEcat\Node\CatalogNode();
+        $node = new CatalogNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getId());
@@ -42,7 +48,7 @@ class CatalogNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Version()
     {
-        $node = new \SE\Component\BMEcat\Node\CatalogNode();
+        $node = new CatalogNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getVersion());
@@ -56,7 +62,7 @@ class CatalogNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Language()
     {
-        $node = new \SE\Component\BMEcat\Node\CatalogNode();
+        $node = new CatalogNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getLanguage());
@@ -70,8 +76,8 @@ class CatalogNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Date_Time()
     {
-        $node = new \SE\Component\BMEcat\Node\CatalogNode();
-        $dateTime = new \SE\Component\BMEcat\Node\DateTimeNode();
+        $node = new CatalogNode();
+        $dateTime = new DateTimeNode();
 
         $this->assertNull($node->getDateTime());
         $node->setDateTime($dateTime);
@@ -82,52 +88,10 @@ class CatalogNodeTest extends \PHPUnit\Framework\TestCase
      *
      * @test
      */
-    public function Set_Get_Export_Date()
-    {
-        $node = new \SE\Component\BMEcat\Node\CatalogNode();
-        $exportDate = date('Y-m-d H:i:s', strtotime('NOW'));
-
-        $this->assertNull($node->getExportDate());
-        $node->setExportDate($exportDate);
-        $this->assertEquals($exportDate, $node->getExportDate());
-    }
-
-    /**
-     *
-     * @test
-     */
-    public function Set_Get_Database()
-    {
-        $node = new \SE\Component\BMEcat\Node\CatalogNode();
-        $value = sha1(uniqid(microtime(false), true));
-
-        $this->assertNull($node->getDatabase());
-        $node->setDatabase($value);
-        $this->assertEquals($value, $node->getDatabase());
-    }
-
-    /**
-     *
-     * @test
-     */
-    public function Set_Get_Shop_Id()
-    {
-        $node = new \SE\Component\BMEcat\Node\CatalogNode();
-        $value = sha1(uniqid(microtime(false), true));
-
-        $this->assertNull($node->getShopId());
-        $node->setShopId($value);
-        $this->assertEquals($value, $node->getShopId());
-    }
-
-    /**
-     *
-     * @test
-     */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\CatalogNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
+        $node = new CatalogNode();
+        $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_catalog_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
@@ -141,8 +105,8 @@ class CatalogNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\CatalogNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
+        $node = new CatalogNode();
+        $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_catalog_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);

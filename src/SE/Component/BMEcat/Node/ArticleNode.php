@@ -10,12 +10,6 @@
 
 namespace SE\Component\BMEcat\Node;
 
-use JMS\Serializer\Annotation as Serializer;
-use SE\Component\BMEcat\Node\AbstractNode;
-use SE\Component\BMEcat\Node\ArticleDetailsNode;
-use SE\Component\BMEcat\Node\ArticleFeaturesNode;
-use SE\Component\BMEcat\Node\ArticlePriceNode;
-
 /**
  *
  * @package SE\Component\BMEcat
@@ -38,10 +32,10 @@ class ArticleNode extends AbstractNode
     /**
      *
      * @Serializer\Expose
-     * @Serializer\SerializedName("ARTICLE_DETAILS")
-     * @Serializer\Type("SE\Component\BMEcat\Node\ArticleDetailsNode")
+     * @Serializer\SerializedName("PRODUCT_DETAILS")
+     * @Serializer\Type("SE\Component\BMEcat\Node\ProductDetailsNode")
      *
-     * @var \SE\Component\BMEcat\Node\ArticleDetailsNode
+     * @var ProductDetailsNode
      */
     protected $detail;
 
@@ -52,7 +46,7 @@ class ArticleNode extends AbstractNode
      * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticlePriceNode>")
      * @Serializer\XmlList( entry="ARTICLE_PRICE")
      *
-     * @var \SE\Component\BMEcat\Node\ArticlePriceNode[]
+     * @var ArticlePriceNode[]
      */
     protected $prices = [];
 
@@ -62,7 +56,7 @@ class ArticleNode extends AbstractNode
      * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticleFeaturesNode>")
      * @Serializer\XmlList( inline=true, entry="ARTICLE_FEATURES")
      *
-     * @var \SE\Component\BMEcat\Node\ArticleFeaturesNode[]
+     * @var ArticleFeaturesNode[]
      */
     protected $features = [];
 
@@ -71,7 +65,7 @@ class ArticleNode extends AbstractNode
      * @Serializer\SerializedName("ARTICLE_ORDER_DETAILS")
      * @Serializer\Type("SE\Component\BMEcat\Node\ArticleOrderDetailsNode")
      *
-     * @var \SE\Component\BMEcat\Node\ArticleOrderDetailsNode
+     * @var ArticleOrderDetailsNode
      */
     protected $orderDetails;
 
@@ -82,7 +76,7 @@ class ArticleNode extends AbstractNode
      * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticleMimeNode>")
      * @Serializer\XmlList( entry="MIME")
      *
-     * @var \SE\Component\BMEcat\Node\ArticleMimeNode[]
+     * @var ArticleMimeNode[]
      */
     protected $mimes = [];
 
@@ -94,22 +88,22 @@ class ArticleNode extends AbstractNode
      * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticleItemTagNode>")
      * @Serializer\XmlList( entry="ITEMTAG")
      *
-     * @var \SE\Component\BMEcat\Node\ArticleItemTagNode[]
+     * @var ArticleItemTagNode[]
      */
     protected $itemTags;
 
     /**
      *
-     * @param \SE\Component\BMEcat\Node\ArticleDetailsNode $detail
+     * @param ProductDetailsNode $detail
      */
-    public function setDetails(ArticleDetailsNode $detail)
+    public function setDetails(ProductDetailsNode $detail)
     {
         $this->detail = $detail;
     }
 
     /**
      *
-     * @return \SE\Component\BMEcat\Node\ArticleDetailsNode
+     * @return ProductDetailsNode
      */
     public function getDetails()
     {
@@ -118,7 +112,7 @@ class ArticleNode extends AbstractNode
 
     /**
      *
-     * @param \SE\Component\BMEcat\Node\ArticleFeaturesNode $features
+     * @param ArticleFeaturesNode $features
      */
     public function addFeatures(ArticleFeaturesNode $features)
     {
@@ -129,7 +123,7 @@ class ArticleNode extends AbstractNode
     }
     /**
      *
-     * @param \SE\Component\BMEcat\Node\ArticlePriceNode $price
+     * @param ArticlePriceNode $price
      */
     public function addPrice(ArticlePriceNode $price)
     {
@@ -212,7 +206,7 @@ class ArticleNode extends AbstractNode
     }
 
     /**
-     * @param \SE\Component\BMEcat\Node\ArticleDetailsNode $detail
+     * @param ProductDetailsNode $detail
      */
     public function setDetail($detail)
     {
@@ -228,7 +222,7 @@ class ArticleNode extends AbstractNode
     }
 
     /**
-     * @param \SE\Component\BMEcat\Node\ArticleOrderDetailsNode $orderDetails
+     * @param ArticleOrderDetailsNode $orderDetails
      */
     public function setOrderDetails(ArticleOrderDetailsNode $orderDetails)
     {
@@ -245,7 +239,7 @@ class ArticleNode extends AbstractNode
     }
 
     /**
-     * @return \SE\Component\BMEcat\Node\ArticleDetailsNode
+     * @return ProductDetailsNode
      */
     public function getDetail()
     {
@@ -254,7 +248,7 @@ class ArticleNode extends AbstractNode
 
     /**
      *
-     * @return \SE\Component\BMEcat\Node\ArticleFeaturesNode[]
+     * @return ArticleFeaturesNode[]
      */
     public function getFeatures()
     {
@@ -267,7 +261,7 @@ class ArticleNode extends AbstractNode
 
     /**
      *
-     * @return \SE\Component\BMEcat\Node\ArticlePriceNode[]
+     * @return ArticlePriceNode[]
      */
     public function getPrices()
     {

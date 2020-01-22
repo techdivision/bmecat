@@ -10,18 +10,14 @@
 
 namespace SE\Component\BMEcat\Node;
 
-use JMS\Serializer\Annotation as Serializer;
-
-use SE\Component\BMEcat\Node\AbstractNode;
-
 /**
  *
  * @package SE\Component\BMEcat
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  *
- * @Serializer\XmlRoot("ARTICLE_DETAILS")
+ * @Serializer\XmlRoot("PRODUCT_DETAILS")
  */
-class ArticleDetailsNode extends AbstractNode
+class ProductDetailsNode extends AbstractNode
 {
     /**
      *
@@ -69,7 +65,7 @@ class ArticleDetailsNode extends AbstractNode
      * @Serializer\Type("array<SE\Component\BMEcat\Node\BuyerAidNode>")
      * @Serializer\XmlList(inline=true, entry="BUYER_AID")
      *
-     * @var \SE\Component\BMEcat\Node\BuyerAidNode[]
+     * @var BuyerAidNode[]
      */
     protected $buyerAids;
 
@@ -139,7 +135,7 @@ class ArticleDetailsNode extends AbstractNode
      * @Serializer\Type("array<SE\Component\BMEcat\Node\SpecialTreatmentClassNode>")
      * @Serializer\XmlList(inline=true, entry="SPECIAL_TREATMENT_CLASS")
      *
-     * @var \SE\Component\BMEcat\Node\SpecialTreatmentClassNode[]
+     * @var SpecialTreatmentClassNode[]
      */
     protected $specialTreatmentClasses;
 
@@ -149,7 +145,7 @@ class ArticleDetailsNode extends AbstractNode
      * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticleKeywordNode>")
      * @Serializer\XmlList(inline=true, entry="KEYWORD")
      *
-     * @var \SE\Component\BMEcat\Node\ArticleKeywordNode[]
+     * @var ArticleKeywordNode[]
      */
     protected $keywords;
 
@@ -190,7 +186,7 @@ class ArticleDetailsNode extends AbstractNode
      * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticleStatusNode>")
      * @Serializer\XmlList(inline=true, entry="ARTICLE_STATUS")
      *
-     * @var \SE\Component\BMEcat\Node\ArticleStatusNode[]
+     * @var ArticleStatusNode[]
      */
     protected $articleStatus;
 

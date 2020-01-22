@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<BMECAT xmlns="http://www.bmecat.org/bmecat/1.2/bmecat_new_catalog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.w3.org/1999/xhtml.xsd">
+<BMECAT xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.bmecat.org/bmecat/2005.1" version="2005.1"
+        xsi:noNamespaceSchemaLocation="http://www.w3.org/1999/xhtml.xsd">
   <HEADER>
     <GENERATOR_INFO><![CDATA[DocumentTest Document]]></GENERATOR_INFO>
     <CATALOG>
+      <LANGUAGE><![CDATA[EN]]></LANGUAGE>
       <CATALOG_ID><![CDATA[MY_CATALOG]]></CATALOG_ID>
       <CATALOG_VERSION><![CDATA[0.99]]></CATALOG_VERSION>
-      <LANGUAGE><![CDATA[EN]]></LANGUAGE>
       <DATETIME type="generation_date">
         <DATE><![CDATA[1979-01-01]]></DATE>
         <TIME><![CDATA[10:59:54]]></TIME>
         <TIMEZONE><![CDATA[-01:00]]></TIMEZONE>
       </DATETIME>
-      <EXPORT_DATE xsi:nil="true"/>
-      <DATABASE xsi:nil="true"/>
-      <SHOPID xsi:nil="true"/>
     </CATALOG>
     <SUPPLIER>
       <SUPPLIER_ID><![CDATA[BMECAT_TEST]]></SUPPLIER_ID>
@@ -23,7 +22,7 @@
   <T_NEW_CATALOG>
     <ARTICLE>
       <SUPPLIER_AID><![CDATA[1]]></SUPPLIER_AID>
-      <ARTICLE_DETAILS xsi:nil="true"/>
+      <PRODUCT_DETAILS xsi:nil="true"/>
       <ARTICLE_PRICE_DETAILS>
         <ARTICLE_PRICE price_type="gros_list">
           <PRICE_AMOUNT>10.5</PRICE_AMOUNT>
@@ -84,7 +83,7 @@
     </ARTICLE>
     <ARTICLE>
       <SUPPLIER_AID><![CDATA[2]]></SUPPLIER_AID>
-      <ARTICLE_DETAILS xsi:nil="true"/>
+      <PRODUCT_DETAILS xsi:nil="true"/>
       <ARTICLE_PRICE_DETAILS>
         <ARTICLE_PRICE price_type="gros_list">
           <PRICE_AMOUNT>10.5</PRICE_AMOUNT>
@@ -145,7 +144,7 @@
     </ARTICLE>
     <ARTICLE>
       <SUPPLIER_AID><![CDATA[3]]></SUPPLIER_AID>
-      <ARTICLE_DETAILS xsi:nil="true"/>
+      <PRODUCT_DETAILS xsi:nil="true"/>
       <ARTICLE_PRICE_DETAILS>
         <ARTICLE_PRICE price_type="gros_list">
           <PRICE_AMOUNT>10.5</PRICE_AMOUNT>

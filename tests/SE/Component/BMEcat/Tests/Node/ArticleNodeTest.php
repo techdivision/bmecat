@@ -10,16 +10,27 @@
 
 namespace SE\Component\BMEcat\Tests\Node;
 
+use JMS\Serializer\SerializationContext;
+use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
+use SE\Component\BMEcat\Node\ArticleFeaturesNode;
+use SE\Component\BMEcat\Node\ArticleItemTagNode;
+use SE\Component\BMEcat\Node\ArticleMimeNode;
+use SE\Component\BMEcat\Node\ArticleNode;
+use SE\Component\BMEcat\Node\ArticleOrderDetailsNode;
+use SE\Component\BMEcat\Node\ArticlePriceNode;
+use SE\Component\BMEcat\Node\ProductDetailsNode;
+
 /**
  *
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class ArticleNodeTest  extends \PHPUnit\Framework\TestCase
+class ArticleNodeTest extends TestCase
 {
     public function setUp() : void
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::create()->build();
     }
 
     /**
@@ -28,7 +39,7 @@ class ArticleNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Id()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleNode();
+        $node = new ArticleNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getId());
@@ -42,8 +53,8 @@ class ArticleNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Details()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleNode();
-        $details = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ArticleNode();
+        $details = new ProductDetailsNode();
 
         $this->assertNull($node->getDetails());
         $node->setDetails($details);
@@ -58,12 +69,12 @@ class ArticleNodeTest  extends \PHPUnit\Framework\TestCase
     {
 
         $features = [
-            new \SE\Component\BMEcat\Node\ArticleFeaturesNode(),
-            new \SE\Component\BMEcat\Node\ArticleFeaturesNode(),
-            new \SE\Component\BMEcat\Node\ArticleFeaturesNode(),
+            new ArticleFeaturesNode(),
+            new ArticleFeaturesNode(),
+            new ArticleFeaturesNode(),
         ];
 
-        $node = new \SE\Component\BMEcat\Node\ArticleNode();
+        $node = new ArticleNode();
         $this->assertEmpty($node->getFeatures());
         $node->nullFeatures();
         $this->assertEquals([], $node->getFeatures());
@@ -82,12 +93,12 @@ class ArticleNodeTest  extends \PHPUnit\Framework\TestCase
     public function Add_Get_Prices()
     {
         $prices = [
-            new \SE\Component\BMEcat\Node\ArticlePriceNode(),
-            new \SE\Component\BMEcat\Node\ArticlePriceNode(),
-            new \SE\Component\BMEcat\Node\ArticlePriceNode(),
+            new ArticlePriceNode(),
+            new ArticlePriceNode(),
+            new ArticlePriceNode(),
         ];
 
-        $node = new \SE\Component\BMEcat\Node\ArticleNode();
+        $node = new ArticleNode();
         $this->assertEmpty($node->getPrices());
         $node->nullPrices();
         $this->assertEquals([], $node->getPrices());
@@ -105,8 +116,8 @@ class ArticleNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Add_Get_Article_Order_Details()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleNode();
-        $value = new \SE\Component\BMEcat\Node\ArticleOrderDetailsNode();
+        $node = new ArticleNode();
+        $value = new ArticleOrderDetailsNode();
 
         $this->assertEmpty($node->getOrderDetails());
         $node->setOrderDetails($value);
@@ -120,12 +131,12 @@ class ArticleNodeTest  extends \PHPUnit\Framework\TestCase
     public function Add_Get_Mime_Info()
     {
         $mimes = [
-            new \SE\Component\BMEcat\Node\ArticleMimeNode(),
-            new \SE\Component\BMEcat\Node\ArticleMimeNode(),
-            new \SE\Component\BMEcat\Node\ArticleMimeNode(),
+            new ArticleMimeNode(),
+            new ArticleMimeNode(),
+            new ArticleMimeNode(),
         ];
 
-        $node = new \SE\Component\BMEcat\Node\ArticleNode();
+        $node = new ArticleNode();
         $this->assertEmpty($node->getMimes());
         $node->nullMime();
         $this->assertEquals(null, $node->getMimes());
@@ -144,12 +155,12 @@ class ArticleNodeTest  extends \PHPUnit\Framework\TestCase
     public function Add_Get_Item_Tags()
     {
         $itemTags = [
-            new \SE\Component\BMEcat\Node\ArticleItemTagNode(),
-            new \SE\Component\BMEcat\Node\ArticleItemTagNode(),
-            new \SE\Component\BMEcat\Node\ArticleItemTagNode(),
+            new ArticleItemTagNode(),
+            new ArticleItemTagNode(),
+            new ArticleItemTagNode(),
         ];
 
-        $node = new \SE\Component\BMEcat\Node\ArticleNode();
+        $node = new ArticleNode();
         $this->assertEmpty($node->getItemTags());
         $node->nullItemTags();
         $this->assertEquals(null, $node->getItemTags());
@@ -167,8 +178,8 @@ class ArticleNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
+        $node = new ArticleNode();
+        $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
@@ -181,8 +192,8 @@ class ArticleNodeTest  extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
+        $node = new ArticleNode();
+        $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);

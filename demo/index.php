@@ -1,6 +1,8 @@
 <?php
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
+use SE\Component\BMEcat\DocumentBuilder;
+use SE\Component\BMEcat\Node\NewCatalogNode;
 use SE\Component\BMEcat\SchemaValidator;
 
 require __DIR__.'/../vendor/autoload.php';
@@ -29,12 +31,15 @@ $data = [
     ]
 ];
 
-$builder = new \SE\Component\BMEcat\DocumentBuilder();
+$builder = new DocumentBuilder();
 $builder->build();
 $builder->load($data);
 
-$catalog = new \SE\Component\BMEcat\Node\NewCatalogNode;
-$builder->getDocument()->setNewCatalog($catalog);
+$catalog = new NewCatalogNode;
+$document = $builder->getDocument();
+$document->setNewCatalog($catalog);
+
+var_export($document);
 
 $xml = $builder->toString();
 

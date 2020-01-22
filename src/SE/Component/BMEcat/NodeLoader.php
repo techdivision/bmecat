@@ -12,6 +12,7 @@ namespace SE\Component\BMEcat;
 
 use SE\Component\BMEcat\Exception\UnknownNodeException;
 use SE\Component\BMEcat\Exception\UnknownNodeTypeException;
+use SE\Component\BMEcat\Node\AbstractNode;
 
 /**
  *
@@ -27,7 +28,7 @@ class NodeLoader
     const CATALOG_NODE          = 'catalog.node';
     const ARTICLE_NODE          = 'article.node';
     const ARTICLE_FEATURE_NODE  = 'article.feature.node';
-    const ARTICLE_DETAILS_NODE  = 'article.details.node';
+    const PRODUCT_DETAILS_NODE = 'product.details.node';
     const ARTICLE_PRICE_NODE    = 'article.price.node';
     const DATE_TIME_NODE        = 'datetime.node';
 
@@ -43,7 +44,7 @@ class NodeLoader
         self::CATALOG_NODE              => '\SE\Component\BMEcat\Node\CatalogNode',
         self::ARTICLE_NODE              => '\SE\Component\BMEcat\Node\ArticleNode',
         self::ARTICLE_FEATURE_NODE      => '\SE\Component\BMEcat\Node\ArticleFeatureNode',
-        self::ARTICLE_DETAILS_NODE      => '\SE\Component\BMEcat\Node\ArticleDetailsNode',
+        self::PRODUCT_DETAILS_NODE => '\SE\Component\BMEcat\Node\ProductDetailsNode',
         self::ARTICLE_PRICE_NODE        => '\SE\Component\BMEcat\Node\ArticlePriceNode',
         self::DATE_TIME_NODE            => '\SE\Component\BMEcat\Node\DateTimeNode',
     ];
@@ -57,8 +58,8 @@ class NodeLoader
     /**
      *
      * @param string $nodeName
-     * @throws \SE\Component\BMEcat\Exception\UnknownNodeException
-     * @return \SE\Component\BMEcat\Node\AbstractNode
+     * @return AbstractNode
+     * @throws UnknownNodeException
      */
     public function getInstance($nodeName)
     {
@@ -77,7 +78,7 @@ class NodeLoader
      *
      * @param string $nodeName
      * @param string $class
-     * @throws \SE\Component\BMEcat\Exception\UnknownNodeTypeException
+     * @throws UnknownNodeTypeException
      */
     public function set($nodeName, $class)
     {
@@ -91,8 +92,8 @@ class NodeLoader
     /**
      *
      * @param string $nodeName
-     * @throws \SE\Component\BMEcat\Exception\UnknownNodeTypeException
      * @return $class
+     * @throws UnknownNodeTypeException
      */
     public function get($nodeName)
     {

@@ -10,10 +10,13 @@
 
 namespace SE\Component\BMEcat\Tests\Node;
 
-use \JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\SerializationContext;
+use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
 use SE\Component\BMEcat\Node\ArticleKeywordNode;
 use SE\Component\BMEcat\Node\ArticleStatusNode;
 use SE\Component\BMEcat\Node\BuyerAidNode;
+use SE\Component\BMEcat\Node\ProductDetailsNode;
 use SE\Component\BMEcat\Node\SpecialTreatmentClassNode;
 
 /**
@@ -21,11 +24,11 @@ use SE\Component\BMEcat\Node\SpecialTreatmentClassNode;
  * @package SE\Component\BMEcat\Tests
  * @author Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  */
-class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
+class ProductDetailsNodeTest extends TestCase
 {
     public function setUp() : void
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::create()->build();
     }
 
     /**
@@ -39,7 +42,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
             new BuyerAidNode('test'),
         ];
 
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $this->assertEmpty($node->getBuyerAids());
         $node->nullBuyerAids();
         $this->assertEquals([], $node->getBuyerAids());
@@ -62,7 +65,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
             new SpecialTreatmentClassNode(),
         ];
 
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $this->assertEmpty($node->getSpecialTreatmentClasses());
         $node->nullSpecialTreatmentClasses();
         $this->assertEquals([], $node->getSpecialTreatmentClasses());
@@ -85,7 +88,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
             new ArticleKeywordNode(),
         ];
 
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $this->assertEmpty($node->getKeywords());
         $node->nullKeywords();
         $this->assertEquals([], $node->getKeywords());
@@ -108,7 +111,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
             new ArticleStatusNode(),
         ];
 
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $this->assertEmpty($node->getArticleStatus());
         $node->nullArticleStatus();
         $this->assertEquals([], $node->getArticleStatus());
@@ -125,7 +128,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Description_Long()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getDescriptionLong());
@@ -138,7 +141,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Description_Short()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getDescriptionShort());
@@ -151,7 +154,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Ean()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getEan());
@@ -164,7 +167,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Supplier_Alt_Aid()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getSupplierAltAid());
@@ -177,7 +180,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Manufacturer_Name()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getManufacturerName());
@@ -190,7 +193,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Manufacturer_Type_Description()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getManufacturerTypeDescription());
@@ -203,7 +206,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Erp_Group_Buyer()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getErpGroupBuyer());
@@ -216,7 +219,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Erp_Group_Supplier()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getErpGroupSupplier());
@@ -229,7 +232,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Delivery_Time()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $value = rand(10,1000);
 
         $this->assertNull($node->getDeliveryTime());
@@ -242,7 +245,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Remarks()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getRemarks());
@@ -255,7 +258,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Article_Order()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $value = rand(10,1000);
 
         $this->assertNull($node->getArticleOrder());
@@ -268,7 +271,7 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Set_Get_Description_Segment()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
+        $node = new ProductDetailsNode();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getSegment());
@@ -281,10 +284,10 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(true);
+        $node = new ProductDetailsNode();
+        $context = SerializationContext::create()->setSerializeNull(true);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_details_with_null_values.xml');
+        $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_details_with_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);
@@ -295,10 +298,10 @@ class ArticleDetailsNodeTest extends \PHPUnit\Framework\TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new \SE\Component\BMEcat\Node\ArticleDetailsNode();
-        $context = \JMS\Serializer\SerializationContext::create()->setSerializeNull(false);
+        $node = new ProductDetailsNode();
+        $context = SerializationContext::create()->setSerializeNull(false);
 
-        $expected = file_get_contents(__DIR__.'/../Fixtures/empty_article_details_without_null_values.xml');
+        $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_details_without_null_values.xml');
         $actual = $this->serializer->serialize($node, 'xml', $context);
 
         $this->assertEquals($expected, $actual);

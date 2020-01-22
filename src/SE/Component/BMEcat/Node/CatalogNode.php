@@ -10,11 +10,6 @@
 
 namespace SE\Component\BMEcat\Node;
 
-use JMS\Serializer\Annotation as Serializer;
-
-use SE\Component\BMEcat\Node\AbstractNode;
-use SE\Component\BMEcat\Node\DateTimeNode;
-
 /**
  *
  * @package SE\Component\BMEcat
@@ -59,39 +54,6 @@ class CatalogNode extends AbstractNode
      * @var string
      */
     protected $dateTime;
-
-    /**
-     * Only for Pixi Imports
-     *
-     * @Serializer\Expose
-     * @Serializer\Type("string")
-     * @Serializer\SerializedName("EXPORT_DATE")
-     *
-     * @var string
-     */
-    protected $exportDate;
-
-    /**
-     * Only for Pixi Imports
-     *
-     * @Serializer\Expose
-     * @Serializer\Type("string")
-     * @Serializer\SerializedName("DATABASE")
-     *
-     * @var string
-     */
-    protected $database;
-
-    /**
-     * Only for Pixi Imports
-     *
-     * @Serializer\Expose
-     * @Serializer\Type("string")
-     * @Serializer\SerializedName("SHOPID")
-     *
-     * @var string
-     */
-    protected $shopId;
 
     /**
      * @param string $language
@@ -149,7 +111,7 @@ class CatalogNode extends AbstractNode
 
     /**
      *
-     * @param \SE\Component\BMEcat\Node\DateTimeNode $dateTime
+     * @param DateTimeNode $dateTime
      */
     public function setDateTime(DateTimeNode $dateTime)
     {
@@ -158,7 +120,7 @@ class CatalogNode extends AbstractNode
 
     /**
      *
-     * @return \SE\Component\BMEcat\Node\DateTimeNode
+     * @return DateTimeNode
      */
     public function getDateTime()
     {
