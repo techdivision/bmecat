@@ -14,7 +14,7 @@ use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
 use SE\Component\BMEcat\Node\ProductKeywordNode;
-use SE\Component\BMEcat\Node\ArticleStatusNode;
+use SE\Component\BMEcat\Node\ProductStatusNode;
 use SE\Component\BMEcat\Node\BuyerAidNode;
 use SE\Component\BMEcat\Node\ProductDetailsNode;
 use SE\Component\BMEcat\Node\SpecialTreatmentClassNode;
@@ -103,24 +103,24 @@ class ProductDetailsNodeTest extends TestCase
     /**
      * @test
      */
-    public function Add_Get_Article_Status()
+    public function Add_Get_Product_Status()
     {
-        $articleStatus = [
-            new ArticleStatusNode(),
-            new ArticleStatusNode(),
-            new ArticleStatusNode(),
+        $productStatus = [
+            new ProductStatusNode(),
+            new ProductStatusNode(),
+            new ProductStatusNode(),
         ];
 
         $node = new ProductDetailsNode();
-        $this->assertEmpty($node->getArticleStatus());
-        $node->nullArticleStatus();
-        $this->assertEquals([], $node->getArticleStatus());
+        $this->assertEmpty($node->getProductStatus());
+        $node->nullProductStatus();
+        $this->assertEquals([], $node->getProductStatus());
 
-        foreach($articleStatus as $singleArticleStatus) {
-            $node->addArticleStatus($singleArticleStatus);
+        foreach($productStatus as $singleProductStatus) {
+            $node->addProductStatus($singleProductStatus);
         }
 
-        $this->assertEquals($articleStatus, $node->getArticleStatus());
+        $this->assertEquals($productStatus, $node->getProductStatus());
     }
 
     /**

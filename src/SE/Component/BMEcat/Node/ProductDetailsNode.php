@@ -185,12 +185,12 @@ class ProductDetailsNode extends AbstractNode
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<SE\Component\BMEcat\Node\ArticleStatusNode>")
-     * @Serializer\XmlList(inline=true, entry="ARTICLE_STATUS")
+     * @Serializer\Type("array<SE\Component\BMEcat\Node\ProductStatusNode>")
+     * @Serializer\XmlList(inline=true, entry="PRODUCT_STATUS")
      *
-     * @var ArticleStatusNode[]
+     * @var ProductStatusNode[]
      */
-    protected $articleStatus;
+    protected $productStatus;
 
     /**
      * Only For PIXI Imports
@@ -239,14 +239,14 @@ class ProductDetailsNode extends AbstractNode
     }
 
     /**
-     * @param ArticleStatusNode $articleStatus
+     * @param ProductStatusNode $productStatus
      */
-    public function addArticleStatus(ArticleStatusNode $articleStatus)
+    public function addProductStatus(ProductStatusNode $productStatus)
     {
-        if ($this->articleStatus === null) {
-            $this->articleStatus = [];
+        if ($this->productStatus === null) {
+            $this->productStatus = [];
         }
-        $this->articleStatus[] = $articleStatus;
+        $this->productStatus[] = $productStatus;
     }
 
     /**
@@ -290,10 +290,10 @@ class ProductDetailsNode extends AbstractNode
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
      */
-    public function nullArticleStatus()
+    public function nullProductStatus()
     {
-        if (empty($this->articleStatus) === true) {
-            $this->articleStatus = null;
+        if (empty($this->productStatus) === true) {
+            $this->productStatus = null;
         }
     }
 
@@ -542,15 +542,15 @@ class ProductDetailsNode extends AbstractNode
     }
 
     /**
-     * @return ArticleStatusNode[]
+     * @return ProductStatusNode[]
      */
-    public function getArticleStatus()
+    public function getProductStatus()
     {
-        if ($this->articleStatus === null) {
+        if ($this->productStatus === null) {
             return [];
         }
 
-        return $this->articleStatus;
+        return $this->productStatus;
     }
 
     /**
