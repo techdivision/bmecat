@@ -26,6 +26,16 @@ use SE\Component\BMEcat\Node\SpecialTreatmentClassNode;
  */
 class ProductDetailsNodeTest extends TestCase
 {
+    private $serializer;
+    /**
+     * @var \JMS\Serializer\SerializerInterface
+     */
+    private $serializer;
+    /**
+     * @var \JMS\Serializer\SerializerInterface
+     */
+    private $serializer;
+
     public function setUp() : void
     {
         $this->serializer = SerializerBuilder::create()->build();

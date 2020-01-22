@@ -13,6 +13,11 @@ use SE\Component\BMEcat\Node\SpecialTreatmentClassNode;
  */
 class SpecialTreatmentClassNodeTest extends TestCase
 {
+    /**
+     * @var \JMS\Serializer\SerializerInterface
+     */
+    private $serializer;
+
     public function setUp() : void
     {
         $this->serializer = SerializerBuilder::create()->build();

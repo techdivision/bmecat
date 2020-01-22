@@ -30,6 +30,12 @@ use SE\Component\BMEcat\SchemaValidator;
  */
 class DocumentTest extends TestCase
 {
+    private $builder;
+    /**
+     * @var DocumentBuilder
+     */
+    private $builder;
+
     public function setUp() : void
     {
         $document = DocumentNode::fromArray([
