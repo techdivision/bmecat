@@ -36,9 +36,11 @@ abstract class AbstractNode implements NodeInterface
             try {
                 $reflectionMethod = new ReflectionMethod($instance, $setterName);
                 $setterParams = $reflectionMethod->getParameters();
+                // @codeCoverageIgnoreStart
             } catch (ReflectionException $e) {
                 throw new InvalidSetterException('Reflecting the setter method '.$instance.'::'.$setterName.' failed.');
             }
+            // @codeCoverageIgnoreEnd
             $firstSetterParam = array_shift($setterParams);
             if (!$firstSetterParam) {
                 throw new InvalidSetterException('The setter for the property '.$name.' in the class '.get_class($instance).' must have exactly one argument.');
@@ -49,15 +51,10 @@ abstract class AbstractNode implements NodeInterface
             }
 
             $paramType = $firstSetterParam->getType()->getName();
+            $valueType = gettype($value);
 
-            switch ($paramType) {
-                case 'array':
-                    // the setter requires an array
-                    break;
-                default:
-                    // the setter requires an object, but we currently have an array
-                    // try to construct the correct object
-                    $value = forward_static_call([$paramType, 'fromArray'], $value);
+            if ($paramType !== $valueType && class_exists($paramType)) {
+                $value = forward_static_call([$paramType, 'fromArray'], $value);
             }
 
             $instance->$setterName($value);

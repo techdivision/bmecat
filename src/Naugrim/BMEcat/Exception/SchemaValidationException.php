@@ -22,6 +22,9 @@ class SchemaValidationException extends Exception
         return $instance;
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function __toString()
     {
         $msg = get_class($this).': '.$this->getMessage()."\n";
