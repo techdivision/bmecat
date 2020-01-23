@@ -1,11 +1,16 @@
-bmecat
-======
+# BMEcat
+===
 
-[![Latest Stable Version](https://poser.pugx.org/se/bmecat/v/stable.png)](https://packagist.org/packages/se/bmecat)
+This package is heavily based on [https://github.com/sveneisenschmidt/bmecat](https://github.com/sveneisenschmidt/bmecat).
 
-Allows to build BMECat documents from PHP and converts them to xml.
+It has been rewritten to support the latest BMEcat standard (2005.1)
+
+[Semantic Versioning](https://semver.org) and [git-flow](https://github.com/petervanderdoes/gitflow-avh) are used. 
+Please create pull-requests against the `develop`-branch.
 
 
-#### Dev branch is master branch.
+## Installation
 
-[![Build Status](https://travis-ci.org/sveneisenschmidt/bmecat.png?branch=master)](https://travis-ci.org/svenseisenschmidt/bmecat)
+```
+composer require naugrim/bmecat
+```
