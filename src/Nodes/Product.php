@@ -39,9 +39,9 @@ class Product implements Contracts\NodeInterface
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_DETAILS")
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\ProductDetailsNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\ProductDetails")
      *
-     * @var ProductDetailsNode
+     * @var ProductDetails
      */
     protected $details;
 
@@ -106,10 +106,10 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @param ProductDetailsNode $details
+     * @param ProductDetails $details
      * @return Product
      */
-    public function setDetails(ProductDetailsNode $details) : Product
+    public function setDetails(ProductDetails $details) : Product
     {
         $this->details = $details;
         return $this;
@@ -117,7 +117,7 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @return ProductDetailsNode
+     * @return ProductDetails
      */
     public function getDetails()
     {

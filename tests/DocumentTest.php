@@ -10,7 +10,7 @@ use Naugrim\BMEcat\DocumentBuilder;
 use Naugrim\BMEcat\Nodes\Document;
 use Naugrim\BMEcat\Nodes\Mime;
 use Naugrim\BMEcat\Nodes\NewCatalog;
-use Naugrim\BMEcat\Nodes\ProductDetailsNode;
+use Naugrim\BMEcat\Nodes\ProductDetails;
 use Naugrim\BMEcat\Nodes\ProductFeaturesNode;
 use Naugrim\BMEcat\Nodes\Product;
 use Naugrim\BMEcat\Nodes\ProductOrderDetailsNode;
@@ -59,7 +59,7 @@ class DocumentTest extends TestCase
             $supplierPid = new SupplierPid();
             $supplierPid->setValue($index);
             $product->setId($supplierPid);
-            $productDetails = new ProductDetailsNode();
+            $productDetails = new ProductDetails();
             $productDetails->setDescriptionShort('description');
             $product->setDetails($productDetails);
 

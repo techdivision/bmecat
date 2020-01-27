@@ -14,7 +14,7 @@ use Naugrim\BMEcat\Nodes\Product;
 use Naugrim\BMEcat\Nodes\ProductOrderDetailsNode;
 use Naugrim\BMEcat\Nodes\ProductPriceDetailsNode;
 use Naugrim\BMEcat\Nodes\ProductPriceNode;
-use Naugrim\BMEcat\Nodes\ProductDetailsNode;
+use Naugrim\BMEcat\Nodes\ProductDetails;
 
 
 class ProductNodeTest extends TestCase
@@ -53,7 +53,7 @@ class ProductNodeTest extends TestCase
     public function Set_Get_Details()
     {
         $node = new Product();
-        $details = new ProductDetailsNode();
+        $details = new ProductDetails();
 
         $this->assertNull($node->getDetails());
         $node->setDetails($details);
