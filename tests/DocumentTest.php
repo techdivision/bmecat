@@ -14,7 +14,7 @@ use Naugrim\BMEcat\Nodes\ProductDetails;
 use Naugrim\BMEcat\Nodes\ProductFeatures;
 use Naugrim\BMEcat\Nodes\Product;
 use Naugrim\BMEcat\Nodes\ProductOrderDetails;
-use Naugrim\BMEcat\Nodes\ProductPriceDetailsNode;
+use Naugrim\BMEcat\Nodes\ProductPriceDetails;
 use Naugrim\BMEcat\Nodes\ProductPriceNode;
 use Naugrim\BMEcat\SchemaValidator;
 
@@ -71,7 +71,7 @@ class DocumentTest extends TestCase
                 $price->setPrice($amount);
                 $price->setCurrency($currency);
 
-                $priceDetail = new ProductPriceDetailsNode;
+                $priceDetail = new ProductPriceDetails;
                 $priceDetail->addPrice($price);
 
                 $product->addPriceDetail($priceDetail);

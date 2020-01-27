@@ -69,7 +69,7 @@ class Product implements Contracts\NodeInterface
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_PRICE_DETAILS")
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductPriceDetailsNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductPriceDetails>")
      * @Serializer\XmlList(inline = true, entry = "PRODUCT_PRICE_DETAILS")
      *
      * @var ProductPriceNode[]
@@ -136,7 +136,7 @@ class Product implements Contracts\NodeInterface
         $this->priceDetails = [];
         foreach ($priceDetails as $priceDetail) {
             if (is_array($priceDetail)) {
-                $priceDetail = NodeBuilder::fromArray($priceDetail, new ProductPriceDetailsNode());
+                $priceDetail = NodeBuilder::fromArray($priceDetail, new ProductPriceDetails());
             }
             $this->addPriceDetail($priceDetail);
         }
@@ -145,10 +145,10 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @param ProductPriceDetailsNode $price
+     * @param ProductPriceDetails $price
      * @return Product
      */
-    public function addPriceDetail(ProductPriceDetailsNode $price) : Product
+    public function addPriceDetail(ProductPriceDetails $price) : Product
     {
         if ($this->priceDetails === null) {
             $this->priceDetails = [];

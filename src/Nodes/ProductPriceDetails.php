@@ -13,7 +13,7 @@ use Naugrim\BMEcat\Exception\UnknownKeyException;
  *
  * @Serializer\XmlRoot("PRODUCT_PRICE_DETAILS")
  */
-class ProductPriceDetailsNode implements Contracts\NodeInterface
+class ProductPriceDetails implements Contracts\NodeInterface
 {
     /**
      *
@@ -59,9 +59,9 @@ class ProductPriceDetailsNode implements Contracts\NodeInterface
 
     /**
      * @param string $validStartDate
-     * @return ProductPriceDetailsNode
+     * @return ProductPriceDetails
      */
-    public function setValidStartDate(string $validStartDate): ProductPriceDetailsNode
+    public function setValidStartDate(string $validStartDate): ProductPriceDetails
     {
         $this->validStartDate = $validStartDate;
         return $this;
@@ -77,9 +77,9 @@ class ProductPriceDetailsNode implements Contracts\NodeInterface
 
     /**
      * @param string $validEndDate
-     * @return ProductPriceDetailsNode
+     * @return ProductPriceDetails
      */
-    public function setValidEndDate(string $validEndDate): ProductPriceDetailsNode
+    public function setValidEndDate(string $validEndDate): ProductPriceDetails
     {
         $this->validEndDate = $validEndDate;
         return $this;
@@ -95,9 +95,9 @@ class ProductPriceDetailsNode implements Contracts\NodeInterface
 
     /**
      * @param bool $dailyPrice
-     * @return ProductPriceDetailsNode
+     * @return ProductPriceDetails
      */
-    public function setDailyPrice(bool $dailyPrice): ProductPriceDetailsNode
+    public function setDailyPrice(bool $dailyPrice): ProductPriceDetails
     {
         $this->dailyPrice = $dailyPrice;
         return $this;
@@ -113,11 +113,11 @@ class ProductPriceDetailsNode implements Contracts\NodeInterface
 
     /**
      * @param ProductPriceNode[] $prices
-     * @return ProductPriceDetailsNode
+     * @return ProductPriceDetails
      * @throws InvalidSetterException
      * @throws UnknownKeyException
      */
-    public function setPrices(array $prices): ProductPriceDetailsNode
+    public function setPrices(array $prices): ProductPriceDetails
     {
         $this->prices = [];
         foreach ($prices as $price) {
