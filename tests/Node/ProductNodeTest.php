@@ -9,7 +9,7 @@ use Naugrim\BMEcat\DocumentBuilder;
 use Naugrim\BMEcat\Nodes\SupplierPid;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Nodes\ProductFeaturesNode;
-use Naugrim\BMEcat\Nodes\MimeNode;
+use Naugrim\BMEcat\Nodes\Mime;
 use Naugrim\BMEcat\Nodes\Product;
 use Naugrim\BMEcat\Nodes\ProductOrderDetailsNode;
 use Naugrim\BMEcat\Nodes\ProductPriceDetailsNode;
@@ -129,9 +129,9 @@ class ProductNodeTest extends TestCase
     public function Add_Get_Mime_Info()
     {
         $mimes = [
-            new MimeNode(),
-            new MimeNode(),
-            new MimeNode(),
+            new Mime(),
+            new Mime(),
+            new Mime(),
         ];
 
         $node = new Product();

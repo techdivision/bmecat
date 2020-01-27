@@ -7,7 +7,7 @@ use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\MimeNode;
+use Naugrim\BMEcat\Nodes\Mime;
 
 class MimeNodeTest extends TestCase
 {
@@ -26,7 +26,7 @@ class MimeNodeTest extends TestCase
  */
     public function Set_Get_Type()
     {
-        $node = new MimeNode();
+        $node = new Mime();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getType());
@@ -39,7 +39,7 @@ class MimeNodeTest extends TestCase
      */
     public function Set_Get_Source()
     {
-        $node = new MimeNode();
+        $node = new Mime();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getSource());
@@ -52,7 +52,7 @@ class MimeNodeTest extends TestCase
      */
     public function Set_Get_Purpose()
     {
-        $node = new MimeNode();
+        $node = new Mime();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getPurpose());
@@ -66,7 +66,7 @@ class MimeNodeTest extends TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new MimeNode();
+        $node = new Mime();
         $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_mime_info_with_null_values.xml');
@@ -81,7 +81,7 @@ class MimeNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new MimeNode();
+        $node = new Mime();
         $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_mime_info_without_null_values.xml');

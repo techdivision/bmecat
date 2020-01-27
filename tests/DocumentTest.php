@@ -8,7 +8,7 @@ use Naugrim\BMEcat\Nodes\SupplierPid;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\DocumentBuilder;
 use Naugrim\BMEcat\Nodes\Document;
-use Naugrim\BMEcat\Nodes\MimeNode;
+use Naugrim\BMEcat\Nodes\Mime;
 use Naugrim\BMEcat\Nodes\NewCatalogNode;
 use Naugrim\BMEcat\Nodes\ProductDetailsNode;
 use Naugrim\BMEcat\Nodes\ProductFeaturesNode;
@@ -93,7 +93,7 @@ class DocumentTest extends TestCase
                     ] as $value) {
                 list($type, $source, $purpose) = $value;
 
-                $mime = new MimeNode();
+                $mime = new Mime();
 
                 $mime->setType($type);
                 $mime->setSource($source);

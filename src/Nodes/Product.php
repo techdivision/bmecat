@@ -80,10 +80,10 @@ class Product implements Contracts\NodeInterface
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("MIME_INFO")
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\MimeNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\Mime>")
      * @Serializer\XmlList( entry="MIME")
      *
-     * @var MimeNode[]
+     * @var Mime[]
      */
     protected $mimes = [];
 
@@ -158,7 +158,7 @@ class Product implements Contracts\NodeInterface
     }
 
     /**
-     * @param MimeNode[] $mimes
+     * @param Mime[] $mimes
      * @return Product
      * @throws InvalidSetterException
      * @throws UnknownKeyException
@@ -168,7 +168,7 @@ class Product implements Contracts\NodeInterface
         $this->mimes = [];
         foreach ($mimes as $mime) {
             if (is_array($mime)) {
-                $mime = NodeBuilder::fromArray($mime, new MimeNode());
+                $mime = NodeBuilder::fromArray($mime, new Mime());
             }
             $this->addMime($mime);
         }
@@ -176,10 +176,10 @@ class Product implements Contracts\NodeInterface
     }
 
     /**
-     * @param MimeNode $mime
+     * @param Mime $mime
      * @return Product
      */
-    public function addMime(MimeNode $mime) : Product
+    public function addMime(Mime $mime) : Product
     {
         if ($this->mimes === null) {
             $this->mimes = [];
@@ -328,7 +328,7 @@ class Product implements Contracts\NodeInterface
     }
 
     /**
-     * @return MimeNode[]|null
+     * @return Mime[]|null
      */
     public function getMimes()
     {
