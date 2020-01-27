@@ -7,7 +7,7 @@ use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\CatalogNode;
+use Naugrim\BMEcat\Nodes\Catalog;
 use Naugrim\BMEcat\Nodes\HeaderNode;
 use Naugrim\BMEcat\Nodes\SupplierNode;
 
@@ -59,7 +59,7 @@ class HeaderNodeTest extends TestCase
     public function Set_Get_Catalog()
     {
         $header = new HeaderNode();
-        $catalog = new CatalogNode();
+        $catalog = new Catalog();
 
         $this->assertNull($header->getCatalog());
         $header->setCatalog($catalog);

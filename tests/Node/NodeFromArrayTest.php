@@ -5,7 +5,7 @@ namespace Naugrim\BMEcat\Tests;
 use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
-use Naugrim\BMEcat\Nodes\CatalogNode;
+use Naugrim\BMEcat\Nodes\Catalog;
 use Naugrim\BMEcat\Nodes\DocumentNode;
 use Naugrim\BMEcat\Nodes\NewCatalogNode;
 use Naugrim\BMEcat\Tests\Fixtures\Node\Node;

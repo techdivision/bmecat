@@ -23,10 +23,10 @@ class HeaderNode implements Contracts\NodeInterface
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\CatalogNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\Catalog")
      * @Serializer\SerializedName("CATALOG")
      *
-     * @var \Naugrim\BMEcat\Nodes\CatalogNode
+     * @var Catalog
      */
     protected $catalog;
 
@@ -35,7 +35,7 @@ class HeaderNode implements Contracts\NodeInterface
      * @Serializer\Type("Naugrim\BMEcat\Nodes\SupplierNode")
      * @Serializer\SerializedName("SUPPLIER")
      *
-     * @var \Naugrim\BMEcat\Nodes\SupplierNode
+     * @var SupplierNode
      */
     protected $supplier;
 
@@ -59,17 +59,17 @@ class HeaderNode implements Contracts\NodeInterface
     }
 
     /**
-     * @param \Naugrim\BMEcat\Nodes\CatalogNode $catalog
+     * @param Catalog $catalog
      * @return HeaderNode
      */
-    public function setCatalog(CatalogNode $catalog) : HeaderNode
+    public function setCatalog(Catalog $catalog) : HeaderNode
     {
         $this->catalog = $catalog;
         return $this;
     }
 
     /**
-     * @return \Naugrim\BMEcat\Nodes\CatalogNode $catalog
+     * @return Catalog $catalog
      */
     public function getCatalog()
     {
@@ -77,7 +77,7 @@ class HeaderNode implements Contracts\NodeInterface
     }
 
     /**
-     * @param \Naugrim\BMEcat\Nodes\SupplierNode $supplier
+     * @param SupplierNode $supplier
      * @return HeaderNode
      */
     public function setSupplier(SupplierNode $supplier) : HeaderNode
@@ -87,7 +87,7 @@ class HeaderNode implements Contracts\NodeInterface
     }
 
     /**
-     * @return \Naugrim\BMEcat\Nodes\SupplierNode
+     * @return SupplierNode
      */
     public function getSupplier()
     {
