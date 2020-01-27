@@ -5,15 +5,15 @@ namespace Naugrim\BMEcat\Tests\Node;
 
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
-use Naugrim\BMEcat\Node\SupplierPid;
+use Naugrim\BMEcat\Nodes\SupplierPid;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Node\ProductFeaturesNode;
-use Naugrim\BMEcat\Node\MimeNode;
-use Naugrim\BMEcat\Node\ProductNode;
-use Naugrim\BMEcat\Node\ProductOrderDetailsNode;
-use Naugrim\BMEcat\Node\ProductPriceDetailsNode;
-use Naugrim\BMEcat\Node\ProductPriceNode;
-use Naugrim\BMEcat\Node\ProductDetailsNode;
+use Naugrim\BMEcat\Nodes\ProductFeaturesNode;
+use Naugrim\BMEcat\Nodes\MimeNode;
+use Naugrim\BMEcat\Nodes\ProductNode;
+use Naugrim\BMEcat\Nodes\ProductOrderDetailsNode;
+use Naugrim\BMEcat\Nodes\ProductPriceDetailsNode;
+use Naugrim\BMEcat\Nodes\ProductPriceNode;
+use Naugrim\BMEcat\Nodes\ProductDetailsNode;
 
 
 class ProductNodeTest extends TestCase

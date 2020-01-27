@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
@@ -17,10 +17,10 @@ class NewCatalogNode extends AbstractNode
 {
     /**
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Node\ProductNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductNode>")
      * @Serializer\XmlList(inline = true, entry = "PRODUCT")
      *
-     * @var \Naugrim\BMEcat\Node\ProductNode[]
+     * @var \Naugrim\BMEcat\Nodes\ProductNode[]
      */
     protected $products = [];
 
@@ -46,7 +46,7 @@ class NewCatalogNode extends AbstractNode
 
     /**
      *
-     * @param \Naugrim\BMEcat\Node\ProductNode $product
+     * @param \Naugrim\BMEcat\Nodes\ProductNode $product
      * @return NewCatalogNode
      */
     public function addProduct(ProductNode $product) : NewCatalogNode
@@ -72,7 +72,7 @@ class NewCatalogNode extends AbstractNode
 
     /**
      *
-     * @return \Naugrim\BMEcat\Node\ProductNode[]
+     * @return \Naugrim\BMEcat\Nodes\ProductNode[]
      */
     public function getProducts()
     {

@@ -6,7 +6,7 @@ namespace Naugrim\BMEcat\Tests\Node;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Node\SupplierNode;
+use Naugrim\BMEcat\Nodes\SupplierNode;
 
 
 class SupplierNodeTest extends TestCase

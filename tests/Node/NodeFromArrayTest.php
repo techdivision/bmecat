@@ -4,9 +4,9 @@ namespace Naugrim\BMEcat\Tests;
 
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
-use Naugrim\BMEcat\Node\CatalogNode;
-use Naugrim\BMEcat\Node\DocumentNode;
-use Naugrim\BMEcat\Node\NewCatalogNode;
+use Naugrim\BMEcat\Nodes\CatalogNode;
+use Naugrim\BMEcat\Nodes\DocumentNode;
+use Naugrim\BMEcat\Nodes\NewCatalogNode;
 use Naugrim\BMEcat\Tests\Fixtures\Node\Node;
 use PHPUnit\Framework\TestCase;
 use TypeError;

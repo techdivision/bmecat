@@ -7,7 +7,7 @@ use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\DocumentBuilder;
 use Naugrim\BMEcat\Exception\MissingDocumentException;
-use Naugrim\BMEcat\Node\DocumentNode;
+use Naugrim\BMEcat\Nodes\DocumentNode;
 
 
 class DocumentBuilderTest extends TestCase

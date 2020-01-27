@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     \JMS\Serializer\Annotation as Serializer;
@@ -49,7 +49,7 @@ class ProductFeaturesNode extends AbstractNode
     /**
      * @Serializer\Expose
      * @Serializer\SerializedName("FEATURE")
-     * @Serializer\Type("array<Naugrim\BMEcat\Node\ProductFeatureNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductFeatureNode>")
      * @Serializer\XmlList( entry="FEATURE")
      *
      * @var ProductFeatureNode[]

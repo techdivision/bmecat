@@ -1,12 +1,13 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
-use ReflectionException;
-use ReflectionMethod;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
+use Naugrim\BMEcat\Nodes\Contracts\NodeInterface;
+use ReflectionException;
+use ReflectionMethod;
 
 abstract class AbstractNode implements NodeInterface
 {

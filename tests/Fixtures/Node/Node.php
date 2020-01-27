@@ -2,7 +2,7 @@
 
 namespace Naugrim\BMEcat\Tests\Fixtures\Node;
 
-use Naugrim\BMEcat\Node\AbstractNode;
+use Naugrim\BMEcat\Nodes\AbstractNode;
 
 class Node extends AbstractNode
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
-use Naugrim\BMEcat\Node\Concerns\HasStringValue;
-use Naugrim\BMEcat\Node\Concerns\HasTypeAttribute;
+use Naugrim\BMEcat\Nodes\Concerns\HasStringValue;
+use Naugrim\BMEcat\Nodes\Concerns\HasTypeAttribute;
 
 class SupplierPid extends AbstractNode
 {

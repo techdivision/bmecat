@@ -5,7 +5,7 @@ namespace Naugrim\BMEcat\Tests\Node;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Node\SpecialTreatmentClassNode;
+use Naugrim\BMEcat\Nodes\SpecialTreatmentClassNode;
 
 class SpecialTreatmentClassNodeTest extends TestCase
 {

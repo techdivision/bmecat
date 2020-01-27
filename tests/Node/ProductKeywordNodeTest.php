@@ -5,7 +5,7 @@ namespace Naugrim\BMEcat\Tests\Node;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Node\ProductKeywordNode;
+use Naugrim\BMEcat\Nodes\ProductKeywordNode;
 
 class ProductKeywordNodeTest extends TestCase
 {

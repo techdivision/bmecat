@@ -6,7 +6,7 @@ namespace Naugrim\BMEcat;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializationContext;
-use Naugrim\BMEcat\Node\DocumentNode;
+use Naugrim\BMEcat\Nodes\DocumentNode;
 use Naugrim\BMEcat\Exception\MissingDocumentException;
 
 class DocumentBuilder
@@ -77,7 +77,7 @@ class DocumentBuilder
     }
 
     /**
-     * @param Node\DocumentNode $document
+     * @param Nodes\DocumentNode $document
      * @return DocumentBuilder
      */
     public function setDocument(DocumentNode $document)

@@ -1,15 +1,15 @@
 <?php
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     \JMS\Serializer\Annotation as Serializer;
 
 /**
  *
- * @Serializer\XmlRoot("BUYER_PID")
+ * @Serializer\XmlRoot("SPECIAL_TREATMENT_CLASS")
  */
-class BuyerPidNode extends AbstractNode
+class SpecialTreatmentClassNode extends AbstractNode
 {
     /**
      * @Serializer\Type("string")
@@ -17,15 +17,25 @@ class BuyerPidNode extends AbstractNode
      *
      * @var string
      */
-    protected $type = '';
+    private $type = '';
 
     /**
-     * @Serializer\XmlValue
      * @Serializer\Type("string")
+     * @Serializer\XmlValue
      *
      * @var string
      */
     protected $value = '';
+
+    /**
+     * @param string $type
+     * @return SpecialTreatmentClassNode
+     */
+    public function setType($type) : SpecialTreatmentClassNode
+    {
+        $this->type = $type;
+        return $this;
+    }
 
     /**
      * @return string
@@ -33,16 +43,6 @@ class BuyerPidNode extends AbstractNode
     public function getType()
     {
         return $this->type;
-    }
-
-    /**
-     * @param string $type
-     * @return BuyerPidNode
-     */
-    public function setType($type) : BuyerPidNode
-    {
-        $this->type = $type;
-        return $this;
     }
 
     /**
@@ -55,9 +55,9 @@ class BuyerPidNode extends AbstractNode
 
     /**
      * @param string $value
-     * @return BuyerPidNode
+     * @return SpecialTreatmentClassNode
      */
-    public function setValue(string $value): BuyerPidNode
+    public function setValue(string $value): SpecialTreatmentClassNode
     {
         $this->value = $value;
         return $this;

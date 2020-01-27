@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use DateTimeImmutable;
 use /** @noinspection PhpUnusedAliasInspection */

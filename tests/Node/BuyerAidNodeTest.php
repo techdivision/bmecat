@@ -5,7 +5,7 @@ namespace Naugrim\BMEcat\Tests\Node;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Node\BuyerPidNode;
+use Naugrim\BMEcat\Nodes\BuyerPidNode;
 
 class BuyerAidNodeTest extends TestCase
 {
