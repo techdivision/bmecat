@@ -7,7 +7,7 @@ use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\ProductFeatureNode;
+use Naugrim\BMEcat\Nodes\ProductFeature;
 
 
 class ProductFeatureNodeTest extends TestCase
@@ -28,7 +28,7 @@ class ProductFeatureNodeTest extends TestCase
      */
     public function Set_Get_Name()
     {
-        $node = new ProductFeatureNode();
+        $node = new ProductFeature();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getName());
@@ -42,7 +42,7 @@ class ProductFeatureNodeTest extends TestCase
      */
     public function Set_Get_Value()
     {
-        $node = new ProductFeatureNode();
+        $node = new ProductFeature();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getValue());
@@ -56,7 +56,7 @@ class ProductFeatureNodeTest extends TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new ProductFeatureNode();
+        $node = new ProductFeature();
         $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_feature_with_null_values.xml');
@@ -71,7 +71,7 @@ class ProductFeatureNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new ProductFeatureNode();
+        $node = new ProductFeature();
         $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_feature_without_null_values.xml');
