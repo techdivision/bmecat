@@ -12,7 +12,7 @@ use Naugrim\BMEcat\Nodes\MimeNode;
 use Naugrim\BMEcat\Nodes\NewCatalogNode;
 use Naugrim\BMEcat\Nodes\ProductDetailsNode;
 use Naugrim\BMEcat\Nodes\ProductFeaturesNode;
-use Naugrim\BMEcat\Nodes\ProductNode;
+use Naugrim\BMEcat\Nodes\Product;
 use Naugrim\BMEcat\Nodes\ProductOrderDetailsNode;
 use Naugrim\BMEcat\Nodes\ProductPriceDetailsNode;
 use Naugrim\BMEcat\Nodes\ProductPriceNode;
@@ -55,7 +55,7 @@ class DocumentTest extends TestCase
         $document->setNewCatalog($catalog);
 
         foreach ([1,2,3] as $index) {
-            $product = new ProductNode;
+            $product = new Product;
             $supplierPid = new SupplierPid();
             $supplierPid->setValue($index);
             $product->setId($supplierPid);

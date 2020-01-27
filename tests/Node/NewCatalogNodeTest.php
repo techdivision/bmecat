@@ -8,7 +8,7 @@ use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Nodes\NewCatalogNode;
-use Naugrim\BMEcat\Nodes\ProductNode;
+use Naugrim\BMEcat\Nodes\Product;
 
 
 class NewCatalogNodeTest extends TestCase
@@ -30,9 +30,9 @@ class NewCatalogNodeTest extends TestCase
     public function Add_Get_Product_Node()
     {
         $products = [
-            new ProductNode(),
-            new ProductNode(),
-            new ProductNode(),
+            new Product(),
+            new Product(),
+            new Product(),
         ];
 
         $node = new NewCatalogNode();
