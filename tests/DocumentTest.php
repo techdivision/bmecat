@@ -7,7 +7,7 @@ use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Nodes\SupplierPid;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\DocumentBuilder;
-use Naugrim\BMEcat\Nodes\DocumentNode;
+use Naugrim\BMEcat\Nodes\Document;
 use Naugrim\BMEcat\Nodes\MimeNode;
 use Naugrim\BMEcat\Nodes\NewCatalogNode;
 use Naugrim\BMEcat\Nodes\ProductDetailsNode;
@@ -46,7 +46,7 @@ class DocumentTest extends TestCase
                     'name'  => 'TestSupplier',
                 ]
             ]
-        ], new DocumentNode());
+        ], new Document());
 
         $builder = new DocumentBuilder();
         $builder->setDocument($document);

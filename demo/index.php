@@ -6,7 +6,7 @@ use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use Naugrim\BMEcat\Exception\SchemaValidationException;
-use Naugrim\BMEcat\Nodes\DocumentNode;
+use Naugrim\BMEcat\Nodes\Document;
 use Naugrim\BMEcat\SchemaValidator;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
@@ -82,7 +82,7 @@ $document = NodeBuilder::fromArray([
             ]
         ]
     ]
-], new DocumentNode());
+], new Document());
 
 $builder->setDocument($document);
 

@@ -11,7 +11,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  * @Serializer\XmlRoot("BMECAT")
  * @Serializer\ExclusionPolicy("all")
  */
-class DocumentNode implements Contracts\NodeInterface
+class Document implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -47,9 +47,9 @@ class DocumentNode implements Contracts\NodeInterface
     /**
      *
      * @param string $version
-     * @return DocumentNode
+     * @return Document
      */
-    public function setVersion($version) : DocumentNode
+    public function setVersion($version) : Document
     {
         $this->version = $version;
         return $this;
@@ -66,9 +66,9 @@ class DocumentNode implements Contracts\NodeInterface
 
     /**
      * @param \Naugrim\BMEcat\Nodes\HeaderNode $header
-     * @return DocumentNode
+     * @return Document
      */
-    public function setHeader(HeaderNode $header) : DocumentNode
+    public function setHeader(HeaderNode $header) : Document
     {
         $this->header = $header;
         return $this;
@@ -85,9 +85,9 @@ class DocumentNode implements Contracts\NodeInterface
 
     /**
      * @param NewCatalogNode $catalog
-     * @return DocumentNode
+     * @return Document
      */
-    public function setNewCatalog(NewCatalogNode $catalog) : DocumentNode
+    public function setNewCatalog(NewCatalogNode $catalog) : Document
     {
         $this->catalog = $catalog;
         return $this;
