@@ -37,10 +37,10 @@ class Document implements Contracts\NodeInterface
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\NewCatalogNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\NewCatalog")
      * @Serializer\SerializedName("T_NEW_CATALOG")
      *
-     * @var NewCatalogNode
+     * @var NewCatalog
      */
     protected $catalog;
 
@@ -84,17 +84,17 @@ class Document implements Contracts\NodeInterface
     }
 
     /**
-     * @param NewCatalogNode $catalog
+     * @param NewCatalog $catalog
      * @return Document
      */
-    public function setNewCatalog(NewCatalogNode $catalog) : Document
+    public function setNewCatalog(NewCatalog $catalog) : Document
     {
         $this->catalog = $catalog;
         return $this;
     }
 
     /**
-     * @return NewCatalogNode
+     * @return NewCatalog
      */
     public function getNewCatalog()
     {

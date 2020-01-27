@@ -7,7 +7,7 @@ use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\NewCatalogNode;
+use Naugrim\BMEcat\Nodes\NewCatalog;
 use Naugrim\BMEcat\Nodes\Product;
 
 
@@ -35,7 +35,7 @@ class NewCatalogNodeTest extends TestCase
             new Product(),
         ];
 
-        $node = new NewCatalogNode();
+        $node = new NewCatalog();
         $this->assertEmpty($node->getProducts());
         $node->nullProducts();
         $this->assertEquals([], $node->getProducts());
@@ -53,7 +53,7 @@ class NewCatalogNodeTest extends TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new NewCatalogNode();
+        $node = new NewCatalog();
         $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_new_catalog_with_null_values.xml');
@@ -68,7 +68,7 @@ class NewCatalogNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new NewCatalogNode();
+        $node = new NewCatalog();
         $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_new_catalog_without_null_values.xml');

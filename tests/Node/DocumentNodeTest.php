@@ -9,7 +9,7 @@ use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Nodes\Document;
 use Naugrim\BMEcat\Nodes\Header;
-use Naugrim\BMEcat\Nodes\NewCatalogNode;
+use Naugrim\BMEcat\Nodes\NewCatalog;
 
 
 class DocumentNodeTest extends TestCase
@@ -44,7 +44,7 @@ class DocumentNodeTest extends TestCase
     public function Set_Get_New_Catalog()
     {
         $document = new Document();
-        $catalog = new NewCatalogNode();
+        $catalog = new NewCatalog();
 
         $this->assertNull($document->getNewCatalog());
         $document->setNewCatalog($catalog);

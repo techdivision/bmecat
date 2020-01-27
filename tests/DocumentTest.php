@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\DocumentBuilder;
 use Naugrim\BMEcat\Nodes\Document;
 use Naugrim\BMEcat\Nodes\Mime;
-use Naugrim\BMEcat\Nodes\NewCatalogNode;
+use Naugrim\BMEcat\Nodes\NewCatalog;
 use Naugrim\BMEcat\Nodes\ProductDetailsNode;
 use Naugrim\BMEcat\Nodes\ProductFeaturesNode;
 use Naugrim\BMEcat\Nodes\Product;
@@ -51,7 +51,7 @@ class DocumentTest extends TestCase
         $builder = new DocumentBuilder();
         $builder->setDocument($document);
 
-        $catalog = new NewCatalogNode;
+        $catalog = new NewCatalog;
         $document->setNewCatalog($catalog);
 
         foreach ([1,2,3] as $index) {

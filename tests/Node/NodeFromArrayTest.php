@@ -7,7 +7,7 @@ use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
 use Naugrim\BMEcat\Nodes\Catalog;
 use Naugrim\BMEcat\Nodes\Document;
-use Naugrim\BMEcat\Nodes\NewCatalogNode;
+use Naugrim\BMEcat\Nodes\NewCatalog;
 use Naugrim\BMEcat\Tests\Fixtures\Node\Node;
 use PHPUnit\Framework\TestCase;
 use TypeError;
@@ -49,7 +49,7 @@ class NodeFromArrayTest extends TestCase
 
     public function testObjectValue()
     {
-        $catalog = new NewCatalogNode();
+        $catalog = new NewCatalog();
         $document = NodeBuilder::fromArray([
             'newCatalog' => $catalog
         ], new Document());
