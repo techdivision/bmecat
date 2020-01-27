@@ -58,7 +58,7 @@ class ProductDetailsNode implements Contracts\NodeInterface
      * @Serializer\Type("array<Naugrim\BMEcat\Nodes\BuyerPidNode>")
      * @Serializer\XmlList(inline=true, entry="BUYER_PID")
      *
-     * @var BuyerPidNode[]
+     * @var BuyerPid[]
      */
     protected $buyerPids;
 
@@ -184,10 +184,10 @@ class ProductDetailsNode implements Contracts\NodeInterface
     protected $productStatus;
 
     /**
-     * @param BuyerPidNode $buyerAid
+     * @param BuyerPid $buyerAid
      * @return ProductDetailsNode
      */
-    public function addBuyerPid(BuyerPidNode $buyerAid) : ProductDetailsNode
+    public function addBuyerPid(BuyerPid $buyerAid) : ProductDetailsNode
     {
         if ($this->buyerPids === null) {
             $this->buyerPids = [];
@@ -471,7 +471,7 @@ class ProductDetailsNode implements Contracts\NodeInterface
     }
 
     /**
-     * @return BuyerPidNode[]
+     * @return BuyerPid[]
      */
     public function getBuyerPids()
     {

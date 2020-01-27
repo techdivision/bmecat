@@ -3,10 +3,9 @@
 namespace Naugrim\BMEcat\Tests\Node;
 
 use JMS\Serializer\SerializationContext;
-use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\BuyerPidNode;
+use Naugrim\BMEcat\Nodes\BuyerPid;
 
 class BuyerAidNodeTest extends TestCase
 {
@@ -26,7 +25,9 @@ class BuyerAidNodeTest extends TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new BuyerPidNode();
+        $node = new BuyerPid();
+        $node->setType('');
+        $node->setValue('');
         $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_buyer_pid_with_null_values.xml');
@@ -40,7 +41,9 @@ class BuyerAidNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new BuyerPidNode();
+        $node = new BuyerPid();
+        $node->setType('');
+        $node->setValue('');
         $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_buyer_pid_without_null_values.xml');
