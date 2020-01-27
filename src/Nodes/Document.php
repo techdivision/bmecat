@@ -28,10 +28,10 @@ class Document implements Contracts\NodeInterface
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\HeaderNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\Header")
      * @Serializer\SerializedName("HEADER")
      *
-     * @var \Naugrim\BMEcat\Nodes\HeaderNode
+     * @var Header
      */
     protected $header;
 
@@ -65,10 +65,10 @@ class Document implements Contracts\NodeInterface
     }
 
     /**
-     * @param \Naugrim\BMEcat\Nodes\HeaderNode $header
+     * @param Header $header
      * @return Document
      */
-    public function setHeader(HeaderNode $header) : Document
+    public function setHeader(Header $header) : Document
     {
         $this->header = $header;
         return $this;
@@ -76,7 +76,7 @@ class Document implements Contracts\NodeInterface
 
     /**
      *
-     * @return \Naugrim\BMEcat\Nodes\HeaderNode
+     * @return Header
      */
     public function getHeader()
     {

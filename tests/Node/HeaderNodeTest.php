@@ -8,7 +8,7 @@ use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Nodes\Catalog;
-use Naugrim\BMEcat\Nodes\HeaderNode;
+use Naugrim\BMEcat\Nodes\Header;
 use Naugrim\BMEcat\Nodes\SupplierNode;
 
 
@@ -30,7 +30,7 @@ class HeaderNodeTest extends TestCase
      */
     public function Set_Get_Generator_Info()
     {
-        $node = new HeaderNode();
+        $node = new Header();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getGeneratorInfo());
@@ -44,7 +44,7 @@ class HeaderNodeTest extends TestCase
      */
     public function Set_Get_Supplier()
     {
-        $header = new HeaderNode();
+        $header = new Header();
         $supplier = new SupplierNode();
 
         $this->assertNull($header->getSupplier());
@@ -58,7 +58,7 @@ class HeaderNodeTest extends TestCase
      */
     public function Set_Get_Catalog()
     {
-        $header = new HeaderNode();
+        $header = new Header();
         $catalog = new Catalog();
 
         $this->assertNull($header->getCatalog());
@@ -72,7 +72,7 @@ class HeaderNodeTest extends TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new HeaderNode();
+        $node = new Header();
         $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_header_with_null_values.xml');
@@ -87,7 +87,7 @@ class HeaderNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new HeaderNode();
+        $node = new Header();
         $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_header_without_null_values.xml');

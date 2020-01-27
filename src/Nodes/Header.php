@@ -10,7 +10,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("HEADER")
  */
-class HeaderNode implements Contracts\NodeInterface
+class Header implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -41,9 +41,9 @@ class HeaderNode implements Contracts\NodeInterface
 
     /**
      * @param string $generatorInfo
-     * @return HeaderNode
+     * @return Header
      */
-    public function setGeneratorInfo($generatorInfo) : HeaderNode
+    public function setGeneratorInfo($generatorInfo) : Header
     {
         $this->generatorInfo = $generatorInfo;
         return $this;
@@ -60,9 +60,9 @@ class HeaderNode implements Contracts\NodeInterface
 
     /**
      * @param Catalog $catalog
-     * @return HeaderNode
+     * @return Header
      */
-    public function setCatalog(Catalog $catalog) : HeaderNode
+    public function setCatalog(Catalog $catalog) : Header
     {
         $this->catalog = $catalog;
         return $this;
@@ -78,9 +78,9 @@ class HeaderNode implements Contracts\NodeInterface
 
     /**
      * @param SupplierNode $supplier
-     * @return HeaderNode
+     * @return Header
      */
-    public function setSupplier(SupplierNode $supplier) : HeaderNode
+    public function setSupplier(SupplierNode $supplier) : Header
     {
         $this->supplier = $supplier;
         return $this;

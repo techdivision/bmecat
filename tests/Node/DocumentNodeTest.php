@@ -8,7 +8,7 @@ use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Nodes\Document;
-use Naugrim\BMEcat\Nodes\HeaderNode;
+use Naugrim\BMEcat\Nodes\Header;
 use Naugrim\BMEcat\Nodes\NewCatalogNode;
 
 
@@ -58,7 +58,7 @@ class DocumentNodeTest extends TestCase
     public function Set_Get_New_Header()
     {
         $document = new Document();
-        $header = new HeaderNode();
+        $header = new Header();
 
         $this->assertNull($document->getHeader());
         $document->setHeader($header);
