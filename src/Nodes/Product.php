@@ -49,10 +49,10 @@ class Product implements Contracts\NodeInterface
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductFeaturesNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductFeatures>")
      * @Serializer\XmlList( inline=true, entry="PRODUCT_FEATURES")
      *
-     * @var ProductFeaturesNode[]
+     * @var ProductFeatures[]
      */
     protected $features = [];
 
@@ -270,7 +270,7 @@ class Product implements Contracts\NodeInterface
     }
 
     /**
-     * @param ProductFeaturesNode[] $features
+     * @param ProductFeatures[] $features
      * @return Product
      * @throws InvalidSetterException
      * @throws UnknownKeyException
@@ -280,7 +280,7 @@ class Product implements Contracts\NodeInterface
         $this->features = [];
         foreach ($features as $feature) {
             if (is_array($feature)) {
-                $feature = NodeBuilder::fromArray($feature, new ProductFeaturesNode());
+                $feature = NodeBuilder::fromArray($feature, new ProductFeatures());
             }
             $this->addFeatures($feature);
         }
@@ -289,10 +289,10 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @param ProductFeaturesNode $features
+     * @param ProductFeatures $features
      * @return Product
      */
-    public function addFeatures(ProductFeaturesNode $features) : Product
+    public function addFeatures(ProductFeatures $features) : Product
     {
         if ($this->features === null) {
             $this->features = [];
@@ -303,7 +303,7 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @return ProductFeaturesNode[]
+     * @return ProductFeatures[]
      */
     public function getFeatures()
     {

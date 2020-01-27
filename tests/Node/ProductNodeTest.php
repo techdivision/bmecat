@@ -8,7 +8,7 @@ use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use Naugrim\BMEcat\Nodes\SupplierPid;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\ProductFeaturesNode;
+use Naugrim\BMEcat\Nodes\ProductFeatures;
 use Naugrim\BMEcat\Nodes\Mime;
 use Naugrim\BMEcat\Nodes\Product;
 use Naugrim\BMEcat\Nodes\ProductOrderDetailsNode;
@@ -67,9 +67,9 @@ class ProductNodeTest extends TestCase
     public function Add_Get_Features()
     {
         $features = [
-            new ProductFeaturesNode(),
-            new ProductFeaturesNode(),
-            new ProductFeaturesNode(),
+            new ProductFeatures(),
+            new ProductFeatures(),
+            new ProductFeatures(),
         ];
 
         $node = new Product();

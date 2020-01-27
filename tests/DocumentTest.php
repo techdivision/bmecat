@@ -11,7 +11,7 @@ use Naugrim\BMEcat\Nodes\Document;
 use Naugrim\BMEcat\Nodes\Mime;
 use Naugrim\BMEcat\Nodes\NewCatalog;
 use Naugrim\BMEcat\Nodes\ProductDetails;
-use Naugrim\BMEcat\Nodes\ProductFeaturesNode;
+use Naugrim\BMEcat\Nodes\ProductFeatures;
 use Naugrim\BMEcat\Nodes\Product;
 use Naugrim\BMEcat\Nodes\ProductOrderDetailsNode;
 use Naugrim\BMEcat\Nodes\ProductPriceDetailsNode;
@@ -80,7 +80,7 @@ class DocumentTest extends TestCase
             foreach ([['A', 'B', 'C', 1, 2, 'D', 'E'],['F', 'G', 'H', 3, 4, 'I', 'J']] as $value) {
                 list($systemName, $groupName, $groupId, $serialNumber, $tarifNumber, $countryOfOrigin, $tariftext) = $value;
 
-                $features = new ProductFeaturesNode;
+                $features = new ProductFeatures;
 
                 $features->setReferenceFeatureSystemName($systemName);
                 $features->setReferenceFeatureGroupName($groupName);
