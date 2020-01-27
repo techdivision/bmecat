@@ -125,10 +125,10 @@ class ProductDetails implements Contracts\NodeInterface
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\SpecialTreatmentClassNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\SpecialTreatmentClass>")
      * @Serializer\XmlList(inline=true, entry="SPECIAL_TREATMENT_CLASS")
      *
-     * @var SpecialTreatmentClassNode[]
+     * @var SpecialTreatmentClass[]
      */
     protected $specialTreatmentClasses;
 
@@ -197,10 +197,10 @@ class ProductDetails implements Contracts\NodeInterface
     }
 
     /**
-     * @param SpecialTreatmentClassNode $specialTreatmentClass
+     * @param SpecialTreatmentClass $specialTreatmentClass
      * @return ProductDetails
      */
-    public function addSpecialTreatmentClass(SpecialTreatmentClassNode $specialTreatmentClass) : ProductDetails
+    public function addSpecialTreatmentClass(SpecialTreatmentClass $specialTreatmentClass) : ProductDetails
     {
         if ($this->specialTreatmentClasses === null) {
             $this->specialTreatmentClasses = [];
@@ -523,7 +523,7 @@ class ProductDetails implements Contracts\NodeInterface
     }
 
     /**
-     * @return SpecialTreatmentClassNode[]
+     * @return SpecialTreatmentClass[]
      */
     public function getSpecialTreatmentClasses()
     {

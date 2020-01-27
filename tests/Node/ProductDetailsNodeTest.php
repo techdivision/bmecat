@@ -11,7 +11,7 @@ use Naugrim\BMEcat\Nodes\ProductKeyword;
 use Naugrim\BMEcat\Nodes\ProductStatus;
 use Naugrim\BMEcat\Nodes\BuyerPid;
 use Naugrim\BMEcat\Nodes\ProductDetails;
-use Naugrim\BMEcat\Nodes\SpecialTreatmentClassNode;
+use Naugrim\BMEcat\Nodes\SpecialTreatmentClass;
 
 
 class ProductDetailsNodeTest extends TestCase
@@ -55,9 +55,9 @@ class ProductDetailsNodeTest extends TestCase
     public function Add_Get_Special_Treatment_Classes()
     {
         $specialTreatmentClasses = [
-            new SpecialTreatmentClassNode(),
-            new SpecialTreatmentClassNode(),
-            new SpecialTreatmentClassNode(),
+            new SpecialTreatmentClass(),
+            new SpecialTreatmentClass(),
+            new SpecialTreatmentClass(),
         ];
 
         $node = new ProductDetails();
