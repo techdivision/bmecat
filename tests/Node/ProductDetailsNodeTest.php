@@ -9,7 +9,7 @@ use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Nodes\ProductKeywordNode;
 use Naugrim\BMEcat\Nodes\ProductStatusNode;
-use Naugrim\BMEcat\Nodes\BuyerPidNode;
+use Naugrim\BMEcat\Nodes\BuyerPid;
 use Naugrim\BMEcat\Nodes\ProductDetailsNode;
 use Naugrim\BMEcat\Nodes\SpecialTreatmentClassNode;
 
@@ -32,9 +32,9 @@ class ProductDetailsNodeTest extends TestCase
     public function Add_Get_Buyer_Pides()
     {
         $buyerPids = [
-            new BuyerPidNode(),
-            new BuyerPidNode(),
-            new BuyerPidNode(),
+            new BuyerPid(),
+            new BuyerPid(),
+            new BuyerPid(),
         ];
 
         $node = new ProductDetailsNode();
