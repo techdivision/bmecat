@@ -176,10 +176,10 @@ class ProductDetails implements Contracts\NodeInterface
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductStatusNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductStatus>")
      * @Serializer\XmlList(inline=true, entry="PRODUCT_STATUS")
      *
-     * @var ProductStatusNode[]
+     * @var ProductStatus[]
      */
     protected $productStatus;
 
@@ -223,10 +223,10 @@ class ProductDetails implements Contracts\NodeInterface
     }
 
     /**
-     * @param ProductStatusNode $productStatus
+     * @param ProductStatus $productStatus
      * @return ProductDetails
      */
-    public function addProductStatus(ProductStatusNode $productStatus) : ProductDetails
+    public function addProductStatus(ProductStatus $productStatus) : ProductDetails
     {
         if ($this->productStatus === null) {
             $this->productStatus = [];
@@ -563,7 +563,7 @@ class ProductDetails implements Contracts\NodeInterface
     }
 
     /**
-     * @return ProductStatusNode[]
+     * @return ProductStatus[]
      */
     public function getProductStatus()
     {

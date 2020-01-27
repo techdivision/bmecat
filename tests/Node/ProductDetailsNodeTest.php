@@ -8,7 +8,7 @@ use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Nodes\ProductKeyword;
-use Naugrim\BMEcat\Nodes\ProductStatusNode;
+use Naugrim\BMEcat\Nodes\ProductStatus;
 use Naugrim\BMEcat\Nodes\BuyerPid;
 use Naugrim\BMEcat\Nodes\ProductDetails;
 use Naugrim\BMEcat\Nodes\SpecialTreatmentClassNode;
@@ -101,9 +101,9 @@ class ProductDetailsNodeTest extends TestCase
     public function Add_Get_Product_Status()
     {
         $productStatus = [
-            new ProductStatusNode(),
-            new ProductStatusNode(),
-            new ProductStatusNode(),
+            new ProductStatus(),
+            new ProductStatus(),
+            new ProductStatus(),
         ];
 
         $node = new ProductDetails();

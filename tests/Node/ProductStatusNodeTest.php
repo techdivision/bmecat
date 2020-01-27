@@ -6,7 +6,7 @@ use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\ProductStatusNode;
+use Naugrim\BMEcat\Nodes\ProductStatus;
 
 class ProductStatusNodeTest extends TestCase
 {
@@ -25,7 +25,7 @@ class ProductStatusNodeTest extends TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new ProductStatusNode();
+        $node = new ProductStatus();
         $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_status_with_null_values.xml');
@@ -39,7 +39,7 @@ class ProductStatusNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new ProductStatusNode();
+        $node = new ProductStatus();
         $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_status_without_null_values.xml');
