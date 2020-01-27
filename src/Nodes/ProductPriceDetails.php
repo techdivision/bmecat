@@ -49,10 +49,10 @@ class ProductPriceDetails implements Contracts\NodeInterface
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_PRICE")
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductPriceNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductPrice>")
      * @Serializer\XmlList(inline = true, entry = "PRODUCT_PRICE")
      *
-     * @var ProductPriceNode[]
+     * @var ProductPrice[]
      */
     protected $prices = [];
 
@@ -112,7 +112,7 @@ class ProductPriceDetails implements Contracts\NodeInterface
     }
 
     /**
-     * @param ProductPriceNode[] $prices
+     * @param ProductPrice[] $prices
      * @return ProductPriceDetails
      * @throws InvalidSetterException
      * @throws UnknownKeyException
@@ -122,14 +122,14 @@ class ProductPriceDetails implements Contracts\NodeInterface
         $this->prices = [];
         foreach ($prices as $price) {
             if (is_array($price)) {
-                $price = NodeBuilder::fromArray($price, new ProductPriceNode());
+                $price = NodeBuilder::fromArray($price, new ProductPrice());
             }
             $this->addPrice($price);
         }
         return $this;
     }
 
-    public function addPrice(ProductPriceNode $price)
+    public function addPrice(ProductPrice $price)
     {
         if ($this->prices === null) {
             $this->prices = [];
@@ -139,7 +139,7 @@ class ProductPriceDetails implements Contracts\NodeInterface
     }
 
     /**
-     * @return ProductPriceNode[]
+     * @return ProductPrice[]
      */
     public function getPrices(): array
     {

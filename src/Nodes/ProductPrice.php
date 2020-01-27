@@ -10,7 +10,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("PRODUCT_PRICE")
  */
-class ProductPriceNode implements Contracts\NodeInterface
+class ProductPrice implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -62,9 +62,9 @@ class ProductPriceNode implements Contracts\NodeInterface
     /**
      *
      * @param string $currency
-     * @return ProductPriceNode
+     * @return ProductPrice
      */
-    public function setCurrency($currency) : ProductPriceNode
+    public function setCurrency($currency) : ProductPrice
     {
         $this->currency = $currency;
         return $this;
@@ -82,9 +82,9 @@ class ProductPriceNode implements Contracts\NodeInterface
     /**
      *
      * @param float $price
-     * @return ProductPriceNode
+     * @return ProductPrice
      */
-    public function setPrice($price) : ProductPriceNode
+    public function setPrice($price) : ProductPrice
     {
         $this->price = $price;
         return $this;
@@ -101,9 +101,9 @@ class ProductPriceNode implements Contracts\NodeInterface
 
     /**
      * @param string $type
-     * @return ProductPriceNode
+     * @return ProductPrice
      */
-    public function setType(string $type): ProductPriceNode
+    public function setType(string $type): ProductPrice
     {
         $this->type = $type;
         return $this;
@@ -119,9 +119,9 @@ class ProductPriceNode implements Contracts\NodeInterface
 
     /**
      * @param float $priceFactor
-     * @return ProductPriceNode
+     * @return ProductPrice
      */
-    public function setPriceFactor(float $priceFactor): ProductPriceNode
+    public function setPriceFactor(float $priceFactor): ProductPrice
     {
         $this->priceFactor = $priceFactor;
         return $this;
@@ -137,9 +137,9 @@ class ProductPriceNode implements Contracts\NodeInterface
 
     /**
      * @param float $lowerBound
-     * @return ProductPriceNode
+     * @return ProductPrice
      */
-    public function setLowerBound(float $lowerBound): ProductPriceNode
+    public function setLowerBound(float $lowerBound): ProductPrice
     {
         $this->lowerBound = $lowerBound;
         return $this;

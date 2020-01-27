@@ -72,7 +72,7 @@ class Product implements Contracts\NodeInterface
      * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductPriceDetails>")
      * @Serializer\XmlList(inline = true, entry = "PRODUCT_PRICE_DETAILS")
      *
-     * @var ProductPriceNode[]
+     * @var ProductPrice[]
      */
     protected $priceDetails = [];
 
@@ -126,7 +126,7 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @param ProductPriceNode[] $priceDetails
+     * @param ProductPrice[] $priceDetails
      * @return Product
      * @throws InvalidSetterException
      * @throws UnknownKeyException
@@ -316,7 +316,7 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @return ProductPriceNode[]
+     * @return ProductPrice[]
      */
     public function getPriceDetails()
     {

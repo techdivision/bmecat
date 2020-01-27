@@ -15,7 +15,7 @@ use Naugrim\BMEcat\Nodes\ProductFeatures;
 use Naugrim\BMEcat\Nodes\Product;
 use Naugrim\BMEcat\Nodes\ProductOrderDetails;
 use Naugrim\BMEcat\Nodes\ProductPriceDetails;
-use Naugrim\BMEcat\Nodes\ProductPriceNode;
+use Naugrim\BMEcat\Nodes\ProductPrice;
 use Naugrim\BMEcat\SchemaValidator;
 
 
@@ -66,7 +66,7 @@ class DocumentTest extends TestCase
             foreach ([['EUR', 10.50], ['GBP', 7.30]] as $value) {
                 list($currency, $amount) = $value;
 
-                $price = new ProductPriceNode;
+                $price = new ProductPrice;
 
                 $price->setPrice($amount);
                 $price->setCurrency($currency);
