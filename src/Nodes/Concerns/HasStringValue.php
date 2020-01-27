@@ -1,8 +1,8 @@
 <?php
 
-namespace Naugrim\BMEcat\Node\Concerns;
+namespace Naugrim\BMEcat\Nodes\Concerns;
 
-use Naugrim\BMEcat\Node\NodeInterface;
+use Naugrim\BMEcat\Nodes\Contracts\NodeInterface;
 
 trait HasStringValue
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     \JMS\Serializer\Annotation as Serializer;
@@ -9,7 +9,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("SPECIAL_TREATMENT_CLASS")
  */
-class SpecialTreatmentClassNode extends AbstractNode
+class SpecialTreatmentClassNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Type("string")

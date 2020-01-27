@@ -5,9 +5,10 @@ namespace Naugrim\BMEcat\Tests\Node;
 
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
+use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Node\ProductFeatureNode;
-use Naugrim\BMEcat\Node\ProductFeaturesNode;
+use Naugrim\BMEcat\Nodes\ProductFeatureNode;
+use Naugrim\BMEcat\Nodes\ProductFeaturesNode;
 
 
 class ProductFeaturesNodeTest extends TestCase
@@ -19,7 +20,7 @@ class ProductFeaturesNodeTest extends TestCase
 
     public function setUp() : void
     {
-        $this->serializer = SerializerBuilder::create()->build();
+        $this->serializer = (new DocumentBuilder())->getSerializer();
     }
 
     /**

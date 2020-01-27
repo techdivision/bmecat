@@ -1,6 +1,6 @@
 <?php
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     \JMS\Serializer\Annotation as Serializer;
@@ -9,7 +9,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("PRODUCT_ORDER_DETAILS")
  */
-class ProductOrderDetailsNode extends AbstractNode
+class ProductOrderDetailsNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose

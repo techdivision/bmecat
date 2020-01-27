@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
@@ -10,7 +10,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("CATALOG")
  */
-class CatalogNode extends AbstractNode
+class CatalogNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -41,7 +41,7 @@ class CatalogNode extends AbstractNode
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Node\DateTimeNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\DateTimeNode")
      * @Serializer\SerializedName("DATETIME")
      *
      * @var DateTimeNode

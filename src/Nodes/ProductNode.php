@@ -1,10 +1,11 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
+use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
 
@@ -12,7 +13,7 @@ use Naugrim\BMEcat\Exception\UnknownKeyException;
  *
  * @Serializer\XmlRoot("PRODUCT")
  */
-class ProductNode extends AbstractNode
+class ProductNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -27,7 +28,7 @@ class ProductNode extends AbstractNode
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Node\SupplierPid")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\SupplierPid")
      * @Serializer\SerializedName("SUPPLIER_PID")
      *
      * @var SupplierPid
@@ -38,7 +39,7 @@ class ProductNode extends AbstractNode
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_DETAILS")
-     * @Serializer\Type("Naugrim\BMEcat\Node\ProductDetailsNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\ProductDetailsNode")
      *
      * @var ProductDetailsNode
      */
@@ -48,7 +49,7 @@ class ProductNode extends AbstractNode
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Node\ProductFeaturesNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductFeaturesNode>")
      * @Serializer\XmlList( inline=true, entry="PRODUCT_FEATURES")
      *
      * @var ProductFeaturesNode[]
@@ -58,7 +59,7 @@ class ProductNode extends AbstractNode
     /**
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_ORDER_DETAILS")
-     * @Serializer\Type("Naugrim\BMEcat\Node\ProductOrderDetailsNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\ProductOrderDetailsNode")
      *
      * @var ProductOrderDetailsNode
      */
@@ -68,7 +69,7 @@ class ProductNode extends AbstractNode
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_PRICE_DETAILS")
-     * @Serializer\Type("array<Naugrim\BMEcat\Node\ProductPriceDetailsNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductPriceDetailsNode>")
      * @Serializer\XmlList(inline = true, entry = "PRODUCT_PRICE_DETAILS")
      *
      * @var ProductPriceNode[]
@@ -79,7 +80,7 @@ class ProductNode extends AbstractNode
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("MIME_INFO")
-     * @Serializer\Type("array<Naugrim\BMEcat\Node\MimeNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\MimeNode>")
      * @Serializer\XmlList( entry="MIME")
      *
      * @var MimeNode[]
@@ -118,7 +119,7 @@ class ProductNode extends AbstractNode
         $this->priceDetails = [];
         foreach ($priceDetails as $priceDetail) {
             if (is_array($priceDetail)) {
-                $priceDetail = ProductPriceDetailsNode::fromArray($priceDetail);
+                $priceDetail = NodeBuilder::fromArray($priceDetail, new ProductPriceDetailsNode());
             }
             $this->addPriceDetail($priceDetail);
         }
@@ -150,7 +151,7 @@ class ProductNode extends AbstractNode
         $this->mimes = [];
         foreach ($mimes as $mime) {
             if (is_array($mime)) {
-                $mime = MimeNode::fromArray($mime);
+                $mime = NodeBuilder::fromArray($mime, new MimeNode());
             }
             $this->addMime($mime);
         }
@@ -262,7 +263,7 @@ class ProductNode extends AbstractNode
         $this->features = [];
         foreach ($features as $feature) {
             if (is_array($feature)) {
-                $feature = ProductFeaturesNode::fromArray($feature);
+                $feature = NodeBuilder::fromArray($feature, new ProductFeaturesNode());
             }
             $this->addFeatures($feature);
         }

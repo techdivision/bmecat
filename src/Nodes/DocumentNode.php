@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
@@ -11,7 +11,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  * @Serializer\XmlRoot("BMECAT")
  * @Serializer\ExclusionPolicy("all")
  */
-class DocumentNode extends AbstractNode
+class DocumentNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -28,16 +28,16 @@ class DocumentNode extends AbstractNode
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Node\HeaderNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\HeaderNode")
      * @Serializer\SerializedName("HEADER")
      *
-     * @var \Naugrim\BMEcat\Node\HeaderNode
+     * @var \Naugrim\BMEcat\Nodes\HeaderNode
      */
     protected $header;
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Node\NewCatalogNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\NewCatalogNode")
      * @Serializer\SerializedName("T_NEW_CATALOG")
      *
      * @var NewCatalogNode
@@ -65,7 +65,7 @@ class DocumentNode extends AbstractNode
     }
 
     /**
-     * @param \Naugrim\BMEcat\Node\HeaderNode $header
+     * @param \Naugrim\BMEcat\Nodes\HeaderNode $header
      * @return DocumentNode
      */
     public function setHeader(HeaderNode $header) : DocumentNode
@@ -76,7 +76,7 @@ class DocumentNode extends AbstractNode
 
     /**
      *
-     * @return \Naugrim\BMEcat\Node\HeaderNode
+     * @return \Naugrim\BMEcat\Nodes\HeaderNode
      */
     public function getHeader()
     {

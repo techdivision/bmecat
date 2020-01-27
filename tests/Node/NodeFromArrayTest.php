@@ -2,11 +2,12 @@
 
 namespace Naugrim\BMEcat\Tests;
 
+use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
-use Naugrim\BMEcat\Node\CatalogNode;
-use Naugrim\BMEcat\Node\DocumentNode;
-use Naugrim\BMEcat\Node\NewCatalogNode;
+use Naugrim\BMEcat\Nodes\CatalogNode;
+use Naugrim\BMEcat\Nodes\DocumentNode;
+use Naugrim\BMEcat\Nodes\NewCatalogNode;
 use Naugrim\BMEcat\Tests\Fixtures\Node\Node;
 use PHPUnit\Framework\TestCase;
 use TypeError;
@@ -30,79 +31,79 @@ class NodeFromArrayTest extends TestCase
 
     public function testEmptyArray()
     {
-        $document = DocumentNode::fromArray([]);
+        $document = NodeBuilder::fromArray([], new DocumentNode());
         $this->assertInstanceOf(DocumentNode::class, $document);
     }
 
     public function testInvalidSetter()
     {
         $this->expectException(UnknownKeyException::class);
-        DocumentNode::fromArray(['thereisnosetterforthis' => 1]);
+        NodeBuilder::fromArray(['thereisnosetterforthis' => 1], new DocumentNode());
     }
 
     public function testScalarValue()
     {
-        $document = DocumentNode::fromArray(['version' => "1234567"]);
+        $document = NodeBuilder::fromArray(['version' => "1234567"], new DocumentNode());
         $this->assertEquals("1234567", $document->getVersion());
     }
 
     public function testObjectValue()
     {
         $catalog = new NewCatalogNode();
-        $document = DocumentNode::fromArray([
+        $document = NodeBuilder::fromArray([
             'newCatalog' => $catalog
-        ]);
+        ], new DocumentNode());
         $this->assertSame($catalog, $document->getNewCatalog());
     }
 
     public function testInvalidSetterNoArguments()
     {
         $this->expectException(InvalidSetterException::class);
-        Node::fromArray([
+        NodeBuilder::fromArray([
             'noArguments' => []
-        ]);
+        ], new Node());
     }
 
     public function testInvalidSetterNoTypeHint()
     {
         $this->expectException(InvalidSetterException::class);
-        Node::fromArray([
+        NodeBuilder::fromArray([
             'noTypeHint' => []
-        ]);
+        ], new Node());
     }
 
     public function testInvalidSetterScalarTypeHint()
     {
         $this->expectException(TypeError::class);
-        Node::fromArray([
+        NodeBuilder::fromArray([
             'scalarTypeHint' => []
-        ]);
+        ], new Node());
     }
 
     public function testSetterMatchingTypeHintFloat()
     {
         $float = 1.23456;
-        $node = Node::fromArray([
+        $node = NodeBuilder::fromArray([
             'matchingTypeHintFloat' => $float
-        ]);
+        ], new Node());
         $this->assertEquals($float, $node->someFloat);
     }
 
     public function testSetterMatchingTypeHintArray()
     {
         $array = [];
-        $node = Node::fromArray([
+        $node = NodeBuilder::fromArray([
             'matchingTypeHintArray' => $array
-        ]);
+        ], new Node());
         $this->assertSame($array, $node->someArray);
     }
 
     public function testSetterMatchingTypeHintNode()
     {
         $anotherNode = new Node();
-        $node = Node::fromArray([
+        $node = NodeBuilder::fromArray([
             'matchingTypeHintNode' => $anotherNode
-        ]);
+        ], new Node());
         $this->assertSame($anotherNode, $node->anotherNode);
     }
 
@@ -112,11 +113,11 @@ class NodeFromArrayTest extends TestCase
             'test' => '123'
         ];
 
-        $node = Node::fromArray([
+        $node = NodeBuilder::fromArray([
             'matchingTypeHintNode' => [
                 'matchingTypeHintArray' => $array
             ]
-        ]);
+        ], new Node());
 
         $this->assertInstanceOf(Node::class, $node);
         $this->assertInstanceOf(Node::class, $node->anotherNode);

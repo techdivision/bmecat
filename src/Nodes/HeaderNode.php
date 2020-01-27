@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
@@ -10,7 +10,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("HEADER")
  */
-class HeaderNode extends AbstractNode
+class HeaderNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -23,19 +23,19 @@ class HeaderNode extends AbstractNode
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Node\CatalogNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\CatalogNode")
      * @Serializer\SerializedName("CATALOG")
      *
-     * @var \Naugrim\BMEcat\Node\CatalogNode
+     * @var \Naugrim\BMEcat\Nodes\CatalogNode
      */
     protected $catalog;
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Node\SupplierNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\SupplierNode")
      * @Serializer\SerializedName("SUPPLIER")
      *
-     * @var \Naugrim\BMEcat\Node\SupplierNode
+     * @var \Naugrim\BMEcat\Nodes\SupplierNode
      */
     protected $supplier;
 
@@ -59,7 +59,7 @@ class HeaderNode extends AbstractNode
     }
 
     /**
-     * @param \Naugrim\BMEcat\Node\CatalogNode $catalog
+     * @param \Naugrim\BMEcat\Nodes\CatalogNode $catalog
      * @return HeaderNode
      */
     public function setCatalog(CatalogNode $catalog) : HeaderNode
@@ -69,7 +69,7 @@ class HeaderNode extends AbstractNode
     }
 
     /**
-     * @return \Naugrim\BMEcat\Node\CatalogNode $catalog
+     * @return \Naugrim\BMEcat\Nodes\CatalogNode $catalog
      */
     public function getCatalog()
     {
@@ -77,7 +77,7 @@ class HeaderNode extends AbstractNode
     }
 
     /**
-     * @param \Naugrim\BMEcat\Node\SupplierNode $supplier
+     * @param \Naugrim\BMEcat\Nodes\SupplierNode $supplier
      * @return HeaderNode
      */
     public function setSupplier(SupplierNode $supplier) : HeaderNode
@@ -87,7 +87,7 @@ class HeaderNode extends AbstractNode
     }
 
     /**
-     * @return \Naugrim\BMEcat\Node\SupplierNode
+     * @return \Naugrim\BMEcat\Nodes\SupplierNode
      */
     public function getSupplier()
     {

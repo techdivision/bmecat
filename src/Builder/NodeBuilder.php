@@ -1,24 +1,24 @@
 <?php
 
+namespace Naugrim\BMEcat\Builder;
 
-namespace Naugrim\BMEcat\Node;
-
-use ReflectionException;
-use ReflectionMethod;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
+use Naugrim\BMEcat\Nodes\Contracts\NodeInterface;
+use ReflectionException;
+use ReflectionMethod;
 
-abstract class AbstractNode implements NodeInterface
+class NodeBuilder
 {
     /**
      * @param array $data
-     * @return static
+     * @param NodeInterface $instance
+     * @return NodeInterface
      * @throws InvalidSetterException
      * @throws UnknownKeyException
      */
-    public static function fromArray(array $data) : self
+    public static function fromArray(array $data, NodeInterface $instance)
     {
-        $instance = new static;
         foreach ($data as $name => $value) {
             $setterName = 'set'.ucfirst($name);
             if (!method_exists($instance, $setterName)) {
@@ -31,14 +31,14 @@ abstract class AbstractNode implements NodeInterface
             }
 
 
-            // if the value is an array, try to recursively contruct the object
+            // if the value is an array, try to recursively construct the object
 
             try {
                 $reflectionMethod = new ReflectionMethod($instance, $setterName);
                 $setterParams = $reflectionMethod->getParameters();
                 // @codeCoverageIgnoreStart
             } catch (ReflectionException $e) {
-                throw new InvalidSetterException('Reflecting the setter method '.$instance.'::'.$setterName.' failed.');
+                throw new InvalidSetterException('Reflecting the setter method '.get_class($instance).'::'.$setterName.' failed.');
             }
             // @codeCoverageIgnoreEnd
             $firstSetterParam = array_shift($setterParams);
@@ -54,7 +54,7 @@ abstract class AbstractNode implements NodeInterface
             $valueType = gettype($value);
 
             if ($paramType !== $valueType && class_exists($paramType)) {
-                $value = forward_static_call([$paramType, 'fromArray'], $value);
+                $value = self::fromArray($value, new $paramType);
             }
 
             $instance->$setterName($value);

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
@@ -10,7 +10,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("PRODUCT_DETAILS")
  */
-class ProductDetailsNode extends AbstractNode
+class ProductDetailsNode implements Contracts\NodeInterface
 {
     /**
      *
@@ -55,7 +55,7 @@ class ProductDetailsNode extends AbstractNode
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Node\BuyerPidNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\BuyerPidNode>")
      * @Serializer\XmlList(inline=true, entry="BUYER_PID")
      *
      * @var BuyerPidNode[]
@@ -125,7 +125,7 @@ class ProductDetailsNode extends AbstractNode
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Node\SpecialTreatmentClassNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\SpecialTreatmentClassNode>")
      * @Serializer\XmlList(inline=true, entry="SPECIAL_TREATMENT_CLASS")
      *
      * @var SpecialTreatmentClassNode[]
@@ -135,7 +135,7 @@ class ProductDetailsNode extends AbstractNode
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Node\ProductKeywordNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductKeywordNode>")
      * @Serializer\XmlList(inline=true, entry="KEYWORD")
      *
      * @var ProductKeywordNode[]
@@ -176,7 +176,7 @@ class ProductDetailsNode extends AbstractNode
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Node\ProductStatusNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductStatusNode>")
      * @Serializer\XmlList(inline=true, entry="PRODUCT_STATUS")
      *
      * @var ProductStatusNode[]

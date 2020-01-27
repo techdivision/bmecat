@@ -1,11 +1,12 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
 
+use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
 
@@ -13,14 +14,14 @@ use Naugrim\BMEcat\Exception\UnknownKeyException;
  *
  * @Serializer\XmlRoot("T_NEW_CATALOG")
  */
-class NewCatalogNode extends AbstractNode
+class NewCatalogNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Node\ProductNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductNode>")
      * @Serializer\XmlList(inline = true, entry = "PRODUCT")
      *
-     * @var \Naugrim\BMEcat\Node\ProductNode[]
+     * @var \Naugrim\BMEcat\Nodes\ProductNode[]
      */
     protected $products = [];
 
@@ -37,7 +38,7 @@ class NewCatalogNode extends AbstractNode
 
         foreach ($products as $product) {
             if (is_array($product)) {
-                $product = ProductNode::fromArray($product);
+                $product = NodeBuilder::fromArray($product, new ProductNode());
             }
             $this->addProduct($product);
         }
@@ -46,7 +47,7 @@ class NewCatalogNode extends AbstractNode
 
     /**
      *
-     * @param \Naugrim\BMEcat\Node\ProductNode $product
+     * @param \Naugrim\BMEcat\Nodes\ProductNode $product
      * @return NewCatalogNode
      */
     public function addProduct(ProductNode $product) : NewCatalogNode
@@ -72,7 +73,7 @@ class NewCatalogNode extends AbstractNode
 
     /**
      *
-     * @return \Naugrim\BMEcat\Node\ProductNode[]
+     * @return \Naugrim\BMEcat\Nodes\ProductNode[]
      */
     public function getProducts()
     {

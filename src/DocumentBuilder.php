@@ -3,11 +3,14 @@
 
 namespace Naugrim\BMEcat;
 
+use JMS\Serializer\Expression\ExpressionEvaluator;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializationContext;
-use Naugrim\BMEcat\Node\DocumentNode;
+use Naugrim\BMEcat\Nodes\Contracts\NodeInterface;
+use Naugrim\BMEcat\Nodes\DocumentNode;
 use Naugrim\BMEcat\Exception\MissingDocumentException;
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 class DocumentBuilder
 {
@@ -37,7 +40,9 @@ class DocumentBuilder
     public function __construct(Serializer $serializer = null, $context = null)
     {
         if ($serializer === null) {
-            $serializer = SerializerBuilder::create()->build();
+            $serializer = SerializerBuilder::create()
+                ->setExpressionEvaluator(new ExpressionEvaluator($this->getExpressionLanguage()))
+                ->build();
         }
 
         if ($context === null) {
@@ -46,6 +51,21 @@ class DocumentBuilder
 
         $this->context    = $context;
         $this->serializer = $serializer;
+    }
+
+    /**
+     * @return ExpressionLanguage
+     */
+    private function getExpressionLanguage() : ExpressionLanguage
+    {
+        $expressionLanguage = new ExpressionLanguage();
+        $expressionLanguage->register('empty', function ($str) {
+            return $str;
+        }, function ($arguments, $str) {
+            return empty($str);
+        });
+
+        return $expressionLanguage;
     }
 
     /**
@@ -77,10 +97,10 @@ class DocumentBuilder
     }
 
     /**
-     * @param Node\DocumentNode $document
+     * @param NodeInterface $document
      * @return DocumentBuilder
      */
-    public function setDocument(DocumentNode $document)
+    public function setDocument(NodeInterface $document)
     {
         $this->document = $document;
         return $this;

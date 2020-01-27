@@ -1,11 +1,12 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     \JMS\Serializer\Annotation as Serializer;
 
+use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
 
@@ -13,7 +14,7 @@ use Naugrim\BMEcat\Exception\UnknownKeyException;
  *
  * @Serializer\XmlRoot("PRODUCT_FEATURES")
  */
-class ProductFeaturesNode extends AbstractNode
+class ProductFeaturesNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -29,7 +30,7 @@ class ProductFeaturesNode extends AbstractNode
      * @Serializer\Type("string")
      * @Serializer\SerializedName("REFERENCE_FEATURE_GROUP_ID")
      * @Serializer\SkipWhenEmpty
-     * @Serializer\Exclude(if="!empty($this->referenceFeatureGroupName)")
+     * @Serializer\Exclude(if="!empty(object.getReferenceFeatureGroupName())")
      *
      * @var string
      */
@@ -40,7 +41,7 @@ class ProductFeaturesNode extends AbstractNode
      * @Serializer\Type("string")
      * @Serializer\SerializedName("REFERENCE_FEATURE_GROUP_NAME")
      * @Serializer\SkipWhenEmpty
-     * @Serializer\Exclude(if="!empty($this->referenceFeatureGroupId)")
+     * @Serializer\Exclude(if="!empty(object.getReferenceFeatureGroupId())")
      *
      * @var string
      */
@@ -49,7 +50,7 @@ class ProductFeaturesNode extends AbstractNode
     /**
      * @Serializer\Expose
      * @Serializer\SerializedName("FEATURE")
-     * @Serializer\Type("array<Naugrim\BMEcat\Node\ProductFeatureNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductFeatureNode>")
      * @Serializer\XmlList( entry="FEATURE")
      *
      * @var ProductFeatureNode[]
@@ -67,7 +68,7 @@ class ProductFeaturesNode extends AbstractNode
         $this->features = [];
         foreach ($features as $feature) {
             if (is_array($feature)) {
-                $feature = ProductFeatureNode::fromArray($feature);
+                $feature = NodeBuilder::fromArray($feature, new ProductFeatureNode());
             }
             $this->addFeature($feature);
         }

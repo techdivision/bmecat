@@ -1,15 +1,15 @@
 <?php
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     \JMS\Serializer\Annotation as Serializer;
 
 /**
  *
- * @Serializer\XmlRoot("PRODUCT_STATUS")
+ * @Serializer\XmlRoot("BUYER_PID")
  */
-class ProductStatusNode extends AbstractNode
+class BuyerPidNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Type("string")
@@ -28,21 +28,21 @@ class ProductStatusNode extends AbstractNode
     protected $value = '';
 
     /**
-     * @param string $type
-     * @return ProductStatusNode
-     */
-    public function setType($type) : ProductStatusNode
-    {
-        $this->type = $type;
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * @param string $type
+     * @return BuyerPidNode
+     */
+    public function setType($type) : BuyerPidNode
+    {
+        $this->type = $type;
+        return $this;
     }
 
     /**
@@ -55,9 +55,9 @@ class ProductStatusNode extends AbstractNode
 
     /**
      * @param string $value
-     * @return ProductStatusNode
+     * @return BuyerPidNode
      */
-    public function setValue(string $value): ProductStatusNode
+    public function setValue(string $value): BuyerPidNode
     {
         $this->value = $value;
         return $this;

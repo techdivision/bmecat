@@ -4,10 +4,11 @@
 namespace Naugrim\BMEcat\Tests;
 
 use JMS\Serializer\SerializerBuilder;
+use Naugrim\BMEcat\Builder\NodeBuilder;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\DocumentBuilder;
 use Naugrim\BMEcat\Exception\MissingDocumentException;
-use Naugrim\BMEcat\Node\DocumentNode;
+use Naugrim\BMEcat\Nodes\DocumentNode;
 
 
 class DocumentBuilderTest extends TestCase
@@ -51,7 +52,7 @@ class DocumentBuilderTest extends TestCase
     public function To_String_Returns_Default_Document_Without_Null_Values()
     {
         $builder = new DocumentBuilder;
-        $document = DocumentNode::fromArray([]);
+        $document = NodeBuilder::fromArray([], new DocumentNode());
         $builder->setDocument($document);
 
         $expected = file_get_contents(__DIR__ . '/Fixtures/empty_document_without_null_values.xml');

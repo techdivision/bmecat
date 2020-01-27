@@ -1,8 +1,8 @@
 <?php
 
-namespace Naugrim\BMEcat\Node\Concerns;
+namespace Naugrim\BMEcat\Nodes\Concerns;
 
-use Naugrim\BMEcat\Node\NodeInterface;
+use Naugrim\BMEcat\Nodes\Contracts\NodeInterface;
 
 trait HasTypeAttribute
 {
@@ -26,12 +26,12 @@ trait HasTypeAttribute
 
     /**
      * @param string $type
-     * @return NodeInterface
+     * @return \Naugrim\BMEcat\Nodes\Contracts\NodeInterface
      */
     public function setType(string $type): NodeInterface
     {
         $this->type = $type;
-        /** @var NodeInterface $this */
+        /** @var \Naugrim\BMEcat\Nodes\Contracts\NodeInterface $this */
         return $this;
     }
 }

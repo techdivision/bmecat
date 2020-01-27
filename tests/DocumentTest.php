@@ -3,18 +3,19 @@
 
 namespace Naugrim\BMEcat\Tests;
 
-use Naugrim\BMEcat\Node\SupplierPid;
+use Naugrim\BMEcat\Builder\NodeBuilder;
+use Naugrim\BMEcat\Nodes\SupplierPid;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\DocumentBuilder;
-use Naugrim\BMEcat\Node\DocumentNode;
-use Naugrim\BMEcat\Node\MimeNode;
-use Naugrim\BMEcat\Node\NewCatalogNode;
-use Naugrim\BMEcat\Node\ProductDetailsNode;
-use Naugrim\BMEcat\Node\ProductFeaturesNode;
-use Naugrim\BMEcat\Node\ProductNode;
-use Naugrim\BMEcat\Node\ProductOrderDetailsNode;
-use Naugrim\BMEcat\Node\ProductPriceDetailsNode;
-use Naugrim\BMEcat\Node\ProductPriceNode;
+use Naugrim\BMEcat\Nodes\DocumentNode;
+use Naugrim\BMEcat\Nodes\MimeNode;
+use Naugrim\BMEcat\Nodes\NewCatalogNode;
+use Naugrim\BMEcat\Nodes\ProductDetailsNode;
+use Naugrim\BMEcat\Nodes\ProductFeaturesNode;
+use Naugrim\BMEcat\Nodes\ProductNode;
+use Naugrim\BMEcat\Nodes\ProductOrderDetailsNode;
+use Naugrim\BMEcat\Nodes\ProductPriceDetailsNode;
+use Naugrim\BMEcat\Nodes\ProductPriceNode;
 use Naugrim\BMEcat\SchemaValidator;
 
 
@@ -27,7 +28,7 @@ class DocumentTest extends TestCase
 
     public function setUp() : void
     {
-        $document = DocumentNode::fromArray([
+        $document = NodeBuilder::fromArray([
             'header' =>[
                 'generatorInfo' => 'DocumentTest Document',
                 'catalog' => [
@@ -45,7 +46,7 @@ class DocumentTest extends TestCase
                     'name'  => 'TestSupplier',
                 ]
             ]
-        ]);
+        ], new DocumentNode());
 
         $builder = new DocumentBuilder();
         $builder->setDocument($document);

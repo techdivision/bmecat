@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use DateTimeImmutable;
 use /** @noinspection PhpUnusedAliasInspection */
@@ -11,7 +11,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("DATETIME")
  */
-class DateTimeNode extends AbstractNode
+class DateTimeNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose

@@ -1,10 +1,11 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Node;
+namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
+use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
 
@@ -12,7 +13,7 @@ use Naugrim\BMEcat\Exception\UnknownKeyException;
  *
  * @Serializer\XmlRoot("PRODUCT_PRICE_DETAILS")
  */
-class ProductPriceDetailsNode extends AbstractNode
+class ProductPriceDetailsNode implements Contracts\NodeInterface
 {
     /**
      *
@@ -48,7 +49,7 @@ class ProductPriceDetailsNode extends AbstractNode
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_PRICE")
-     * @Serializer\Type("array<Naugrim\BMEcat\Node\ProductPriceNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductPriceNode>")
      * @Serializer\XmlList(inline = true, entry = "PRODUCT_PRICE")
      *
      * @var ProductPriceNode[]
@@ -121,7 +122,7 @@ class ProductPriceDetailsNode extends AbstractNode
         $this->prices = [];
         foreach ($prices as $price) {
             if (is_array($price)) {
-                $price = ProductPriceNode::fromArray($price);
+                $price = NodeBuilder::fromArray($price, new ProductPriceNode());
             }
             $this->addPrice($price);
         }
