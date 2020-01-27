@@ -1,20 +1,20 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Nodes;
+namespace Naugrim\BMEcat\Nodes\Product;
 
 use /** @noinspection PhpUnusedAliasInspection */
-    \JMS\Serializer\Annotation as Serializer;
-
+    JMS\Serializer\Annotation as Serializer;
 use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
+use Naugrim\BMEcat\Nodes\Contracts;
 
 /**
  *
  * @Serializer\XmlRoot("PRODUCT_FEATURES")
  */
-class ProductFeatures implements Contracts\NodeInterface
+class Features implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -50,25 +50,25 @@ class ProductFeatures implements Contracts\NodeInterface
     /**
      * @Serializer\Expose
      * @Serializer\SerializedName("FEATURE")
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductFeature>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\Product\Feature>")
      * @Serializer\XmlList( entry="FEATURE")
      *
-     * @var ProductFeature[]
+     * @var Feature[]
      */
     protected $features;
 
     /**
-     * @param ProductFeature[] $features
-     * @return ProductFeatures
+     * @param Feature[] $features
+     * @return Features
      * @throws InvalidSetterException
      * @throws UnknownKeyException
      */
-    public function setFeatures(array $features): ProductFeatures
+    public function setFeatures(array $features): Features
     {
         $this->features = [];
         foreach ($features as $feature) {
             if (is_array($feature)) {
-                $feature = NodeBuilder::fromArray($feature, new ProductFeature());
+                $feature = NodeBuilder::fromArray($feature, new Feature());
             }
             $this->addFeature($feature);
         }
@@ -76,10 +76,10 @@ class ProductFeatures implements Contracts\NodeInterface
     }
 
     /**
-     * @param ProductFeature $feature
-     * @return ProductFeatures
+     * @param Feature $feature
+     * @return Features
      */
-    public function addFeature(ProductFeature $feature) : ProductFeatures
+    public function addFeature(Feature $feature) : Features
     {
         if ($this->features === null) {
             $this->features = [];
@@ -92,9 +92,9 @@ class ProductFeatures implements Contracts\NodeInterface
      *
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
-     * @return ProductFeatures
+     * @return Features
      */
-    public function nullFeatures() : ProductFeatures
+    public function nullFeatures() : Features
     {
         if (empty($this->features) === true) {
             $this->features = null;
@@ -104,9 +104,9 @@ class ProductFeatures implements Contracts\NodeInterface
 
     /**
      * @param string $referenceFeatureSystemName
-     * @return ProductFeatures
+     * @return Features
      */
-    public function setReferenceFeatureSystemName($referenceFeatureSystemName) : ProductFeatures
+    public function setReferenceFeatureSystemName($referenceFeatureSystemName) : Features
     {
         $this->referenceFeatureSystemName = $referenceFeatureSystemName;
         return $this;
@@ -114,9 +114,9 @@ class ProductFeatures implements Contracts\NodeInterface
 
     /**
      * @param string $referenceFeatureGroupName
-     * @return ProductFeatures
+     * @return Features
      */
-    public function setReferenceFeatureGroupName($referenceFeatureGroupName) : ProductFeatures
+    public function setReferenceFeatureGroupName($referenceFeatureGroupName) : Features
     {
         $this->referenceFeatureGroupId = null;
         $this->referenceFeatureGroupName = $referenceFeatureGroupName;
@@ -125,9 +125,9 @@ class ProductFeatures implements Contracts\NodeInterface
 
     /**
      * @param string $referenceFeatureGroupId
-     * @return ProductFeatures
+     * @return Features
      */
-    public function setReferenceFeatureGroupId($referenceFeatureGroupId) : ProductFeatures
+    public function setReferenceFeatureGroupId($referenceFeatureGroupId) : Features
     {
         $this->referenceFeatureGroupName = null;
         $this->referenceFeatureGroupId = $referenceFeatureGroupId;
@@ -159,7 +159,7 @@ class ProductFeatures implements Contracts\NodeInterface
     }
 
     /**
-     * @return ProductFeature[]
+     * @return Feature[]
      */
     public function getFeatures()
     {

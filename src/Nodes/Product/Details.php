@@ -1,16 +1,19 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Nodes;
+namespace Naugrim\BMEcat\Nodes\Product;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
+use Naugrim\BMEcat\Nodes\BuyerPid;
+use Naugrim\BMEcat\Nodes\Contracts;
+use Naugrim\BMEcat\Nodes\SpecialTreatmentClass;
 
 /**
  *
  * @Serializer\XmlRoot("PRODUCT_DETAILS")
  */
-class ProductDetails implements Contracts\NodeInterface
+class Details implements Contracts\NodeInterface
 {
     /**
      *
@@ -135,10 +138,10 @@ class ProductDetails implements Contracts\NodeInterface
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductKeyword>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\Product\Keyword>")
      * @Serializer\XmlList(inline=true, entry="KEYWORD")
      *
-     * @var ProductKeyword[]
+     * @var Keyword[]
      */
     protected $keywords;
 
@@ -176,18 +179,18 @@ class ProductDetails implements Contracts\NodeInterface
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductStatus>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\Product\Status>")
      * @Serializer\XmlList(inline=true, entry="PRODUCT_STATUS")
      *
-     * @var ProductStatus[]
+     * @var Status[]
      */
     protected $productStatus;
 
     /**
      * @param BuyerPid $buyerAid
-     * @return ProductDetails
+     * @return Details
      */
-    public function addBuyerPid(BuyerPid $buyerAid) : ProductDetails
+    public function addBuyerPid(BuyerPid $buyerAid) : Details
     {
         if ($this->buyerPids === null) {
             $this->buyerPids = [];
@@ -198,9 +201,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param SpecialTreatmentClass $specialTreatmentClass
-     * @return ProductDetails
+     * @return Details
      */
-    public function addSpecialTreatmentClass(SpecialTreatmentClass $specialTreatmentClass) : ProductDetails
+    public function addSpecialTreatmentClass(SpecialTreatmentClass $specialTreatmentClass) : Details
     {
         if ($this->specialTreatmentClasses === null) {
             $this->specialTreatmentClasses = [];
@@ -210,10 +213,10 @@ class ProductDetails implements Contracts\NodeInterface
     }
 
     /**
-     * @param ProductKeyword $keyword
-     * @return ProductDetails
+     * @param Keyword $keyword
+     * @return Details
      */
-    public function addKeyword(ProductKeyword $keyword) : ProductDetails
+    public function addKeyword(Keyword $keyword) : Details
     {
         if ($this->keywords === null) {
             $this->keywords = [];
@@ -223,10 +226,10 @@ class ProductDetails implements Contracts\NodeInterface
     }
 
     /**
-     * @param ProductStatus $productStatus
-     * @return ProductDetails
+     * @param Status $productStatus
+     * @return Details
      */
-    public function addProductStatus(ProductStatus $productStatus) : ProductDetails
+    public function addProductStatus(Status $productStatus) : Details
     {
         if ($this->productStatus === null) {
             $this->productStatus = [];
@@ -239,9 +242,9 @@ class ProductDetails implements Contracts\NodeInterface
      *
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
-     * @return ProductDetails
+     * @return Details
      */
-    public function nullBuyerPids() : ProductDetails
+    public function nullBuyerPids() : Details
     {
         if (empty($this->buyerPids) === true) {
             $this->buyerPids = null;
@@ -254,9 +257,9 @@ class ProductDetails implements Contracts\NodeInterface
      *
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
-     * @return ProductDetails
+     * @return Details
      */
-    public function nullSpecialTreatmentClasses() : ProductDetails
+    public function nullSpecialTreatmentClasses() : Details
     {
         if (empty($this->specialTreatmentClasses) === true) {
             $this->specialTreatmentClasses = null;
@@ -268,9 +271,9 @@ class ProductDetails implements Contracts\NodeInterface
      *
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
-     * @return ProductDetails
+     * @return Details
      */
-    public function nullKeywords() : ProductDetails
+    public function nullKeywords() : Details
     {
         if (empty($this->keywords) === true) {
             $this->keywords = null;
@@ -282,9 +285,9 @@ class ProductDetails implements Contracts\NodeInterface
      *
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
-     * @return ProductDetails
+     * @return Details
      */
-    public function nullProductStatus() : ProductDetails
+    public function nullProductStatus() : Details
     {
         if (empty($this->productStatus) === true) {
             $this->productStatus = null;
@@ -294,9 +297,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param string $descriptionShort
-     * @return ProductDetails
+     * @return Details
      */
-    public function setDescriptionShort($descriptionShort) : ProductDetails
+    public function setDescriptionShort($descriptionShort) : Details
     {
         $this->descriptionShort = $descriptionShort;
         return $this;
@@ -304,9 +307,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param string $descriptionLong
-     * @return ProductDetails
+     * @return Details
      */
-    public function setDescriptionLong($descriptionLong) : ProductDetails
+    public function setDescriptionLong($descriptionLong) : Details
     {
         $this->descriptionLong = $descriptionLong;
         return $this;
@@ -314,9 +317,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param string $ean
-     * @return ProductDetails
+     * @return Details
      */
-    public function setEan($ean) : ProductDetails
+    public function setEan($ean) : Details
     {
         $this->ean = $ean;
         return $this;
@@ -324,9 +327,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param string $supplierAltPid
-     * @return ProductDetails
+     * @return Details
      */
-    public function setSupplierAltPid($supplierAltPid) : ProductDetails
+    public function setSupplierAltPid($supplierAltPid) : Details
     {
         $this->supplierAltPid = $supplierAltPid;
         return $this;
@@ -334,9 +337,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param string $manufacturerPid
-     * @return ProductDetails
+     * @return Details
      */
-    public function setManufacturerPid($manufacturerPid) : ProductDetails
+    public function setManufacturerPid($manufacturerPid) : Details
     {
         $this->manufacturerPid = $manufacturerPid;
         return $this;
@@ -344,9 +347,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param string $manufacturerName
-     * @return ProductDetails
+     * @return Details
      */
-    public function setManufacturerName($manufacturerName) : ProductDetails
+    public function setManufacturerName($manufacturerName) : Details
     {
         $this->manufacturerName = $manufacturerName;
         return $this;
@@ -354,9 +357,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param string $manufacturerTypeDescription
-     * @return ProductDetails
+     * @return Details
      */
-    public function setManufacturerTypeDescription($manufacturerTypeDescription) : ProductDetails
+    public function setManufacturerTypeDescription($manufacturerTypeDescription) : Details
     {
         $this->manufacturerTypeDescription = $manufacturerTypeDescription;
         return $this;
@@ -364,9 +367,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param string $erpGroupBuyer
-     * @return ProductDetails
+     * @return Details
      */
-    public function setErpGroupBuyer($erpGroupBuyer) : ProductDetails
+    public function setErpGroupBuyer($erpGroupBuyer) : Details
     {
         $this->erpGroupBuyer = $erpGroupBuyer;
         return $this;
@@ -374,9 +377,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param string $erpGroupSupplier
-     * @return ProductDetails
+     * @return Details
      */
-    public function setErpGroupSupplier($erpGroupSupplier) : ProductDetails
+    public function setErpGroupSupplier($erpGroupSupplier) : Details
     {
         $this->erpGroupSupplier = $erpGroupSupplier;
         return $this;
@@ -384,9 +387,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param float $deliveryTime
-     * @return ProductDetails
+     * @return Details
      */
-    public function setDeliveryTime($deliveryTime) : ProductDetails
+    public function setDeliveryTime($deliveryTime) : Details
     {
         $this->deliveryTime = $deliveryTime;
         return $this;
@@ -394,9 +397,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param string $remarks
-     * @return ProductDetails
+     * @return Details
      */
-    public function setRemarks($remarks) : ProductDetails
+    public function setRemarks($remarks) : Details
     {
         $this->remarks = $remarks;
         return $this;
@@ -404,9 +407,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param int $productOrder
-     * @return ProductDetails
+     * @return Details
      */
-    public function setProductOrder($productOrder) : ProductDetails
+    public function setProductOrder($productOrder) : Details
     {
         $this->productOrder = $productOrder;
         return $this;
@@ -414,9 +417,9 @@ class ProductDetails implements Contracts\NodeInterface
 
     /**
      * @param string $segment
-     * @return ProductDetails
+     * @return Details
      */
-    public function setSegment($segment) : ProductDetails
+    public function setSegment($segment) : Details
     {
         $this->segment = $segment;
         return $this;
@@ -535,7 +538,7 @@ class ProductDetails implements Contracts\NodeInterface
     }
 
     /**
-     * @return ProductKeyword[]
+     * @return Keyword[]
      */
     public function getKeywords()
     {
@@ -563,7 +566,7 @@ class ProductDetails implements Contracts\NodeInterface
     }
 
     /**
-     * @return ProductStatus[]
+     * @return Status[]
      */
     public function getProductStatus()
     {

@@ -1,15 +1,16 @@
 <?php
 
-namespace Naugrim\BMEcat\Nodes;
+namespace Naugrim\BMEcat\Nodes\Product;
 
 use /** @noinspection PhpUnusedAliasInspection */
-    \JMS\Serializer\Annotation as Serializer;
+    JMS\Serializer\Annotation as Serializer;
+use Naugrim\BMEcat\Nodes\Contracts;
 
 /**
  *
  * @Serializer\XmlRoot("PRODUCT_STATUS")
  */
-class ProductStatus implements Contracts\NodeInterface
+class Status implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Type("string")
@@ -29,9 +30,9 @@ class ProductStatus implements Contracts\NodeInterface
 
     /**
      * @param string $type
-     * @return ProductStatus
+     * @return Status
      */
-    public function setType($type) : ProductStatus
+    public function setType($type) : Status
     {
         $this->type = $type;
         return $this;
@@ -55,9 +56,9 @@ class ProductStatus implements Contracts\NodeInterface
 
     /**
      * @param string $value
-     * @return ProductStatus
+     * @return Status
      */
-    public function setValue(string $value): ProductStatus
+    public function setValue(string $value): Status
     {
         $this->value = $value;
         return $this;

@@ -8,6 +8,11 @@ use /** @noinspection PhpUnusedAliasInspection */
 use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
+use Naugrim\BMEcat\Nodes\Product\Details;
+use Naugrim\BMEcat\Nodes\Product\Features;
+use Naugrim\BMEcat\Nodes\Product\OrderDetails;
+use Naugrim\BMEcat\Nodes\Product\Price;
+use Naugrim\BMEcat\Nodes\Product\PriceDetails;
 
 /**
  *
@@ -39,9 +44,9 @@ class Product implements Contracts\NodeInterface
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_DETAILS")
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\ProductDetails")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\Product\Details")
      *
-     * @var ProductDetails
+     * @var Details
      */
     protected $details;
 
@@ -49,19 +54,19 @@ class Product implements Contracts\NodeInterface
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductFeatures>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\Product\Features>")
      * @Serializer\XmlList( inline=true, entry="PRODUCT_FEATURES")
      *
-     * @var ProductFeatures[]
+     * @var Features[]
      */
     protected $features = [];
 
     /**
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_ORDER_DETAILS")
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\ProductOrderDetails")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\Product\OrderDetails")
      *
-     * @var ProductOrderDetails
+     * @var OrderDetails
      */
     protected $orderDetails;
 
@@ -69,10 +74,10 @@ class Product implements Contracts\NodeInterface
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_PRICE_DETAILS")
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductPriceDetails>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\Product\PriceDetails>")
      * @Serializer\XmlList(inline = true, entry = "PRODUCT_PRICE_DETAILS")
      *
-     * @var ProductPrice[]
+     * @var Price[]
      */
     protected $priceDetails = [];
 
@@ -106,10 +111,10 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @param ProductDetails $details
+     * @param Details $details
      * @return Product
      */
-    public function setDetails(ProductDetails $details) : Product
+    public function setDetails(Details $details) : Product
     {
         $this->details = $details;
         return $this;
@@ -117,7 +122,7 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @return ProductDetails
+     * @return Details
      */
     public function getDetails()
     {
@@ -126,7 +131,7 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @param ProductPrice[] $priceDetails
+     * @param Price[] $priceDetails
      * @return Product
      * @throws InvalidSetterException
      * @throws UnknownKeyException
@@ -136,7 +141,7 @@ class Product implements Contracts\NodeInterface
         $this->priceDetails = [];
         foreach ($priceDetails as $priceDetail) {
             if (is_array($priceDetail)) {
-                $priceDetail = NodeBuilder::fromArray($priceDetail, new ProductPriceDetails());
+                $priceDetail = NodeBuilder::fromArray($priceDetail, new PriceDetails());
             }
             $this->addPriceDetail($priceDetail);
         }
@@ -145,10 +150,10 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @param ProductPriceDetails $price
+     * @param PriceDetails $price
      * @return Product
      */
-    public function addPriceDetail(ProductPriceDetails $price) : Product
+    public function addPriceDetail(PriceDetails $price) : Product
     {
         if ($this->priceDetails === null) {
             $this->priceDetails = [];
@@ -228,7 +233,7 @@ class Product implements Contracts\NodeInterface
     }
 
     /**
-     * @return ProductOrderDetails|null
+     * @return OrderDetails|null
      */
     public function getOrderDetails()
     {
@@ -236,10 +241,10 @@ class Product implements Contracts\NodeInterface
     }
 
     /**
-     * @param ProductOrderDetails $orderDetails
+     * @param OrderDetails $orderDetails
      * @return Product
      */
-    public function setOrderDetails(ProductOrderDetails $orderDetails) : Product
+    public function setOrderDetails(OrderDetails $orderDetails) : Product
     {
         $this->orderDetails = $orderDetails;
         return $this;
@@ -270,7 +275,7 @@ class Product implements Contracts\NodeInterface
     }
 
     /**
-     * @param ProductFeatures[] $features
+     * @param Features[] $features
      * @return Product
      * @throws InvalidSetterException
      * @throws UnknownKeyException
@@ -280,7 +285,7 @@ class Product implements Contracts\NodeInterface
         $this->features = [];
         foreach ($features as $feature) {
             if (is_array($feature)) {
-                $feature = NodeBuilder::fromArray($feature, new ProductFeatures());
+                $feature = NodeBuilder::fromArray($feature, new Features());
             }
             $this->addFeatures($feature);
         }
@@ -289,10 +294,10 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @param ProductFeatures $features
+     * @param Features $features
      * @return Product
      */
-    public function addFeatures(ProductFeatures $features) : Product
+    public function addFeatures(Features $features) : Product
     {
         if ($this->features === null) {
             $this->features = [];
@@ -303,7 +308,7 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @return ProductFeatures[]
+     * @return Features[]
      */
     public function getFeatures()
     {
@@ -316,7 +321,7 @@ class Product implements Contracts\NodeInterface
 
     /**
      *
-     * @return ProductPrice[]
+     * @return Price[]
      */
     public function getPriceDetails()
     {

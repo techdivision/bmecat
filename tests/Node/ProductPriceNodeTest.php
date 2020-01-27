@@ -4,10 +4,9 @@
 namespace Naugrim\BMEcat\Tests\Node;
 
 use JMS\Serializer\SerializationContext;
-use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
+use Naugrim\BMEcat\Nodes\Product\Price;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\ProductPrice;
 
 
 class ProductPriceNodeTest extends TestCase
@@ -28,7 +27,7 @@ class ProductPriceNodeTest extends TestCase
      */
     public function Set_Get_Price()
     {
-        $node = new ProductPrice();
+        $node = new Price();
         $value = rand(10, 1000);
 
         $this->assertNull($node->getPrice());
@@ -42,7 +41,7 @@ class ProductPriceNodeTest extends TestCase
      */
     public function Set_Get_Currency()
     {
-        $node = new ProductPrice();
+        $node = new Price();
         $value = substr(sha1(uniqid(microtime(false), true)), 0, 3);
 
         $this->assertEquals('EUR', $node->getCurrency());
@@ -56,7 +55,7 @@ class ProductPriceNodeTest extends TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new ProductPrice();
+        $node = new Price();
         $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_price_with_null_values.xml');
@@ -71,7 +70,7 @@ class ProductPriceNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new ProductPrice();
+        $node = new Price();
         $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_price_without_null_values.xml');

@@ -4,19 +4,19 @@
 namespace Naugrim\BMEcat\Tests;
 
 use Naugrim\BMEcat\Builder\NodeBuilder;
-use Naugrim\BMEcat\Nodes\SupplierPid;
-use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\DocumentBuilder;
 use Naugrim\BMEcat\Nodes\Document;
 use Naugrim\BMEcat\Nodes\Mime;
 use Naugrim\BMEcat\Nodes\NewCatalog;
-use Naugrim\BMEcat\Nodes\ProductDetails;
-use Naugrim\BMEcat\Nodes\ProductFeatures;
 use Naugrim\BMEcat\Nodes\Product;
-use Naugrim\BMEcat\Nodes\ProductOrderDetails;
-use Naugrim\BMEcat\Nodes\ProductPriceDetails;
-use Naugrim\BMEcat\Nodes\ProductPrice;
+use Naugrim\BMEcat\Nodes\Product\Details;
+use Naugrim\BMEcat\Nodes\Product\Features;
+use Naugrim\BMEcat\Nodes\Product\OrderDetails;
+use Naugrim\BMEcat\Nodes\Product\Price;
+use Naugrim\BMEcat\Nodes\Product\PriceDetails;
+use Naugrim\BMEcat\Nodes\SupplierPid;
 use Naugrim\BMEcat\SchemaValidator;
+use PHPUnit\Framework\TestCase;
 
 
 class DocumentTest extends TestCase
@@ -59,19 +59,19 @@ class DocumentTest extends TestCase
             $supplierPid = new SupplierPid();
             $supplierPid->setValue($index);
             $product->setId($supplierPid);
-            $productDetails = new ProductDetails();
+            $productDetails = new Details();
             $productDetails->setDescriptionShort('description');
             $product->setDetails($productDetails);
 
             foreach ([['EUR', 10.50], ['GBP', 7.30]] as $value) {
                 list($currency, $amount) = $value;
 
-                $price = new ProductPrice;
+                $price = new Price;
 
                 $price->setPrice($amount);
                 $price->setCurrency($currency);
 
-                $priceDetail = new ProductPriceDetails;
+                $priceDetail = new PriceDetails;
                 $priceDetail->addPrice($price);
 
                 $product->addPriceDetail($priceDetail);
@@ -80,7 +80,7 @@ class DocumentTest extends TestCase
             foreach ([['A', 'B', 'C', 1, 2, 'D', 'E'],['F', 'G', 'H', 3, 4, 'I', 'J']] as $value) {
                 list($systemName, $groupName, $groupId, $serialNumber, $tarifNumber, $countryOfOrigin, $tariftext) = $value;
 
-                $features = new ProductFeatures;
+                $features = new Features;
 
                 $features->setReferenceFeatureSystemName($systemName);
                 $features->setReferenceFeatureGroupName($groupName);
@@ -102,7 +102,7 @@ class DocumentTest extends TestCase
                 $product->addMime($mime);
             }
 
-            $orderDetails = new ProductOrderDetails;
+            $orderDetails = new OrderDetails;
             $orderDetails->setOrderUnit('C62');
             $orderDetails->setContentUnit('C62');
             $orderDetails->setNoCuPerOu(1);

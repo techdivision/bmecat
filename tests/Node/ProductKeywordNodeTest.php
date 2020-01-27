@@ -3,10 +3,9 @@
 namespace Naugrim\BMEcat\Tests\Node;
 
 use JMS\Serializer\SerializationContext;
-use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
+use Naugrim\BMEcat\Nodes\Product\Keyword;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\ProductKeyword;
 
 class ProductKeywordNodeTest extends TestCase
 {
@@ -25,7 +24,7 @@ class ProductKeywordNodeTest extends TestCase
      */
     public function Set_Get_Description_Value()
     {
-        $node = new ProductKeyword();
+        $node = new Keyword();
         $value = '';
 
         $this->assertEquals('', $node->getValue());
@@ -38,7 +37,7 @@ class ProductKeywordNodeTest extends TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new ProductKeyword();
+        $node = new Keyword();
         $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_keyword_with_null_values.xml');
@@ -52,7 +51,7 @@ class ProductKeywordNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new ProductKeyword();
+        $node = new Keyword();
         $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_keyword_without_null_values.xml');

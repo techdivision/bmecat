@@ -1,15 +1,16 @@
 <?php
 
-namespace Naugrim\BMEcat\Nodes;
+namespace Naugrim\BMEcat\Nodes\Product;
 
 use /** @noinspection PhpUnusedAliasInspection */
-    \JMS\Serializer\Annotation as Serializer;
+    JMS\Serializer\Annotation as Serializer;
+use Naugrim\BMEcat\Nodes\Contracts;
 
 /**
  *
  * @Serializer\XmlRoot("KEYWORD")
  */
-class ProductKeyword implements Contracts\NodeInterface
+class Keyword implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Type("string")
@@ -29,9 +30,9 @@ class ProductKeyword implements Contracts\NodeInterface
 
     /**
      * @param string $value
-     * @return ProductKeyword
+     * @return Keyword
      */
-    public function setValue($value) : ProductKeyword
+    public function setValue($value) : Keyword
     {
         $this->value = $value;
         return $this;
