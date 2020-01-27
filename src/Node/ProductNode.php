@@ -27,10 +27,10 @@ class ProductNode extends AbstractNode
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("string")
+     * @Serializer\Type("Naugrim\BMEcat\Node\SupplierPid")
      * @Serializer\SerializedName("SUPPLIER_PID")
      *
-     * @var string
+     * @var SupplierPid
      */
     protected $id;
 
@@ -200,10 +200,10 @@ class ProductNode extends AbstractNode
 
     /**
      *
-     * @param string $id
+     * @param SupplierPid $id
      * @return ProductNode
      */
-    public function setId($id) : ProductNode
+    public function setId(SupplierPid $id) : ProductNode
     {
         $this->id = $id;
         return $this;
@@ -229,7 +229,7 @@ class ProductNode extends AbstractNode
 
     /**
      *
-     * @return string
+     * @return SupplierPid
      */
     public function getId()
     {

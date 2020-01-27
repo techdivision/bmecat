@@ -3,6 +3,7 @@
 
 namespace Naugrim\BMEcat\Tests;
 
+use Naugrim\BMEcat\Node\SupplierPid;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\DocumentBuilder;
 use Naugrim\BMEcat\Node\DocumentNode;
@@ -54,7 +55,9 @@ class DocumentTest extends TestCase
 
         foreach ([1,2,3] as $index) {
             $product = new ProductNode;
-            $product->setId($index);
+            $supplierPid = new SupplierPid();
+            $supplierPid->setValue($index);
+            $product->setId($supplierPid);
             $productDetails = new ProductDetailsNode();
             $productDetails->setDescriptionShort('description');
             $product->setDetails($productDetails);

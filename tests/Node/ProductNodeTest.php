@@ -5,6 +5,7 @@ namespace Naugrim\BMEcat\Tests\Node;
 
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
+use Naugrim\BMEcat\Node\SupplierPid;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Node\ProductFeaturesNode;
 use Naugrim\BMEcat\Node\MimeNode;
@@ -37,8 +38,11 @@ class ProductNodeTest extends TestCase
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getId());
-        $node->setId($value);
-        $this->assertEquals($value, $node->getId());
+        $supplierPid = new SupplierPid();
+        $supplierPid->setValue($value);
+        $node->setId($supplierPid);
+
+        $this->assertEquals($value, $node->getId()->getValue());
     }
 
     /**
