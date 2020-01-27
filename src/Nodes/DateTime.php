@@ -11,7 +11,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("DATETIME")
  */
-class DateTimeNode implements Contracts\NodeInterface
+class DateTime implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -52,9 +52,9 @@ class DateTimeNode implements Contracts\NodeInterface
 
     /**
      * @param DateTimeImmutable $dateTime
-     * @return DateTimeNode
+     * @return DateTime
      */
-    public function setDateTime(DateTimeImmutable $dateTime) : DateTimeNode
+    public function setDateTime(DateTimeImmutable $dateTime) : DateTime
     {
         $this->setDate($dateTime->format('Y-m-d'));
         $this->setTime($dateTime->format('H:i:s'));
@@ -64,9 +64,9 @@ class DateTimeNode implements Contracts\NodeInterface
 
     /**
      * @param string $date
-     * @return DateTimeNode
+     * @return DateTime
      */
-    public function setDate($date) : DateTimeNode
+    public function setDate($date) : DateTime
     {
         $this->date = $date;
         return $this;
@@ -82,9 +82,9 @@ class DateTimeNode implements Contracts\NodeInterface
 
     /**
      * @param string $time
-     * @return DateTimeNode
+     * @return DateTime
      */
-    public function setTime($time) : DateTimeNode
+    public function setTime($time) : DateTime
     {
         $this->time = $time;
         return $this;
@@ -100,9 +100,9 @@ class DateTimeNode implements Contracts\NodeInterface
 
     /**
      * @param string $timezone
-     * @return DateTimeNode
+     * @return DateTime
      */
-    public function setTimezone($timezone) : DateTimeNode
+    public function setTimezone($timezone) : DateTime
     {
         $this->timezone = $timezone;
         return $this;

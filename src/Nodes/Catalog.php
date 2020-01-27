@@ -41,10 +41,10 @@ class Catalog implements Contracts\NodeInterface
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\DateTimeNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\DateTime")
      * @Serializer\SerializedName("DATETIME")
      *
-     * @var DateTimeNode
+     * @var DateTime
      */
     protected $dateTime;
 
@@ -107,10 +107,10 @@ class Catalog implements Contracts\NodeInterface
 
     /**
      *
-     * @param DateTimeNode $dateTime
+     * @param DateTime $dateTime
      * @return Catalog
      */
-    public function setDateTime(DateTimeNode $dateTime) : Catalog
+    public function setDateTime(DateTime $dateTime) : Catalog
     {
         $this->dateTime = $dateTime;
         return $this;
@@ -118,7 +118,7 @@ class Catalog implements Contracts\NodeInterface
 
     /**
      *
-     * @return DateTimeNode
+     * @return DateTime
      */
     public function getDateTime()
     {

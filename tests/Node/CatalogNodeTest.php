@@ -8,7 +8,7 @@ use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Nodes\Catalog;
-use Naugrim\BMEcat\Nodes\DateTimeNode;
+use Naugrim\BMEcat\Nodes\DateTime;
 
 
 class CatalogNodeTest extends TestCase
@@ -72,7 +72,7 @@ class CatalogNodeTest extends TestCase
     public function Set_Get_Date_Time()
     {
         $node = new Catalog();
-        $dateTime = new DateTimeNode();
+        $dateTime = new DateTime();
 
         $this->assertNull($node->getDateTime());
         $node->setDateTime($dateTime);
