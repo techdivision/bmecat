@@ -10,7 +10,7 @@ use Naugrim\BMEcat\Nodes\SupplierPid;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Nodes\ProductFeaturesNode;
 use Naugrim\BMEcat\Nodes\MimeNode;
-use Naugrim\BMEcat\Nodes\ProductNode;
+use Naugrim\BMEcat\Nodes\Product;
 use Naugrim\BMEcat\Nodes\ProductOrderDetailsNode;
 use Naugrim\BMEcat\Nodes\ProductPriceDetailsNode;
 use Naugrim\BMEcat\Nodes\ProductPriceNode;
@@ -35,7 +35,7 @@ class ProductNodeTest extends TestCase
      */
     public function Set_Get_Id()
     {
-        $node = new ProductNode();
+        $node = new Product();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getId());
@@ -52,7 +52,7 @@ class ProductNodeTest extends TestCase
      */
     public function Set_Get_Details()
     {
-        $node = new ProductNode();
+        $node = new Product();
         $details = new ProductDetailsNode();
 
         $this->assertNull($node->getDetails());
@@ -72,7 +72,7 @@ class ProductNodeTest extends TestCase
             new ProductFeaturesNode(),
         ];
 
-        $node = new ProductNode();
+        $node = new Product();
         $this->assertEmpty($node->getFeatures());
         $node->nullFeatures();
         $this->assertEquals([], $node->getFeatures());
@@ -96,7 +96,7 @@ class ProductNodeTest extends TestCase
             (new ProductPriceDetailsNode)->addPrice(new ProductPriceNode()),
         ];
 
-        $node = new ProductNode();
+        $node = new Product();
         $this->assertEmpty($node->getPriceDetails());
         $node->nullPriceDetails();
         $this->assertEquals([], $node->getPriceDetails());
@@ -114,7 +114,7 @@ class ProductNodeTest extends TestCase
      */
     public function Add_Get_Product_Order_Details()
     {
-        $node = new ProductNode();
+        $node = new Product();
         $value = new ProductOrderDetailsNode();
 
         $this->assertEmpty($node->getOrderDetails());
@@ -134,7 +134,7 @@ class ProductNodeTest extends TestCase
             new MimeNode(),
         ];
 
-        $node = new ProductNode();
+        $node = new Product();
         $this->assertEmpty($node->getMimes());
         $node->nullMime();
         $this->assertEquals(null, $node->getMimes());
@@ -152,7 +152,7 @@ class ProductNodeTest extends TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new ProductNode();
+        $node = new Product();
         $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_with_null_values.xml');
@@ -166,7 +166,7 @@ class ProductNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new ProductNode();
+        $node = new Product();
         $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_product_without_null_values.xml');

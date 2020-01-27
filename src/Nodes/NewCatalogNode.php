@@ -18,16 +18,16 @@ class NewCatalogNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\Product>")
      * @Serializer\XmlList(inline = true, entry = "PRODUCT")
      *
-     * @var \Naugrim\BMEcat\Nodes\ProductNode[]
+     * @var Product[]
      */
     protected $products = [];
 
     /**
      *
-     * @param ProductNode[] $products
+     * @param Product[] $products
      * @return NewCatalogNode
      * @throws InvalidSetterException
      * @throws UnknownKeyException
@@ -38,7 +38,7 @@ class NewCatalogNode implements Contracts\NodeInterface
 
         foreach ($products as $product) {
             if (is_array($product)) {
-                $product = NodeBuilder::fromArray($product, new ProductNode());
+                $product = NodeBuilder::fromArray($product, new Product());
             }
             $this->addProduct($product);
         }
@@ -47,10 +47,10 @@ class NewCatalogNode implements Contracts\NodeInterface
 
     /**
      *
-     * @param \Naugrim\BMEcat\Nodes\ProductNode $product
+     * @param Product $product
      * @return NewCatalogNode
      */
-    public function addProduct(ProductNode $product) : NewCatalogNode
+    public function addProduct(Product $product) : NewCatalogNode
     {
         if ($this->products === null) {
             $this->products = [];
@@ -73,7 +73,7 @@ class NewCatalogNode implements Contracts\NodeInterface
 
     /**
      *
-     * @return \Naugrim\BMEcat\Nodes\ProductNode[]
+     * @return Product[]
      */
     public function getProducts()
     {

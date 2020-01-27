@@ -13,7 +13,7 @@ use Naugrim\BMEcat\Exception\UnknownKeyException;
  *
  * @Serializer\XmlRoot("PRODUCT")
  */
-class ProductNode implements Contracts\NodeInterface
+class Product implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -43,7 +43,7 @@ class ProductNode implements Contracts\NodeInterface
      *
      * @var ProductDetailsNode
      */
-    protected $detail;
+    protected $details;
 
 
     /**
@@ -88,13 +88,30 @@ class ProductNode implements Contracts\NodeInterface
     protected $mimes = [];
 
     /**
+     * @return string
+     */
+    public function getMode(): string
+    {
+        return $this->mode;
+    }
+
+    /**
+     * @param string $mode
+     */
+    public function setMode(string $mode): void
+    {
+        $this->mode = $mode;
+    }
+
+
+    /**
      *
      * @param ProductDetailsNode $details
-     * @return ProductNode
+     * @return Product
      */
-    public function setDetails(ProductDetailsNode $details) : ProductNode
+    public function setDetails(ProductDetailsNode $details) : Product
     {
-        $this->detail = $details;
+        $this->details = $details;
         return $this;
     }
 
@@ -104,17 +121,17 @@ class ProductNode implements Contracts\NodeInterface
      */
     public function getDetails()
     {
-        return $this->detail;
+        return $this->details;
     }
 
     /**
      *
      * @param ProductPriceNode[] $priceDetails
-     * @return ProductNode
+     * @return Product
      * @throws InvalidSetterException
      * @throws UnknownKeyException
      */
-    public function setPriceDetails(array $priceDetails) : ProductNode
+    public function setPriceDetails(array $priceDetails) : Product
     {
         $this->priceDetails = [];
         foreach ($priceDetails as $priceDetail) {
@@ -129,9 +146,9 @@ class ProductNode implements Contracts\NodeInterface
     /**
      *
      * @param ProductPriceDetailsNode $price
-     * @return ProductNode
+     * @return Product
      */
-    public function addPriceDetail(ProductPriceDetailsNode $price) : ProductNode
+    public function addPriceDetail(ProductPriceDetailsNode $price) : Product
     {
         if ($this->priceDetails === null) {
             $this->priceDetails = [];
@@ -142,11 +159,11 @@ class ProductNode implements Contracts\NodeInterface
 
     /**
      * @param MimeNode[] $mimes
-     * @return ProductNode
+     * @return Product
      * @throws InvalidSetterException
      * @throws UnknownKeyException
      */
-    public function setMimes(array $mimes): ProductNode
+    public function setMimes(array $mimes): Product
     {
         $this->mimes = [];
         foreach ($mimes as $mime) {
@@ -160,9 +177,9 @@ class ProductNode implements Contracts\NodeInterface
 
     /**
      * @param MimeNode $mime
-     * @return ProductNode
+     * @return Product
      */
-    public function addMime(MimeNode $mime) : ProductNode
+    public function addMime(MimeNode $mime) : Product
     {
         if ($this->mimes === null) {
             $this->mimes = [];
@@ -175,9 +192,9 @@ class ProductNode implements Contracts\NodeInterface
      *
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
-     * @return ProductNode
+     * @return Product
      */
-    public function nullPriceDetails() : ProductNode
+    public function nullPriceDetails() : Product
     {
         if (empty($this->priceDetails) === true) {
             $this->priceDetails = null;
@@ -189,9 +206,9 @@ class ProductNode implements Contracts\NodeInterface
      *
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
-     * @return ProductNode
+     * @return Product
      */
-    public function nullMime() : ProductNode
+    public function nullMime() : Product
     {
         if (empty($this->mimes) === true) {
             $this->mimes = null;
@@ -202,9 +219,9 @@ class ProductNode implements Contracts\NodeInterface
     /**
      *
      * @param SupplierPid $id
-     * @return ProductNode
+     * @return Product
      */
-    public function setId(SupplierPid $id) : ProductNode
+    public function setId(SupplierPid $id) : Product
     {
         $this->id = $id;
         return $this;
@@ -220,9 +237,9 @@ class ProductNode implements Contracts\NodeInterface
 
     /**
      * @param ProductOrderDetailsNode $orderDetails
-     * @return ProductNode
+     * @return Product
      */
-    public function setOrderDetails(ProductOrderDetailsNode $orderDetails) : ProductNode
+    public function setOrderDetails(ProductOrderDetailsNode $orderDetails) : Product
     {
         $this->orderDetails = $orderDetails;
         return $this;
@@ -241,9 +258,9 @@ class ProductNode implements Contracts\NodeInterface
      *
      * @Serializer\PreSerialize
      * @Serializer\PostSerialize
-     * @return ProductNode
+     * @return Product
      */
-    public function nullFeatures() : ProductNode
+    public function nullFeatures() : Product
     {
         if (empty($this->features) === true) {
             $this->features = null;
@@ -254,11 +271,11 @@ class ProductNode implements Contracts\NodeInterface
 
     /**
      * @param ProductFeaturesNode[] $features
-     * @return ProductNode
+     * @return Product
      * @throws InvalidSetterException
      * @throws UnknownKeyException
      */
-    public function setFeatures(array $features): ProductNode
+    public function setFeatures(array $features): Product
     {
         $this->features = [];
         foreach ($features as $feature) {
@@ -273,9 +290,9 @@ class ProductNode implements Contracts\NodeInterface
     /**
      *
      * @param ProductFeaturesNode $features
-     * @return ProductNode
+     * @return Product
      */
-    public function addFeatures(ProductFeaturesNode $features) : ProductNode
+    public function addFeatures(ProductFeaturesNode $features) : Product
     {
         if ($this->features === null) {
             $this->features = [];
