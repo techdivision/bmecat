@@ -59,9 +59,9 @@ class Product implements Contracts\NodeInterface
     /**
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_ORDER_DETAILS")
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\ProductOrderDetailsNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\ProductOrderDetails")
      *
-     * @var ProductOrderDetailsNode
+     * @var ProductOrderDetails
      */
     protected $orderDetails;
 
@@ -228,7 +228,7 @@ class Product implements Contracts\NodeInterface
     }
 
     /**
-     * @return ProductOrderDetailsNode|null
+     * @return ProductOrderDetails|null
      */
     public function getOrderDetails()
     {
@@ -236,10 +236,10 @@ class Product implements Contracts\NodeInterface
     }
 
     /**
-     * @param ProductOrderDetailsNode $orderDetails
+     * @param ProductOrderDetails $orderDetails
      * @return Product
      */
-    public function setOrderDetails(ProductOrderDetailsNode $orderDetails) : Product
+    public function setOrderDetails(ProductOrderDetails $orderDetails) : Product
     {
         $this->orderDetails = $orderDetails;
         return $this;

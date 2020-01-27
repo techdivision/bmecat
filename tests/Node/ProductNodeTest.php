@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Nodes\ProductFeatures;
 use Naugrim\BMEcat\Nodes\Mime;
 use Naugrim\BMEcat\Nodes\Product;
-use Naugrim\BMEcat\Nodes\ProductOrderDetailsNode;
+use Naugrim\BMEcat\Nodes\ProductOrderDetails;
 use Naugrim\BMEcat\Nodes\ProductPriceDetailsNode;
 use Naugrim\BMEcat\Nodes\ProductPriceNode;
 use Naugrim\BMEcat\Nodes\ProductDetails;
@@ -115,7 +115,7 @@ class ProductNodeTest extends TestCase
     public function Add_Get_Product_Order_Details()
     {
         $node = new Product();
-        $value = new ProductOrderDetailsNode();
+        $value = new ProductOrderDetails();
 
         $this->assertEmpty($node->getOrderDetails());
         $node->setOrderDetails($value);

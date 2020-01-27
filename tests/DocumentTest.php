@@ -13,7 +13,7 @@ use Naugrim\BMEcat\Nodes\NewCatalog;
 use Naugrim\BMEcat\Nodes\ProductDetails;
 use Naugrim\BMEcat\Nodes\ProductFeatures;
 use Naugrim\BMEcat\Nodes\Product;
-use Naugrim\BMEcat\Nodes\ProductOrderDetailsNode;
+use Naugrim\BMEcat\Nodes\ProductOrderDetails;
 use Naugrim\BMEcat\Nodes\ProductPriceDetailsNode;
 use Naugrim\BMEcat\Nodes\ProductPriceNode;
 use Naugrim\BMEcat\SchemaValidator;
@@ -102,7 +102,7 @@ class DocumentTest extends TestCase
                 $product->addMime($mime);
             }
 
-            $orderDetails = new ProductOrderDetailsNode;
+            $orderDetails = new ProductOrderDetails;
             $orderDetails->setOrderUnit('C62');
             $orderDetails->setContentUnit('C62');
             $orderDetails->setNoCuPerOu(1);
