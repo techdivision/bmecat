@@ -3,6 +3,7 @@
 
 namespace Naugrim\BMEcat\Tests;
 
+use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Nodes\SupplierPid;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\DocumentBuilder;
@@ -27,7 +28,7 @@ class DocumentTest extends TestCase
 
     public function setUp() : void
     {
-        $document = DocumentNode::fromArray([
+        $document = NodeBuilder::fromArray([
             'header' =>[
                 'generatorInfo' => 'DocumentTest Document',
                 'catalog' => [
@@ -45,7 +46,7 @@ class DocumentTest extends TestCase
                     'name'  => 'TestSupplier',
                 ]
             ]
-        ]);
+        ], new DocumentNode());
 
         $builder = new DocumentBuilder();
         $builder->setDocument($document);

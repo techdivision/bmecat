@@ -7,7 +7,7 @@ use /** @noinspection PhpUnusedAliasInspection */
 use Naugrim\BMEcat\Nodes\Concerns\HasStringValue;
 use Naugrim\BMEcat\Nodes\Concerns\HasTypeAttribute;
 
-class SupplierPid extends AbstractNode
+class SupplierPid implements Contracts\NodeInterface
 {
     use HasTypeAttribute, HasStringValue;
 }

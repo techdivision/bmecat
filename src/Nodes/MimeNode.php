@@ -9,7 +9,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("MIME")
  */
-class MimeNode extends AbstractNode
+class MimeNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose

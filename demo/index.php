@@ -1,21 +1,14 @@
 <?php
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use http\Header;
+use JMS\Serializer\Expression\ExpressionEvaluator;
+use JMS\Serializer\SerializerBuilder;
+use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use Naugrim\BMEcat\Exception\SchemaValidationException;
-use Naugrim\BMEcat\Nodes\CatalogNode;
-use Naugrim\BMEcat\Nodes\DateTimeNode;
 use Naugrim\BMEcat\Nodes\DocumentNode;
-use Naugrim\BMEcat\Nodes\HeaderNode;
-use Naugrim\BMEcat\Nodes\NewCatalogNode;
-use Naugrim\BMEcat\Nodes\ProductDetailsNode;
-use Naugrim\BMEcat\Nodes\ProductNode;
-use Naugrim\BMEcat\Nodes\ProductOrderDetailsNode;
-use Naugrim\BMEcat\Nodes\ProductPriceDetailsNode;
-use Naugrim\BMEcat\Nodes\ProductPriceNode;
-use Naugrim\BMEcat\Nodes\SupplierNode;
 use Naugrim\BMEcat\SchemaValidator;
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 require __DIR__.'/../vendor/autoload.php';
 
@@ -23,7 +16,7 @@ AnnotationRegistry::registerLoader('class_exists');
 
 $builder = new DocumentBuilder();
 
-$document = DocumentNode::fromArray([
+$document = NodeBuilder::fromArray([
     'header' => [
         'catalog' => [
             'language' => 'deu',
@@ -41,7 +34,10 @@ $document = DocumentNode::fromArray([
     'newCatalog' => [
         'products' => [
             [
-                'id' => 'Product-Number-1',
+                'id' => [
+                    'type' => 'supplier_specific',
+                    'value' => 'Product-Number-1'
+                ],
                 'details' => [
                     'descriptionShort' => 'A short Description for Product-Number-1',
                 ],
@@ -62,7 +58,10 @@ $document = DocumentNode::fromArray([
                 ]
             ],
             [
-                'id' => 'Product-Number-2',
+                'id' => [
+                    'type' => 'supplier_specific',
+                    'value' => 'Product-Number-2'
+                ],
                 'details' => [
                     'descriptionShort' => 'A short Description for Product-Number-2',
                 ],
@@ -83,9 +82,10 @@ $document = DocumentNode::fromArray([
             ]
         ]
     ]
-]);
+], new DocumentNode());
 
 $builder->setDocument($document);
+
 $xml = $builder->toString();
 
 try {
@@ -97,4 +97,3 @@ try {
 
 
 echo $xml;
-

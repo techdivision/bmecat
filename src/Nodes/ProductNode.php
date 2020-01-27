@@ -5,6 +5,7 @@ namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
+use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
 
@@ -12,7 +13,7 @@ use Naugrim\BMEcat\Exception\UnknownKeyException;
  *
  * @Serializer\XmlRoot("PRODUCT")
  */
-class ProductNode extends AbstractNode
+class ProductNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -118,7 +119,7 @@ class ProductNode extends AbstractNode
         $this->priceDetails = [];
         foreach ($priceDetails as $priceDetail) {
             if (is_array($priceDetail)) {
-                $priceDetail = ProductPriceDetailsNode::fromArray($priceDetail);
+                $priceDetail = NodeBuilder::fromArray($priceDetail, new ProductPriceDetailsNode());
             }
             $this->addPriceDetail($priceDetail);
         }
@@ -150,7 +151,7 @@ class ProductNode extends AbstractNode
         $this->mimes = [];
         foreach ($mimes as $mime) {
             if (is_array($mime)) {
-                $mime = MimeNode::fromArray($mime);
+                $mime = NodeBuilder::fromArray($mime, new MimeNode());
             }
             $this->addMime($mime);
         }
@@ -262,7 +263,7 @@ class ProductNode extends AbstractNode
         $this->features = [];
         foreach ($features as $feature) {
             if (is_array($feature)) {
-                $feature = ProductFeaturesNode::fromArray($feature);
+                $feature = NodeBuilder::fromArray($feature, new ProductFeaturesNode());
             }
             $this->addFeatures($feature);
         }

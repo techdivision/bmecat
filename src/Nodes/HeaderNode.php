@@ -10,7 +10,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("HEADER")
  */
-class HeaderNode extends AbstractNode
+class HeaderNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose

@@ -9,7 +9,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("KEYWORD")
  */
-class ProductKeywordNode extends AbstractNode
+class ProductKeywordNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Type("string")

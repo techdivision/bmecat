@@ -11,7 +11,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  * @Serializer\XmlRoot("BMECAT")
  * @Serializer\ExclusionPolicy("all")
  */
-class DocumentNode extends AbstractNode
+class DocumentNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose

@@ -5,6 +5,7 @@ namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
+use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
 
@@ -12,7 +13,7 @@ use Naugrim\BMEcat\Exception\UnknownKeyException;
  *
  * @Serializer\XmlRoot("PRODUCT_PRICE_DETAILS")
  */
-class ProductPriceDetailsNode extends AbstractNode
+class ProductPriceDetailsNode implements Contracts\NodeInterface
 {
     /**
      *
@@ -121,7 +122,7 @@ class ProductPriceDetailsNode extends AbstractNode
         $this->prices = [];
         foreach ($prices as $price) {
             if (is_array($price)) {
-                $price = ProductPriceNode::fromArray($price);
+                $price = NodeBuilder::fromArray($price, new ProductPriceNode());
             }
             $this->addPrice($price);
         }

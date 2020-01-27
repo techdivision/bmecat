@@ -2,9 +2,9 @@
 
 namespace Naugrim\BMEcat\Tests\Fixtures\Node;
 
-use Naugrim\BMEcat\Nodes\AbstractNode;
+use Naugrim\BMEcat\Nodes\Contracts\NodeInterface;
 
-class Node extends AbstractNode
+class Node implements NodeInterface
 {
     public $someString;
 

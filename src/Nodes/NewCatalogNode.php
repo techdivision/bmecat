@@ -6,6 +6,7 @@ namespace Naugrim\BMEcat\Nodes;
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
 
+use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
 
@@ -13,7 +14,7 @@ use Naugrim\BMEcat\Exception\UnknownKeyException;
  *
  * @Serializer\XmlRoot("T_NEW_CATALOG")
  */
-class NewCatalogNode extends AbstractNode
+class NewCatalogNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -37,7 +38,7 @@ class NewCatalogNode extends AbstractNode
 
         foreach ($products as $product) {
             if (is_array($product)) {
-                $product = ProductNode::fromArray($product);
+                $product = NodeBuilder::fromArray($product, new ProductNode());
             }
             $this->addProduct($product);
         }

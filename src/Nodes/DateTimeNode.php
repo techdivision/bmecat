@@ -11,7 +11,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("DATETIME")
  */
-class DateTimeNode extends AbstractNode
+class DateTimeNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose

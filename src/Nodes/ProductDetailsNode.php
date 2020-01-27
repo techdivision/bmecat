@@ -10,7 +10,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("PRODUCT_DETAILS")
  */
-class ProductDetailsNode extends AbstractNode
+class ProductDetailsNode implements Contracts\NodeInterface
 {
     /**
      *

@@ -10,7 +10,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("FEATURE")
  */
-class ProductFeatureNode extends AbstractNode
+class ProductFeatureNode implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -26,7 +26,7 @@ class ProductFeatureNode extends AbstractNode
      * @Serializer\Type("string")
      * @Serializer\SerializedName("VARIANTS")
      * @Serializer\SkipWhenEmpty
-     * @Serializer\Exclude(if="empty($this->value)")
+     * @Serializer\Exclude(if="!empty(object.getValue())")
      *
      * @var string
      */
@@ -36,6 +36,7 @@ class ProductFeatureNode extends AbstractNode
      * @Serializer\Expose
      * @Serializer\Type("string")
      * @Serializer\SerializedName("FVALUE")
+     * @Serializer\Exclude(if="!empty(object.getVariants())")
      *
      * @var string
      */

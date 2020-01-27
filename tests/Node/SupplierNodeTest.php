@@ -5,6 +5,7 @@ namespace Naugrim\BMEcat\Tests\Node;
 
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
+use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Nodes\SupplierNode;
 
@@ -18,7 +19,7 @@ class SupplierNodeTest extends TestCase
 
     public function setUp() : void
     {
-        $this->serializer = SerializerBuilder::create()->build();
+        $this->serializer = (new DocumentBuilder())->getSerializer();
     }
 
     /**
