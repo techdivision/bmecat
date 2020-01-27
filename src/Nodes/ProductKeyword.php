@@ -9,7 +9,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("KEYWORD")
  */
-class ProductKeywordNode implements Contracts\NodeInterface
+class ProductKeyword implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Type("string")
@@ -29,9 +29,9 @@ class ProductKeywordNode implements Contracts\NodeInterface
 
     /**
      * @param string $value
-     * @return ProductKeywordNode
+     * @return ProductKeyword
      */
-    public function setValue($value) : ProductKeywordNode
+    public function setValue($value) : ProductKeyword
     {
         $this->value = $value;
         return $this;

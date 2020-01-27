@@ -7,7 +7,7 @@ use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\ProductKeywordNode;
+use Naugrim\BMEcat\Nodes\ProductKeyword;
 use Naugrim\BMEcat\Nodes\ProductStatusNode;
 use Naugrim\BMEcat\Nodes\BuyerPid;
 use Naugrim\BMEcat\Nodes\ProductDetails;
@@ -78,9 +78,9 @@ class ProductDetailsNodeTest extends TestCase
     public function Add_Get_Keywords()
     {
         $keywords = [
-            new ProductKeywordNode(),
-            new ProductKeywordNode(),
-            new ProductKeywordNode(),
+            new ProductKeyword(),
+            new ProductKeyword(),
+            new ProductKeyword(),
         ];
 
         $node = new ProductDetails();

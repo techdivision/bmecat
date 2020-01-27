@@ -135,10 +135,10 @@ class ProductDetails implements Contracts\NodeInterface
     /**
      *
      * @Serializer\Expose
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductKeywordNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductKeyword>")
      * @Serializer\XmlList(inline=true, entry="KEYWORD")
      *
-     * @var ProductKeywordNode[]
+     * @var ProductKeyword[]
      */
     protected $keywords;
 
@@ -210,10 +210,10 @@ class ProductDetails implements Contracts\NodeInterface
     }
 
     /**
-     * @param ProductKeywordNode $keyword
+     * @param ProductKeyword $keyword
      * @return ProductDetails
      */
-    public function addKeyword(ProductKeywordNode $keyword) : ProductDetails
+    public function addKeyword(ProductKeyword $keyword) : ProductDetails
     {
         if ($this->keywords === null) {
             $this->keywords = [];
@@ -535,7 +535,7 @@ class ProductDetails implements Contracts\NodeInterface
     }
 
     /**
-     * @return ProductKeywordNode[]
+     * @return ProductKeyword[]
      */
     public function getKeywords()
     {
