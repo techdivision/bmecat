@@ -7,9 +7,9 @@ use /** @noinspection PhpUnusedAliasInspection */
 
 /**
  *
- * @Serializer\XmlRoot("PRODUCT_STATUS")
+ * @Serializer\XmlRoot("SPECIAL_TREATMENT_CLASS")
  */
-class ProductStatusNode implements Contracts\NodeInterface
+class SpecialTreatmentClass implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Type("string")
@@ -17,11 +17,11 @@ class ProductStatusNode implements Contracts\NodeInterface
      *
      * @var string
      */
-    protected $type = '';
+    private $type = '';
 
     /**
-     * @Serializer\XmlValue
      * @Serializer\Type("string")
+     * @Serializer\XmlValue
      *
      * @var string
      */
@@ -29,9 +29,9 @@ class ProductStatusNode implements Contracts\NodeInterface
 
     /**
      * @param string $type
-     * @return ProductStatusNode
+     * @return SpecialTreatmentClass
      */
-    public function setType($type) : ProductStatusNode
+    public function setType($type) : SpecialTreatmentClass
     {
         $this->type = $type;
         return $this;
@@ -55,9 +55,9 @@ class ProductStatusNode implements Contracts\NodeInterface
 
     /**
      * @param string $value
-     * @return ProductStatusNode
+     * @return SpecialTreatmentClass
      */
-    public function setValue(string $value): ProductStatusNode
+    public function setValue(string $value): SpecialTreatmentClass
     {
         $this->value = $value;
         return $this;

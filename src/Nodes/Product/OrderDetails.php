@@ -1,15 +1,16 @@
 <?php
 
-namespace Naugrim\BMEcat\Nodes;
+namespace Naugrim\BMEcat\Nodes\Product;
 
 use /** @noinspection PhpUnusedAliasInspection */
-    \JMS\Serializer\Annotation as Serializer;
+    JMS\Serializer\Annotation as Serializer;
+use Naugrim\BMEcat\Nodes\Contracts;
 
 /**
  *
  * @Serializer\XmlRoot("PRODUCT_ORDER_DETAILS")
  */
-class ProductOrderDetailsNode implements Contracts\NodeInterface
+class OrderDetails implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -79,9 +80,9 @@ class ProductOrderDetailsNode implements Contracts\NodeInterface
 
     /**
      * @param string $orderUnit
-     * @return ProductOrderDetailsNode
+     * @return OrderDetails
      */
-    public function setOrderUnit($orderUnit) : ProductOrderDetailsNode
+    public function setOrderUnit($orderUnit) : OrderDetails
     {
         $this->orderUnit = $orderUnit;
         return $this;
@@ -97,9 +98,9 @@ class ProductOrderDetailsNode implements Contracts\NodeInterface
 
     /**
      * @param string $contentUnit
-     * @return ProductOrderDetailsNode
+     * @return OrderDetails
      */
-    public function setContentUnit($contentUnit) : ProductOrderDetailsNode
+    public function setContentUnit($contentUnit) : OrderDetails
     {
         $this->contentUnit = $contentUnit;
         return $this;
@@ -118,9 +119,9 @@ class ProductOrderDetailsNode implements Contracts\NodeInterface
 
     /**
      * @param float $noCuPerOu
-     * @return ProductOrderDetailsNode
+     * @return OrderDetails
      */
-    public function setNoCuPerOu($noCuPerOu) : ProductOrderDetailsNode
+    public function setNoCuPerOu($noCuPerOu) : OrderDetails
     {
         $this->noCuPerOu = $noCuPerOu;
         return $this;
@@ -139,9 +140,9 @@ class ProductOrderDetailsNode implements Contracts\NodeInterface
 
     /**
      * @param float $priceQuantity
-     * @return ProductOrderDetailsNode
+     * @return OrderDetails
      */
-    public function setPriceQuantity($priceQuantity) : ProductOrderDetailsNode
+    public function setPriceQuantity($priceQuantity) : OrderDetails
     {
         $this->priceQuantity = $priceQuantity;
         return $this;
@@ -160,9 +161,9 @@ class ProductOrderDetailsNode implements Contracts\NodeInterface
 
     /**
      * @param int $quantityMin
-     * @return ProductOrderDetailsNode
+     * @return OrderDetails
      */
-    public function setQuantityMin($quantityMin) : ProductOrderDetailsNode
+    public function setQuantityMin($quantityMin) : OrderDetails
     {
         $this->quantityMin = $quantityMin;
         return $this;
@@ -181,9 +182,9 @@ class ProductOrderDetailsNode implements Contracts\NodeInterface
 
     /**
      * @param int $quantityInterval
-     * @return ProductOrderDetailsNode
+     * @return OrderDetails
      */
-    public function setQuantityInterval($quantityInterval) : ProductOrderDetailsNode
+    public function setQuantityInterval($quantityInterval) : OrderDetails
     {
         $this->quantityInterval = $quantityInterval;
         return $this;

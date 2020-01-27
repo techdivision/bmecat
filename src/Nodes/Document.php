@@ -11,7 +11,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  * @Serializer\XmlRoot("BMECAT")
  * @Serializer\ExclusionPolicy("all")
  */
-class DocumentNode implements Contracts\NodeInterface
+class Document implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -28,28 +28,28 @@ class DocumentNode implements Contracts\NodeInterface
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\HeaderNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\Header")
      * @Serializer\SerializedName("HEADER")
      *
-     * @var \Naugrim\BMEcat\Nodes\HeaderNode
+     * @var Header
      */
     protected $header;
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\NewCatalogNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\NewCatalog")
      * @Serializer\SerializedName("T_NEW_CATALOG")
      *
-     * @var NewCatalogNode
+     * @var NewCatalog
      */
     protected $catalog;
 
     /**
      *
      * @param string $version
-     * @return DocumentNode
+     * @return Document
      */
-    public function setVersion($version) : DocumentNode
+    public function setVersion($version) : Document
     {
         $this->version = $version;
         return $this;
@@ -65,10 +65,10 @@ class DocumentNode implements Contracts\NodeInterface
     }
 
     /**
-     * @param \Naugrim\BMEcat\Nodes\HeaderNode $header
-     * @return DocumentNode
+     * @param Header $header
+     * @return Document
      */
-    public function setHeader(HeaderNode $header) : DocumentNode
+    public function setHeader(Header $header) : Document
     {
         $this->header = $header;
         return $this;
@@ -76,7 +76,7 @@ class DocumentNode implements Contracts\NodeInterface
 
     /**
      *
-     * @return \Naugrim\BMEcat\Nodes\HeaderNode
+     * @return Header
      */
     public function getHeader()
     {
@@ -84,17 +84,17 @@ class DocumentNode implements Contracts\NodeInterface
     }
 
     /**
-     * @param NewCatalogNode $catalog
-     * @return DocumentNode
+     * @param NewCatalog $catalog
+     * @return Document
      */
-    public function setNewCatalog(NewCatalogNode $catalog) : DocumentNode
+    public function setNewCatalog(NewCatalog $catalog) : Document
     {
         $this->catalog = $catalog;
         return $this;
     }
 
     /**
-     * @return NewCatalogNode
+     * @return NewCatalog
      */
     public function getNewCatalog()
     {

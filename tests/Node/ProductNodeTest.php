@@ -4,17 +4,16 @@
 namespace Naugrim\BMEcat\Tests\Node;
 
 use JMS\Serializer\SerializationContext;
-use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
+use Naugrim\BMEcat\Nodes\Mime;
+use Naugrim\BMEcat\Nodes\Product;
+use Naugrim\BMEcat\Nodes\Product\Details;
+use Naugrim\BMEcat\Nodes\Product\Features;
+use Naugrim\BMEcat\Nodes\Product\OrderDetails;
+use Naugrim\BMEcat\Nodes\Product\Price;
+use Naugrim\BMEcat\Nodes\Product\PriceDetails;
 use Naugrim\BMEcat\Nodes\SupplierPid;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\ProductFeaturesNode;
-use Naugrim\BMEcat\Nodes\MimeNode;
-use Naugrim\BMEcat\Nodes\Product;
-use Naugrim\BMEcat\Nodes\ProductOrderDetailsNode;
-use Naugrim\BMEcat\Nodes\ProductPriceDetailsNode;
-use Naugrim\BMEcat\Nodes\ProductPriceNode;
-use Naugrim\BMEcat\Nodes\ProductDetailsNode;
 
 
 class ProductNodeTest extends TestCase
@@ -53,7 +52,7 @@ class ProductNodeTest extends TestCase
     public function Set_Get_Details()
     {
         $node = new Product();
-        $details = new ProductDetailsNode();
+        $details = new Details();
 
         $this->assertNull($node->getDetails());
         $node->setDetails($details);
@@ -67,9 +66,9 @@ class ProductNodeTest extends TestCase
     public function Add_Get_Features()
     {
         $features = [
-            new ProductFeaturesNode(),
-            new ProductFeaturesNode(),
-            new ProductFeaturesNode(),
+            new Features(),
+            new Features(),
+            new Features(),
         ];
 
         $node = new Product();
@@ -91,9 +90,9 @@ class ProductNodeTest extends TestCase
     public function Add_Get_Prices()
     {
         $priceDetails = [
-            (new ProductPriceDetailsNode)->addPrice(new ProductPriceNode()),
-            (new ProductPriceDetailsNode)->addPrice(new ProductPriceNode()),
-            (new ProductPriceDetailsNode)->addPrice(new ProductPriceNode()),
+            (new PriceDetails)->addPrice(new Price()),
+            (new PriceDetails)->addPrice(new Price()),
+            (new PriceDetails)->addPrice(new Price()),
         ];
 
         $node = new Product();
@@ -115,7 +114,7 @@ class ProductNodeTest extends TestCase
     public function Add_Get_Product_Order_Details()
     {
         $node = new Product();
-        $value = new ProductOrderDetailsNode();
+        $value = new OrderDetails();
 
         $this->assertEmpty($node->getOrderDetails());
         $node->setOrderDetails($value);
@@ -129,9 +128,9 @@ class ProductNodeTest extends TestCase
     public function Add_Get_Mime_Info()
     {
         $mimes = [
-            new MimeNode(),
-            new MimeNode(),
-            new MimeNode(),
+            new Mime(),
+            new Mime(),
+            new Mime(),
         ];
 
         $node = new Product();

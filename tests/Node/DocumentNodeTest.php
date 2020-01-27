@@ -7,9 +7,9 @@ use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\DocumentNode;
-use Naugrim\BMEcat\Nodes\HeaderNode;
-use Naugrim\BMEcat\Nodes\NewCatalogNode;
+use Naugrim\BMEcat\Nodes\Document;
+use Naugrim\BMEcat\Nodes\Header;
+use Naugrim\BMEcat\Nodes\NewCatalog;
 
 
 class DocumentNodeTest extends TestCase
@@ -30,7 +30,7 @@ class DocumentNodeTest extends TestCase
      */
     public function Set_Get_Version()
     {
-        $document = new DocumentNode();
+        $document = new Document();
 
         $this->assertEquals('2005.1', $document->getVersion());
         $document->setVersion('1.9');
@@ -43,8 +43,8 @@ class DocumentNodeTest extends TestCase
      */
     public function Set_Get_New_Catalog()
     {
-        $document = new DocumentNode();
-        $catalog = new NewCatalogNode();
+        $document = new Document();
+        $catalog = new NewCatalog();
 
         $this->assertNull($document->getNewCatalog());
         $document->setNewCatalog($catalog);
@@ -57,8 +57,8 @@ class DocumentNodeTest extends TestCase
      */
     public function Set_Get_New_Header()
     {
-        $document = new DocumentNode();
-        $header = new HeaderNode();
+        $document = new Document();
+        $header = new Header();
 
         $this->assertNull($document->getHeader());
         $document->setHeader($header);
@@ -71,7 +71,7 @@ class DocumentNodeTest extends TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new DocumentNode();
+        $node = new Document();
         $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_document_nochildren_with_null_values.xml');
@@ -86,7 +86,7 @@ class DocumentNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new DocumentNode();
+        $node = new Document();
         $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_document_nochildren_without_null_values.xml');

@@ -10,7 +10,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("CATALOG")
  */
-class CatalogNode implements Contracts\NodeInterface
+class Catalog implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -41,18 +41,18 @@ class CatalogNode implements Contracts\NodeInterface
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\DateTimeNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\DateTime")
      * @Serializer\SerializedName("DATETIME")
      *
-     * @var DateTimeNode
+     * @var DateTime
      */
     protected $dateTime;
 
     /**
      * @param string $language
-     * @return CatalogNode
+     * @return Catalog
      */
-    public function setLanguage(string $language) : CatalogNode
+    public function setLanguage(string $language) : Catalog
     {
         $this->language = $language;
         return $this;
@@ -60,9 +60,9 @@ class CatalogNode implements Contracts\NodeInterface
 
     /**
      * @param string $id
-     * @return CatalogNode
+     * @return Catalog
      */
-    public function setId(string $id) : CatalogNode
+    public function setId(string $id) : Catalog
     {
         $this->id = $id;
         return $this;
@@ -70,9 +70,9 @@ class CatalogNode implements Contracts\NodeInterface
 
     /**
      * @param string $version
-     * @return CatalogNode
+     * @return Catalog
      */
-    public function setVersion(string $version) : CatalogNode
+    public function setVersion(string $version) : Catalog
     {
         $this->version = $version;
         return $this;
@@ -107,10 +107,10 @@ class CatalogNode implements Contracts\NodeInterface
 
     /**
      *
-     * @param DateTimeNode $dateTime
-     * @return CatalogNode
+     * @param DateTime $dateTime
+     * @return Catalog
      */
-    public function setDateTime(DateTimeNode $dateTime) : CatalogNode
+    public function setDateTime(DateTime $dateTime) : Catalog
     {
         $this->dateTime = $dateTime;
         return $this;
@@ -118,7 +118,7 @@ class CatalogNode implements Contracts\NodeInterface
 
     /**
      *
-     * @return DateTimeNode
+     * @return DateTime
      */
     public function getDateTime()
     {

@@ -7,8 +7,8 @@ use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\CatalogNode;
-use Naugrim\BMEcat\Nodes\DateTimeNode;
+use Naugrim\BMEcat\Nodes\Catalog;
+use Naugrim\BMEcat\Nodes\DateTime;
 
 
 class CatalogNodeTest extends TestCase
@@ -29,7 +29,7 @@ class CatalogNodeTest extends TestCase
      */
     public function Set_Get_Id()
     {
-        $node = new CatalogNode();
+        $node = new Catalog();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getId());
@@ -43,7 +43,7 @@ class CatalogNodeTest extends TestCase
      */
     public function Set_Get_Version()
     {
-        $node = new CatalogNode();
+        $node = new Catalog();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getVersion());
@@ -57,7 +57,7 @@ class CatalogNodeTest extends TestCase
      */
     public function Set_Get_Language()
     {
-        $node = new CatalogNode();
+        $node = new Catalog();
         $value = sha1(uniqid(microtime(false), true));
 
         $this->assertNull($node->getLanguage());
@@ -71,8 +71,8 @@ class CatalogNodeTest extends TestCase
      */
     public function Set_Get_Date_Time()
     {
-        $node = new CatalogNode();
-        $dateTime = new DateTimeNode();
+        $node = new Catalog();
+        $dateTime = new DateTime();
 
         $this->assertNull($node->getDateTime());
         $node->setDateTime($dateTime);
@@ -85,7 +85,7 @@ class CatalogNodeTest extends TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new CatalogNode();
+        $node = new Catalog();
         $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_catalog_with_null_values.xml');
@@ -100,7 +100,7 @@ class CatalogNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new CatalogNode();
+        $node = new Catalog();
         $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_catalog_without_null_values.xml');

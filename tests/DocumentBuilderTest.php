@@ -8,7 +8,7 @@ use Naugrim\BMEcat\Builder\NodeBuilder;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\DocumentBuilder;
 use Naugrim\BMEcat\Exception\MissingDocumentException;
-use Naugrim\BMEcat\Nodes\DocumentNode;
+use Naugrim\BMEcat\Nodes\Document;
 
 
 class DocumentBuilderTest extends TestCase
@@ -52,7 +52,7 @@ class DocumentBuilderTest extends TestCase
     public function To_String_Returns_Default_Document_Without_Null_Values()
     {
         $builder = new DocumentBuilder;
-        $document = NodeBuilder::fromArray([], new DocumentNode());
+        $document = NodeBuilder::fromArray([], new Document());
         $builder->setDocument($document);
 
         $expected = file_get_contents(__DIR__ . '/Fixtures/empty_document_without_null_values.xml');

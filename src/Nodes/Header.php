@@ -10,7 +10,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("HEADER")
  */
-class HeaderNode implements Contracts\NodeInterface
+class Header implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -23,27 +23,27 @@ class HeaderNode implements Contracts\NodeInterface
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\CatalogNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\Catalog")
      * @Serializer\SerializedName("CATALOG")
      *
-     * @var \Naugrim\BMEcat\Nodes\CatalogNode
+     * @var Catalog
      */
     protected $catalog;
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\SupplierNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\Supplier")
      * @Serializer\SerializedName("SUPPLIER")
      *
-     * @var \Naugrim\BMEcat\Nodes\SupplierNode
+     * @var Supplier
      */
     protected $supplier;
 
     /**
      * @param string $generatorInfo
-     * @return HeaderNode
+     * @return Header
      */
-    public function setGeneratorInfo($generatorInfo) : HeaderNode
+    public function setGeneratorInfo($generatorInfo) : Header
     {
         $this->generatorInfo = $generatorInfo;
         return $this;
@@ -59,17 +59,17 @@ class HeaderNode implements Contracts\NodeInterface
     }
 
     /**
-     * @param \Naugrim\BMEcat\Nodes\CatalogNode $catalog
-     * @return HeaderNode
+     * @param Catalog $catalog
+     * @return Header
      */
-    public function setCatalog(CatalogNode $catalog) : HeaderNode
+    public function setCatalog(Catalog $catalog) : Header
     {
         $this->catalog = $catalog;
         return $this;
     }
 
     /**
-     * @return \Naugrim\BMEcat\Nodes\CatalogNode $catalog
+     * @return Catalog $catalog
      */
     public function getCatalog()
     {
@@ -77,17 +77,17 @@ class HeaderNode implements Contracts\NodeInterface
     }
 
     /**
-     * @param \Naugrim\BMEcat\Nodes\SupplierNode $supplier
-     * @return HeaderNode
+     * @param Supplier $supplier
+     * @return Header
      */
-    public function setSupplier(SupplierNode $supplier) : HeaderNode
+    public function setSupplier(Supplier $supplier) : Header
     {
         $this->supplier = $supplier;
         return $this;
     }
 
     /**
-     * @return \Naugrim\BMEcat\Nodes\SupplierNode
+     * @return Supplier
      */
     public function getSupplier()
     {

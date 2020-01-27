@@ -1,16 +1,17 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Nodes;
+namespace Naugrim\BMEcat\Nodes\Product;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
+use Naugrim\BMEcat\Nodes\Contracts;
 
 /**
  *
  * @Serializer\XmlRoot("PRODUCT_PRICE")
  */
-class ProductPriceNode implements Contracts\NodeInterface
+class Price implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -62,9 +63,9 @@ class ProductPriceNode implements Contracts\NodeInterface
     /**
      *
      * @param string $currency
-     * @return ProductPriceNode
+     * @return Price
      */
-    public function setCurrency($currency) : ProductPriceNode
+    public function setCurrency($currency) : Price
     {
         $this->currency = $currency;
         return $this;
@@ -82,9 +83,9 @@ class ProductPriceNode implements Contracts\NodeInterface
     /**
      *
      * @param float $price
-     * @return ProductPriceNode
+     * @return Price
      */
-    public function setPrice($price) : ProductPriceNode
+    public function setPrice($price) : Price
     {
         $this->price = $price;
         return $this;
@@ -101,9 +102,9 @@ class ProductPriceNode implements Contracts\NodeInterface
 
     /**
      * @param string $type
-     * @return ProductPriceNode
+     * @return Price
      */
-    public function setType(string $type): ProductPriceNode
+    public function setType(string $type): Price
     {
         $this->type = $type;
         return $this;
@@ -119,9 +120,9 @@ class ProductPriceNode implements Contracts\NodeInterface
 
     /**
      * @param float $priceFactor
-     * @return ProductPriceNode
+     * @return Price
      */
-    public function setPriceFactor(float $priceFactor): ProductPriceNode
+    public function setPriceFactor(float $priceFactor): Price
     {
         $this->priceFactor = $priceFactor;
         return $this;
@@ -137,9 +138,9 @@ class ProductPriceNode implements Contracts\NodeInterface
 
     /**
      * @param float $lowerBound
-     * @return ProductPriceNode
+     * @return Price
      */
-    public function setLowerBound(float $lowerBound): ProductPriceNode
+    public function setLowerBound(float $lowerBound): Price
     {
         $this->lowerBound = $lowerBound;
         return $this;

@@ -7,7 +7,7 @@ use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
-use Naugrim\BMEcat\Nodes\DateTimeNode;
+use Naugrim\BMEcat\Nodes\DateTime;
 
 
 class DateTimeNodeTest extends TestCase
@@ -28,7 +28,7 @@ class DateTimeNodeTest extends TestCase
      */
     public function Set_Get_Date()
     {
-        $node = new DateTimeNode();
+        $node = new DateTime();
         $value = '1979-01-10';
 
         $this->assertNull($node->getDate());
@@ -42,7 +42,7 @@ class DateTimeNodeTest extends TestCase
      */
     public function Set_Get_Time()
     {
-        $node = new DateTimeNode();
+        $node = new DateTime();
         $value = '10:59:54';
 
         $this->assertNull($node->getTime());
@@ -56,7 +56,7 @@ class DateTimeNodeTest extends TestCase
      */
     public function Set_Get_TimeZone()
     {
-        $node = new DateTimeNode();
+        $node = new DateTime();
         $value = '-01:00';
 
         $this->assertNull($node->getTimeZone());
@@ -70,7 +70,7 @@ class DateTimeNodeTest extends TestCase
      */
     public function Serialize_With_Null_Values()
     {
-        $node = new DateTimeNode();
+        $node = new DateTime();
         $context = SerializationContext::create()->setSerializeNull(true);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_datetime_with_null_values.xml');
@@ -85,7 +85,7 @@ class DateTimeNodeTest extends TestCase
      */
     public function Serialize_Without_Null_Values()
     {
-        $node = new DateTimeNode();
+        $node = new DateTime();
         $context = SerializationContext::create()->setSerializeNull(false);
 
         $expected = file_get_contents(__DIR__ . '/../Fixtures/empty_datetime_without_null_values.xml');

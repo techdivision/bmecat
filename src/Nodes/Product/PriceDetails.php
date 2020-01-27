@@ -1,19 +1,20 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Nodes;
+namespace Naugrim\BMEcat\Nodes\Product;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
 use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
+use Naugrim\BMEcat\Nodes\Contracts;
 
 /**
  *
  * @Serializer\XmlRoot("PRODUCT_PRICE_DETAILS")
  */
-class ProductPriceDetailsNode implements Contracts\NodeInterface
+class PriceDetails implements Contracts\NodeInterface
 {
     /**
      *
@@ -49,19 +50,19 @@ class ProductPriceDetailsNode implements Contracts\NodeInterface
      *
      * @Serializer\Expose
      * @Serializer\SerializedName("PRODUCT_PRICE")
-     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\ProductPriceNode>")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\Product\Price>")
      * @Serializer\XmlList(inline = true, entry = "PRODUCT_PRICE")
      *
-     * @var ProductPriceNode[]
+     * @var Price[]
      */
     protected $prices = [];
 
 
     /**
      * @param string $validStartDate
-     * @return ProductPriceDetailsNode
+     * @return PriceDetails
      */
-    public function setValidStartDate(string $validStartDate): ProductPriceDetailsNode
+    public function setValidStartDate(string $validStartDate): PriceDetails
     {
         $this->validStartDate = $validStartDate;
         return $this;
@@ -77,9 +78,9 @@ class ProductPriceDetailsNode implements Contracts\NodeInterface
 
     /**
      * @param string $validEndDate
-     * @return ProductPriceDetailsNode
+     * @return PriceDetails
      */
-    public function setValidEndDate(string $validEndDate): ProductPriceDetailsNode
+    public function setValidEndDate(string $validEndDate): PriceDetails
     {
         $this->validEndDate = $validEndDate;
         return $this;
@@ -95,9 +96,9 @@ class ProductPriceDetailsNode implements Contracts\NodeInterface
 
     /**
      * @param bool $dailyPrice
-     * @return ProductPriceDetailsNode
+     * @return PriceDetails
      */
-    public function setDailyPrice(bool $dailyPrice): ProductPriceDetailsNode
+    public function setDailyPrice(bool $dailyPrice): PriceDetails
     {
         $this->dailyPrice = $dailyPrice;
         return $this;
@@ -112,24 +113,24 @@ class ProductPriceDetailsNode implements Contracts\NodeInterface
     }
 
     /**
-     * @param ProductPriceNode[] $prices
-     * @return ProductPriceDetailsNode
+     * @param Price[] $prices
+     * @return PriceDetails
      * @throws InvalidSetterException
      * @throws UnknownKeyException
      */
-    public function setPrices(array $prices): ProductPriceDetailsNode
+    public function setPrices(array $prices): PriceDetails
     {
         $this->prices = [];
         foreach ($prices as $price) {
             if (is_array($price)) {
-                $price = NodeBuilder::fromArray($price, new ProductPriceNode());
+                $price = NodeBuilder::fromArray($price, new Price());
             }
             $this->addPrice($price);
         }
         return $this;
     }
 
-    public function addPrice(ProductPriceNode $price)
+    public function addPrice(Price $price)
     {
         if ($this->prices === null) {
             $this->prices = [];
@@ -139,7 +140,7 @@ class ProductPriceDetailsNode implements Contracts\NodeInterface
     }
 
     /**
-     * @return ProductPriceNode[]
+     * @return Price[]
      */
     public function getPrices(): array
     {

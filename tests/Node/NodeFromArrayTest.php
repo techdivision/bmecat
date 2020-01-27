@@ -5,9 +5,9 @@ namespace Naugrim\BMEcat\Tests;
 use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
 use Naugrim\BMEcat\Exception\UnknownKeyException;
-use Naugrim\BMEcat\Nodes\CatalogNode;
-use Naugrim\BMEcat\Nodes\DocumentNode;
-use Naugrim\BMEcat\Nodes\NewCatalogNode;
+use Naugrim\BMEcat\Nodes\Catalog;
+use Naugrim\BMEcat\Nodes\Document;
+use Naugrim\BMEcat\Nodes\NewCatalog;
 use Naugrim\BMEcat\Tests\Fixtures\Node\Node;
 use PHPUnit\Framework\TestCase;
 use TypeError;
@@ -31,28 +31,28 @@ class NodeFromArrayTest extends TestCase
 
     public function testEmptyArray()
     {
-        $document = NodeBuilder::fromArray([], new DocumentNode());
-        $this->assertInstanceOf(DocumentNode::class, $document);
+        $document = NodeBuilder::fromArray([], new Document());
+        $this->assertInstanceOf(Document::class, $document);
     }
 
     public function testInvalidSetter()
     {
         $this->expectException(UnknownKeyException::class);
-        NodeBuilder::fromArray(['thereisnosetterforthis' => 1], new DocumentNode());
+        NodeBuilder::fromArray(['thereisnosetterforthis' => 1], new Document());
     }
 
     public function testScalarValue()
     {
-        $document = NodeBuilder::fromArray(['version' => "1234567"], new DocumentNode());
+        $document = NodeBuilder::fromArray(['version' => "1234567"], new Document());
         $this->assertEquals("1234567", $document->getVersion());
     }
 
     public function testObjectValue()
     {
-        $catalog = new NewCatalogNode();
+        $catalog = new NewCatalog();
         $document = NodeBuilder::fromArray([
             'newCatalog' => $catalog
-        ], new DocumentNode());
+        ], new Document());
         $this->assertSame($catalog, $document->getNewCatalog());
     }
 

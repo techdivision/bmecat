@@ -1,16 +1,17 @@
 <?php
 
 
-namespace Naugrim\BMEcat\Nodes;
+namespace Naugrim\BMEcat\Nodes\Product;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
+use Naugrim\BMEcat\Nodes\Contracts;
 
 /**
  *
  * @Serializer\XmlRoot("FEATURE")
  */
-class ProductFeatureNode implements Contracts\NodeInterface
+class Feature implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -80,9 +81,9 @@ class ProductFeatureNode implements Contracts\NodeInterface
 
     /**
      * @param mixed $name
-     * @return ProductFeatureNode
+     * @return Feature
      */
-    public function setName($name) : ProductFeatureNode
+    public function setName($name) : Feature
     {
         $this->name = $name;
         return $this;
@@ -90,9 +91,9 @@ class ProductFeatureNode implements Contracts\NodeInterface
 
     /**
      * @param string $variants
-     * @return ProductFeatureNode
+     * @return Feature
      */
-    public function setVariants($variants) : ProductFeatureNode
+    public function setVariants($variants) : Feature
     {
         $this->variants = $variants;
         return $this;
@@ -100,9 +101,9 @@ class ProductFeatureNode implements Contracts\NodeInterface
 
     /**
      * @param string $value
-     * @return ProductFeatureNode
+     * @return Feature
      */
-    public function setValue($value) : ProductFeatureNode
+    public function setValue($value) : Feature
     {
         $this->value = $value;
         return $this;
@@ -110,9 +111,9 @@ class ProductFeatureNode implements Contracts\NodeInterface
 
     /**
      * @param string $unit
-     * @return ProductFeatureNode
+     * @return Feature
      */
-    public function setUnit($unit) : ProductFeatureNode
+    public function setUnit($unit) : Feature
     {
         $this->unit = $unit;
         return $this;
@@ -120,9 +121,9 @@ class ProductFeatureNode implements Contracts\NodeInterface
 
     /**
      * @param string $order
-     * @return ProductFeatureNode
+     * @return Feature
      */
-    public function setOrder($order) : ProductFeatureNode
+    public function setOrder($order) : Feature
     {
         $this->order = $order;
         return $this;
@@ -130,9 +131,9 @@ class ProductFeatureNode implements Contracts\NodeInterface
 
     /**
      * @param string $description
-     * @return ProductFeatureNode
+     * @return Feature
      */
-    public function setDescription($description) : ProductFeatureNode
+    public function setDescription($description) : Feature
     {
         $this->description = $description;
         return $this;
@@ -140,9 +141,9 @@ class ProductFeatureNode implements Contracts\NodeInterface
 
     /**
      * @param string $valueDetails
-     * @return ProductFeatureNode
+     * @return Feature
      */
-    public function setValueDetails($valueDetails) : ProductFeatureNode
+    public function setValueDetails($valueDetails) : Feature
     {
         $this->valueDetails = $valueDetails;
         return $this;

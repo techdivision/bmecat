@@ -10,7 +10,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("SUPPLIER")
  */
-class SupplierNode implements Contracts\NodeInterface
+class Supplier implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -33,9 +33,9 @@ class SupplierNode implements Contracts\NodeInterface
     /**
      *
      * @param string $id
-     * @return SupplierNode
+     * @return Supplier
      */
-    public function setId($id) : SupplierNode
+    public function setId($id) : Supplier
     {
         $this->id = $id;
         return $this;
@@ -52,9 +52,9 @@ class SupplierNode implements Contracts\NodeInterface
 
     /**
      * @param string $name
-     * @return SupplierNode
+     * @return Supplier
      */
-    public function setName($name) : SupplierNode
+    public function setName($name) : Supplier
     {
         $this->name = $name;
         return $this;

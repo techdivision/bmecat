@@ -14,7 +14,7 @@ use Naugrim\BMEcat\Exception\UnknownKeyException;
  *
  * @Serializer\XmlRoot("T_NEW_CATALOG")
  */
-class NewCatalogNode implements Contracts\NodeInterface
+class NewCatalog implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -28,11 +28,11 @@ class NewCatalogNode implements Contracts\NodeInterface
     /**
      *
      * @param Product[] $products
-     * @return NewCatalogNode
+     * @return NewCatalog
      * @throws InvalidSetterException
      * @throws UnknownKeyException
      */
-    public function setProducts(array $products) : NewCatalogNode
+    public function setProducts(array $products) : NewCatalog
     {
         $this->products = [];
 
@@ -48,9 +48,9 @@ class NewCatalogNode implements Contracts\NodeInterface
     /**
      *
      * @param Product $product
-     * @return NewCatalogNode
+     * @return NewCatalog
      */
-    public function addProduct(Product $product) : NewCatalogNode
+    public function addProduct(Product $product) : NewCatalog
     {
         if ($this->products === null) {
             $this->products = [];

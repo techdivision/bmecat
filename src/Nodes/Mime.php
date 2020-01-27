@@ -9,7 +9,7 @@ use /** @noinspection PhpUnusedAliasInspection */
  *
  * @Serializer\XmlRoot("MIME")
  */
-class MimeNode implements Contracts\NodeInterface
+class Mime implements Contracts\NodeInterface
 {
     /**
      * @Serializer\Expose
@@ -66,9 +66,9 @@ class MimeNode implements Contracts\NodeInterface
 
     /**
      * @param string $type
-     * @return MimeNode
+     * @return Mime
      */
-    public function setType($type) : MimeNode
+    public function setType($type) : Mime
     {
         $this->type = $type;
         return $this;
@@ -84,9 +84,9 @@ class MimeNode implements Contracts\NodeInterface
 
     /**
      * @param string $source
-     * @return MimeNode
+     * @return Mime
      */
-    public function setSource($source) : MimeNode
+    public function setSource($source) : Mime
     {
         $this->source = $source;
         return $this;
@@ -102,9 +102,9 @@ class MimeNode implements Contracts\NodeInterface
 
     /**
      * @param string $description
-     * @return MimeNode
+     * @return Mime
      */
-    public function setDescription($description) : MimeNode
+    public function setDescription($description) : Mime
     {
         $this->description = $description;
         return $this;
@@ -120,9 +120,9 @@ class MimeNode implements Contracts\NodeInterface
 
     /**
      * @param string $alt
-     * @return MimeNode
+     * @return Mime
      */
-    public function setAlt($alt) : MimeNode
+    public function setAlt($alt) : Mime
     {
         $this->alt = $alt;
         return $this;
@@ -138,9 +138,9 @@ class MimeNode implements Contracts\NodeInterface
 
     /**
      * @param string $purpose
-     * @return MimeNode
+     * @return Mime
      */
-    public function setPurpose($purpose) : MimeNode
+    public function setPurpose($purpose) : Mime
     {
         $this->purpose = $purpose;
         return $this;

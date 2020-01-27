@@ -8,7 +8,7 @@ use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializationContext;
 use Naugrim\BMEcat\Nodes\Contracts\NodeInterface;
-use Naugrim\BMEcat\Nodes\DocumentNode;
+use Naugrim\BMEcat\Nodes\Document;
 use Naugrim\BMEcat\Exception\MissingDocumentException;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
@@ -28,7 +28,7 @@ class DocumentBuilder
 
     /**
      *
-     * @var DocumentNode
+     * @var Document
      */
     protected $document;
 
@@ -108,7 +108,7 @@ class DocumentBuilder
 
     /**
      *
-     * @return DocumentNode
+     * @return Document
      */
     public function getDocument()
     {
