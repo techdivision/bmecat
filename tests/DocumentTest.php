@@ -41,9 +41,8 @@ class DocumentTest extends TestCase
                         'timezone' => '-01:00',
                     ]
                 ],
-                'supplier' => [
-                    'id'    => 'BMECAT_TEST',
-                    'name'  => 'TestSupplier',
+                'supplierIdRef' => [
+                    'value'    => 'BMECAT_TEST',
                 ]
             ]
         ], new Document());

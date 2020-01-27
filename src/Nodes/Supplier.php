@@ -7,7 +7,7 @@ use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
 
 /**
- *
+ * @deprecated
  * @Serializer\XmlRoot("SUPPLIER")
  */
 class Supplier implements Contracts\NodeInterface
