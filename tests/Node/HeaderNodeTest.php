@@ -9,7 +9,7 @@ use Naugrim\BMEcat\DocumentBuilder;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Nodes\Catalog;
 use Naugrim\BMEcat\Nodes\Header;
-use Naugrim\BMEcat\Nodes\SupplierNode;
+use Naugrim\BMEcat\Nodes\Supplier;
 
 
 class HeaderNodeTest extends TestCase
@@ -45,7 +45,7 @@ class HeaderNodeTest extends TestCase
     public function Set_Get_Supplier()
     {
         $header = new Header();
-        $supplier = new SupplierNode();
+        $supplier = new Supplier();
 
         $this->assertNull($header->getSupplier());
         $header->setSupplier($supplier);

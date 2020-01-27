@@ -32,10 +32,10 @@ class Header implements Contracts\NodeInterface
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\SupplierNode")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\Supplier")
      * @Serializer\SerializedName("SUPPLIER")
      *
-     * @var SupplierNode
+     * @var Supplier
      */
     protected $supplier;
 
@@ -77,17 +77,17 @@ class Header implements Contracts\NodeInterface
     }
 
     /**
-     * @param SupplierNode $supplier
+     * @param Supplier $supplier
      * @return Header
      */
-    public function setSupplier(SupplierNode $supplier) : Header
+    public function setSupplier(Supplier $supplier) : Header
     {
         $this->supplier = $supplier;
         return $this;
     }
 
     /**
-     * @return SupplierNode
+     * @return Supplier
      */
     public function getSupplier()
     {
