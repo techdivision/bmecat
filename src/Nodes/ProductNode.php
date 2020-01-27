@@ -43,7 +43,7 @@ class ProductNode implements Contracts\NodeInterface
      *
      * @var ProductDetailsNode
      */
-    protected $detail;
+    protected $details;
 
 
     /**
@@ -88,13 +88,30 @@ class ProductNode implements Contracts\NodeInterface
     protected $mimes = [];
 
     /**
+     * @return string
+     */
+    public function getMode(): string
+    {
+        return $this->mode;
+    }
+
+    /**
+     * @param string $mode
+     */
+    public function setMode(string $mode): void
+    {
+        $this->mode = $mode;
+    }
+
+
+    /**
      *
      * @param ProductDetailsNode $details
      * @return ProductNode
      */
     public function setDetails(ProductDetailsNode $details) : ProductNode
     {
-        $this->detail = $details;
+        $this->details = $details;
         return $this;
     }
 
@@ -104,7 +121,7 @@ class ProductNode implements Contracts\NodeInterface
      */
     public function getDetails()
     {
-        return $this->detail;
+        return $this->details;
     }
 
     /**
