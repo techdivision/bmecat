@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BMECAT xmlns="http://www.bmecat.org/bmecat/2005.1" version="2005.1">
+  <HEADER>
+    <GENERATOR_INFO><![CDATA[DocumentTest Document]]></GENERATOR_INFO>
+    <CATALOG>
+      <LANGUAGE><![CDATA[eng]]></LANGUAGE>
+      <CATALOG_ID><![CDATA[MY_CATALOG]]></CATALOG_ID>
+      <CATALOG_VERSION><![CDATA[0.99]]></CATALOG_VERSION>
+      <DATETIME type="generation_date">
+        <DATE><![CDATA[1979-01-01]]></DATE>
+        <TIME><![CDATA[10:59:54]]></TIME>
+        <TIMEZONE><![CDATA[-01:00]]></TIMEZONE>
+      </DATETIME>
+    </CATALOG>
+    <SUPPLIER_IDREF><![CDATA[BMECAT_TEST]]></SUPPLIER_IDREF>
+    <PARTIES>
+      <PARTY>
+        <PARTY_ID><![CDATA[party-id]]></PARTY_ID>
+        <ADDRESS>
+          <NAME><![CDATA[name]]></NAME>
+          <NAME2><![CDATA[name2]]></NAME2>
+          <NAME3><![CDATA[name3]]></NAME3>
+          <DEPARTMENT><![CDATA[department]]></DEPARTMENT>
+          <STREET><![CDATA[street]]></STREET>
+          <ZIP><![CDATA[zip]]></ZIP>
+          <BOXNO><![CDATA[boxno]]></BOXNO>
+          <ZIPBOX><![CDATA[zipbox]]></ZIPBOX>
+          <CITY><![CDATA[city]]></CITY>
+          <COUNTRY><![CDATA[country]]></COUNTRY>
+          <COUNTRY_CODED><![CDATA[DE]]></COUNTRY_CODED>
+          <VAT_ID><![CDATA[vatId]]></VAT_ID>
+          <PHONE type="mobile"><![CDATA[phone]]></PHONE>
+          <FAX type="office"><![CDATA[fax]]></FAX>
+          <EMAIL><![CDATA[email]]></EMAIL>
+          <PUBLIC_KEY type="my-0.0.1"><![CDATA[publicKey]]></PUBLIC_KEY>
+          <URL><![CDATA[url]]></URL>
+          <ADDRESS_REMARKS><![CDATA[addressRemarks]]></ADDRESS_REMARKS>
+        </ADDRESS>
+      </PARTY>
+    </PARTIES>
+  </HEADER>
+  <T_NEW_CATALOG/>
+</BMECAT>
