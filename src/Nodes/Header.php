@@ -5,6 +5,9 @@ namespace Naugrim\BMEcat\Nodes;
 
 use /** @noinspection PhpUnusedAliasInspection */
     JMS\Serializer\Annotation as Serializer;
+use Naugrim\BMEcat\Builder\NodeBuilder;
+use Naugrim\BMEcat\Exception\InvalidSetterException;
+use Naugrim\BMEcat\Exception\UnknownKeyException;
 
 /**
  *
@@ -32,26 +35,35 @@ class Header implements Contracts\NodeInterface
 
     /**
      * @Serializer\Expose
-     * @Serializer\Type("Naugrim\BMEcat\Nodes\Supplier")
-     * @Serializer\SerializedName("SUPPLIER")
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\BuyerIdRef")
+     * @Serializer\SerializedName("BUYER_IDREF")
      *
-     * @var Supplier
+     * @var BuyerIdRef
      */
-    protected $supplier;
+    protected $buyerIdRef;
 
     /**
-     * @param string $generatorInfo
-     * @return Header
+     * @Serializer\Expose
+     * @Serializer\Type("Naugrim\BMEcat\Nodes\SupplierIdRef")
+     * @Serializer\SerializedName("SUPPLIER_IDREF")
+     *
+     * @var SupplierIdRef
      */
-    public function setGeneratorInfo($generatorInfo) : Header
-    {
-        $this->generatorInfo = $generatorInfo;
-        return $this;
-    }
+    protected $supplierIdRef;
 
     /**
      *
-     * @return string
+     * @Serializer\Expose
+     * @Serializer\SerializedName("PARTIES")
+     * @Serializer\Type("array<Naugrim\BMEcat\Nodes\Party>")
+     * @Serializer\XmlList(entry = "PARTY")
+     *
+     * @var Party[]
+     */
+    protected $parties = [];
+
+    /**
+     * @return string|null
      */
     public function getGeneratorInfo()
     {
@@ -59,38 +71,101 @@ class Header implements Contracts\NodeInterface
     }
 
     /**
+     * @param string $generatorInfo
+     * @return Header
+     */
+    public function setGeneratorInfo(string $generatorInfo): Header
+    {
+        $this->generatorInfo = $generatorInfo;
+        return $this;
+    }
+
+    /**
+     * @return Catalog
+     */
+    public function getCatalog(): Catalog
+    {
+        return $this->catalog;
+    }
+
+    /**
      * @param Catalog $catalog
      * @return Header
      */
-    public function setCatalog(Catalog $catalog) : Header
+    public function setCatalog(Catalog $catalog): Header
     {
         $this->catalog = $catalog;
         return $this;
     }
 
     /**
-     * @return Catalog $catalog
+     * @return BuyerIdRef
      */
-    public function getCatalog()
+    public function getBuyerIdRef()
     {
-        return $this->catalog;
+        return $this->buyerIdRef;
     }
 
     /**
-     * @param Supplier $supplier
+     * @param BuyerIdRef $buyerIdRef
      * @return Header
      */
-    public function setSupplier(Supplier $supplier) : Header
+    public function setBuyerIdRef(BuyerIdRef $buyerIdRef): Header
     {
-        $this->supplier = $supplier;
+        $this->buyerIdRef = $buyerIdRef;
         return $this;
     }
 
     /**
-     * @return Supplier
+     * @return SupplierIdRef
      */
-    public function getSupplier()
+    public function getSupplierIdRef()
     {
-        return $this->supplier;
+        return $this->supplierIdRef;
+    }
+
+    /**
+     * @param SupplierIdRef $supplierIdRef
+     * @return Header
+     */
+    public function setSupplierIdRef(SupplierIdRef $supplierIdRef): Header
+    {
+        $this->supplierIdRef = $supplierIdRef;
+        return $this;
+    }
+
+    /**
+     * @return Party[]
+     */
+    public function getParties(): array
+    {
+        return $this->parties;
+    }
+
+    /**
+     * @param Party[] $parties
+     * @return Header
+     * @throws InvalidSetterException
+     * @throws UnknownKeyException
+     */
+    public function setParties(array $parties): Header
+    {
+        foreach ($parties as $party) {
+            if (!$party instanceof Party) {
+                $party = NodeBuilder::fromArray($party, new Party());
+            }
+            $this->addParty($party);
+        }
+        return $this;
+    }
+
+    /**
+     * @param Party $party
+     * @return $this
+     */
+    public function addParty(Party $party)
+    {
+        $this->parties[] = $party;
+        return $this;
     }
 }

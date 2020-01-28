@@ -4,12 +4,11 @@
 namespace Naugrim\BMEcat\Tests\Node;
 
 use JMS\Serializer\SerializationContext;
-use JMS\Serializer\SerializerBuilder;
 use Naugrim\BMEcat\DocumentBuilder;
+use Naugrim\BMEcat\Nodes\SupplierIdRef;
 use PHPUnit\Framework\TestCase;
 use Naugrim\BMEcat\Nodes\Catalog;
 use Naugrim\BMEcat\Nodes\Header;
-use Naugrim\BMEcat\Nodes\Supplier;
 
 
 class HeaderNodeTest extends TestCase
@@ -45,11 +44,11 @@ class HeaderNodeTest extends TestCase
     public function Set_Get_Supplier()
     {
         $header = new Header();
-        $supplier = new Supplier();
+        $supplier = new SupplierIdRef();
 
-        $this->assertNull($header->getSupplier());
-        $header->setSupplier($supplier);
-        $this->assertEquals($supplier, $header->getSupplier());
+        $this->assertNull($header->getSupplierIdRef());
+        $header->setSupplierIdRef($supplier);
+        $this->assertEquals($supplier, $header->getSupplierIdRef());
     }
 
     /**
@@ -61,7 +60,6 @@ class HeaderNodeTest extends TestCase
         $header = new Header();
         $catalog = new Catalog();
 
-        $this->assertNull($header->getCatalog());
         $header->setCatalog($catalog);
         $this->assertEquals($catalog, $header->getCatalog());
     }

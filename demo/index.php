@@ -26,10 +26,15 @@ $document = NodeBuilder::fromArray([
                 'dateTime' => new DateTimeImmutable()
             ]
         ],
-        'supplier' => [
-            'id' => 'TestSupplierIdentification',
-            'name' => 'TestSupplier',
+        'supplierIdRef' => [
+            'type' => 'supplier_specific',
+            'value' => 'org.org.naugrim',
         ],
+        'parties' => [
+            [
+                'id' => 'org.org.naugrim'
+            ]
+        ]
     ],
     'newCatalog' => [
         'products' => [
