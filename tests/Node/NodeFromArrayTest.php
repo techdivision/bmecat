@@ -1,6 +1,6 @@
 <?php
 
-namespace Naugrim\BMEcat\Tests;
+namespace Naugrim\BMEcat\Tests\Node;
 
 use Naugrim\BMEcat\Builder\NodeBuilder;
 use Naugrim\BMEcat\Exception\InvalidSetterException;
