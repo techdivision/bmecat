@@ -59,9 +59,9 @@ class Party implements NodeInterface
 
     /**
      * @param string $id
-     * @return self
+     * @return Party
      */
-    public function setId(string $id): self
+    public function setId(string $id): Party
     {
         $this->id = $id;
         return $this;
@@ -77,9 +77,9 @@ class Party implements NodeInterface
 
     /**
      * @param string $role
-     * @return self
+     * @return Party
      */
-    public function setRole(string $role): self
+    public function setRole(string $role): Party
     {
         $this->role = $role;
         return $this;
@@ -95,9 +95,9 @@ class Party implements NodeInterface
 
     /**
      * @param Address $address
-     * @return self
+     * @return Party
      */
-    public function setAddress(Address $address): self
+    public function setAddress(Address $address): Party
     {
         $this->address = $address;
         return $this;
@@ -113,11 +113,11 @@ class Party implements NodeInterface
     
     /**
      * @param Mime[] $mimes
-     * @return self
+     * @return Party
      * @throws InvalidSetterException
      * @throws UnknownKeyException
      */
-    public function setMimes(array $mimes): self
+    public function setMimes(array $mimes): Party
     {
         $this->mimes = [];
         foreach ($mimes as $mime) {
@@ -131,9 +131,9 @@ class Party implements NodeInterface
 
     /**
      * @param Mime $mime
-     * @return self
+     * @return Party
      */
-    public function addMime(Mime $mime) : self
+    public function addMime(Mime $mime) : Party
     {
         if ($this->mimes === null) {
             $this->mimes = [];
